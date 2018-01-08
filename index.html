@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;overflow:hidden">
+		<head>
+				<meta charset="utf-8"></meta>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta name="Author" content="Analogika Ltd."></meta>
+				<title>Panda Dental</title>
+				<meta name="HandheldFriendly" content="true" />
+				<meta name="viewport" content="width=device-width, height=device-height, user-scalable=yes" />
+		</head>
+		<style>
+		 .container {
+				 margin: 0;
+				 width: 100%;
+				 height: 100%;
+		 }
+		</style>
+		<body class="container">
+				<div id="app-target" class="container"></div>
+				<script src="elm.js"></script>
+				<script>
+				 Elm.Main.embed(document.getElementById("app-target"));
+				</script>
+		</body>
+</html>
