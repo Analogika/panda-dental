@@ -1,4 +1,3 @@
-// Elm port file
 app.ports.getAreaLocations.subscribe(function(idArr) {
 	var locations = [];
 	for (var i = 0; i < idArr.length; i++) {
@@ -12,4 +11,12 @@ app.ports.getAreaLocations.subscribe(function(idArr) {
 
 app.ports.getScroll.subscribe(function() {
 	app.ports.pageScroll.send(window.scrollY);
+});
+
+app.ports.scrollTo.subscribe(function(target) {
+	const e = document.getElementById(target);
+	const bounds = e.getBoundingClientRect();
+	clientY = bounds.top;
+	const p = window.scrollY + clientY;
+	scrollTo(0, p);
 });
