@@ -22362,7 +22362,7 @@ var _user$project$View$home = function (model) {
 							ctor: '::',
 							_0: A2(
 								infoBox,
-								_user$project$Content$ContactHeader,
+								_user$project$Content$OpeningHoursHeader,
 								A4(
 									_user$project$AppLayouts$infoRecords,
 									model,
