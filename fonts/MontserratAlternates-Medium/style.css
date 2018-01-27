@@ -1,0 +1,12 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+	font-family: "MontserratAlternates-Medium";
+	src: url("./fonts/MontserratAlternates-Medium.eot"); /* IE9 Compat Modes */
+	src: url("./fonts/MontserratAlternates-Medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("./fonts/MontserratAlternates-Medium.svg") format("svg"), /* Legacy iOS */
+		url("./fonts/MontserratAlternates-Medium.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("./fonts/MontserratAlternates-Medium.woff") format("woff"), /* Modern Browsers */
+		url("./fonts/MontserratAlternates-Medium.woff2") format("woff2"); /* Modern Browsers */
+	font-weight: normal;
+	font-style: normal;
+}

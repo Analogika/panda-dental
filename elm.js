@@ -135,42 +135,6 @@ function A9(fun, a, b, c, d, e, f, g, h, i)
     : fun(a)(b)(c)(d)(e)(f)(g)(h)(i);
 }
 
-var _elm_lang$core$Native_Bitwise = function() {
-
-return {
-	and: F2(function and(a, b) { return a & b; }),
-	or: F2(function or(a, b) { return a | b; }),
-	xor: F2(function xor(a, b) { return a ^ b; }),
-	complement: function complement(a) { return ~a; },
-	shiftLeftBy: F2(function(offset, a) { return a << offset; }),
-	shiftRightBy: F2(function(offset, a) { return a >> offset; }),
-	shiftRightZfBy: F2(function(offset, a) { return a >>> offset; })
-};
-
-}();
-
-var _elm_lang$core$Bitwise$shiftRightZfBy = _elm_lang$core$Native_Bitwise.shiftRightZfBy;
-var _elm_lang$core$Bitwise$shiftRightBy = _elm_lang$core$Native_Bitwise.shiftRightBy;
-var _elm_lang$core$Bitwise$shiftLeftBy = _elm_lang$core$Native_Bitwise.shiftLeftBy;
-var _elm_lang$core$Bitwise$complement = _elm_lang$core$Native_Bitwise.complement;
-var _elm_lang$core$Bitwise$xor = _elm_lang$core$Native_Bitwise.xor;
-var _elm_lang$core$Bitwise$or = _elm_lang$core$Native_Bitwise.or;
-var _elm_lang$core$Bitwise$and = _elm_lang$core$Native_Bitwise.and;
-
-//import Native.Utils //
-
-var _elm_lang$core$Native_Char = function() {
-
-return {
-	fromCode: function(c) { return _elm_lang$core$Native_Utils.chr(String.fromCharCode(c)); },
-	toCode: function(c) { return c.charCodeAt(0); },
-	toUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toUpperCase()); },
-	toLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLowerCase()); },
-	toLocaleUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleUpperCase()); },
-	toLocaleLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleLowerCase()); }
-};
-
-}();
 //import Native.Utils //
 
 var _elm_lang$core$Native_Basics = function() {
@@ -924,49 +888,6 @@ var _elm_lang$core$Basics$EQ = {ctor: 'EQ'};
 var _elm_lang$core$Basics$LT = {ctor: 'LT'};
 var _elm_lang$core$Basics$JustOneMore = function (a) {
 	return {ctor: 'JustOneMore', _0: a};
-};
-
-var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
-var _elm_lang$core$Char$toCode = _elm_lang$core$Native_Char.toCode;
-var _elm_lang$core$Char$toLocaleLower = _elm_lang$core$Native_Char.toLocaleLower;
-var _elm_lang$core$Char$toLocaleUpper = _elm_lang$core$Native_Char.toLocaleUpper;
-var _elm_lang$core$Char$toLower = _elm_lang$core$Native_Char.toLower;
-var _elm_lang$core$Char$toUpper = _elm_lang$core$Native_Char.toUpper;
-var _elm_lang$core$Char$isBetween = F3(
-	function (low, high, $char) {
-		var code = _elm_lang$core$Char$toCode($char);
-		return (_elm_lang$core$Native_Utils.cmp(
-			code,
-			_elm_lang$core$Char$toCode(low)) > -1) && (_elm_lang$core$Native_Utils.cmp(
-			code,
-			_elm_lang$core$Char$toCode(high)) < 1);
-	});
-var _elm_lang$core$Char$isUpper = A2(
-	_elm_lang$core$Char$isBetween,
-	_elm_lang$core$Native_Utils.chr('A'),
-	_elm_lang$core$Native_Utils.chr('Z'));
-var _elm_lang$core$Char$isLower = A2(
-	_elm_lang$core$Char$isBetween,
-	_elm_lang$core$Native_Utils.chr('a'),
-	_elm_lang$core$Native_Utils.chr('z'));
-var _elm_lang$core$Char$isDigit = A2(
-	_elm_lang$core$Char$isBetween,
-	_elm_lang$core$Native_Utils.chr('0'),
-	_elm_lang$core$Native_Utils.chr('9'));
-var _elm_lang$core$Char$isOctDigit = A2(
-	_elm_lang$core$Char$isBetween,
-	_elm_lang$core$Native_Utils.chr('0'),
-	_elm_lang$core$Native_Utils.chr('7'));
-var _elm_lang$core$Char$isHexDigit = function ($char) {
-	return _elm_lang$core$Char$isDigit($char) || (A3(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('a'),
-		_elm_lang$core$Native_Utils.chr('f'),
-		$char) || A3(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('A'),
-		_elm_lang$core$Native_Utils.chr('F'),
-		$char));
 };
 
 //import Native.Utils //
@@ -2247,6 +2168,63 @@ return {
 
 }();
 
+//import Native.Utils //
+
+var _elm_lang$core$Native_Char = function() {
+
+return {
+	fromCode: function(c) { return _elm_lang$core$Native_Utils.chr(String.fromCharCode(c)); },
+	toCode: function(c) { return c.charCodeAt(0); },
+	toUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toUpperCase()); },
+	toLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLowerCase()); },
+	toLocaleUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleUpperCase()); },
+	toLocaleLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleLowerCase()); }
+};
+
+}();
+var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
+var _elm_lang$core$Char$toCode = _elm_lang$core$Native_Char.toCode;
+var _elm_lang$core$Char$toLocaleLower = _elm_lang$core$Native_Char.toLocaleLower;
+var _elm_lang$core$Char$toLocaleUpper = _elm_lang$core$Native_Char.toLocaleUpper;
+var _elm_lang$core$Char$toLower = _elm_lang$core$Native_Char.toLower;
+var _elm_lang$core$Char$toUpper = _elm_lang$core$Native_Char.toUpper;
+var _elm_lang$core$Char$isBetween = F3(
+	function (low, high, $char) {
+		var code = _elm_lang$core$Char$toCode($char);
+		return (_elm_lang$core$Native_Utils.cmp(
+			code,
+			_elm_lang$core$Char$toCode(low)) > -1) && (_elm_lang$core$Native_Utils.cmp(
+			code,
+			_elm_lang$core$Char$toCode(high)) < 1);
+	});
+var _elm_lang$core$Char$isUpper = A2(
+	_elm_lang$core$Char$isBetween,
+	_elm_lang$core$Native_Utils.chr('A'),
+	_elm_lang$core$Native_Utils.chr('Z'));
+var _elm_lang$core$Char$isLower = A2(
+	_elm_lang$core$Char$isBetween,
+	_elm_lang$core$Native_Utils.chr('a'),
+	_elm_lang$core$Native_Utils.chr('z'));
+var _elm_lang$core$Char$isDigit = A2(
+	_elm_lang$core$Char$isBetween,
+	_elm_lang$core$Native_Utils.chr('0'),
+	_elm_lang$core$Native_Utils.chr('9'));
+var _elm_lang$core$Char$isOctDigit = A2(
+	_elm_lang$core$Char$isBetween,
+	_elm_lang$core$Native_Utils.chr('0'),
+	_elm_lang$core$Native_Utils.chr('7'));
+var _elm_lang$core$Char$isHexDigit = function ($char) {
+	return _elm_lang$core$Char$isDigit($char) || (A3(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('a'),
+		_elm_lang$core$Native_Utils.chr('f'),
+		$char) || A3(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('A'),
+		_elm_lang$core$Native_Utils.chr('F'),
+		$char));
+};
+
 var _elm_lang$core$String$fromList = _elm_lang$core$Native_String.fromList;
 var _elm_lang$core$String$toList = _elm_lang$core$Native_String.toList;
 var _elm_lang$core$String$toFloat = _elm_lang$core$Native_String.toFloat;
@@ -3190,6 +3168,165 @@ var _elm_lang$core$Platform$Task = {ctor: 'Task'};
 var _elm_lang$core$Platform$ProcessId = {ctor: 'ProcessId'};
 var _elm_lang$core$Platform$Router = {ctor: 'Router'};
 
+//import Maybe, Native.List //
+
+var _elm_lang$core$Native_Regex = function() {
+
+function escape(str)
+{
+	return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+function caseInsensitive(re)
+{
+	return new RegExp(re.source, 'gi');
+}
+function regex(raw)
+{
+	return new RegExp(raw, 'g');
+}
+
+function contains(re, string)
+{
+	return string.match(re) !== null;
+}
+
+function find(n, re, str)
+{
+	n = n.ctor === 'All' ? Infinity : n._0;
+	var out = [];
+	var number = 0;
+	var string = str;
+	var lastIndex = re.lastIndex;
+	var prevLastIndex = -1;
+	var result;
+	while (number++ < n && (result = re.exec(string)))
+	{
+		if (prevLastIndex === re.lastIndex) break;
+		var i = result.length - 1;
+		var subs = new Array(i);
+		while (i > 0)
+		{
+			var submatch = result[i];
+			subs[--i] = submatch === undefined
+				? _elm_lang$core$Maybe$Nothing
+				: _elm_lang$core$Maybe$Just(submatch);
+		}
+		out.push({
+			match: result[0],
+			submatches: _elm_lang$core$Native_List.fromArray(subs),
+			index: result.index,
+			number: number
+		});
+		prevLastIndex = re.lastIndex;
+	}
+	re.lastIndex = lastIndex;
+	return _elm_lang$core$Native_List.fromArray(out);
+}
+
+function replace(n, re, replacer, string)
+{
+	n = n.ctor === 'All' ? Infinity : n._0;
+	var count = 0;
+	function jsReplacer(match)
+	{
+		if (count++ >= n)
+		{
+			return match;
+		}
+		var i = arguments.length - 3;
+		var submatches = new Array(i);
+		while (i > 0)
+		{
+			var submatch = arguments[i];
+			submatches[--i] = submatch === undefined
+				? _elm_lang$core$Maybe$Nothing
+				: _elm_lang$core$Maybe$Just(submatch);
+		}
+		return replacer({
+			match: match,
+			submatches: _elm_lang$core$Native_List.fromArray(submatches),
+			index: arguments[arguments.length - 2],
+			number: count
+		});
+	}
+	return string.replace(re, jsReplacer);
+}
+
+function split(n, re, str)
+{
+	n = n.ctor === 'All' ? Infinity : n._0;
+	if (n === Infinity)
+	{
+		return _elm_lang$core$Native_List.fromArray(str.split(re));
+	}
+	var string = str;
+	var result;
+	var out = [];
+	var start = re.lastIndex;
+	var restoreLastIndex = re.lastIndex;
+	while (n--)
+	{
+		if (!(result = re.exec(string))) break;
+		out.push(string.slice(start, result.index));
+		start = re.lastIndex;
+	}
+	out.push(string.slice(start));
+	re.lastIndex = restoreLastIndex;
+	return _elm_lang$core$Native_List.fromArray(out);
+}
+
+return {
+	regex: regex,
+	caseInsensitive: caseInsensitive,
+	escape: escape,
+
+	contains: F2(contains),
+	find: F3(find),
+	replace: F4(replace),
+	split: F3(split)
+};
+
+}();
+
+var _elm_lang$core$Regex$split = _elm_lang$core$Native_Regex.split;
+var _elm_lang$core$Regex$replace = _elm_lang$core$Native_Regex.replace;
+var _elm_lang$core$Regex$find = _elm_lang$core$Native_Regex.find;
+var _elm_lang$core$Regex$contains = _elm_lang$core$Native_Regex.contains;
+var _elm_lang$core$Regex$caseInsensitive = _elm_lang$core$Native_Regex.caseInsensitive;
+var _elm_lang$core$Regex$regex = _elm_lang$core$Native_Regex.regex;
+var _elm_lang$core$Regex$escape = _elm_lang$core$Native_Regex.escape;
+var _elm_lang$core$Regex$Match = F4(
+	function (a, b, c, d) {
+		return {match: a, submatches: b, index: c, number: d};
+	});
+var _elm_lang$core$Regex$Regex = {ctor: 'Regex'};
+var _elm_lang$core$Regex$AtMost = function (a) {
+	return {ctor: 'AtMost', _0: a};
+};
+var _elm_lang$core$Regex$All = {ctor: 'All'};
+
+var _elm_lang$core$Native_Bitwise = function() {
+
+return {
+	and: F2(function and(a, b) { return a & b; }),
+	or: F2(function or(a, b) { return a | b; }),
+	xor: F2(function xor(a, b) { return a ^ b; }),
+	complement: function complement(a) { return ~a; },
+	shiftLeftBy: F2(function(offset, a) { return a << offset; }),
+	shiftRightBy: F2(function(offset, a) { return a >> offset; }),
+	shiftRightZfBy: F2(function(offset, a) { return a >>> offset; })
+};
+
+}();
+
+var _elm_lang$core$Bitwise$shiftRightZfBy = _elm_lang$core$Native_Bitwise.shiftRightZfBy;
+var _elm_lang$core$Bitwise$shiftRightBy = _elm_lang$core$Native_Bitwise.shiftRightBy;
+var _elm_lang$core$Bitwise$shiftLeftBy = _elm_lang$core$Native_Bitwise.shiftLeftBy;
+var _elm_lang$core$Bitwise$complement = _elm_lang$core$Native_Bitwise.complement;
+var _elm_lang$core$Bitwise$xor = _elm_lang$core$Native_Bitwise.xor;
+var _elm_lang$core$Bitwise$or = _elm_lang$core$Native_Bitwise.or;
+var _elm_lang$core$Bitwise$and = _elm_lang$core$Native_Bitwise.and;
+
 var _Skinney$murmur3$UTF8$accumulate = F3(
 	function (add, $char, _p0) {
 		var _p1 = _p0;
@@ -3303,6 +3440,145 @@ var _Skinney$murmur3$Murmur3$hashString = F2(
 				A4(_Skinney$murmur3$Murmur3$HashData, 0, seed, 0, 0),
 				str));
 	});
+
+var _elm_community$easing_functions$Ease$reverse = F2(
+	function (easing, time) {
+		return easing(1 - time);
+	});
+var _elm_community$easing_functions$Ease$flip = F2(
+	function (easing, time) {
+		return 1 - easing(1 - time);
+	});
+var _elm_community$easing_functions$Ease$retour = F2(
+	function (easing, time) {
+		return (_elm_lang$core$Native_Utils.cmp(time, 0.5) < 0) ? easing(time * 2) : A2(_elm_community$easing_functions$Ease$flip, easing, (time - 0.5) * 2);
+	});
+var _elm_community$easing_functions$Ease$inOut = F3(
+	function (e1, e2, time) {
+		return (_elm_lang$core$Native_Utils.cmp(time, 0.5) < 0) ? (e1(time * 2) / 2) : (0.5 + (e2((time - 0.5) * 2) / 2));
+	});
+var _elm_community$easing_functions$Ease$inElastic = function (time) {
+	if (_elm_lang$core$Native_Utils.eq(time, 0.0)) {
+		return 0.0;
+	} else {
+		var t = time - 1;
+		var p = 0.3;
+		var s = 7.5e-2;
+		return 0 - (Math.pow(2, 10 * t) * _elm_lang$core$Basics$sin(((t - s) * (2 * _elm_lang$core$Basics$pi)) / p));
+	}
+};
+var _elm_community$easing_functions$Ease$outElastic = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inElastic);
+var _elm_community$easing_functions$Ease$inOutElastic = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inElastic, _elm_community$easing_functions$Ease$outElastic);
+var _elm_community$easing_functions$Ease$outBounce = function (time) {
+	var t4 = time - (2.625 / 2.75);
+	var t3 = time - (2.25 / 2.75);
+	var t2 = time - (1.5 / 2.75);
+	var a = 7.5625;
+	return (_elm_lang$core$Native_Utils.cmp(time, 1 / 2.75) < 0) ? ((a * time) * time) : ((_elm_lang$core$Native_Utils.cmp(time, 2 / 2.75) < 0) ? (((a * t2) * t2) + 0.75) : ((_elm_lang$core$Native_Utils.cmp(time, 2.5 / 2.75) < 0) ? (((a * t3) * t3) + 0.9375) : (((a * t4) * t4) + 0.984375)));
+};
+var _elm_community$easing_functions$Ease$inBounce = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outBounce);
+var _elm_community$easing_functions$Ease$inOutBounce = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inBounce, _elm_community$easing_functions$Ease$outBounce);
+var _elm_community$easing_functions$Ease$inBack = function (time) {
+	return (time * time) * ((2.70158 * time) - 1.70158);
+};
+var _elm_community$easing_functions$Ease$outBack = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inBack);
+var _elm_community$easing_functions$Ease$inOutBack = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inBack, _elm_community$easing_functions$Ease$outBack);
+var _elm_community$easing_functions$Ease$outCirc = function (time) {
+	return _elm_lang$core$Basics$sqrt(
+		1 - Math.pow(time - 1, 2));
+};
+var _elm_community$easing_functions$Ease$inCirc = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outCirc);
+var _elm_community$easing_functions$Ease$inOutCirc = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inCirc, _elm_community$easing_functions$Ease$outCirc);
+var _elm_community$easing_functions$Ease$inExpo = function (time) {
+	return _elm_lang$core$Native_Utils.eq(time, 0.0) ? 0.0 : Math.pow(2, 10 * (time - 1));
+};
+var _elm_community$easing_functions$Ease$outExpo = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inExpo);
+var _elm_community$easing_functions$Ease$inOutExpo = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inExpo, _elm_community$easing_functions$Ease$outExpo);
+var _elm_community$easing_functions$Ease$outSine = function (time) {
+	return _elm_lang$core$Basics$sin(time * (_elm_lang$core$Basics$pi / 2));
+};
+var _elm_community$easing_functions$Ease$inSine = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outSine);
+var _elm_community$easing_functions$Ease$inOutSine = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inSine, _elm_community$easing_functions$Ease$outSine);
+var _elm_community$easing_functions$Ease$inQuint = function (time) {
+	return Math.pow(time, 5);
+};
+var _elm_community$easing_functions$Ease$outQuint = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuint);
+var _elm_community$easing_functions$Ease$inOutQuint = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuint, _elm_community$easing_functions$Ease$outQuint);
+var _elm_community$easing_functions$Ease$inQuart = function (time) {
+	return Math.pow(time, 4);
+};
+var _elm_community$easing_functions$Ease$outQuart = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuart);
+var _elm_community$easing_functions$Ease$inOutQuart = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuart, _elm_community$easing_functions$Ease$outQuart);
+var _elm_community$easing_functions$Ease$inCubic = function (time) {
+	return Math.pow(time, 3);
+};
+var _elm_community$easing_functions$Ease$outCubic = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inCubic);
+var _elm_community$easing_functions$Ease$inOutCubic = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inCubic, _elm_community$easing_functions$Ease$outCubic);
+var _elm_community$easing_functions$Ease$inQuad = function (time) {
+	return Math.pow(time, 2);
+};
+var _elm_community$easing_functions$Ease$outQuad = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuad);
+var _elm_community$easing_functions$Ease$inOutQuad = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuad, _elm_community$easing_functions$Ease$outQuad);
+var _elm_community$easing_functions$Ease$bezier = F5(
+	function (x1, y1, x2, y2, time) {
+		var pair = F4(
+			function (interpolate, _p1, _p0, v) {
+				var _p2 = _p1;
+				var _p3 = _p0;
+				return {
+					ctor: '_Tuple2',
+					_0: A3(interpolate, _p2._0, _p3._0, v),
+					_1: A3(interpolate, _p2._1, _p3._1, v)
+				};
+			});
+		var lerp = F3(
+			function (from, to, v) {
+				return from + ((to - from) * v);
+			});
+		var casteljau = function (ps) {
+			casteljau:
+			while (true) {
+				var _p4 = ps;
+				if (((_p4.ctor === '::') && (_p4._0.ctor === '_Tuple2')) && (_p4._1.ctor === '[]')) {
+					return _p4._0._1;
+				} else {
+					var _p5 = _p4;
+					var _v3 = A3(
+						_elm_lang$core$List$map2,
+						F2(
+							function (x, y) {
+								return A4(pair, lerp, x, y, time);
+							}),
+						_p5,
+						A2(
+							_elm_lang$core$Maybe$withDefault,
+							{ctor: '[]'},
+							_elm_lang$core$List$tail(_p5)));
+					ps = _v3;
+					continue casteljau;
+				}
+			}
+		};
+		return casteljau(
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 0, _1: 0},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: x1, _1: y1},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: x2, _1: y2},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 1, _1: 1},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+	});
+var _elm_community$easing_functions$Ease$linear = _elm_lang$core$Basics$identity;
 
 //import Native.List //
 
@@ -4325,172 +4601,6 @@ var _elm_lang$core$Array$repeat = F2(
 			_elm_lang$core$Basics$always(e));
 	});
 var _elm_lang$core$Array$Array = {ctor: 'Array'};
-
-var _elm_lang$core$Color$fmod = F2(
-	function (f, n) {
-		var integer = _elm_lang$core$Basics$floor(f);
-		return (_elm_lang$core$Basics$toFloat(
-			A2(_elm_lang$core$Basics_ops['%'], integer, n)) + f) - _elm_lang$core$Basics$toFloat(integer);
-	});
-var _elm_lang$core$Color$rgbToHsl = F3(
-	function (red, green, blue) {
-		var b = _elm_lang$core$Basics$toFloat(blue) / 255;
-		var g = _elm_lang$core$Basics$toFloat(green) / 255;
-		var r = _elm_lang$core$Basics$toFloat(red) / 255;
-		var cMax = A2(
-			_elm_lang$core$Basics$max,
-			A2(_elm_lang$core$Basics$max, r, g),
-			b);
-		var cMin = A2(
-			_elm_lang$core$Basics$min,
-			A2(_elm_lang$core$Basics$min, r, g),
-			b);
-		var c = cMax - cMin;
-		var lightness = (cMax + cMin) / 2;
-		var saturation = _elm_lang$core$Native_Utils.eq(lightness, 0) ? 0 : (c / (1 - _elm_lang$core$Basics$abs((2 * lightness) - 1)));
-		var hue = _elm_lang$core$Basics$degrees(60) * (_elm_lang$core$Native_Utils.eq(cMax, r) ? A2(_elm_lang$core$Color$fmod, (g - b) / c, 6) : (_elm_lang$core$Native_Utils.eq(cMax, g) ? (((b - r) / c) + 2) : (((r - g) / c) + 4)));
-		return {ctor: '_Tuple3', _0: hue, _1: saturation, _2: lightness};
-	});
-var _elm_lang$core$Color$hslToRgb = F3(
-	function (hue, saturation, lightness) {
-		var normHue = hue / _elm_lang$core$Basics$degrees(60);
-		var chroma = (1 - _elm_lang$core$Basics$abs((2 * lightness) - 1)) * saturation;
-		var x = chroma * (1 - _elm_lang$core$Basics$abs(
-			A2(_elm_lang$core$Color$fmod, normHue, 2) - 1));
-		var _p0 = (_elm_lang$core$Native_Utils.cmp(normHue, 0) < 0) ? {ctor: '_Tuple3', _0: 0, _1: 0, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 1) < 0) ? {ctor: '_Tuple3', _0: chroma, _1: x, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 2) < 0) ? {ctor: '_Tuple3', _0: x, _1: chroma, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 3) < 0) ? {ctor: '_Tuple3', _0: 0, _1: chroma, _2: x} : ((_elm_lang$core$Native_Utils.cmp(normHue, 4) < 0) ? {ctor: '_Tuple3', _0: 0, _1: x, _2: chroma} : ((_elm_lang$core$Native_Utils.cmp(normHue, 5) < 0) ? {ctor: '_Tuple3', _0: x, _1: 0, _2: chroma} : ((_elm_lang$core$Native_Utils.cmp(normHue, 6) < 0) ? {ctor: '_Tuple3', _0: chroma, _1: 0, _2: x} : {ctor: '_Tuple3', _0: 0, _1: 0, _2: 0}))))));
-		var r = _p0._0;
-		var g = _p0._1;
-		var b = _p0._2;
-		var m = lightness - (chroma / 2);
-		return {ctor: '_Tuple3', _0: r + m, _1: g + m, _2: b + m};
-	});
-var _elm_lang$core$Color$toRgb = function (color) {
-	var _p1 = color;
-	if (_p1.ctor === 'RGBA') {
-		return {red: _p1._0, green: _p1._1, blue: _p1._2, alpha: _p1._3};
-	} else {
-		var _p2 = A3(_elm_lang$core$Color$hslToRgb, _p1._0, _p1._1, _p1._2);
-		var r = _p2._0;
-		var g = _p2._1;
-		var b = _p2._2;
-		return {
-			red: _elm_lang$core$Basics$round(255 * r),
-			green: _elm_lang$core$Basics$round(255 * g),
-			blue: _elm_lang$core$Basics$round(255 * b),
-			alpha: _p1._3
-		};
-	}
-};
-var _elm_lang$core$Color$toHsl = function (color) {
-	var _p3 = color;
-	if (_p3.ctor === 'HSLA') {
-		return {hue: _p3._0, saturation: _p3._1, lightness: _p3._2, alpha: _p3._3};
-	} else {
-		var _p4 = A3(_elm_lang$core$Color$rgbToHsl, _p3._0, _p3._1, _p3._2);
-		var h = _p4._0;
-		var s = _p4._1;
-		var l = _p4._2;
-		return {hue: h, saturation: s, lightness: l, alpha: _p3._3};
-	}
-};
-var _elm_lang$core$Color$HSLA = F4(
-	function (a, b, c, d) {
-		return {ctor: 'HSLA', _0: a, _1: b, _2: c, _3: d};
-	});
-var _elm_lang$core$Color$hsla = F4(
-	function (hue, saturation, lightness, alpha) {
-		return A4(
-			_elm_lang$core$Color$HSLA,
-			hue - _elm_lang$core$Basics$turns(
-				_elm_lang$core$Basics$toFloat(
-					_elm_lang$core$Basics$floor(hue / (2 * _elm_lang$core$Basics$pi)))),
-			saturation,
-			lightness,
-			alpha);
-	});
-var _elm_lang$core$Color$hsl = F3(
-	function (hue, saturation, lightness) {
-		return A4(_elm_lang$core$Color$hsla, hue, saturation, lightness, 1);
-	});
-var _elm_lang$core$Color$complement = function (color) {
-	var _p5 = color;
-	if (_p5.ctor === 'HSLA') {
-		return A4(
-			_elm_lang$core$Color$hsla,
-			_p5._0 + _elm_lang$core$Basics$degrees(180),
-			_p5._1,
-			_p5._2,
-			_p5._3);
-	} else {
-		var _p6 = A3(_elm_lang$core$Color$rgbToHsl, _p5._0, _p5._1, _p5._2);
-		var h = _p6._0;
-		var s = _p6._1;
-		var l = _p6._2;
-		return A4(
-			_elm_lang$core$Color$hsla,
-			h + _elm_lang$core$Basics$degrees(180),
-			s,
-			l,
-			_p5._3);
-	}
-};
-var _elm_lang$core$Color$grayscale = function (p) {
-	return A4(_elm_lang$core$Color$HSLA, 0, 0, 1 - p, 1);
-};
-var _elm_lang$core$Color$greyscale = function (p) {
-	return A4(_elm_lang$core$Color$HSLA, 0, 0, 1 - p, 1);
-};
-var _elm_lang$core$Color$RGBA = F4(
-	function (a, b, c, d) {
-		return {ctor: 'RGBA', _0: a, _1: b, _2: c, _3: d};
-	});
-var _elm_lang$core$Color$rgba = _elm_lang$core$Color$RGBA;
-var _elm_lang$core$Color$rgb = F3(
-	function (r, g, b) {
-		return A4(_elm_lang$core$Color$RGBA, r, g, b, 1);
-	});
-var _elm_lang$core$Color$lightRed = A4(_elm_lang$core$Color$RGBA, 239, 41, 41, 1);
-var _elm_lang$core$Color$red = A4(_elm_lang$core$Color$RGBA, 204, 0, 0, 1);
-var _elm_lang$core$Color$darkRed = A4(_elm_lang$core$Color$RGBA, 164, 0, 0, 1);
-var _elm_lang$core$Color$lightOrange = A4(_elm_lang$core$Color$RGBA, 252, 175, 62, 1);
-var _elm_lang$core$Color$orange = A4(_elm_lang$core$Color$RGBA, 245, 121, 0, 1);
-var _elm_lang$core$Color$darkOrange = A4(_elm_lang$core$Color$RGBA, 206, 92, 0, 1);
-var _elm_lang$core$Color$lightYellow = A4(_elm_lang$core$Color$RGBA, 255, 233, 79, 1);
-var _elm_lang$core$Color$yellow = A4(_elm_lang$core$Color$RGBA, 237, 212, 0, 1);
-var _elm_lang$core$Color$darkYellow = A4(_elm_lang$core$Color$RGBA, 196, 160, 0, 1);
-var _elm_lang$core$Color$lightGreen = A4(_elm_lang$core$Color$RGBA, 138, 226, 52, 1);
-var _elm_lang$core$Color$green = A4(_elm_lang$core$Color$RGBA, 115, 210, 22, 1);
-var _elm_lang$core$Color$darkGreen = A4(_elm_lang$core$Color$RGBA, 78, 154, 6, 1);
-var _elm_lang$core$Color$lightBlue = A4(_elm_lang$core$Color$RGBA, 114, 159, 207, 1);
-var _elm_lang$core$Color$blue = A4(_elm_lang$core$Color$RGBA, 52, 101, 164, 1);
-var _elm_lang$core$Color$darkBlue = A4(_elm_lang$core$Color$RGBA, 32, 74, 135, 1);
-var _elm_lang$core$Color$lightPurple = A4(_elm_lang$core$Color$RGBA, 173, 127, 168, 1);
-var _elm_lang$core$Color$purple = A4(_elm_lang$core$Color$RGBA, 117, 80, 123, 1);
-var _elm_lang$core$Color$darkPurple = A4(_elm_lang$core$Color$RGBA, 92, 53, 102, 1);
-var _elm_lang$core$Color$lightBrown = A4(_elm_lang$core$Color$RGBA, 233, 185, 110, 1);
-var _elm_lang$core$Color$brown = A4(_elm_lang$core$Color$RGBA, 193, 125, 17, 1);
-var _elm_lang$core$Color$darkBrown = A4(_elm_lang$core$Color$RGBA, 143, 89, 2, 1);
-var _elm_lang$core$Color$black = A4(_elm_lang$core$Color$RGBA, 0, 0, 0, 1);
-var _elm_lang$core$Color$white = A4(_elm_lang$core$Color$RGBA, 255, 255, 255, 1);
-var _elm_lang$core$Color$lightGrey = A4(_elm_lang$core$Color$RGBA, 238, 238, 236, 1);
-var _elm_lang$core$Color$grey = A4(_elm_lang$core$Color$RGBA, 211, 215, 207, 1);
-var _elm_lang$core$Color$darkGrey = A4(_elm_lang$core$Color$RGBA, 186, 189, 182, 1);
-var _elm_lang$core$Color$lightGray = A4(_elm_lang$core$Color$RGBA, 238, 238, 236, 1);
-var _elm_lang$core$Color$gray = A4(_elm_lang$core$Color$RGBA, 211, 215, 207, 1);
-var _elm_lang$core$Color$darkGray = A4(_elm_lang$core$Color$RGBA, 186, 189, 182, 1);
-var _elm_lang$core$Color$lightCharcoal = A4(_elm_lang$core$Color$RGBA, 136, 138, 133, 1);
-var _elm_lang$core$Color$charcoal = A4(_elm_lang$core$Color$RGBA, 85, 87, 83, 1);
-var _elm_lang$core$Color$darkCharcoal = A4(_elm_lang$core$Color$RGBA, 46, 52, 54, 1);
-var _elm_lang$core$Color$Radial = F5(
-	function (a, b, c, d, e) {
-		return {ctor: 'Radial', _0: a, _1: b, _2: c, _3: d, _4: e};
-	});
-var _elm_lang$core$Color$radial = _elm_lang$core$Color$Radial;
-var _elm_lang$core$Color$Linear = F3(
-	function (a, b, c) {
-		return {ctor: 'Linear', _0: a, _1: b, _2: c};
-	});
-var _elm_lang$core$Color$linear = _elm_lang$core$Color$Linear;
 
 var _elm_lang$core$Dict$foldr = F3(
 	function (f, acc, t) {
@@ -6058,143 +6168,6 @@ var _elm_lang$core$Json_Decode$int = _elm_lang$core$Native_Json.decodePrimitive(
 var _elm_lang$core$Json_Decode$bool = _elm_lang$core$Native_Json.decodePrimitive('bool');
 var _elm_lang$core$Json_Decode$string = _elm_lang$core$Native_Json.decodePrimitive('string');
 var _elm_lang$core$Json_Decode$Decoder = {ctor: 'Decoder'};
-
-//import Maybe, Native.List //
-
-var _elm_lang$core$Native_Regex = function() {
-
-function escape(str)
-{
-	return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-}
-function caseInsensitive(re)
-{
-	return new RegExp(re.source, 'gi');
-}
-function regex(raw)
-{
-	return new RegExp(raw, 'g');
-}
-
-function contains(re, string)
-{
-	return string.match(re) !== null;
-}
-
-function find(n, re, str)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	var out = [];
-	var number = 0;
-	var string = str;
-	var lastIndex = re.lastIndex;
-	var prevLastIndex = -1;
-	var result;
-	while (number++ < n && (result = re.exec(string)))
-	{
-		if (prevLastIndex === re.lastIndex) break;
-		var i = result.length - 1;
-		var subs = new Array(i);
-		while (i > 0)
-		{
-			var submatch = result[i];
-			subs[--i] = submatch === undefined
-				? _elm_lang$core$Maybe$Nothing
-				: _elm_lang$core$Maybe$Just(submatch);
-		}
-		out.push({
-			match: result[0],
-			submatches: _elm_lang$core$Native_List.fromArray(subs),
-			index: result.index,
-			number: number
-		});
-		prevLastIndex = re.lastIndex;
-	}
-	re.lastIndex = lastIndex;
-	return _elm_lang$core$Native_List.fromArray(out);
-}
-
-function replace(n, re, replacer, string)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	var count = 0;
-	function jsReplacer(match)
-	{
-		if (count++ >= n)
-		{
-			return match;
-		}
-		var i = arguments.length - 3;
-		var submatches = new Array(i);
-		while (i > 0)
-		{
-			var submatch = arguments[i];
-			submatches[--i] = submatch === undefined
-				? _elm_lang$core$Maybe$Nothing
-				: _elm_lang$core$Maybe$Just(submatch);
-		}
-		return replacer({
-			match: match,
-			submatches: _elm_lang$core$Native_List.fromArray(submatches),
-			index: arguments[arguments.length - 2],
-			number: count
-		});
-	}
-	return string.replace(re, jsReplacer);
-}
-
-function split(n, re, str)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	if (n === Infinity)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.split(re));
-	}
-	var string = str;
-	var result;
-	var out = [];
-	var start = re.lastIndex;
-	var restoreLastIndex = re.lastIndex;
-	while (n--)
-	{
-		if (!(result = re.exec(string))) break;
-		out.push(string.slice(start, result.index));
-		start = re.lastIndex;
-	}
-	out.push(string.slice(start));
-	re.lastIndex = restoreLastIndex;
-	return _elm_lang$core$Native_List.fromArray(out);
-}
-
-return {
-	regex: regex,
-	caseInsensitive: caseInsensitive,
-	escape: escape,
-
-	contains: F2(contains),
-	find: F3(find),
-	replace: F4(replace),
-	split: F3(split)
-};
-
-}();
-
-var _elm_lang$core$Regex$split = _elm_lang$core$Native_Regex.split;
-var _elm_lang$core$Regex$replace = _elm_lang$core$Native_Regex.replace;
-var _elm_lang$core$Regex$find = _elm_lang$core$Native_Regex.find;
-var _elm_lang$core$Regex$contains = _elm_lang$core$Native_Regex.contains;
-var _elm_lang$core$Regex$caseInsensitive = _elm_lang$core$Native_Regex.caseInsensitive;
-var _elm_lang$core$Regex$regex = _elm_lang$core$Native_Regex.regex;
-var _elm_lang$core$Regex$escape = _elm_lang$core$Native_Regex.escape;
-var _elm_lang$core$Regex$Match = F4(
-	function (a, b, c, d) {
-		return {match: a, submatches: b, index: c, number: d};
-	});
-var _elm_lang$core$Regex$Regex = {ctor: 'Regex'};
-var _elm_lang$core$Regex$AtMost = function (a) {
-	return {ctor: 'AtMost', _0: a};
-};
-var _elm_lang$core$Regex$All = {ctor: 'All'};
 
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrap;
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags;
@@ -8234,3511 +8207,7070 @@ var _elm_lang$html$Html$summary = _elm_lang$html$Html$node('summary');
 var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
 
-var _rtfeldman$elm_css_util$Css_Helpers$toCssIdentifier = function (identifier) {
-	return A4(
-		_elm_lang$core$Regex$replace,
-		_elm_lang$core$Regex$All,
-		_elm_lang$core$Regex$regex('[^a-zA-Z0-9_-]'),
-		function (_p0) {
-			return '';
-		},
-		A4(
-			_elm_lang$core$Regex$replace,
-			_elm_lang$core$Regex$All,
-			_elm_lang$core$Regex$regex('\\s+'),
-			function (_p1) {
-				return '-';
-			},
-			_elm_lang$core$String$trim(
-				_elm_lang$core$Basics$toString(identifier))));
-};
-var _rtfeldman$elm_css_util$Css_Helpers$identifierToString = F2(
-	function (name, identifier) {
-		return A2(
-			_elm_lang$core$Basics_ops['++'],
-			_rtfeldman$elm_css_util$Css_Helpers$toCssIdentifier(name),
-			_rtfeldman$elm_css_util$Css_Helpers$toCssIdentifier(identifier));
+var _elm_lang$core$Color$fmod = F2(
+	function (f, n) {
+		var integer = _elm_lang$core$Basics$floor(f);
+		return (_elm_lang$core$Basics$toFloat(
+			A2(_elm_lang$core$Basics_ops['%'], integer, n)) + f) - _elm_lang$core$Basics$toFloat(integer);
 	});
-
-var _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations = function (declarations) {
-	dropEmptyDeclarations:
-	while (true) {
-		var _p0 = declarations;
-		if (_p0.ctor === '[]') {
-			return {ctor: '[]'};
-		} else {
-			switch (_p0._0.ctor) {
-				case 'StyleBlockDeclaration':
-					var _p1 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._0._2)) {
-						var _v1 = _p1;
-						declarations = _v1;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p1)
-						};
-					}
-				case 'MediaRule':
-					var _p4 = _p0._1;
-					if (A2(
-						_elm_lang$core$List$all,
-						function (_p2) {
-							var _p3 = _p2;
-							return _elm_lang$core$List$isEmpty(_p3._2);
-						},
-						_p0._0._1)) {
-						var _v3 = _p4;
-						declarations = _v3;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p4)
-						};
-					}
-				case 'SupportsRule':
-					var _p5 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._1)) {
-						var _v4 = _p5;
-						declarations = _v4;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p5)
-						};
-					}
-				case 'DocumentRule':
-					return {
-						ctor: '::',
-						_0: _p0._0,
-						_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p0._1)
-					};
-				case 'PageRule':
-					var _p6 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._1)) {
-						var _v5 = _p6;
-						declarations = _v5;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p6)
-						};
-					}
-				case 'FontFace':
-					var _p7 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._0)) {
-						var _v6 = _p7;
-						declarations = _v6;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p7)
-						};
-					}
-				case 'Keyframes':
-					var _p8 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._1)) {
-						var _v7 = _p8;
-						declarations = _v7;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p8)
-						};
-					}
-				case 'Viewport':
-					var _p9 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._0)) {
-						var _v8 = _p9;
-						declarations = _v8;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p9)
-						};
-					}
-				case 'CounterStyle':
-					var _p10 = _p0._1;
-					if (_elm_lang$core$List$isEmpty(_p0._0._0)) {
-						var _v9 = _p10;
-						declarations = _v9;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p10)
-						};
-					}
-				default:
-					var _p13 = _p0._1;
-					if (A2(
-						_elm_lang$core$List$all,
-						function (_p11) {
-							var _p12 = _p11;
-							return _elm_lang$core$List$isEmpty(_p12._1);
-						},
-						_p0._0._0)) {
-						var _v11 = _p13;
-						declarations = _v11;
-						continue dropEmptyDeclarations;
-					} else {
-						return {
-							ctor: '::',
-							_0: _p0._0,
-							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p13)
-						};
-					}
-			}
-		}
+var _elm_lang$core$Color$rgbToHsl = F3(
+	function (red, green, blue) {
+		var b = _elm_lang$core$Basics$toFloat(blue) / 255;
+		var g = _elm_lang$core$Basics$toFloat(green) / 255;
+		var r = _elm_lang$core$Basics$toFloat(red) / 255;
+		var cMax = A2(
+			_elm_lang$core$Basics$max,
+			A2(_elm_lang$core$Basics$max, r, g),
+			b);
+		var cMin = A2(
+			_elm_lang$core$Basics$min,
+			A2(_elm_lang$core$Basics$min, r, g),
+			b);
+		var c = cMax - cMin;
+		var lightness = (cMax + cMin) / 2;
+		var saturation = _elm_lang$core$Native_Utils.eq(lightness, 0) ? 0 : (c / (1 - _elm_lang$core$Basics$abs((2 * lightness) - 1)));
+		var hue = _elm_lang$core$Basics$degrees(60) * (_elm_lang$core$Native_Utils.eq(cMax, r) ? A2(_elm_lang$core$Color$fmod, (g - b) / c, 6) : (_elm_lang$core$Native_Utils.eq(cMax, g) ? (((b - r) / c) + 2) : (((r - g) / c) + 4)));
+		return {ctor: '_Tuple3', _0: hue, _1: saturation, _2: lightness};
+	});
+var _elm_lang$core$Color$hslToRgb = F3(
+	function (hue, saturation, lightness) {
+		var normHue = hue / _elm_lang$core$Basics$degrees(60);
+		var chroma = (1 - _elm_lang$core$Basics$abs((2 * lightness) - 1)) * saturation;
+		var x = chroma * (1 - _elm_lang$core$Basics$abs(
+			A2(_elm_lang$core$Color$fmod, normHue, 2) - 1));
+		var _p0 = (_elm_lang$core$Native_Utils.cmp(normHue, 0) < 0) ? {ctor: '_Tuple3', _0: 0, _1: 0, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 1) < 0) ? {ctor: '_Tuple3', _0: chroma, _1: x, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 2) < 0) ? {ctor: '_Tuple3', _0: x, _1: chroma, _2: 0} : ((_elm_lang$core$Native_Utils.cmp(normHue, 3) < 0) ? {ctor: '_Tuple3', _0: 0, _1: chroma, _2: x} : ((_elm_lang$core$Native_Utils.cmp(normHue, 4) < 0) ? {ctor: '_Tuple3', _0: 0, _1: x, _2: chroma} : ((_elm_lang$core$Native_Utils.cmp(normHue, 5) < 0) ? {ctor: '_Tuple3', _0: x, _1: 0, _2: chroma} : ((_elm_lang$core$Native_Utils.cmp(normHue, 6) < 0) ? {ctor: '_Tuple3', _0: chroma, _1: 0, _2: x} : {ctor: '_Tuple3', _0: 0, _1: 0, _2: 0}))))));
+		var r = _p0._0;
+		var g = _p0._1;
+		var b = _p0._2;
+		var m = lightness - (chroma / 2);
+		return {ctor: '_Tuple3', _0: r + m, _1: g + m, _2: b + m};
+	});
+var _elm_lang$core$Color$toRgb = function (color) {
+	var _p1 = color;
+	if (_p1.ctor === 'RGBA') {
+		return {red: _p1._0, green: _p1._1, blue: _p1._2, alpha: _p1._3};
+	} else {
+		var _p2 = A3(_elm_lang$core$Color$hslToRgb, _p1._0, _p1._1, _p1._2);
+		var r = _p2._0;
+		var g = _p2._1;
+		var b = _p2._2;
+		return {
+			red: _elm_lang$core$Basics$round(255 * r),
+			green: _elm_lang$core$Basics$round(255 * g),
+			blue: _elm_lang$core$Basics$round(255 * b),
+			alpha: _p1._3
+		};
 	}
 };
-var _rtfeldman$elm_css$Css_Structure$dropEmpty = function (_p14) {
-	var _p15 = _p14;
-	return {
-		charset: _p15.charset,
-		imports: _p15.imports,
-		namespaces: _p15.namespaces,
-		declarations: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p15.declarations)
-	};
+var _elm_lang$core$Color$toHsl = function (color) {
+	var _p3 = color;
+	if (_p3.ctor === 'HSLA') {
+		return {hue: _p3._0, saturation: _p3._1, lightness: _p3._2, alpha: _p3._3};
+	} else {
+		var _p4 = A3(_elm_lang$core$Color$rgbToHsl, _p3._0, _p3._1, _p3._2);
+		var h = _p4._0;
+		var s = _p4._1;
+		var l = _p4._2;
+		return {hue: h, saturation: s, lightness: l, alpha: _p3._3};
+	}
 };
-var _rtfeldman$elm_css$Css_Structure$concatMapLast = F2(
-	function (update, list) {
-		var _p16 = list;
-		if (_p16.ctor === '[]') {
-			return list;
-		} else {
-			if (_p16._1.ctor === '[]') {
-				return update(_p16._0);
-			} else {
-				return {
-					ctor: '::',
-					_0: _p16._0,
-					_1: A2(_rtfeldman$elm_css$Css_Structure$concatMapLast, update, _p16._1)
-				};
-			}
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$mapLast = F2(
-	function (update, list) {
-		var _p17 = list;
-		if (_p17.ctor === '[]') {
-			return list;
-		} else {
-			if (_p17._1.ctor === '[]') {
-				return {
-					ctor: '::',
-					_0: update(_p17._0),
-					_1: {ctor: '[]'}
-				};
-			} else {
-				return {
-					ctor: '::',
-					_0: _p17._0,
-					_1: A2(_rtfeldman$elm_css$Css_Structure$mapLast, update, _p17._1)
-				};
-			}
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$Property = F3(
-	function (a, b, c) {
-		return {important: a, key: b, value: c};
-	});
-var _rtfeldman$elm_css$Css_Structure$Stylesheet = F4(
+var _elm_lang$core$Color$HSLA = F4(
 	function (a, b, c, d) {
-		return {charset: a, imports: b, namespaces: c, declarations: d};
+		return {ctor: 'HSLA', _0: a, _1: b, _2: c, _3: d};
 	});
-var _rtfeldman$elm_css$Css_Structure$MediaExpression = F2(
-	function (a, b) {
-		return {feature: a, value: b};
+var _elm_lang$core$Color$hsla = F4(
+	function (hue, saturation, lightness, alpha) {
+		return A4(
+			_elm_lang$core$Color$HSLA,
+			hue - _elm_lang$core$Basics$turns(
+				_elm_lang$core$Basics$toFloat(
+					_elm_lang$core$Basics$floor(hue / (2 * _elm_lang$core$Basics$pi)))),
+			saturation,
+			lightness,
+			alpha);
 	});
-var _rtfeldman$elm_css$Css_Structure$Compatible = {ctor: 'Compatible'};
-var _rtfeldman$elm_css$Css_Structure$FontFeatureValues = function (a) {
-	return {ctor: 'FontFeatureValues', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$CounterStyle = function (a) {
-	return {ctor: 'CounterStyle', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$Viewport = function (a) {
-	return {ctor: 'Viewport', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$Keyframes = F2(
-	function (a, b) {
-		return {ctor: 'Keyframes', _0: a, _1: b};
+var _elm_lang$core$Color$hsl = F3(
+	function (hue, saturation, lightness) {
+		return A4(_elm_lang$core$Color$hsla, hue, saturation, lightness, 1);
 	});
-var _rtfeldman$elm_css$Css_Structure$FontFace = function (a) {
-	return {ctor: 'FontFace', _0: a};
+var _elm_lang$core$Color$complement = function (color) {
+	var _p5 = color;
+	if (_p5.ctor === 'HSLA') {
+		return A4(
+			_elm_lang$core$Color$hsla,
+			_p5._0 + _elm_lang$core$Basics$degrees(180),
+			_p5._1,
+			_p5._2,
+			_p5._3);
+	} else {
+		var _p6 = A3(_elm_lang$core$Color$rgbToHsl, _p5._0, _p5._1, _p5._2);
+		var h = _p6._0;
+		var s = _p6._1;
+		var l = _p6._2;
+		return A4(
+			_elm_lang$core$Color$hsla,
+			h + _elm_lang$core$Basics$degrees(180),
+			s,
+			l,
+			_p5._3);
+	}
 };
-var _rtfeldman$elm_css$Css_Structure$PageRule = F2(
-	function (a, b) {
-		return {ctor: 'PageRule', _0: a, _1: b};
+var _elm_lang$core$Color$grayscale = function (p) {
+	return A4(_elm_lang$core$Color$HSLA, 0, 0, 1 - p, 1);
+};
+var _elm_lang$core$Color$greyscale = function (p) {
+	return A4(_elm_lang$core$Color$HSLA, 0, 0, 1 - p, 1);
+};
+var _elm_lang$core$Color$RGBA = F4(
+	function (a, b, c, d) {
+		return {ctor: 'RGBA', _0: a, _1: b, _2: c, _3: d};
 	});
-var _rtfeldman$elm_css$Css_Structure$DocumentRule = F5(
+var _elm_lang$core$Color$rgba = _elm_lang$core$Color$RGBA;
+var _elm_lang$core$Color$rgb = F3(
+	function (r, g, b) {
+		return A4(_elm_lang$core$Color$RGBA, r, g, b, 1);
+	});
+var _elm_lang$core$Color$lightRed = A4(_elm_lang$core$Color$RGBA, 239, 41, 41, 1);
+var _elm_lang$core$Color$red = A4(_elm_lang$core$Color$RGBA, 204, 0, 0, 1);
+var _elm_lang$core$Color$darkRed = A4(_elm_lang$core$Color$RGBA, 164, 0, 0, 1);
+var _elm_lang$core$Color$lightOrange = A4(_elm_lang$core$Color$RGBA, 252, 175, 62, 1);
+var _elm_lang$core$Color$orange = A4(_elm_lang$core$Color$RGBA, 245, 121, 0, 1);
+var _elm_lang$core$Color$darkOrange = A4(_elm_lang$core$Color$RGBA, 206, 92, 0, 1);
+var _elm_lang$core$Color$lightYellow = A4(_elm_lang$core$Color$RGBA, 255, 233, 79, 1);
+var _elm_lang$core$Color$yellow = A4(_elm_lang$core$Color$RGBA, 237, 212, 0, 1);
+var _elm_lang$core$Color$darkYellow = A4(_elm_lang$core$Color$RGBA, 196, 160, 0, 1);
+var _elm_lang$core$Color$lightGreen = A4(_elm_lang$core$Color$RGBA, 138, 226, 52, 1);
+var _elm_lang$core$Color$green = A4(_elm_lang$core$Color$RGBA, 115, 210, 22, 1);
+var _elm_lang$core$Color$darkGreen = A4(_elm_lang$core$Color$RGBA, 78, 154, 6, 1);
+var _elm_lang$core$Color$lightBlue = A4(_elm_lang$core$Color$RGBA, 114, 159, 207, 1);
+var _elm_lang$core$Color$blue = A4(_elm_lang$core$Color$RGBA, 52, 101, 164, 1);
+var _elm_lang$core$Color$darkBlue = A4(_elm_lang$core$Color$RGBA, 32, 74, 135, 1);
+var _elm_lang$core$Color$lightPurple = A4(_elm_lang$core$Color$RGBA, 173, 127, 168, 1);
+var _elm_lang$core$Color$purple = A4(_elm_lang$core$Color$RGBA, 117, 80, 123, 1);
+var _elm_lang$core$Color$darkPurple = A4(_elm_lang$core$Color$RGBA, 92, 53, 102, 1);
+var _elm_lang$core$Color$lightBrown = A4(_elm_lang$core$Color$RGBA, 233, 185, 110, 1);
+var _elm_lang$core$Color$brown = A4(_elm_lang$core$Color$RGBA, 193, 125, 17, 1);
+var _elm_lang$core$Color$darkBrown = A4(_elm_lang$core$Color$RGBA, 143, 89, 2, 1);
+var _elm_lang$core$Color$black = A4(_elm_lang$core$Color$RGBA, 0, 0, 0, 1);
+var _elm_lang$core$Color$white = A4(_elm_lang$core$Color$RGBA, 255, 255, 255, 1);
+var _elm_lang$core$Color$lightGrey = A4(_elm_lang$core$Color$RGBA, 238, 238, 236, 1);
+var _elm_lang$core$Color$grey = A4(_elm_lang$core$Color$RGBA, 211, 215, 207, 1);
+var _elm_lang$core$Color$darkGrey = A4(_elm_lang$core$Color$RGBA, 186, 189, 182, 1);
+var _elm_lang$core$Color$lightGray = A4(_elm_lang$core$Color$RGBA, 238, 238, 236, 1);
+var _elm_lang$core$Color$gray = A4(_elm_lang$core$Color$RGBA, 211, 215, 207, 1);
+var _elm_lang$core$Color$darkGray = A4(_elm_lang$core$Color$RGBA, 186, 189, 182, 1);
+var _elm_lang$core$Color$lightCharcoal = A4(_elm_lang$core$Color$RGBA, 136, 138, 133, 1);
+var _elm_lang$core$Color$charcoal = A4(_elm_lang$core$Color$RGBA, 85, 87, 83, 1);
+var _elm_lang$core$Color$darkCharcoal = A4(_elm_lang$core$Color$RGBA, 46, 52, 54, 1);
+var _elm_lang$core$Color$Radial = F5(
 	function (a, b, c, d, e) {
-		return {ctor: 'DocumentRule', _0: a, _1: b, _2: c, _3: d, _4: e};
+		return {ctor: 'Radial', _0: a, _1: b, _2: c, _3: d, _4: e};
 	});
-var _rtfeldman$elm_css$Css_Structure$SupportsRule = F2(
-	function (a, b) {
-		return {ctor: 'SupportsRule', _0: a, _1: b};
+var _elm_lang$core$Color$radial = _elm_lang$core$Color$Radial;
+var _elm_lang$core$Color$Linear = F3(
+	function (a, b, c) {
+		return {ctor: 'Linear', _0: a, _1: b, _2: c};
 	});
-var _rtfeldman$elm_css$Css_Structure$MediaRule = F2(
-	function (a, b) {
-		return {ctor: 'MediaRule', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration = function (a) {
-	return {ctor: 'StyleBlockDeclaration', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock = F2(
-	function (update, declarations) {
-		var _p18 = declarations;
-		_v15_12:
-		do {
-			if (_p18.ctor === '[]') {
-				return declarations;
-			} else {
-				if (_p18._1.ctor === '[]') {
-					switch (_p18._0.ctor) {
-						case 'StyleBlockDeclaration':
-							return A2(
-								_elm_lang$core$List$map,
-								_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration,
-								update(_p18._0._0));
-						case 'MediaRule':
-							if (_p18._0._1.ctor === '::') {
-								if (_p18._0._1._1.ctor === '[]') {
-									return {
-										ctor: '::',
-										_0: A2(
-											_rtfeldman$elm_css$Css_Structure$MediaRule,
-											_p18._0._0,
-											update(_p18._0._1._0)),
-										_1: {ctor: '[]'}
-									};
-								} else {
-									var _p19 = A2(
-										_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock,
-										update,
-										{
-											ctor: '::',
-											_0: A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p18._0._0, _p18._0._1._1),
-											_1: {ctor: '[]'}
-										});
-									if (((_p19.ctor === '::') && (_p19._0.ctor === 'MediaRule')) && (_p19._1.ctor === '[]')) {
-										return {
-											ctor: '::',
-											_0: A2(
-												_rtfeldman$elm_css$Css_Structure$MediaRule,
-												_p19._0._0,
-												{ctor: '::', _0: _p18._0._1._0, _1: _p19._0._1}),
-											_1: {ctor: '[]'}
-										};
-									} else {
-										return _p19;
-									}
-								}
-							} else {
-								break _v15_12;
-							}
-						case 'SupportsRule':
-							return {
-								ctor: '::',
-								_0: A2(
-									_rtfeldman$elm_css$Css_Structure$SupportsRule,
-									_p18._0._0,
-									A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._0._1)),
-								_1: {ctor: '[]'}
-							};
-						case 'DocumentRule':
-							return A2(
-								_elm_lang$core$List$map,
-								A4(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p18._0._0, _p18._0._1, _p18._0._2, _p18._0._3),
-								update(_p18._0._4));
-						case 'PageRule':
-							return declarations;
-						case 'FontFace':
-							return declarations;
-						case 'Keyframes':
-							return declarations;
-						case 'Viewport':
-							return declarations;
-						case 'CounterStyle':
-							return declarations;
-						default:
-							return declarations;
-					}
-				} else {
-					break _v15_12;
-				}
-			}
-		} while(false);
-		return {
-			ctor: '::',
-			_0: _p18._0,
-			_1: A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._1)
+var _elm_lang$core$Color$linear = _elm_lang$core$Color$Linear;
+
+var _elm_lang$animation_frame$Native_AnimationFrame = function()
+{
+
+function create()
+{
+	return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	{
+		var id = requestAnimationFrame(function() {
+			callback(_elm_lang$core$Native_Scheduler.succeed(Date.now()));
+		});
+
+		return function() {
+			cancelAnimationFrame(id);
 		};
 	});
-var _rtfeldman$elm_css$Css_Structure$StyleBlock = F3(
-	function (a, b, c) {
-		return {ctor: 'StyleBlock', _0: a, _1: b, _2: c};
-	});
-var _rtfeldman$elm_css$Css_Structure$withPropertyAppended = F2(
-	function (property, _p20) {
-		var _p21 = _p20;
-		return A3(
-			_rtfeldman$elm_css$Css_Structure$StyleBlock,
-			_p21._0,
-			_p21._1,
+}
+
+return {
+	create: create
+};
+
+}();
+
+var _elm_lang$core$Task$onError = _elm_lang$core$Native_Scheduler.onError;
+var _elm_lang$core$Task$andThen = _elm_lang$core$Native_Scheduler.andThen;
+var _elm_lang$core$Task$spawnCmd = F2(
+	function (router, _p0) {
+		var _p1 = _p0;
+		return _elm_lang$core$Native_Scheduler.spawn(
 			A2(
-				_elm_lang$core$Basics_ops['++'],
-				_p21._2,
+				_elm_lang$core$Task$andThen,
+				_elm_lang$core$Platform$sendToApp(router),
+				_p1._0));
+	});
+var _elm_lang$core$Task$fail = _elm_lang$core$Native_Scheduler.fail;
+var _elm_lang$core$Task$mapError = F2(
+	function (convert, task) {
+		return A2(
+			_elm_lang$core$Task$onError,
+			function (_p2) {
+				return _elm_lang$core$Task$fail(
+					convert(_p2));
+			},
+			task);
+	});
+var _elm_lang$core$Task$succeed = _elm_lang$core$Native_Scheduler.succeed;
+var _elm_lang$core$Task$map = F2(
+	function (func, taskA) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (a) {
+				return _elm_lang$core$Task$succeed(
+					func(a));
+			},
+			taskA);
+	});
+var _elm_lang$core$Task$map2 = F3(
+	function (func, taskA, taskB) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (a) {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (b) {
+						return _elm_lang$core$Task$succeed(
+							A2(func, a, b));
+					},
+					taskB);
+			},
+			taskA);
+	});
+var _elm_lang$core$Task$map3 = F4(
+	function (func, taskA, taskB, taskC) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (a) {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (b) {
+						return A2(
+							_elm_lang$core$Task$andThen,
+							function (c) {
+								return _elm_lang$core$Task$succeed(
+									A3(func, a, b, c));
+							},
+							taskC);
+					},
+					taskB);
+			},
+			taskA);
+	});
+var _elm_lang$core$Task$map4 = F5(
+	function (func, taskA, taskB, taskC, taskD) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (a) {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (b) {
+						return A2(
+							_elm_lang$core$Task$andThen,
+							function (c) {
+								return A2(
+									_elm_lang$core$Task$andThen,
+									function (d) {
+										return _elm_lang$core$Task$succeed(
+											A4(func, a, b, c, d));
+									},
+									taskD);
+							},
+							taskC);
+					},
+					taskB);
+			},
+			taskA);
+	});
+var _elm_lang$core$Task$map5 = F6(
+	function (func, taskA, taskB, taskC, taskD, taskE) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (a) {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (b) {
+						return A2(
+							_elm_lang$core$Task$andThen,
+							function (c) {
+								return A2(
+									_elm_lang$core$Task$andThen,
+									function (d) {
+										return A2(
+											_elm_lang$core$Task$andThen,
+											function (e) {
+												return _elm_lang$core$Task$succeed(
+													A5(func, a, b, c, d, e));
+											},
+											taskE);
+									},
+									taskD);
+							},
+							taskC);
+					},
+					taskB);
+			},
+			taskA);
+	});
+var _elm_lang$core$Task$sequence = function (tasks) {
+	var _p3 = tasks;
+	if (_p3.ctor === '[]') {
+		return _elm_lang$core$Task$succeed(
+			{ctor: '[]'});
+	} else {
+		return A3(
+			_elm_lang$core$Task$map2,
+			F2(
+				function (x, y) {
+					return {ctor: '::', _0: x, _1: y};
+				}),
+			_p3._0,
+			_elm_lang$core$Task$sequence(_p3._1));
+	}
+};
+var _elm_lang$core$Task$onEffects = F3(
+	function (router, commands, state) {
+		return A2(
+			_elm_lang$core$Task$map,
+			function (_p4) {
+				return {ctor: '_Tuple0'};
+			},
+			_elm_lang$core$Task$sequence(
+				A2(
+					_elm_lang$core$List$map,
+					_elm_lang$core$Task$spawnCmd(router),
+					commands)));
+	});
+var _elm_lang$core$Task$init = _elm_lang$core$Task$succeed(
+	{ctor: '_Tuple0'});
+var _elm_lang$core$Task$onSelfMsg = F3(
+	function (_p7, _p6, _p5) {
+		return _elm_lang$core$Task$succeed(
+			{ctor: '_Tuple0'});
+	});
+var _elm_lang$core$Task$command = _elm_lang$core$Native_Platform.leaf('Task');
+var _elm_lang$core$Task$Perform = function (a) {
+	return {ctor: 'Perform', _0: a};
+};
+var _elm_lang$core$Task$perform = F2(
+	function (toMessage, task) {
+		return _elm_lang$core$Task$command(
+			_elm_lang$core$Task$Perform(
+				A2(_elm_lang$core$Task$map, toMessage, task)));
+	});
+var _elm_lang$core$Task$attempt = F2(
+	function (resultToMessage, task) {
+		return _elm_lang$core$Task$command(
+			_elm_lang$core$Task$Perform(
+				A2(
+					_elm_lang$core$Task$onError,
+					function (_p8) {
+						return _elm_lang$core$Task$succeed(
+							resultToMessage(
+								_elm_lang$core$Result$Err(_p8)));
+					},
+					A2(
+						_elm_lang$core$Task$andThen,
+						function (_p9) {
+							return _elm_lang$core$Task$succeed(
+								resultToMessage(
+									_elm_lang$core$Result$Ok(_p9)));
+						},
+						task))));
+	});
+var _elm_lang$core$Task$cmdMap = F2(
+	function (tagger, _p10) {
+		var _p11 = _p10;
+		return _elm_lang$core$Task$Perform(
+			A2(_elm_lang$core$Task$map, tagger, _p11._0));
+	});
+_elm_lang$core$Native_Platform.effectManagers['Task'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Task$init, onEffects: _elm_lang$core$Task$onEffects, onSelfMsg: _elm_lang$core$Task$onSelfMsg, tag: 'cmd', cmdMap: _elm_lang$core$Task$cmdMap};
+
+//import Native.Scheduler //
+
+var _elm_lang$core$Native_Time = function() {
+
+var now = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+{
+	callback(_elm_lang$core$Native_Scheduler.succeed(Date.now()));
+});
+
+function setInterval_(interval, task)
+{
+	return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	{
+		var id = setInterval(function() {
+			_elm_lang$core$Native_Scheduler.rawSpawn(task);
+		}, interval);
+
+		return function() { clearInterval(id); };
+	});
+}
+
+return {
+	now: now,
+	setInterval_: F2(setInterval_)
+};
+
+}();
+var _elm_lang$core$Time$setInterval = _elm_lang$core$Native_Time.setInterval_;
+var _elm_lang$core$Time$spawnHelp = F3(
+	function (router, intervals, processes) {
+		var _p0 = intervals;
+		if (_p0.ctor === '[]') {
+			return _elm_lang$core$Task$succeed(processes);
+		} else {
+			var _p1 = _p0._0;
+			var spawnRest = function (id) {
+				return A3(
+					_elm_lang$core$Time$spawnHelp,
+					router,
+					_p0._1,
+					A3(_elm_lang$core$Dict$insert, _p1, id, processes));
+			};
+			var spawnTimer = _elm_lang$core$Native_Scheduler.spawn(
+				A2(
+					_elm_lang$core$Time$setInterval,
+					_p1,
+					A2(_elm_lang$core$Platform$sendToSelf, router, _p1)));
+			return A2(_elm_lang$core$Task$andThen, spawnRest, spawnTimer);
+		}
+	});
+var _elm_lang$core$Time$addMySub = F2(
+	function (_p2, state) {
+		var _p3 = _p2;
+		var _p6 = _p3._1;
+		var _p5 = _p3._0;
+		var _p4 = A2(_elm_lang$core$Dict$get, _p5, state);
+		if (_p4.ctor === 'Nothing') {
+			return A3(
+				_elm_lang$core$Dict$insert,
+				_p5,
 				{
 					ctor: '::',
-					_0: property,
+					_0: _p6,
 					_1: {ctor: '[]'}
-				}));
-	});
-var _rtfeldman$elm_css$Css_Structure$appendProperty = F2(
-	function (property, declarations) {
-		var _p22 = declarations;
-		if (_p22.ctor === '[]') {
-			return declarations;
-		} else {
-			if (_p22._1.ctor === '[]') {
-				switch (_p22._0.ctor) {
-					case 'StyleBlockDeclaration':
-						return {
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-								A2(_rtfeldman$elm_css$Css_Structure$withPropertyAppended, property, _p22._0._0)),
-							_1: {ctor: '[]'}
-						};
-					case 'MediaRule':
-						return {
-							ctor: '::',
-							_0: A2(
-								_rtfeldman$elm_css$Css_Structure$MediaRule,
-								_p22._0._0,
-								A2(
-									_rtfeldman$elm_css$Css_Structure$mapLast,
-									_rtfeldman$elm_css$Css_Structure$withPropertyAppended(property),
-									_p22._0._1)),
-							_1: {ctor: '[]'}
-						};
-					default:
-						return declarations;
-				}
-			} else {
-				return {
-					ctor: '::',
-					_0: _p22._0,
-					_1: A2(_rtfeldman$elm_css$Css_Structure$appendProperty, property, _p22._1)
-				};
-			}
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$appendToLastSelector = F2(
-	function (f, styleBlock) {
-		var _p23 = styleBlock;
-		if (_p23._1.ctor === '[]') {
-			var _p24 = _p23._0;
-			return {
-				ctor: '::',
-				_0: A3(
-					_rtfeldman$elm_css$Css_Structure$StyleBlock,
-					_p24,
-					{ctor: '[]'},
-					_p23._2),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						f(_p24),
-						{ctor: '[]'},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}
-			};
-		} else {
-			var _p26 = _p23._1;
-			var _p25 = _p23._0;
-			var newFirst = f(_p25);
-			var newRest = A2(_elm_lang$core$List$map, f, _p26);
-			return {
-				ctor: '::',
-				_0: A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p25, _p26, _p23._2),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						newFirst,
-						newRest,
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}
-			};
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$Speech = {ctor: 'Speech'};
-var _rtfeldman$elm_css$Css_Structure$Screen = {ctor: 'Screen'};
-var _rtfeldman$elm_css$Css_Structure$Print = {ctor: 'Print'};
-var _rtfeldman$elm_css$Css_Structure$CustomQuery = function (a) {
-	return {ctor: 'CustomQuery', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$NotQuery = F2(
-	function (a, b) {
-		return {ctor: 'NotQuery', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Structure$OnlyQuery = F2(
-	function (a, b) {
-		return {ctor: 'OnlyQuery', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Structure$AllQuery = function (a) {
-	return {ctor: 'AllQuery', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$Selector = F3(
-	function (a, b, c) {
-		return {ctor: 'Selector', _0: a, _1: b, _2: c};
-	});
-var _rtfeldman$elm_css$Css_Structure$applyPseudoElement = F2(
-	function (pseudo, _p27) {
-		var _p28 = _p27;
-		return A3(
-			_rtfeldman$elm_css$Css_Structure$Selector,
-			_p28._0,
-			_p28._1,
-			_elm_lang$core$Maybe$Just(pseudo));
-	});
-var _rtfeldman$elm_css$Css_Structure$appendPseudoElementToLastSelector = F2(
-	function (pseudo, styleBlock) {
-		return A2(
-			_rtfeldman$elm_css$Css_Structure$appendToLastSelector,
-			_rtfeldman$elm_css$Css_Structure$applyPseudoElement(pseudo),
-			styleBlock);
-	});
-var _rtfeldman$elm_css$Css_Structure$CustomSelector = F2(
-	function (a, b) {
-		return {ctor: 'CustomSelector', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence = function (a) {
-	return {ctor: 'UniversalSelectorSequence', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$TypeSelectorSequence = F2(
-	function (a, b) {
-		return {ctor: 'TypeSelectorSequence', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Structure$appendRepeatable = F2(
-	function (selector, sequence) {
-		var _p29 = sequence;
-		switch (_p29.ctor) {
-			case 'TypeSelectorSequence':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
-					_p29._0,
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_p29._1,
-						{
-							ctor: '::',
-							_0: selector,
-							_1: {ctor: '[]'}
-						}));
-			case 'UniversalSelectorSequence':
-				return _rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_p29._0,
-						{
-							ctor: '::',
-							_0: selector,
-							_1: {ctor: '[]'}
-						}));
-			default:
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$CustomSelector,
-					_p29._0,
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_p29._1,
-						{
-							ctor: '::',
-							_0: selector,
-							_1: {ctor: '[]'}
-						}));
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator = F2(
-	function (selector, list) {
-		var _p30 = list;
-		if (_p30.ctor === '[]') {
-			return {ctor: '[]'};
-		} else {
-			if ((_p30._0.ctor === '_Tuple2') && (_p30._1.ctor === '[]')) {
-				return {
-					ctor: '::',
-					_0: {
-						ctor: '_Tuple2',
-						_0: _p30._0._0,
-						_1: A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, selector, _p30._0._1)
-					},
-					_1: {ctor: '[]'}
-				};
-			} else {
-				return {
-					ctor: '::',
-					_0: _p30._0,
-					_1: A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, selector, _p30._1)
-				};
-			}
-		}
-	});
-var _rtfeldman$elm_css$Css_Structure$appendRepeatableSelector = F2(
-	function (repeatableSimpleSelector, selector) {
-		var _p31 = selector;
-		if (_p31._1.ctor === '[]') {
-			return A3(
-				_rtfeldman$elm_css$Css_Structure$Selector,
-				A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, repeatableSimpleSelector, _p31._0),
-				{ctor: '[]'},
-				_p31._2);
+				},
+				state);
 		} else {
 			return A3(
-				_rtfeldman$elm_css$Css_Structure$Selector,
-				_p31._0,
-				A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, repeatableSimpleSelector, _p31._1),
-				_p31._2);
+				_elm_lang$core$Dict$insert,
+				_p5,
+				{ctor: '::', _0: _p6, _1: _p4._0},
+				state);
 		}
 	});
-var _rtfeldman$elm_css$Css_Structure$extendLastSelector = F2(
-	function (selector, declarations) {
-		var _p32 = declarations;
-		_v24_15:
-		do {
-			if (_p32.ctor === '[]') {
-				return declarations;
-			} else {
-				if (_p32._1.ctor === '[]') {
-					switch (_p32._0.ctor) {
-						case 'StyleBlockDeclaration':
-							if (_p32._0._0._1.ctor === '[]') {
-								return {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-										A3(
-											_rtfeldman$elm_css$Css_Structure$StyleBlock,
-											A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._0._0),
-											{ctor: '[]'},
-											_p32._0._0._2)),
-									_1: {ctor: '[]'}
-								};
-							} else {
-								var newRest = A2(
-									_rtfeldman$elm_css$Css_Structure$mapLast,
-									_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-									_p32._0._0._1);
-								return {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-										A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._0._0, newRest, _p32._0._0._2)),
-									_1: {ctor: '[]'}
-								};
-							}
-						case 'MediaRule':
-							if (_p32._0._1.ctor === '::') {
-								if (_p32._0._1._1.ctor === '[]') {
-									if (_p32._0._1._0._1.ctor === '[]') {
-										var newStyleBlock = A3(
-											_rtfeldman$elm_css$Css_Structure$StyleBlock,
-											A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._1._0._0),
-											{ctor: '[]'},
-											_p32._0._1._0._2);
-										return {
-											ctor: '::',
-											_0: A2(
-												_rtfeldman$elm_css$Css_Structure$MediaRule,
-												_p32._0._0,
-												{
-													ctor: '::',
-													_0: newStyleBlock,
-													_1: {ctor: '[]'}
-												}),
-											_1: {ctor: '[]'}
-										};
-									} else {
-										var newRest = A2(
-											_rtfeldman$elm_css$Css_Structure$mapLast,
-											_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-											_p32._0._1._0._1);
-										var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._1._0._0, newRest, _p32._0._1._0._2);
-										return {
-											ctor: '::',
-											_0: A2(
-												_rtfeldman$elm_css$Css_Structure$MediaRule,
-												_p32._0._0,
-												{
-													ctor: '::',
-													_0: newStyleBlock,
-													_1: {ctor: '[]'}
-												}),
-											_1: {ctor: '[]'}
-										};
-									}
-								} else {
-									var _p33 = A2(
-										_rtfeldman$elm_css$Css_Structure$extendLastSelector,
-										selector,
-										{
-											ctor: '::',
-											_0: A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p32._0._0, _p32._0._1._1),
-											_1: {ctor: '[]'}
-										});
-									if (((_p33.ctor === '::') && (_p33._0.ctor === 'MediaRule')) && (_p33._1.ctor === '[]')) {
-										return {
-											ctor: '::',
-											_0: A2(
-												_rtfeldman$elm_css$Css_Structure$MediaRule,
-												_p33._0._0,
-												{ctor: '::', _0: _p32._0._1._0, _1: _p33._0._1}),
-											_1: {ctor: '[]'}
-										};
-									} else {
-										return _p33;
-									}
-								}
-							} else {
-								break _v24_15;
-							}
-						case 'SupportsRule':
-							return {
-								ctor: '::',
-								_0: A2(
-									_rtfeldman$elm_css$Css_Structure$SupportsRule,
-									_p32._0._0,
-									A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p32._0._1)),
-								_1: {ctor: '[]'}
-							};
-						case 'DocumentRule':
-							if (_p32._0._4._1.ctor === '[]') {
-								var newStyleBlock = A3(
-									_rtfeldman$elm_css$Css_Structure$StyleBlock,
-									A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._4._0),
-									{ctor: '[]'},
-									_p32._0._4._2);
-								return {
-									ctor: '::',
-									_0: A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p32._0._0, _p32._0._1, _p32._0._2, _p32._0._3, newStyleBlock),
-									_1: {ctor: '[]'}
-								};
-							} else {
-								var newRest = A2(
-									_rtfeldman$elm_css$Css_Structure$mapLast,
-									_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-									_p32._0._4._1);
-								var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._4._0, newRest, _p32._0._4._2);
-								return {
-									ctor: '::',
-									_0: A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p32._0._0, _p32._0._1, _p32._0._2, _p32._0._3, newStyleBlock),
-									_1: {ctor: '[]'}
-								};
-							}
-						case 'PageRule':
-							return declarations;
-						case 'FontFace':
-							return declarations;
-						case 'Keyframes':
-							return declarations;
-						case 'Viewport':
-							return declarations;
-						case 'CounterStyle':
-							return declarations;
-						default:
-							return declarations;
-					}
-				} else {
-					break _v24_15;
-				}
-			}
-		} while(false);
-		return {
-			ctor: '::',
-			_0: _p32._0,
-			_1: A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p32._1)
-		};
-	});
-var _rtfeldman$elm_css$Css_Structure$appendRepeatableToLastSelector = F2(
-	function (selector, styleBlock) {
-		return A2(
-			_rtfeldman$elm_css$Css_Structure$appendToLastSelector,
-			_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-			styleBlock);
-	});
-var _rtfeldman$elm_css$Css_Structure$PseudoClassSelector = function (a) {
-	return {ctor: 'PseudoClassSelector', _0: a};
+var _elm_lang$core$Time$inMilliseconds = function (t) {
+	return t;
 };
-var _rtfeldman$elm_css$Css_Structure$IdSelector = function (a) {
-	return {ctor: 'IdSelector', _0: a};
+var _elm_lang$core$Time$millisecond = 1;
+var _elm_lang$core$Time$second = 1000 * _elm_lang$core$Time$millisecond;
+var _elm_lang$core$Time$minute = 60 * _elm_lang$core$Time$second;
+var _elm_lang$core$Time$hour = 60 * _elm_lang$core$Time$minute;
+var _elm_lang$core$Time$inHours = function (t) {
+	return t / _elm_lang$core$Time$hour;
 };
-var _rtfeldman$elm_css$Css_Structure$ClassSelector = function (a) {
-	return {ctor: 'ClassSelector', _0: a};
+var _elm_lang$core$Time$inMinutes = function (t) {
+	return t / _elm_lang$core$Time$minute;
 };
-var _rtfeldman$elm_css$Css_Structure$TypeSelector = function (a) {
-	return {ctor: 'TypeSelector', _0: a};
+var _elm_lang$core$Time$inSeconds = function (t) {
+	return t / _elm_lang$core$Time$second;
 };
-var _rtfeldman$elm_css$Css_Structure$PseudoElement = function (a) {
-	return {ctor: 'PseudoElement', _0: a};
-};
-var _rtfeldman$elm_css$Css_Structure$Descendant = {ctor: 'Descendant'};
-var _rtfeldman$elm_css$Css_Structure$Child = {ctor: 'Child'};
-var _rtfeldman$elm_css$Css_Structure$GeneralSibling = {ctor: 'GeneralSibling'};
-var _rtfeldman$elm_css$Css_Structure$AdjacentSibling = {ctor: 'AdjacentSibling'};
-
-var _rtfeldman$elm_css$Css_Preprocess$propertyToPair = function (property) {
-	var value = property.important ? A2(_elm_lang$core$Basics_ops['++'], property.value, ' !important') : property.value;
-	return {ctor: '_Tuple2', _0: property.key, _1: value};
-};
-var _rtfeldman$elm_css$Css_Preprocess$toPropertyPairs = function (styles) {
-	toPropertyPairs:
-	while (true) {
-		var _p0 = styles;
-		if (_p0.ctor === '[]') {
-			return {ctor: '[]'};
+var _elm_lang$core$Time$now = _elm_lang$core$Native_Time.now;
+var _elm_lang$core$Time$onSelfMsg = F3(
+	function (router, interval, state) {
+		var _p7 = A2(_elm_lang$core$Dict$get, interval, state.taggers);
+		if (_p7.ctor === 'Nothing') {
+			return _elm_lang$core$Task$succeed(state);
 		} else {
-			switch (_p0._0.ctor) {
-				case 'AppendProperty':
-					return {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css_Preprocess$propertyToPair(_p0._0._0),
-						_1: _rtfeldman$elm_css$Css_Preprocess$toPropertyPairs(_p0._1)
-					};
-				case 'ApplyStyles':
-					return A2(
-						_elm_lang$core$Basics_ops['++'],
-						_rtfeldman$elm_css$Css_Preprocess$toPropertyPairs(_p0._0._0),
-						_rtfeldman$elm_css$Css_Preprocess$toPropertyPairs(_p0._1));
-				default:
-					var _v1 = _p0._1;
-					styles = _v1;
-					continue toPropertyPairs;
-			}
-		}
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet = function (_p1) {
-	var _p2 = _p1;
-	return _p2._0;
-};
-var _rtfeldman$elm_css$Css_Preprocess$toMediaRule = F2(
-	function (mediaQueries, declaration) {
-		var _p3 = declaration;
-		switch (_p3.ctor) {
-			case 'StyleBlockDeclaration':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$MediaRule,
-					mediaQueries,
-					{
-						ctor: '::',
-						_0: _p3._0,
-						_1: {ctor: '[]'}
-					});
-			case 'MediaRule':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$MediaRule,
-					A2(_elm_lang$core$Basics_ops['++'], mediaQueries, _p3._0),
-					_p3._1);
-			case 'SupportsRule':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$SupportsRule,
-					_p3._0,
+			var tellTaggers = function (time) {
+				return _elm_lang$core$Task$sequence(
 					A2(
 						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$Css_Preprocess$toMediaRule(mediaQueries),
-						_p3._1));
-			case 'DocumentRule':
-				return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p3._0, _p3._1, _p3._2, _p3._3, _p3._4);
-			case 'PageRule':
-				return declaration;
-			case 'FontFace':
-				return declaration;
-			case 'Keyframes':
-				return declaration;
-			case 'Viewport':
-				return declaration;
-			case 'CounterStyle':
-				return declaration;
-			default:
-				return declaration;
+						function (tagger) {
+							return A2(
+								_elm_lang$core$Platform$sendToApp,
+								router,
+								tagger(time));
+						},
+						_p7._0));
+			};
+			return A2(
+				_elm_lang$core$Task$andThen,
+				function (_p8) {
+					return _elm_lang$core$Task$succeed(state);
+				},
+				A2(_elm_lang$core$Task$andThen, tellTaggers, _elm_lang$core$Time$now));
 		}
 	});
-var _rtfeldman$elm_css$Css_Preprocess$stylesheet = function (snippets) {
-	return {
-		charset: _elm_lang$core$Maybe$Nothing,
-		imports: {ctor: '[]'},
-		namespaces: {ctor: '[]'},
-		snippets: snippets
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess$Property = F4(
-	function (a, b, c, d) {
-		return {key: a, value: b, important: c, warnings: d};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$Stylesheet = F4(
-	function (a, b, c, d) {
-		return {charset: a, imports: b, namespaces: c, snippets: d};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$ApplyStyles = function (a) {
-	return {ctor: 'ApplyStyles', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$WithMedia = F2(
+var _elm_lang$core$Time$subscription = _elm_lang$core$Native_Platform.leaf('Time');
+var _elm_lang$core$Time$State = F2(
 	function (a, b) {
-		return {ctor: 'WithMedia', _0: a, _1: b};
+		return {taggers: a, processes: b};
 	});
-var _rtfeldman$elm_css$Css_Preprocess$WithPseudoElement = F2(
-	function (a, b) {
-		return {ctor: 'WithPseudoElement', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$NestSnippet = F2(
-	function (a, b) {
-		return {ctor: 'NestSnippet', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$ExtendSelector = F2(
-	function (a, b) {
-		return {ctor: 'ExtendSelector', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$AppendProperty = function (a) {
-	return {ctor: 'AppendProperty', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$mapLastProperty = F2(
-	function (update, style) {
-		var _p4 = style;
-		switch (_p4.ctor) {
-			case 'AppendProperty':
-				return _rtfeldman$elm_css$Css_Preprocess$AppendProperty(
-					update(_p4._0));
-			case 'ExtendSelector':
-				return A2(
-					_rtfeldman$elm_css$Css_Preprocess$ExtendSelector,
-					_p4._0,
-					A2(_rtfeldman$elm_css$Css_Preprocess$mapAllLastProperty, update, _p4._1));
-			case 'NestSnippet':
-				return style;
-			case 'WithPseudoElement':
-				return style;
-			case 'WithMedia':
-				return style;
-			default:
-				return _rtfeldman$elm_css$Css_Preprocess$ApplyStyles(
-					A2(
-						_rtfeldman$elm_css$Css_Structure$mapLast,
-						_rtfeldman$elm_css$Css_Preprocess$mapLastProperty(update),
-						_p4._0));
-		}
-	});
-var _rtfeldman$elm_css$Css_Preprocess$mapAllLastProperty = F2(
-	function (update, styles) {
-		var _p5 = styles;
-		if (_p5.ctor === '[]') {
-			return styles;
-		} else {
-			if (_p5._1.ctor === '[]') {
+var _elm_lang$core$Time$init = _elm_lang$core$Task$succeed(
+	A2(_elm_lang$core$Time$State, _elm_lang$core$Dict$empty, _elm_lang$core$Dict$empty));
+var _elm_lang$core$Time$onEffects = F3(
+	function (router, subs, _p9) {
+		var _p10 = _p9;
+		var rightStep = F3(
+			function (_p12, id, _p11) {
+				var _p13 = _p11;
 				return {
-					ctor: '::',
-					_0: A2(_rtfeldman$elm_css$Css_Preprocess$mapLastProperty, update, _p5._0),
-					_1: {ctor: '[]'}
+					ctor: '_Tuple3',
+					_0: _p13._0,
+					_1: _p13._1,
+					_2: A2(
+						_elm_lang$core$Task$andThen,
+						function (_p14) {
+							return _p13._2;
+						},
+						_elm_lang$core$Native_Scheduler.kill(id))
 				};
+			});
+		var bothStep = F4(
+			function (interval, taggers, id, _p15) {
+				var _p16 = _p15;
+				return {
+					ctor: '_Tuple3',
+					_0: _p16._0,
+					_1: A3(_elm_lang$core$Dict$insert, interval, id, _p16._1),
+					_2: _p16._2
+				};
+			});
+		var leftStep = F3(
+			function (interval, taggers, _p17) {
+				var _p18 = _p17;
+				return {
+					ctor: '_Tuple3',
+					_0: {ctor: '::', _0: interval, _1: _p18._0},
+					_1: _p18._1,
+					_2: _p18._2
+				};
+			});
+		var newTaggers = A3(_elm_lang$core$List$foldl, _elm_lang$core$Time$addMySub, _elm_lang$core$Dict$empty, subs);
+		var _p19 = A6(
+			_elm_lang$core$Dict$merge,
+			leftStep,
+			bothStep,
+			rightStep,
+			newTaggers,
+			_p10.processes,
+			{
+				ctor: '_Tuple3',
+				_0: {ctor: '[]'},
+				_1: _elm_lang$core$Dict$empty,
+				_2: _elm_lang$core$Task$succeed(
+					{ctor: '_Tuple0'})
+			});
+		var spawnList = _p19._0;
+		var existingDict = _p19._1;
+		var killTask = _p19._2;
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (newProcesses) {
+				return _elm_lang$core$Task$succeed(
+					A2(_elm_lang$core$Time$State, newTaggers, newProcesses));
+			},
+			A2(
+				_elm_lang$core$Task$andThen,
+				function (_p20) {
+					return A3(_elm_lang$core$Time$spawnHelp, router, spawnList, existingDict);
+				},
+				killTask));
+	});
+var _elm_lang$core$Time$Every = F2(
+	function (a, b) {
+		return {ctor: 'Every', _0: a, _1: b};
+	});
+var _elm_lang$core$Time$every = F2(
+	function (interval, tagger) {
+		return _elm_lang$core$Time$subscription(
+			A2(_elm_lang$core$Time$Every, interval, tagger));
+	});
+var _elm_lang$core$Time$subMap = F2(
+	function (f, _p21) {
+		var _p22 = _p21;
+		return A2(
+			_elm_lang$core$Time$Every,
+			_p22._0,
+			function (_p23) {
+				return f(
+					_p22._1(_p23));
+			});
+	});
+_elm_lang$core$Native_Platform.effectManagers['Time'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Time$init, onEffects: _elm_lang$core$Time$onEffects, onSelfMsg: _elm_lang$core$Time$onSelfMsg, tag: 'sub', subMap: _elm_lang$core$Time$subMap};
+
+var _elm_lang$core$Process$kill = _elm_lang$core$Native_Scheduler.kill;
+var _elm_lang$core$Process$sleep = _elm_lang$core$Native_Scheduler.sleep;
+var _elm_lang$core$Process$spawn = _elm_lang$core$Native_Scheduler.spawn;
+
+var _elm_lang$animation_frame$AnimationFrame$rAF = _elm_lang$animation_frame$Native_AnimationFrame.create(
+	{ctor: '_Tuple0'});
+var _elm_lang$animation_frame$AnimationFrame$subscription = _elm_lang$core$Native_Platform.leaf('AnimationFrame');
+var _elm_lang$animation_frame$AnimationFrame$State = F3(
+	function (a, b, c) {
+		return {subs: a, request: b, oldTime: c};
+	});
+var _elm_lang$animation_frame$AnimationFrame$init = _elm_lang$core$Task$succeed(
+	A3(
+		_elm_lang$animation_frame$AnimationFrame$State,
+		{ctor: '[]'},
+		_elm_lang$core$Maybe$Nothing,
+		0));
+var _elm_lang$animation_frame$AnimationFrame$onEffects = F3(
+	function (router, subs, _p0) {
+		var _p1 = _p0;
+		var _p5 = _p1.request;
+		var _p4 = _p1.oldTime;
+		var _p2 = {ctor: '_Tuple2', _0: _p5, _1: subs};
+		if (_p2._0.ctor === 'Nothing') {
+			if (_p2._1.ctor === '[]') {
+				return _elm_lang$core$Task$succeed(
+					A3(
+						_elm_lang$animation_frame$AnimationFrame$State,
+						{ctor: '[]'},
+						_elm_lang$core$Maybe$Nothing,
+						_p4));
 			} else {
-				return {
-					ctor: '::',
-					_0: _p5._0,
-					_1: A2(_rtfeldman$elm_css$Css_Preprocess$mapAllLastProperty, update, _p5._1)
-				};
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (pid) {
+						return A2(
+							_elm_lang$core$Task$andThen,
+							function (time) {
+								return _elm_lang$core$Task$succeed(
+									A3(
+										_elm_lang$animation_frame$AnimationFrame$State,
+										subs,
+										_elm_lang$core$Maybe$Just(pid),
+										time));
+							},
+							_elm_lang$core$Time$now);
+					},
+					_elm_lang$core$Process$spawn(
+						A2(
+							_elm_lang$core$Task$andThen,
+							_elm_lang$core$Platform$sendToSelf(router),
+							_elm_lang$animation_frame$AnimationFrame$rAF)));
+			}
+		} else {
+			if (_p2._1.ctor === '[]') {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (_p3) {
+						return _elm_lang$core$Task$succeed(
+							A3(
+								_elm_lang$animation_frame$AnimationFrame$State,
+								{ctor: '[]'},
+								_elm_lang$core$Maybe$Nothing,
+								_p4));
+					},
+					_elm_lang$core$Process$kill(_p2._0._0));
+			} else {
+				return _elm_lang$core$Task$succeed(
+					A3(_elm_lang$animation_frame$AnimationFrame$State, subs, _p5, _p4));
 			}
 		}
 	});
-var _rtfeldman$elm_css$Css_Preprocess$Snippet = function (a) {
-	return {ctor: 'Snippet', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$FontFeatureValues = function (a) {
-	return {ctor: 'FontFeatureValues', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$CounterStyle = function (a) {
-	return {ctor: 'CounterStyle', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$Viewport = function (a) {
-	return {ctor: 'Viewport', _0: a};
-};
-var _rtfeldman$elm_css$Css_Preprocess$Keyframes = F2(
-	function (a, b) {
-		return {ctor: 'Keyframes', _0: a, _1: b};
+var _elm_lang$animation_frame$AnimationFrame$onSelfMsg = F3(
+	function (router, newTime, _p6) {
+		var _p7 = _p6;
+		var _p10 = _p7.subs;
+		var diff = newTime - _p7.oldTime;
+		var send = function (sub) {
+			var _p8 = sub;
+			if (_p8.ctor === 'Time') {
+				return A2(
+					_elm_lang$core$Platform$sendToApp,
+					router,
+					_p8._0(newTime));
+			} else {
+				return A2(
+					_elm_lang$core$Platform$sendToApp,
+					router,
+					_p8._0(diff));
+			}
+		};
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (pid) {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (_p9) {
+						return _elm_lang$core$Task$succeed(
+							A3(
+								_elm_lang$animation_frame$AnimationFrame$State,
+								_p10,
+								_elm_lang$core$Maybe$Just(pid),
+								newTime));
+					},
+					_elm_lang$core$Task$sequence(
+						A2(_elm_lang$core$List$map, send, _p10)));
+			},
+			_elm_lang$core$Process$spawn(
+				A2(
+					_elm_lang$core$Task$andThen,
+					_elm_lang$core$Platform$sendToSelf(router),
+					_elm_lang$animation_frame$AnimationFrame$rAF)));
 	});
-var _rtfeldman$elm_css$Css_Preprocess$FontFace = function (a) {
-	return {ctor: 'FontFace', _0: a};
+var _elm_lang$animation_frame$AnimationFrame$Diff = function (a) {
+	return {ctor: 'Diff', _0: a};
 };
-var _rtfeldman$elm_css$Css_Preprocess$PageRule = F2(
-	function (a, b) {
-		return {ctor: 'PageRule', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$DocumentRule = F5(
-	function (a, b, c, d, e) {
-		return {ctor: 'DocumentRule', _0: a, _1: b, _2: c, _3: d, _4: e};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$SupportsRule = F2(
-	function (a, b) {
-		return {ctor: 'SupportsRule', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$MediaRule = F2(
-	function (a, b) {
-		return {ctor: 'MediaRule', _0: a, _1: b};
-	});
-var _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration = function (a) {
-	return {ctor: 'StyleBlockDeclaration', _0: a};
+var _elm_lang$animation_frame$AnimationFrame$diffs = function (tagger) {
+	return _elm_lang$animation_frame$AnimationFrame$subscription(
+		_elm_lang$animation_frame$AnimationFrame$Diff(tagger));
 };
-var _rtfeldman$elm_css$Css_Preprocess$StyleBlock = F3(
-	function (a, b, c) {
-		return {ctor: 'StyleBlock', _0: a, _1: b, _2: c};
+var _elm_lang$animation_frame$AnimationFrame$Time = function (a) {
+	return {ctor: 'Time', _0: a};
+};
+var _elm_lang$animation_frame$AnimationFrame$times = function (tagger) {
+	return _elm_lang$animation_frame$AnimationFrame$subscription(
+		_elm_lang$animation_frame$AnimationFrame$Time(tagger));
+};
+var _elm_lang$animation_frame$AnimationFrame$subMap = F2(
+	function (func, sub) {
+		var _p11 = sub;
+		if (_p11.ctor === 'Time') {
+			return _elm_lang$animation_frame$AnimationFrame$Time(
+				function (_p12) {
+					return func(
+						_p11._0(_p12));
+				});
+		} else {
+			return _elm_lang$animation_frame$AnimationFrame$Diff(
+				function (_p13) {
+					return func(
+						_p11._0(_p13));
+				});
+		}
+	});
+_elm_lang$core$Native_Platform.effectManagers['AnimationFrame'] = {pkg: 'elm-lang/animation-frame', init: _elm_lang$animation_frame$AnimationFrame$init, onEffects: _elm_lang$animation_frame$AnimationFrame$onEffects, onSelfMsg: _elm_lang$animation_frame$AnimationFrame$onSelfMsg, tag: 'sub', subMap: _elm_lang$animation_frame$AnimationFrame$subMap};
+
+var _elm_lang$core$Set$foldr = F3(
+	function (f, b, _p0) {
+		var _p1 = _p0;
+		return A3(
+			_elm_lang$core$Dict$foldr,
+			F3(
+				function (k, _p2, b) {
+					return A2(f, k, b);
+				}),
+			b,
+			_p1._0);
+	});
+var _elm_lang$core$Set$foldl = F3(
+	function (f, b, _p3) {
+		var _p4 = _p3;
+		return A3(
+			_elm_lang$core$Dict$foldl,
+			F3(
+				function (k, _p5, b) {
+					return A2(f, k, b);
+				}),
+			b,
+			_p4._0);
+	});
+var _elm_lang$core$Set$toList = function (_p6) {
+	var _p7 = _p6;
+	return _elm_lang$core$Dict$keys(_p7._0);
+};
+var _elm_lang$core$Set$size = function (_p8) {
+	var _p9 = _p8;
+	return _elm_lang$core$Dict$size(_p9._0);
+};
+var _elm_lang$core$Set$member = F2(
+	function (k, _p10) {
+		var _p11 = _p10;
+		return A2(_elm_lang$core$Dict$member, k, _p11._0);
+	});
+var _elm_lang$core$Set$isEmpty = function (_p12) {
+	var _p13 = _p12;
+	return _elm_lang$core$Dict$isEmpty(_p13._0);
+};
+var _elm_lang$core$Set$Set_elm_builtin = function (a) {
+	return {ctor: 'Set_elm_builtin', _0: a};
+};
+var _elm_lang$core$Set$empty = _elm_lang$core$Set$Set_elm_builtin(_elm_lang$core$Dict$empty);
+var _elm_lang$core$Set$singleton = function (k) {
+	return _elm_lang$core$Set$Set_elm_builtin(
+		A2(
+			_elm_lang$core$Dict$singleton,
+			k,
+			{ctor: '_Tuple0'}));
+};
+var _elm_lang$core$Set$insert = F2(
+	function (k, _p14) {
+		var _p15 = _p14;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A3(
+				_elm_lang$core$Dict$insert,
+				k,
+				{ctor: '_Tuple0'},
+				_p15._0));
+	});
+var _elm_lang$core$Set$fromList = function (xs) {
+	return A3(_elm_lang$core$List$foldl, _elm_lang$core$Set$insert, _elm_lang$core$Set$empty, xs);
+};
+var _elm_lang$core$Set$map = F2(
+	function (f, s) {
+		return _elm_lang$core$Set$fromList(
+			A2(
+				_elm_lang$core$List$map,
+				f,
+				_elm_lang$core$Set$toList(s)));
+	});
+var _elm_lang$core$Set$remove = F2(
+	function (k, _p16) {
+		var _p17 = _p16;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A2(_elm_lang$core$Dict$remove, k, _p17._0));
+	});
+var _elm_lang$core$Set$union = F2(
+	function (_p19, _p18) {
+		var _p20 = _p19;
+		var _p21 = _p18;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A2(_elm_lang$core$Dict$union, _p20._0, _p21._0));
+	});
+var _elm_lang$core$Set$intersect = F2(
+	function (_p23, _p22) {
+		var _p24 = _p23;
+		var _p25 = _p22;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A2(_elm_lang$core$Dict$intersect, _p24._0, _p25._0));
+	});
+var _elm_lang$core$Set$diff = F2(
+	function (_p27, _p26) {
+		var _p28 = _p27;
+		var _p29 = _p26;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A2(_elm_lang$core$Dict$diff, _p28._0, _p29._0));
+	});
+var _elm_lang$core$Set$filter = F2(
+	function (p, _p30) {
+		var _p31 = _p30;
+		return _elm_lang$core$Set$Set_elm_builtin(
+			A2(
+				_elm_lang$core$Dict$filter,
+				F2(
+					function (k, _p32) {
+						return p(k);
+					}),
+				_p31._0));
+	});
+var _elm_lang$core$Set$partition = F2(
+	function (p, _p33) {
+		var _p34 = _p33;
+		var _p35 = A2(
+			_elm_lang$core$Dict$partition,
+			F2(
+				function (k, _p36) {
+					return p(k);
+				}),
+			_p34._0);
+		var p1 = _p35._0;
+		var p2 = _p35._1;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Set$Set_elm_builtin(p1),
+			_1: _elm_lang$core$Set$Set_elm_builtin(p2)
+		};
 	});
 
-var _rtfeldman$hex$Hex$toString = function (num) {
-	return _elm_lang$core$String$fromList(
-		(_elm_lang$core$Native_Utils.cmp(num, 0) < 0) ? {
-			ctor: '::',
-			_0: _elm_lang$core$Native_Utils.chr('-'),
-			_1: A2(
-				_rtfeldman$hex$Hex$unsafePositiveToDigits,
-				{ctor: '[]'},
-				_elm_lang$core$Basics$negate(num))
-		} : A2(
-			_rtfeldman$hex$Hex$unsafePositiveToDigits,
-			{ctor: '[]'},
-			num));
+var _elm_lang$dom$Native_Dom = function() {
+
+var fakeNode = {
+	addEventListener: function() {},
+	removeEventListener: function() {}
 };
-var _rtfeldman$hex$Hex$unsafePositiveToDigits = F2(
-	function (digits, num) {
-		unsafePositiveToDigits:
-		while (true) {
-			if (_elm_lang$core$Native_Utils.cmp(num, 16) < 0) {
-				return {
-					ctor: '::',
-					_0: _rtfeldman$hex$Hex$unsafeToDigit(num),
-					_1: digits
-				};
+
+var onDocument = on(typeof document !== 'undefined' ? document : fakeNode);
+var onWindow = on(typeof window !== 'undefined' ? window : fakeNode);
+
+function on(node)
+{
+	return function(eventName, decoder, toTask)
+	{
+		return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
+
+			function performTask(event)
+			{
+				var result = A2(_elm_lang$core$Json_Decode$decodeValue, decoder, event);
+				if (result.ctor === 'Ok')
+				{
+					_elm_lang$core$Native_Scheduler.rawSpawn(toTask(result._0));
+				}
+			}
+
+			node.addEventListener(eventName, performTask);
+
+			return function()
+			{
+				node.removeEventListener(eventName, performTask);
+			};
+		});
+	};
+}
+
+var rAF = typeof requestAnimationFrame !== 'undefined'
+	? requestAnimationFrame
+	: function(callback) { callback(); };
+
+function withNode(id, doStuff)
+{
+	return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	{
+		rAF(function()
+		{
+			var node = document.getElementById(id);
+			if (node === null)
+			{
+				callback(_elm_lang$core$Native_Scheduler.fail({ ctor: 'NotFound', _0: id }));
+				return;
+			}
+			callback(_elm_lang$core$Native_Scheduler.succeed(doStuff(node)));
+		});
+	});
+}
+
+
+// FOCUS
+
+function focus(id)
+{
+	return withNode(id, function(node) {
+		node.focus();
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+function blur(id)
+{
+	return withNode(id, function(node) {
+		node.blur();
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+
+// SCROLLING
+
+function getScrollTop(id)
+{
+	return withNode(id, function(node) {
+		return node.scrollTop;
+	});
+}
+
+function setScrollTop(id, desiredScrollTop)
+{
+	return withNode(id, function(node) {
+		node.scrollTop = desiredScrollTop;
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+function toBottom(id)
+{
+	return withNode(id, function(node) {
+		node.scrollTop = node.scrollHeight;
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+function getScrollLeft(id)
+{
+	return withNode(id, function(node) {
+		return node.scrollLeft;
+	});
+}
+
+function setScrollLeft(id, desiredScrollLeft)
+{
+	return withNode(id, function(node) {
+		node.scrollLeft = desiredScrollLeft;
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+function toRight(id)
+{
+	return withNode(id, function(node) {
+		node.scrollLeft = node.scrollWidth;
+		return _elm_lang$core$Native_Utils.Tuple0;
+	});
+}
+
+
+// SIZE
+
+function width(options, id)
+{
+	return withNode(id, function(node) {
+		switch (options.ctor)
+		{
+			case 'Content':
+				return node.scrollWidth;
+			case 'VisibleContent':
+				return node.clientWidth;
+			case 'VisibleContentWithBorders':
+				return node.offsetWidth;
+			case 'VisibleContentWithBordersAndMargins':
+				var rect = node.getBoundingClientRect();
+				return rect.right - rect.left;
+		}
+	});
+}
+
+function height(options, id)
+{
+	return withNode(id, function(node) {
+		switch (options.ctor)
+		{
+			case 'Content':
+				return node.scrollHeight;
+			case 'VisibleContent':
+				return node.clientHeight;
+			case 'VisibleContentWithBorders':
+				return node.offsetHeight;
+			case 'VisibleContentWithBordersAndMargins':
+				var rect = node.getBoundingClientRect();
+				return rect.bottom - rect.top;
+		}
+	});
+}
+
+return {
+	onDocument: F3(onDocument),
+	onWindow: F3(onWindow),
+
+	focus: focus,
+	blur: blur,
+
+	getScrollTop: getScrollTop,
+	setScrollTop: F2(setScrollTop),
+	getScrollLeft: getScrollLeft,
+	setScrollLeft: F2(setScrollLeft),
+	toBottom: toBottom,
+	toRight: toRight,
+
+	height: F2(height),
+	width: F2(width)
+};
+
+}();
+
+var _elm_lang$dom$Dom$blur = _elm_lang$dom$Native_Dom.blur;
+var _elm_lang$dom$Dom$focus = _elm_lang$dom$Native_Dom.focus;
+var _elm_lang$dom$Dom$NotFound = function (a) {
+	return {ctor: 'NotFound', _0: a};
+};
+
+var _elm_lang$dom$Dom_LowLevel$onWindow = _elm_lang$dom$Native_Dom.onWindow;
+var _elm_lang$dom$Dom_LowLevel$onDocument = _elm_lang$dom$Native_Dom.onDocument;
+
+var _elm_lang$dom$Dom_Size$width = _elm_lang$dom$Native_Dom.width;
+var _elm_lang$dom$Dom_Size$height = _elm_lang$dom$Native_Dom.height;
+var _elm_lang$dom$Dom_Size$VisibleContentWithBordersAndMargins = {ctor: 'VisibleContentWithBordersAndMargins'};
+var _elm_lang$dom$Dom_Size$VisibleContentWithBorders = {ctor: 'VisibleContentWithBorders'};
+var _elm_lang$dom$Dom_Size$VisibleContent = {ctor: 'VisibleContent'};
+var _elm_lang$dom$Dom_Size$Content = {ctor: 'Content'};
+
+var _elm_lang$dom$Dom_Scroll$toX = _elm_lang$dom$Native_Dom.setScrollLeft;
+var _elm_lang$dom$Dom_Scroll$x = _elm_lang$dom$Native_Dom.getScrollLeft;
+var _elm_lang$dom$Dom_Scroll$toRight = _elm_lang$dom$Native_Dom.toRight;
+var _elm_lang$dom$Dom_Scroll$toLeft = function (id) {
+	return A2(_elm_lang$dom$Dom_Scroll$toX, id, 0);
+};
+var _elm_lang$dom$Dom_Scroll$toY = _elm_lang$dom$Native_Dom.setScrollTop;
+var _elm_lang$dom$Dom_Scroll$y = _elm_lang$dom$Native_Dom.getScrollTop;
+var _elm_lang$dom$Dom_Scroll$toBottom = _elm_lang$dom$Native_Dom.toBottom;
+var _elm_lang$dom$Dom_Scroll$toTop = function (id) {
+	return A2(_elm_lang$dom$Dom_Scroll$toY, id, 0);
+};
+
+var _elm_lang$html$Html_Attributes$map = _elm_lang$virtual_dom$VirtualDom$mapProperty;
+var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
+var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'contextmenu', value);
+};
+var _elm_lang$html$Html_Attributes$draggable = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'draggable', value);
+};
+var _elm_lang$html$Html_Attributes$itemprop = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'itemprop', value);
+};
+var _elm_lang$html$Html_Attributes$tabindex = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'tabIndex',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$charset = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'charset', value);
+};
+var _elm_lang$html$Html_Attributes$height = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'height',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_lang$html$Html_Attributes$width = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'width',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_lang$html$Html_Attributes$formaction = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'formAction', value);
+};
+var _elm_lang$html$Html_Attributes$list = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'list', value);
+};
+var _elm_lang$html$Html_Attributes$minlength = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'minLength',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$maxlength = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'maxlength',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$size = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'size',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$form = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'form', value);
+};
+var _elm_lang$html$Html_Attributes$cols = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'cols',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$rows = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'rows',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$challenge = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'challenge', value);
+};
+var _elm_lang$html$Html_Attributes$media = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'media', value);
+};
+var _elm_lang$html$Html_Attributes$rel = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'rel', value);
+};
+var _elm_lang$html$Html_Attributes$datetime = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'datetime', value);
+};
+var _elm_lang$html$Html_Attributes$pubdate = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'pubdate', value);
+};
+var _elm_lang$html$Html_Attributes$colspan = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'colspan',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$rowspan = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'rowspan',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$manifest = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'manifest', value);
+};
+var _elm_lang$html$Html_Attributes$property = _elm_lang$virtual_dom$VirtualDom$property;
+var _elm_lang$html$Html_Attributes$stringProperty = F2(
+	function (name, string) {
+		return A2(
+			_elm_lang$html$Html_Attributes$property,
+			name,
+			_elm_lang$core$Json_Encode$string(string));
+	});
+var _elm_lang$html$Html_Attributes$class = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'className', name);
+};
+var _elm_lang$html$Html_Attributes$id = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'id', name);
+};
+var _elm_lang$html$Html_Attributes$title = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'title', name);
+};
+var _elm_lang$html$Html_Attributes$accesskey = function ($char) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'accessKey',
+		_elm_lang$core$String$fromChar($char));
+};
+var _elm_lang$html$Html_Attributes$dir = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'dir', value);
+};
+var _elm_lang$html$Html_Attributes$dropzone = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'dropzone', value);
+};
+var _elm_lang$html$Html_Attributes$lang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'lang', value);
+};
+var _elm_lang$html$Html_Attributes$content = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'content', value);
+};
+var _elm_lang$html$Html_Attributes$httpEquiv = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'httpEquiv', value);
+};
+var _elm_lang$html$Html_Attributes$language = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'language', value);
+};
+var _elm_lang$html$Html_Attributes$src = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'src', value);
+};
+var _elm_lang$html$Html_Attributes$alt = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'alt', value);
+};
+var _elm_lang$html$Html_Attributes$preload = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'preload', value);
+};
+var _elm_lang$html$Html_Attributes$poster = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'poster', value);
+};
+var _elm_lang$html$Html_Attributes$kind = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'kind', value);
+};
+var _elm_lang$html$Html_Attributes$srclang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'srclang', value);
+};
+var _elm_lang$html$Html_Attributes$sandbox = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'sandbox', value);
+};
+var _elm_lang$html$Html_Attributes$srcdoc = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'srcdoc', value);
+};
+var _elm_lang$html$Html_Attributes$type_ = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'type', value);
+};
+var _elm_lang$html$Html_Attributes$value = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'value', value);
+};
+var _elm_lang$html$Html_Attributes$defaultValue = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'defaultValue', value);
+};
+var _elm_lang$html$Html_Attributes$placeholder = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'placeholder', value);
+};
+var _elm_lang$html$Html_Attributes$accept = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'accept', value);
+};
+var _elm_lang$html$Html_Attributes$acceptCharset = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'acceptCharset', value);
+};
+var _elm_lang$html$Html_Attributes$action = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'action', value);
+};
+var _elm_lang$html$Html_Attributes$autocomplete = function (bool) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'autocomplete',
+		bool ? 'on' : 'off');
+};
+var _elm_lang$html$Html_Attributes$enctype = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'enctype', value);
+};
+var _elm_lang$html$Html_Attributes$method = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'method', value);
+};
+var _elm_lang$html$Html_Attributes$name = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'name', value);
+};
+var _elm_lang$html$Html_Attributes$pattern = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'pattern', value);
+};
+var _elm_lang$html$Html_Attributes$for = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'htmlFor', value);
+};
+var _elm_lang$html$Html_Attributes$max = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'max', value);
+};
+var _elm_lang$html$Html_Attributes$min = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'min', value);
+};
+var _elm_lang$html$Html_Attributes$step = function (n) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'step', n);
+};
+var _elm_lang$html$Html_Attributes$wrap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'wrap', value);
+};
+var _elm_lang$html$Html_Attributes$usemap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'useMap', value);
+};
+var _elm_lang$html$Html_Attributes$shape = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'shape', value);
+};
+var _elm_lang$html$Html_Attributes$coords = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'coords', value);
+};
+var _elm_lang$html$Html_Attributes$keytype = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'keytype', value);
+};
+var _elm_lang$html$Html_Attributes$align = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'align', value);
+};
+var _elm_lang$html$Html_Attributes$cite = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'cite', value);
+};
+var _elm_lang$html$Html_Attributes$href = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'href', value);
+};
+var _elm_lang$html$Html_Attributes$target = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'target', value);
+};
+var _elm_lang$html$Html_Attributes$downloadAs = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'download', value);
+};
+var _elm_lang$html$Html_Attributes$hreflang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'hreflang', value);
+};
+var _elm_lang$html$Html_Attributes$ping = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'ping', value);
+};
+var _elm_lang$html$Html_Attributes$start = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'start',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$headers = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'headers', value);
+};
+var _elm_lang$html$Html_Attributes$scope = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'scope', value);
+};
+var _elm_lang$html$Html_Attributes$boolProperty = F2(
+	function (name, bool) {
+		return A2(
+			_elm_lang$html$Html_Attributes$property,
+			name,
+			_elm_lang$core$Json_Encode$bool(bool));
+	});
+var _elm_lang$html$Html_Attributes$hidden = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'hidden', bool);
+};
+var _elm_lang$html$Html_Attributes$contenteditable = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'contentEditable', bool);
+};
+var _elm_lang$html$Html_Attributes$spellcheck = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'spellcheck', bool);
+};
+var _elm_lang$html$Html_Attributes$async = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'async', bool);
+};
+var _elm_lang$html$Html_Attributes$defer = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'defer', bool);
+};
+var _elm_lang$html$Html_Attributes$scoped = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'scoped', bool);
+};
+var _elm_lang$html$Html_Attributes$autoplay = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'autoplay', bool);
+};
+var _elm_lang$html$Html_Attributes$controls = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'controls', bool);
+};
+var _elm_lang$html$Html_Attributes$loop = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'loop', bool);
+};
+var _elm_lang$html$Html_Attributes$default = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'default', bool);
+};
+var _elm_lang$html$Html_Attributes$seamless = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'seamless', bool);
+};
+var _elm_lang$html$Html_Attributes$checked = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'checked', bool);
+};
+var _elm_lang$html$Html_Attributes$selected = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'selected', bool);
+};
+var _elm_lang$html$Html_Attributes$autofocus = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'autofocus', bool);
+};
+var _elm_lang$html$Html_Attributes$disabled = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'disabled', bool);
+};
+var _elm_lang$html$Html_Attributes$multiple = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'multiple', bool);
+};
+var _elm_lang$html$Html_Attributes$novalidate = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'noValidate', bool);
+};
+var _elm_lang$html$Html_Attributes$readonly = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'readOnly', bool);
+};
+var _elm_lang$html$Html_Attributes$required = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'required', bool);
+};
+var _elm_lang$html$Html_Attributes$ismap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'isMap', value);
+};
+var _elm_lang$html$Html_Attributes$download = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'download', bool);
+};
+var _elm_lang$html$Html_Attributes$reversed = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'reversed', bool);
+};
+var _elm_lang$html$Html_Attributes$classList = function (list) {
+	return _elm_lang$html$Html_Attributes$class(
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(
+				_elm_lang$core$List$map,
+				_elm_lang$core$Tuple$first,
+				A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list))));
+};
+var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
+
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
+var _elm_lang$html$Html_Keyed$node = _elm_lang$virtual_dom$VirtualDom$keyedNode;
+var _elm_lang$html$Html_Keyed$ol = _elm_lang$html$Html_Keyed$node('ol');
+var _elm_lang$html$Html_Keyed$ul = _elm_lang$html$Html_Keyed$node('ul');
+
+var _elm_lang$window$Native_Window = function()
+{
+
+var size = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)	{
+	callback(_elm_lang$core$Native_Scheduler.succeed({
+		width: window.innerWidth,
+		height: window.innerHeight
+	}));
+});
+
+return {
+	size: size
+};
+
+}();
+var _elm_lang$window$Window_ops = _elm_lang$window$Window_ops || {};
+_elm_lang$window$Window_ops['&>'] = F2(
+	function (task1, task2) {
+		return A2(
+			_elm_lang$core$Task$andThen,
+			function (_p0) {
+				return task2;
+			},
+			task1);
+	});
+var _elm_lang$window$Window$onSelfMsg = F3(
+	function (router, dimensions, state) {
+		var _p1 = state;
+		if (_p1.ctor === 'Nothing') {
+			return _elm_lang$core$Task$succeed(state);
+		} else {
+			var send = function (_p2) {
+				var _p3 = _p2;
+				return A2(
+					_elm_lang$core$Platform$sendToApp,
+					router,
+					_p3._0(dimensions));
+			};
+			return A2(
+				_elm_lang$window$Window_ops['&>'],
+				_elm_lang$core$Task$sequence(
+					A2(_elm_lang$core$List$map, send, _p1._0.subs)),
+				_elm_lang$core$Task$succeed(state));
+		}
+	});
+var _elm_lang$window$Window$init = _elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing);
+var _elm_lang$window$Window$size = _elm_lang$window$Native_Window.size;
+var _elm_lang$window$Window$width = A2(
+	_elm_lang$core$Task$map,
+	function (_) {
+		return _.width;
+	},
+	_elm_lang$window$Window$size);
+var _elm_lang$window$Window$height = A2(
+	_elm_lang$core$Task$map,
+	function (_) {
+		return _.height;
+	},
+	_elm_lang$window$Window$size);
+var _elm_lang$window$Window$onEffects = F3(
+	function (router, newSubs, oldState) {
+		var _p4 = {ctor: '_Tuple2', _0: oldState, _1: newSubs};
+		if (_p4._0.ctor === 'Nothing') {
+			if (_p4._1.ctor === '[]') {
+				return _elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing);
 			} else {
-				var _v0 = {
-					ctor: '::',
-					_0: _rtfeldman$hex$Hex$unsafeToDigit(
-						A2(_elm_lang$core$Basics_ops['%'], num, 16)),
-					_1: digits
-				},
-					_v1 = (num / 16) | 0;
-				digits = _v0;
-				num = _v1;
-				continue unsafePositiveToDigits;
+				return A2(
+					_elm_lang$core$Task$andThen,
+					function (pid) {
+						return _elm_lang$core$Task$succeed(
+							_elm_lang$core$Maybe$Just(
+								{subs: newSubs, pid: pid}));
+					},
+					_elm_lang$core$Process$spawn(
+						A3(
+							_elm_lang$dom$Dom_LowLevel$onWindow,
+							'resize',
+							_elm_lang$core$Json_Decode$succeed(
+								{ctor: '_Tuple0'}),
+							function (_p5) {
+								return A2(
+									_elm_lang$core$Task$andThen,
+									_elm_lang$core$Platform$sendToSelf(router),
+									_elm_lang$window$Window$size);
+							})));
+			}
+		} else {
+			if (_p4._1.ctor === '[]') {
+				return A2(
+					_elm_lang$window$Window_ops['&>'],
+					_elm_lang$core$Process$kill(_p4._0._0.pid),
+					_elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing));
+			} else {
+				return _elm_lang$core$Task$succeed(
+					_elm_lang$core$Maybe$Just(
+						{subs: newSubs, pid: _p4._0._0.pid}));
 			}
 		}
 	});
-var _rtfeldman$hex$Hex$unsafeToDigit = function (num) {
-	var _p0 = num;
-	switch (_p0) {
-		case 0:
-			return _elm_lang$core$Native_Utils.chr('0');
-		case 1:
-			return _elm_lang$core$Native_Utils.chr('1');
-		case 2:
-			return _elm_lang$core$Native_Utils.chr('2');
-		case 3:
-			return _elm_lang$core$Native_Utils.chr('3');
-		case 4:
-			return _elm_lang$core$Native_Utils.chr('4');
-		case 5:
-			return _elm_lang$core$Native_Utils.chr('5');
-		case 6:
-			return _elm_lang$core$Native_Utils.chr('6');
-		case 7:
-			return _elm_lang$core$Native_Utils.chr('7');
-		case 8:
-			return _elm_lang$core$Native_Utils.chr('8');
-		case 9:
-			return _elm_lang$core$Native_Utils.chr('9');
-		case 10:
-			return _elm_lang$core$Native_Utils.chr('a');
-		case 11:
-			return _elm_lang$core$Native_Utils.chr('b');
-		case 12:
-			return _elm_lang$core$Native_Utils.chr('c');
-		case 13:
-			return _elm_lang$core$Native_Utils.chr('d');
-		case 14:
-			return _elm_lang$core$Native_Utils.chr('e');
-		case 15:
-			return _elm_lang$core$Native_Utils.chr('f');
+var _elm_lang$window$Window$subscription = _elm_lang$core$Native_Platform.leaf('Window');
+var _elm_lang$window$Window$Size = F2(
+	function (a, b) {
+		return {width: a, height: b};
+	});
+var _elm_lang$window$Window$MySub = function (a) {
+	return {ctor: 'MySub', _0: a};
+};
+var _elm_lang$window$Window$resizes = function (tagger) {
+	return _elm_lang$window$Window$subscription(
+		_elm_lang$window$Window$MySub(tagger));
+};
+var _elm_lang$window$Window$subMap = F2(
+	function (func, _p6) {
+		var _p7 = _p6;
+		return _elm_lang$window$Window$MySub(
+			function (_p8) {
+				return func(
+					_p7._0(_p8));
+			});
+	});
+_elm_lang$core$Native_Platform.effectManagers['Window'] = {pkg: 'elm-lang/window', init: _elm_lang$window$Window$init, onEffects: _elm_lang$window$Window$onEffects, onSelfMsg: _elm_lang$window$Window$onSelfMsg, tag: 'sub', subMap: _elm_lang$window$Window$subMap};
+
+var _evancz$elm_markdown$Native_Markdown = function() {
+
+
+// VIRTUAL-DOM WIDGETS
+
+function toHtml(options, factList, rawMarkdown)
+{
+	var model = {
+		options: options,
+		markdown: rawMarkdown
+	};
+	return _elm_lang$virtual_dom$Native_VirtualDom.custom(factList, model, implementation);
+}
+
+
+// WIDGET IMPLEMENTATION
+
+var implementation = {
+	render: render,
+	diff: diff
+};
+
+function render(model)
+{
+	var html = marked(model.markdown, formatOptions(model.options));
+	var div = document.createElement('div');
+	div.innerHTML = html;
+	return div;
+}
+
+function diff(a, b)
+{
+	
+	if (a.model.markdown === b.model.markdown && a.model.options === b.model.options)
+	{
+		return null;
+	}
+
+	return {
+		applyPatch: applyPatch,
+		data: marked(b.model.markdown, formatOptions(b.model.options))
+	};
+}
+
+function applyPatch(domNode, data)
+{
+	domNode.innerHTML = data;
+	return domNode;
+}
+
+
+// ACTUAL MARKDOWN PARSER
+
+var marked = function() {
+	// catch the `marked` object regardless of the outer environment.
+	// (ex. a CommonJS module compatible environment.)
+	// note that this depends on marked's implementation of environment detection.
+	var module = {};
+	var exports = module.exports = {};
+
+	/**
+	 * marked - a markdown parser
+	 * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+	 * https://github.com/chjj/marked
+	 * commit cd2f6f5b7091154c5526e79b5f3bfb4d15995a51
+	 */
+	(function(){var block={newline:/^\n+/,code:/^( {4}[^\n]+\n*)+/,fences:noop,hr:/^( *[-*_]){3,} *(?:\n+|$)/,heading:/^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,nptable:noop,lheading:/^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,blockquote:/^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,list:/^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,html:/^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,def:/^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,table:noop,paragraph:/^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,text:/^[^\n]+/};block.bullet=/(?:[*+-]|\d+\.)/;block.item=/^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;block.item=replace(block.item,"gm")(/bull/g,block.bullet)();block.list=replace(block.list)(/bull/g,block.bullet)("hr","\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))")("def","\\n+(?="+block.def.source+")")();block.blockquote=replace(block.blockquote)("def",block.def)();block._tag="(?!(?:"+"a|em|strong|small|s|cite|q|dfn|abbr|data|time|code"+"|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo"+"|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b";block.html=replace(block.html)("comment",/<!--[\s\S]*?-->/)("closed",/<(tag)[\s\S]+?<\/\1>/)("closing",/<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)(/tag/g,block._tag)();block.paragraph=replace(block.paragraph)("hr",block.hr)("heading",block.heading)("lheading",block.lheading)("blockquote",block.blockquote)("tag","<"+block._tag)("def",block.def)();block.normal=merge({},block);block.gfm=merge({},block.normal,{fences:/^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,paragraph:/^/,heading:/^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/});block.gfm.paragraph=replace(block.paragraph)("(?!","(?!"+block.gfm.fences.source.replace("\\1","\\2")+"|"+block.list.source.replace("\\1","\\3")+"|")();block.tables=merge({},block.gfm,{nptable:/^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,table:/^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/});function Lexer(options){this.tokens=[];this.tokens.links={};this.options=options||marked.defaults;this.rules=block.normal;if(this.options.gfm){if(this.options.tables){this.rules=block.tables}else{this.rules=block.gfm}}}Lexer.rules=block;Lexer.lex=function(src,options){var lexer=new Lexer(options);return lexer.lex(src)};Lexer.prototype.lex=function(src){src=src.replace(/\r\n|\r/g,"\n").replace(/\t/g,"    ").replace(/\u00a0/g," ").replace(/\u2424/g,"\n");return this.token(src,true)};Lexer.prototype.token=function(src,top,bq){var src=src.replace(/^ +$/gm,""),next,loose,cap,bull,b,item,space,i,l;while(src){if(cap=this.rules.newline.exec(src)){src=src.substring(cap[0].length);if(cap[0].length>1){this.tokens.push({type:"space"})}}if(cap=this.rules.code.exec(src)){src=src.substring(cap[0].length);cap=cap[0].replace(/^ {4}/gm,"");this.tokens.push({type:"code",text:!this.options.pedantic?cap.replace(/\n+$/,""):cap});continue}if(cap=this.rules.fences.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"code",lang:cap[2],text:cap[3]||""});continue}if(cap=this.rules.heading.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"heading",depth:cap[1].length,text:cap[2]});continue}if(top&&(cap=this.rules.nptable.exec(src))){src=src.substring(cap[0].length);item={type:"table",header:cap[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:cap[2].replace(/^ *|\| *$/g,"").split(/ *\| */),cells:cap[3].replace(/\n$/,"").split("\n")};for(i=0;i<item.align.length;i++){if(/^ *-+: *$/.test(item.align[i])){item.align[i]="right"}else if(/^ *:-+: *$/.test(item.align[i])){item.align[i]="center"}else if(/^ *:-+ *$/.test(item.align[i])){item.align[i]="left"}else{item.align[i]=null}}for(i=0;i<item.cells.length;i++){item.cells[i]=item.cells[i].split(/ *\| */)}this.tokens.push(item);continue}if(cap=this.rules.lheading.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"heading",depth:cap[2]==="="?1:2,text:cap[1]});continue}if(cap=this.rules.hr.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"hr"});continue}if(cap=this.rules.blockquote.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"blockquote_start"});cap=cap[0].replace(/^ *> ?/gm,"");this.token(cap,top,true);this.tokens.push({type:"blockquote_end"});continue}if(cap=this.rules.list.exec(src)){src=src.substring(cap[0].length);bull=cap[2];this.tokens.push({type:"list_start",ordered:bull.length>1});cap=cap[0].match(this.rules.item);next=false;l=cap.length;i=0;for(;i<l;i++){item=cap[i];space=item.length;item=item.replace(/^ *([*+-]|\d+\.) +/,"");if(~item.indexOf("\n ")){space-=item.length;item=!this.options.pedantic?item.replace(new RegExp("^ {1,"+space+"}","gm"),""):item.replace(/^ {1,4}/gm,"")}if(this.options.smartLists&&i!==l-1){b=block.bullet.exec(cap[i+1])[0];if(bull!==b&&!(bull.length>1&&b.length>1)){src=cap.slice(i+1).join("\n")+src;i=l-1}}loose=next||/\n\n(?!\s*$)/.test(item);if(i!==l-1){next=item.charAt(item.length-1)==="\n";if(!loose)loose=next}this.tokens.push({type:loose?"loose_item_start":"list_item_start"});this.token(item,false,bq);this.tokens.push({type:"list_item_end"})}this.tokens.push({type:"list_end"});continue}if(cap=this.rules.html.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:this.options.sanitize?"paragraph":"html",pre:!this.options.sanitizer&&(cap[1]==="pre"||cap[1]==="script"||cap[1]==="style"),text:cap[0]});continue}if(!bq&&top&&(cap=this.rules.def.exec(src))){src=src.substring(cap[0].length);this.tokens.links[cap[1].toLowerCase()]={href:cap[2],title:cap[3]};continue}if(top&&(cap=this.rules.table.exec(src))){src=src.substring(cap[0].length);item={type:"table",header:cap[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:cap[2].replace(/^ *|\| *$/g,"").split(/ *\| */),cells:cap[3].replace(/(?: *\| *)?\n$/,"").split("\n")};for(i=0;i<item.align.length;i++){if(/^ *-+: *$/.test(item.align[i])){item.align[i]="right"}else if(/^ *:-+: *$/.test(item.align[i])){item.align[i]="center"}else if(/^ *:-+ *$/.test(item.align[i])){item.align[i]="left"}else{item.align[i]=null}}for(i=0;i<item.cells.length;i++){item.cells[i]=item.cells[i].replace(/^ *\| *| *\| *$/g,"").split(/ *\| */)}this.tokens.push(item);continue}if(top&&(cap=this.rules.paragraph.exec(src))){src=src.substring(cap[0].length);this.tokens.push({type:"paragraph",text:cap[1].charAt(cap[1].length-1)==="\n"?cap[1].slice(0,-1):cap[1]});continue}if(cap=this.rules.text.exec(src)){src=src.substring(cap[0].length);this.tokens.push({type:"text",text:cap[0]});continue}if(src){throw new Error("Infinite loop on byte: "+src.charCodeAt(0))}}return this.tokens};var inline={escape:/^\\([\\`*{}\[\]()#+\-.!_>])/,autolink:/^<([^ >]+(@|:\/)[^ >]+)>/,url:noop,tag:/^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,link:/^!?\[(inside)\]\(href\)/,reflink:/^!?\[(inside)\]\s*\[([^\]]*)\]/,nolink:/^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,strong:/^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,em:/^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,code:/^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,br:/^ {2,}\n(?!\s*$)/,del:noop,text:/^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/};inline._inside=/(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;inline._href=/\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;inline.link=replace(inline.link)("inside",inline._inside)("href",inline._href)();inline.reflink=replace(inline.reflink)("inside",inline._inside)();inline.normal=merge({},inline);inline.pedantic=merge({},inline.normal,{strong:/^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,em:/^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/});inline.gfm=merge({},inline.normal,{escape:replace(inline.escape)("])","~|])")(),url:/^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,del:/^~~(?=\S)([\s\S]*?\S)~~/,text:replace(inline.text)("]|","~]|")("|","|https?://|")()});inline.breaks=merge({},inline.gfm,{br:replace(inline.br)("{2,}","*")(),text:replace(inline.gfm.text)("{2,}","*")()});function InlineLexer(links,options){this.options=options||marked.defaults;this.links=links;this.rules=inline.normal;this.renderer=this.options.renderer||new Renderer;this.renderer.options=this.options;if(!this.links){throw new Error("Tokens array requires a `links` property.")}if(this.options.gfm){if(this.options.breaks){this.rules=inline.breaks}else{this.rules=inline.gfm}}else if(this.options.pedantic){this.rules=inline.pedantic}}InlineLexer.rules=inline;InlineLexer.output=function(src,links,options){var inline=new InlineLexer(links,options);return inline.output(src)};InlineLexer.prototype.output=function(src){var out="",link,text,href,cap;while(src){if(cap=this.rules.escape.exec(src)){src=src.substring(cap[0].length);out+=cap[1];continue}if(cap=this.rules.autolink.exec(src)){src=src.substring(cap[0].length);if(cap[2]==="@"){text=cap[1].charAt(6)===":"?this.mangle(cap[1].substring(7)):this.mangle(cap[1]);href=this.mangle("mailto:")+text}else{text=escape(cap[1]);href=text}out+=this.renderer.link(href,null,text);continue}if(!this.inLink&&(cap=this.rules.url.exec(src))){src=src.substring(cap[0].length);text=escape(cap[1]);href=text;out+=this.renderer.link(href,null,text);continue}if(cap=this.rules.tag.exec(src)){if(!this.inLink&&/^<a /i.test(cap[0])){this.inLink=true}else if(this.inLink&&/^<\/a>/i.test(cap[0])){this.inLink=false}src=src.substring(cap[0].length);out+=this.options.sanitize?this.options.sanitizer?this.options.sanitizer(cap[0]):escape(cap[0]):cap[0];continue}if(cap=this.rules.link.exec(src)){src=src.substring(cap[0].length);this.inLink=true;out+=this.outputLink(cap,{href:cap[2],title:cap[3]});this.inLink=false;continue}if((cap=this.rules.reflink.exec(src))||(cap=this.rules.nolink.exec(src))){src=src.substring(cap[0].length);link=(cap[2]||cap[1]).replace(/\s+/g," ");link=this.links[link.toLowerCase()];if(!link||!link.href){out+=cap[0].charAt(0);src=cap[0].substring(1)+src;continue}this.inLink=true;out+=this.outputLink(cap,link);this.inLink=false;continue}if(cap=this.rules.strong.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.strong(this.output(cap[2]||cap[1]));continue}if(cap=this.rules.em.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.em(this.output(cap[2]||cap[1]));continue}if(cap=this.rules.code.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.codespan(escape(cap[2],true));continue}if(cap=this.rules.br.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.br();continue}if(cap=this.rules.del.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.del(this.output(cap[1]));continue}if(cap=this.rules.text.exec(src)){src=src.substring(cap[0].length);out+=this.renderer.text(escape(this.smartypants(cap[0])));continue}if(src){throw new Error("Infinite loop on byte: "+src.charCodeAt(0))}}return out};InlineLexer.prototype.outputLink=function(cap,link){var href=escape(link.href),title=link.title?escape(link.title):null;return cap[0].charAt(0)!=="!"?this.renderer.link(href,title,this.output(cap[1])):this.renderer.image(href,title,escape(cap[1]))};InlineLexer.prototype.smartypants=function(text){if(!this.options.smartypants)return text;return text.replace(/---/g,"—").replace(/--/g,"–").replace(/(^|[-\u2014\/(\[{"\s])'/g,"$1‘").replace(/'/g,"’").replace(/(^|[-\u2014\/(\[{\u2018\s])"/g,"$1“").replace(/"/g,"”").replace(/\.{3}/g,"…")};InlineLexer.prototype.mangle=function(text){if(!this.options.mangle)return text;var out="",l=text.length,i=0,ch;for(;i<l;i++){ch=text.charCodeAt(i);if(Math.random()>.5){ch="x"+ch.toString(16)}out+="&#"+ch+";"}return out};function Renderer(options){this.options=options||{}}Renderer.prototype.code=function(code,lang,escaped){if(this.options.highlight){var out=this.options.highlight(code,lang);if(out!=null&&out!==code){escaped=true;code=out}}if(!lang){return"<pre><code>"+(escaped?code:escape(code,true))+"\n</code></pre>"}return'<pre><code class="'+this.options.langPrefix+escape(lang,true)+'">'+(escaped?code:escape(code,true))+"\n</code></pre>\n"};Renderer.prototype.blockquote=function(quote){return"<blockquote>\n"+quote+"</blockquote>\n"};Renderer.prototype.html=function(html){return html};Renderer.prototype.heading=function(text,level,raw){return"<h"+level+' id="'+this.options.headerPrefix+raw.toLowerCase().replace(/[^\w]+/g,"-")+'">'+text+"</h"+level+">\n"};Renderer.prototype.hr=function(){return this.options.xhtml?"<hr/>\n":"<hr>\n"};Renderer.prototype.list=function(body,ordered){var type=ordered?"ol":"ul";return"<"+type+">\n"+body+"</"+type+">\n"};Renderer.prototype.listitem=function(text){return"<li>"+text+"</li>\n"};Renderer.prototype.paragraph=function(text){return"<p>"+text+"</p>\n"};Renderer.prototype.table=function(header,body){return"<table>\n"+"<thead>\n"+header+"</thead>\n"+"<tbody>\n"+body+"</tbody>\n"+"</table>\n"};Renderer.prototype.tablerow=function(content){return"<tr>\n"+content+"</tr>\n"};Renderer.prototype.tablecell=function(content,flags){var type=flags.header?"th":"td";var tag=flags.align?"<"+type+' style="text-align:'+flags.align+'">':"<"+type+">";return tag+content+"</"+type+">\n"};Renderer.prototype.strong=function(text){return"<strong>"+text+"</strong>"};Renderer.prototype.em=function(text){return"<em>"+text+"</em>"};Renderer.prototype.codespan=function(text){return"<code>"+text+"</code>"};Renderer.prototype.br=function(){return this.options.xhtml?"<br/>":"<br>"};Renderer.prototype.del=function(text){return"<del>"+text+"</del>"};Renderer.prototype.link=function(href,title,text){if(this.options.sanitize){try{var prot=decodeURIComponent(unescape(href)).replace(/[^\w:]/g,"").toLowerCase()}catch(e){return""}if(prot.indexOf("javascript:")===0||prot.indexOf("vbscript:")===0||prot.indexOf("data:")===0){return""}}var out='<a href="'+href+'"';if(title){out+=' title="'+title+'"'}out+=">"+text+"</a>";return out};Renderer.prototype.image=function(href,title,text){var out='<img src="'+href+'" alt="'+text+'"';if(title){out+=' title="'+title+'"'}out+=this.options.xhtml?"/>":">";return out};Renderer.prototype.text=function(text){return text};function Parser(options){this.tokens=[];this.token=null;this.options=options||marked.defaults;this.options.renderer=this.options.renderer||new Renderer;this.renderer=this.options.renderer;this.renderer.options=this.options}Parser.parse=function(src,options,renderer){var parser=new Parser(options,renderer);return parser.parse(src)};Parser.prototype.parse=function(src){this.inline=new InlineLexer(src.links,this.options,this.renderer);this.tokens=src.reverse();var out="";while(this.next()){out+=this.tok()}return out};Parser.prototype.next=function(){return this.token=this.tokens.pop()};Parser.prototype.peek=function(){return this.tokens[this.tokens.length-1]||0};Parser.prototype.parseText=function(){var body=this.token.text;while(this.peek().type==="text"){body+="\n"+this.next().text}return this.inline.output(body)};Parser.prototype.tok=function(){switch(this.token.type){case"space":{return""}case"hr":{return this.renderer.hr()}case"heading":{return this.renderer.heading(this.inline.output(this.token.text),this.token.depth,this.token.text)}case"code":{return this.renderer.code(this.token.text,this.token.lang,this.token.escaped)}case"table":{var header="",body="",i,row,cell,flags,j;cell="";for(i=0;i<this.token.header.length;i++){flags={header:true,align:this.token.align[i]};cell+=this.renderer.tablecell(this.inline.output(this.token.header[i]),{header:true,align:this.token.align[i]})}header+=this.renderer.tablerow(cell);for(i=0;i<this.token.cells.length;i++){row=this.token.cells[i];cell="";for(j=0;j<row.length;j++){cell+=this.renderer.tablecell(this.inline.output(row[j]),{header:false,align:this.token.align[j]})}body+=this.renderer.tablerow(cell)}return this.renderer.table(header,body)}case"blockquote_start":{var body="";while(this.next().type!=="blockquote_end"){body+=this.tok()}return this.renderer.blockquote(body)}case"list_start":{var body="",ordered=this.token.ordered;while(this.next().type!=="list_end"){body+=this.tok()}return this.renderer.list(body,ordered)}case"list_item_start":{var body="";while(this.next().type!=="list_item_end"){body+=this.token.type==="text"?this.parseText():this.tok()}return this.renderer.listitem(body)}case"loose_item_start":{var body="";while(this.next().type!=="list_item_end"){body+=this.tok()}return this.renderer.listitem(body)}case"html":{var html=!this.token.pre&&!this.options.pedantic?this.inline.output(this.token.text):this.token.text;return this.renderer.html(html)}case"paragraph":{return this.renderer.paragraph(this.inline.output(this.token.text))}case"text":{return this.renderer.paragraph(this.parseText())}}};function escape(html,encode){return html.replace(!encode?/&(?!#?\w+;)/g:/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}function unescape(html){return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/g,function(_,n){n=n.toLowerCase();if(n==="colon")return":";if(n.charAt(0)==="#"){return n.charAt(1)==="x"?String.fromCharCode(parseInt(n.substring(2),16)):String.fromCharCode(+n.substring(1))}return""})}function replace(regex,opt){regex=regex.source;opt=opt||"";return function self(name,val){if(!name)return new RegExp(regex,opt);val=val.source||val;val=val.replace(/(^|[^\[])\^/g,"$1");regex=regex.replace(name,val);return self}}function noop(){}noop.exec=noop;function merge(obj){var i=1,target,key;for(;i<arguments.length;i++){target=arguments[i];for(key in target){if(Object.prototype.hasOwnProperty.call(target,key)){obj[key]=target[key]}}}return obj}function marked(src,opt,callback){if(callback||typeof opt==="function"){if(!callback){callback=opt;opt=null}opt=merge({},marked.defaults,opt||{});var highlight=opt.highlight,tokens,pending,i=0;try{tokens=Lexer.lex(src,opt)}catch(e){return callback(e)}pending=tokens.length;var done=function(err){if(err){opt.highlight=highlight;return callback(err)}var out;try{out=Parser.parse(tokens,opt)}catch(e){err=e}opt.highlight=highlight;return err?callback(err):callback(null,out)};if(!highlight||highlight.length<3){return done()}delete opt.highlight;if(!pending)return done();for(;i<tokens.length;i++){(function(token){if(token.type!=="code"){return--pending||done()}return highlight(token.text,token.lang,function(err,code){if(err)return done(err);if(code==null||code===token.text){return--pending||done()}token.text=code;token.escaped=true;--pending||done()})})(tokens[i])}return}try{if(opt)opt=merge({},marked.defaults,opt);return Parser.parse(Lexer.lex(src,opt),opt)}catch(e){e.message+="\nPlease report this to https://github.com/chjj/marked.";if((opt||marked.defaults).silent){return"<p>An error occured:</p><pre>"+escape(e.message+"",true)+"</pre>"}throw e}}marked.options=marked.setOptions=function(opt){merge(marked.defaults,opt);return marked};marked.defaults={gfm:true,tables:true,breaks:false,pedantic:false,sanitize:false,sanitizer:null,mangle:true,smartLists:false,silent:false,highlight:null,langPrefix:"lang-",smartypants:false,headerPrefix:"",renderer:new Renderer,xhtml:false};marked.Parser=Parser;marked.parser=Parser.parse;marked.Renderer=Renderer;marked.Lexer=Lexer;marked.lexer=Lexer.lex;marked.InlineLexer=InlineLexer;marked.inlineLexer=InlineLexer.output;marked.parse=marked;if(typeof module!=="undefined"&&typeof exports==="object"){module.exports=marked}else if(typeof define==="function"&&define.amd){define(function(){return marked})}else{this.marked=marked}}).call(function(){return this||(typeof window!=="undefined"?window:global)}());
+
+	return module.exports;
+}();
+
+
+// FORMAT OPTIONS FOR MARKED IMPLEMENTATION
+
+function formatOptions(options)
+{
+	function toHighlight(code, lang)
+	{
+		if (!lang && options.defaultHighlighting.ctor === 'Just')
+		{
+			lang = options.defaultHighlighting._0;
+		}
+
+		if (typeof hljs !== 'undefined' && lang && hljs.listLanguages().indexOf(lang) >= 0)
+		{
+			return hljs.highlight(lang, code, true).value;
+		}
+
+		return code;
+	}
+
+	var gfm = options.githubFlavored;
+	if (gfm.ctor === 'Just')
+	{
+		return {
+			highlight: toHighlight,
+			gfm: true,
+			tables: gfm._0.tables,
+			breaks: gfm._0.breaks,
+			sanitize: options.sanitize,
+			smartypants: options.smartypants
+		};
+	}
+
+	return {
+		highlight: toHighlight,
+		gfm: false,
+		tables: false,
+		breaks: false,
+		sanitize: options.sanitize,
+		smartypants: options.smartypants
+	};
+}
+
+
+// EXPORTS
+
+return {
+	toHtml: F3(toHtml)
+};
+
+}();
+
+var _evancz$elm_markdown$Markdown$toHtmlWith = _evancz$elm_markdown$Native_Markdown.toHtml;
+var _evancz$elm_markdown$Markdown$defaultOptions = {
+	githubFlavored: _elm_lang$core$Maybe$Just(
+		{tables: false, breaks: false}),
+	defaultHighlighting: _elm_lang$core$Maybe$Nothing,
+	sanitize: false,
+	smartypants: false
+};
+var _evancz$elm_markdown$Markdown$toHtml = F2(
+	function (attrs, string) {
+		return A3(_evancz$elm_markdown$Native_Markdown.toHtml, _evancz$elm_markdown$Markdown$defaultOptions, attrs, string);
+	});
+var _evancz$elm_markdown$Markdown$Options = F4(
+	function (a, b, c, d) {
+		return {githubFlavored: a, defaultHighlighting: b, sanitize: c, smartypants: d};
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Model$StyleSheet = F3(
+	function (a, b, c) {
+		return {style: a, variations: b, css: c};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Reset = function (a) {
+	return {ctor: 'Reset', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Import = function (a) {
+	return {ctor: 'Import', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$RawStyle = F2(
+	function (a, b) {
+		return {ctor: 'RawStyle', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Style = F2(
+	function (a, b) {
+		return {ctor: 'Style', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Transitions = function (a) {
+	return {ctor: 'Transitions', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$TextColor = function (a) {
+	return {ctor: 'TextColor', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$SelectionColor = function (a) {
+	return {ctor: 'SelectionColor', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Visibility = function (a) {
+	return {ctor: 'Visibility', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Filters = function (a) {
+	return {ctor: 'Filters', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Transform = function (a) {
+	return {ctor: 'Transform', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Shadows = function (a) {
+	return {ctor: 'Shadows', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Background = function (a) {
+	return {ctor: 'Background', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Layout = function (a) {
+	return {ctor: 'Layout', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$FontFamily = function (a) {
+	return {ctor: 'FontFamily', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Font = F2(
+	function (a, b) {
+		return {ctor: 'Font', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Position = function (a) {
+	return {ctor: 'Position', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$PseudoElement = F2(
+	function (a, b) {
+		return {ctor: 'PseudoElement', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$MediaQuery = F2(
+	function (a, b) {
+		return {ctor: 'MediaQuery', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Child = F2(
+	function (a, b) {
+		return {ctor: 'Child', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Variation = F2(
+	function (a, b) {
+		return {ctor: 'Variation', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Exact = F2(
+	function (a, b) {
+		return {ctor: 'Exact', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$mapPropClass = F2(
+	function (fn, prop) {
+		var _p0 = prop;
+		switch (_p0.ctor) {
+			case 'Child':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Child,
+					fn(_p0._0),
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Model$mapPropClass(fn),
+						_p0._1));
+			case 'Variation':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Variation,
+					_p0._0,
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Model$mapPropClass(fn),
+						_p0._1));
+			case 'Exact':
+				return A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, _p0._0, _p0._1);
+			case 'Position':
+				return _mdgriffith$style_elements$Style_Internal_Model$Position(_p0._0);
+			case 'Font':
+				return A2(_mdgriffith$style_elements$Style_Internal_Model$Font, _p0._0, _p0._1);
+			case 'Layout':
+				return _mdgriffith$style_elements$Style_Internal_Model$Layout(_p0._0);
+			case 'Background':
+				return _mdgriffith$style_elements$Style_Internal_Model$Background(_p0._0);
+			case 'MediaQuery':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$MediaQuery,
+					_p0._0,
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Model$mapPropClass(fn),
+						_p0._1));
+			case 'PseudoElement':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$PseudoElement,
+					_p0._0,
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Model$mapPropClass(fn),
+						_p0._1));
+			case 'Shadows':
+				return _mdgriffith$style_elements$Style_Internal_Model$Shadows(_p0._0);
+			case 'Transform':
+				return _mdgriffith$style_elements$Style_Internal_Model$Transform(_p0._0);
+			case 'Filters':
+				return _mdgriffith$style_elements$Style_Internal_Model$Filters(_p0._0);
+			case 'Visibility':
+				return _mdgriffith$style_elements$Style_Internal_Model$Visibility(_p0._0);
+			case 'TextColor':
+				return _mdgriffith$style_elements$Style_Internal_Model$TextColor(_p0._0);
+			case 'Transitions':
+				return _mdgriffith$style_elements$Style_Internal_Model$Transitions(_p0._0);
+			case 'SelectionColor':
+				return _mdgriffith$style_elements$Style_Internal_Model$SelectionColor(_p0._0);
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Model$FontFamily(_p0._0);
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$mapPropClassAndVar = F3(
+	function (fn, fnVar, prop) {
+		var _p1 = prop;
+		switch (_p1.ctor) {
+			case 'Child':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Child,
+					fn(_p1._0),
+					A2(
+						_elm_lang$core$List$map,
+						A2(_mdgriffith$style_elements$Style_Internal_Model$mapPropClassAndVar, fn, fnVar),
+						_p1._1));
+			case 'Variation':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Variation,
+					fnVar(_p1._0),
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Model$mapPropClass(fn),
+						_p1._1));
+			case 'Exact':
+				return A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, _p1._0, _p1._1);
+			case 'Position':
+				return _mdgriffith$style_elements$Style_Internal_Model$Position(_p1._0);
+			case 'Font':
+				return A2(_mdgriffith$style_elements$Style_Internal_Model$Font, _p1._0, _p1._1);
+			case 'Layout':
+				return _mdgriffith$style_elements$Style_Internal_Model$Layout(_p1._0);
+			case 'Background':
+				return _mdgriffith$style_elements$Style_Internal_Model$Background(_p1._0);
+			case 'MediaQuery':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$MediaQuery,
+					_p1._0,
+					A2(
+						_elm_lang$core$List$map,
+						A2(_mdgriffith$style_elements$Style_Internal_Model$mapPropClassAndVar, fn, fnVar),
+						_p1._1));
+			case 'PseudoElement':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$PseudoElement,
+					_p1._0,
+					A2(
+						_elm_lang$core$List$map,
+						A2(_mdgriffith$style_elements$Style_Internal_Model$mapPropClassAndVar, fn, fnVar),
+						_p1._1));
+			case 'Shadows':
+				return _mdgriffith$style_elements$Style_Internal_Model$Shadows(_p1._0);
+			case 'Transform':
+				return _mdgriffith$style_elements$Style_Internal_Model$Transform(_p1._0);
+			case 'Filters':
+				return _mdgriffith$style_elements$Style_Internal_Model$Filters(_p1._0);
+			case 'Visibility':
+				return _mdgriffith$style_elements$Style_Internal_Model$Visibility(_p1._0);
+			case 'TextColor':
+				return _mdgriffith$style_elements$Style_Internal_Model$TextColor(_p1._0);
+			case 'Transitions':
+				return _mdgriffith$style_elements$Style_Internal_Model$Transitions(_p1._0);
+			case 'SelectionColor':
+				return _mdgriffith$style_elements$Style_Internal_Model$SelectionColor(_p1._0);
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Model$FontFamily(_p1._0);
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$mapClassAndVar = F3(
+	function (fn, fnVariation, style) {
+		var _p2 = style;
+		switch (_p2.ctor) {
+			case 'Style':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Style,
+					fn(_p2._0),
+					A2(
+						_elm_lang$core$List$map,
+						A2(_mdgriffith$style_elements$Style_Internal_Model$mapPropClassAndVar, fn, fnVariation),
+						_p2._1));
+			case 'Import':
+				return _mdgriffith$style_elements$Style_Internal_Model$Import(_p2._0);
+			case 'RawStyle':
+				return A2(_mdgriffith$style_elements$Style_Internal_Model$RawStyle, _p2._0, _p2._1);
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Model$Reset(_p2._0);
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$ImportFont = F2(
+	function (a, b) {
+		return {ctor: 'ImportFont', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$FontName = function (a) {
+	return {ctor: 'FontName', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Monospace = {ctor: 'Monospace'};
+var _mdgriffith$style_elements$Style_Internal_Model$Fantasy = {ctor: 'Fantasy'};
+var _mdgriffith$style_elements$Style_Internal_Model$Cursive = {ctor: 'Cursive'};
+var _mdgriffith$style_elements$Style_Internal_Model$SansSerif = {ctor: 'SansSerif'};
+var _mdgriffith$style_elements$Style_Internal_Model$Serif = {ctor: 'Serif'};
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundSize = function (a) {
+	return {ctor: 'BackgroundSize', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundHeight = function (a) {
+	return {ctor: 'BackgroundHeight', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundWidth = function (a) {
+	return {ctor: 'BackgroundWidth', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Cover = {ctor: 'Cover'};
+var _mdgriffith$style_elements$Style_Internal_Model$Contain = {ctor: 'Contain'};
+var _mdgriffith$style_elements$Style_Internal_Model$Transition = function (a) {
+	return {ctor: 'Transition', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Opacity = function (a) {
+	return {ctor: 'Opacity', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Invisible = {ctor: 'Invisible'};
+var _mdgriffith$style_elements$Style_Internal_Model$Hidden = {ctor: 'Hidden'};
+var _mdgriffith$style_elements$Style_Internal_Model$Float = function (a) {
+	return {ctor: 'Float', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Inline = {ctor: 'Inline'};
+var _mdgriffith$style_elements$Style_Internal_Model$ZIndex = function (a) {
+	return {ctor: 'ZIndex', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$PosBottom = function (a) {
+	return {ctor: 'PosBottom', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$PosTop = function (a) {
+	return {ctor: 'PosTop', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$PosRight = function (a) {
+	return {ctor: 'PosRight', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$PosLeft = function (a) {
+	return {ctor: 'PosLeft', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$RelativeTo = function (a) {
+	return {ctor: 'RelativeTo', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Parent = {ctor: 'Parent'};
+var _mdgriffith$style_elements$Style_Internal_Model$Current = {ctor: 'Current'};
+var _mdgriffith$style_elements$Style_Internal_Model$Screen = {ctor: 'Screen'};
+var _mdgriffith$style_elements$Style_Internal_Model$FloatTopRight = {ctor: 'FloatTopRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$FloatTopLeft = {ctor: 'FloatTopLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$FloatRight = {ctor: 'FloatRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$FloatLeft = {ctor: 'FloatLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$BoxProp = F2(
+	function (a, b) {
+		return {ctor: 'BoxProp', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Grid = F2(
+	function (a, b) {
+		return {ctor: 'Grid', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$FlexLayout = F2(
+	function (a, b) {
+		return {ctor: 'FlexLayout', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$TextLayout = function (a) {
+	return {ctor: 'TextLayout', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Vert = function (a) {
+	return {ctor: 'Vert', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Horz = function (a) {
+	return {ctor: 'Horz', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Wrap = function (a) {
+	return {ctor: 'Wrap', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$GridGap = F2(
+	function (a, b) {
+		return {ctor: 'GridGap', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$GridV = function (a) {
+	return {ctor: 'GridV', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$GridH = function (a) {
+	return {ctor: 'GridH', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$NamedGridTemplate = function (a) {
+	return {ctor: 'NamedGridTemplate', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$GridTemplate = function (a) {
+	return {ctor: 'GridTemplate', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$GridPosition = function (a) {
+	return {ctor: 'GridPosition', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Named = F2(
+	function (a, b) {
+		return {ctor: 'Named', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$SpanJust = function (a) {
+	return {ctor: 'SpanJust', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$SpanAll = {ctor: 'SpanAll'};
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient = F2(
+	function (a, b) {
+		return {ctor: 'BackgroundLinearGradient', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundElement = F2(
+	function (a, b) {
+		return {ctor: 'BackgroundElement', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$BackgroundImage = function (a) {
+	return {ctor: 'BackgroundImage', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$ToAngle = function (a) {
+	return {ctor: 'ToAngle', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$ToBottomLeft = {ctor: 'ToBottomLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToTopLeft = {ctor: 'ToTopLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToLeft = {ctor: 'ToLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToBottomRight = {ctor: 'ToBottomRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToTopRight = {ctor: 'ToTopRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToRight = {ctor: 'ToRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToDown = {ctor: 'ToDown'};
+var _mdgriffith$style_elements$Style_Internal_Model$ToUp = {ctor: 'ToUp'};
+var _mdgriffith$style_elements$Style_Internal_Model$PxStep = F2(
+	function (a, b) {
+		return {ctor: 'PxStep', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$PercentStep = F2(
+	function (a, b) {
+		return {ctor: 'PercentStep', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$ColorStep = function (a) {
+	return {ctor: 'ColorStep', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$ShadowModel = function (a) {
+	return {ctor: 'ShadowModel', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$DropShadow = function (a) {
+	return {ctor: 'DropShadow', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Sepia = function (a) {
+	return {ctor: 'Sepia', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Saturate = function (a) {
+	return {ctor: 'Saturate', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$OpacityFilter = function (a) {
+	return {ctor: 'OpacityFilter', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Invert = function (a) {
+	return {ctor: 'Invert', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$HueRotate = function (a) {
+	return {ctor: 'HueRotate', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Grayscale = function (a) {
+	return {ctor: 'Grayscale', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Contrast = function (a) {
+	return {ctor: 'Contrast', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Brightness = function (a) {
+	return {ctor: 'Brightness', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Blur = function (a) {
+	return {ctor: 'Blur', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$FilterUrl = function (a) {
+	return {ctor: 'FilterUrl', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Scale = F3(
+	function (a, b, c) {
+		return {ctor: 'Scale', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$RotateAround = F4(
+	function (a, b, c, d) {
+		return {ctor: 'RotateAround', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Rotate = function (a) {
+	return {ctor: 'Rotate', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Translate = F3(
+	function (a, b, c) {
+		return {ctor: 'Translate', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$NoRepeat = {ctor: 'NoRepeat'};
+var _mdgriffith$style_elements$Style_Internal_Model$Round = {ctor: 'Round'};
+var _mdgriffith$style_elements$Style_Internal_Model$Space = {ctor: 'Space'};
+var _mdgriffith$style_elements$Style_Internal_Model$Repeat = {ctor: 'Repeat'};
+var _mdgriffith$style_elements$Style_Internal_Model$RepeatY = {ctor: 'RepeatY'};
+var _mdgriffith$style_elements$Style_Internal_Model$RepeatX = {ctor: 'RepeatX'};
+var _mdgriffith$style_elements$Style_Internal_Model$GoLeft = {ctor: 'GoLeft'};
+var _mdgriffith$style_elements$Style_Internal_Model$Down = {ctor: 'Down'};
+var _mdgriffith$style_elements$Style_Internal_Model$GoRight = {ctor: 'GoRight'};
+var _mdgriffith$style_elements$Style_Internal_Model$Up = {ctor: 'Up'};
+var _mdgriffith$style_elements$Style_Internal_Model$Other = function (a) {
+	return {ctor: 'Other', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$JustifyAll = {ctor: 'JustifyAll'};
+var _mdgriffith$style_elements$Style_Internal_Model$Justify = {ctor: 'Justify'};
+var _mdgriffith$style_elements$Style_Internal_Model$Center = {ctor: 'Center'};
+var _mdgriffith$style_elements$Style_Internal_Model$Bottom = {ctor: 'Bottom'};
+var _mdgriffith$style_elements$Style_Internal_Model$Top = {ctor: 'Top'};
+var _mdgriffith$style_elements$Style_Internal_Model$Right = {ctor: 'Right'};
+var _mdgriffith$style_elements$Style_Internal_Model$Left = {ctor: 'Left'};
+var _mdgriffith$style_elements$Style_Internal_Model$Calc = F2(
+	function (a, b) {
+		return {ctor: 'Calc', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Model$Fill = function (a) {
+	return {ctor: 'Fill', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Auto = {ctor: 'Auto'};
+var _mdgriffith$style_elements$Style_Internal_Model$Percent = function (a) {
+	return {ctor: 'Percent', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Model$Px = function (a) {
+	return {ctor: 'Px', _0: a};
+};
+
+var _mdgriffith$style_elements$Element_Internal_Model$name = function (el) {
+	var _p0 = el;
+	switch (_p0.ctor) {
+		case 'Empty':
+			return 'empty';
+		case 'Spacer':
+			return 'spacer';
+		case 'Text':
+			return 'text';
+		case 'Element':
+			return 'element';
+		case 'Layout':
+			return 'layout';
 		default:
-			return _elm_lang$core$Native_Utils.crashCase(
-				'Hex',
-				{
-					start: {line: 138, column: 5},
-					end: {line: 188, column: 84}
-				},
-				_p0)(
+			return 'html';
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Raw = function (a) {
+	return {ctor: 'Raw', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Layout = function (a) {
+	return {ctor: 'Layout', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Element = function (a) {
+	return {ctor: 'Element', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Text = F2(
+	function (a, b) {
+		return {ctor: 'Text', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$Spacer = function (a) {
+	return {ctor: 'Spacer', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Empty = {ctor: 'Empty'};
+var _mdgriffith$style_elements$Element_Internal_Model$Keyed = function (a) {
+	return {ctor: 'Keyed', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Normal = function (a) {
+	return {ctor: 'Normal', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$adjust = F3(
+	function (fn, parent, el) {
+		var maybeOnEmptyList = function (list) {
+			return _elm_lang$core$List$isEmpty(list) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(list);
+		};
+		var merge = F2(
+			function (el, current) {
+				var _p1 = el;
+				if (_p1.ctor === 'Nothing') {
+					return current;
+				} else {
+					var _p2 = current;
+					if (_p2.ctor === 'Nothing') {
+						return el;
+					} else {
+						return _elm_lang$core$Maybe$Just(
+							A2(_elm_lang$core$Basics_ops['++'], _p1._0, _p2._0));
+					}
+				}
+			});
+		var _p3 = el;
+		switch (_p3.ctor) {
+			case 'Element':
+				var adjustAndMerge = F2(
+					function (el, _p4) {
+						var _p5 = _p4;
+						var _p9 = _p5._1;
+						var _p8 = _p5._0;
+						var _p6 = A3(_mdgriffith$style_elements$Element_Internal_Model$adjust, fn, _elm_lang$core$Maybe$Nothing, el);
+						var adjusted = _p6._0;
+						var data = _p6._1;
+						var _p7 = data;
+						if (_p7.ctor === 'Nothing') {
+							return {
+								ctor: '_Tuple2',
+								_0: {ctor: '::', _0: adjusted, _1: _p8},
+								_1: _p9
+							};
+						} else {
+							return {
+								ctor: '_Tuple2',
+								_0: {ctor: '::', _0: adjusted, _1: _p8},
+								_1: A2(_elm_lang$core$Basics_ops['++'], _p7._0, _p9)
+							};
+						}
+					});
+				var _p10 = function () {
+					var _p11 = _p3._0.absolutelyPositioned;
+					if (_p11.ctor === 'Nothing') {
+						return {ctor: '_Tuple2', _0: _elm_lang$core$Maybe$Nothing, _1: _elm_lang$core$Maybe$Nothing};
+					} else {
+						return function (_p12) {
+							var _p13 = _p12;
+							return {
+								ctor: '_Tuple2',
+								_0: maybeOnEmptyList(_p13._0),
+								_1: maybeOnEmptyList(_p13._1)
+							};
+						}(
+							A3(
+								_elm_lang$core$List$foldr,
+								adjustAndMerge,
+								{
+									ctor: '_Tuple2',
+									_0: {ctor: '[]'},
+									_1: {ctor: '[]'}
+								},
+								_p11._0));
+					}
+				}();
+				var adjustedOthers = _p10._0;
+				var otherChildrenData = _p10._1;
+				var _p14 = A3(_mdgriffith$style_elements$Element_Internal_Model$adjust, fn, _elm_lang$core$Maybe$Nothing, _p3._0.child);
+				var adjustedChild = _p14._0;
+				var childData = _p14._1;
+				var _p15 = A2(
+					fn,
+					parent,
+					_mdgriffith$style_elements$Element_Internal_Model$Element(
+						_elm_lang$core$Native_Utils.update(
+							_p3._0,
+							{child: adjustedChild, absolutelyPositioned: adjustedOthers})));
+				var adjustedEl = _p15._0;
+				var elData = _p15._1;
+				return {
+					ctor: '_Tuple2',
+					_0: adjustedEl,
+					_1: A3(
+						_elm_lang$core$List$foldr,
+						merge,
+						_elm_lang$core$Maybe$Nothing,
+						{
+							ctor: '::',
+							_0: childData,
+							_1: {
+								ctor: '::',
+								_0: otherChildrenData,
+								_1: {
+									ctor: '::',
+									_0: elData,
+									_1: {ctor: '[]'}
+								}
+							}
+						})
+				};
+			case 'Layout':
+				var _p40 = _p3._0.layout;
+				var adjustAndMergeKeyed = F3(
+					function (usingParent, _p17, _p16) {
+						var _p18 = _p17;
+						var _p24 = _p18._0;
+						var _p19 = _p16;
+						var _p23 = _p19._1;
+						var _p22 = _p19._0;
+						var _p20 = A3(_mdgriffith$style_elements$Element_Internal_Model$adjust, fn, usingParent, _p18._1);
+						var adjusted = _p20._0;
+						var data = _p20._1;
+						var _p21 = data;
+						if (_p21.ctor === 'Nothing') {
+							return {
+								ctor: '_Tuple2',
+								_0: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: _p24, _1: adjusted},
+									_1: _p22
+								},
+								_1: _p23
+							};
+						} else {
+							return {
+								ctor: '_Tuple2',
+								_0: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: _p24, _1: adjusted},
+									_1: _p22
+								},
+								_1: A2(_elm_lang$core$Basics_ops['++'], _p21._0, _p23)
+							};
+						}
+					});
+				var adjustAndMerge = F3(
+					function (usingParent, el, _p25) {
+						var _p26 = _p25;
+						var _p30 = _p26._1;
+						var _p29 = _p26._0;
+						var _p27 = A3(_mdgriffith$style_elements$Element_Internal_Model$adjust, fn, usingParent, el);
+						var adjusted = _p27._0;
+						var data = _p27._1;
+						var _p28 = data;
+						if (_p28.ctor === 'Nothing') {
+							return {
+								ctor: '_Tuple2',
+								_0: {ctor: '::', _0: adjusted, _1: _p29},
+								_1: _p30
+							};
+						} else {
+							return {
+								ctor: '_Tuple2',
+								_0: {ctor: '::', _0: adjusted, _1: _p29},
+								_1: A2(_elm_lang$core$Basics_ops['++'], _p28._0, _p30)
+							};
+						}
+					});
+				var _p31 = function () {
+					var _p32 = _p3._0.children;
+					if (_p32.ctor === 'Normal') {
+						var _p33 = A3(
+							_elm_lang$core$List$foldr,
+							adjustAndMerge(
+								_elm_lang$core$Maybe$Just(_p40)),
+							{
+								ctor: '_Tuple2',
+								_0: {ctor: '[]'},
+								_1: {ctor: '[]'}
+							},
+							_p32._0);
+						var adjusted = _p33._0;
+						var data = _p33._1;
+						return {
+							ctor: '_Tuple2',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Normal(adjusted),
+							_1: maybeOnEmptyList(data)
+						};
+					} else {
+						var _p34 = A3(
+							_elm_lang$core$List$foldr,
+							adjustAndMergeKeyed(
+								_elm_lang$core$Maybe$Just(_p40)),
+							{
+								ctor: '_Tuple2',
+								_0: {ctor: '[]'},
+								_1: {ctor: '[]'}
+							},
+							_p32._0);
+						var adjusted = _p34._0;
+						var data = _p34._1;
+						return {
+							ctor: '_Tuple2',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Keyed(adjusted),
+							_1: maybeOnEmptyList(data)
+						};
+					}
+				}();
+				var adjustedChildren = _p31._0;
+				var childrenData = _p31._1;
+				var _p35 = function () {
+					var _p36 = _p3._0.absolutelyPositioned;
+					if (_p36.ctor === 'Nothing') {
+						return {ctor: '_Tuple2', _0: _elm_lang$core$Maybe$Nothing, _1: _elm_lang$core$Maybe$Nothing};
+					} else {
+						return function (_p37) {
+							var _p38 = _p37;
+							return {
+								ctor: '_Tuple2',
+								_0: maybeOnEmptyList(_p38._0),
+								_1: maybeOnEmptyList(_p38._1)
+							};
+						}(
+							A3(
+								_elm_lang$core$List$foldr,
+								adjustAndMerge(_elm_lang$core$Maybe$Nothing),
+								{
+									ctor: '_Tuple2',
+									_0: {ctor: '[]'},
+									_1: {ctor: '[]'}
+								},
+								_p36._0));
+					}
+				}();
+				var adjustedOthers = _p35._0;
+				var otherChildrenData = _p35._1;
+				var _p39 = A2(
+					fn,
+					parent,
+					_mdgriffith$style_elements$Element_Internal_Model$Layout(
+						_elm_lang$core$Native_Utils.update(
+							_p3._0,
+							{children: adjustedChildren, absolutelyPositioned: adjustedOthers})));
+				var adjustedLayout = _p39._0;
+				var layoutData = _p39._1;
+				return {
+					ctor: '_Tuple2',
+					_0: adjustedLayout,
+					_1: A3(
+						_elm_lang$core$List$foldr,
+						merge,
+						_elm_lang$core$Maybe$Nothing,
+						{
+							ctor: '::',
+							_0: layoutData,
+							_1: {
+								ctor: '::',
+								_0: childrenData,
+								_1: {
+									ctor: '::',
+									_0: otherChildrenData,
+									_1: {ctor: '[]'}
+								}
+							}
+						})
+				};
+			default:
+				return A2(fn, _elm_lang$core$Maybe$Nothing, el);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$mapChildren = F2(
+	function (fn, children) {
+		var _p41 = children;
+		if (_p41.ctor === 'Normal') {
+			return _mdgriffith$style_elements$Element_Internal_Model$Normal(
+				A2(_elm_lang$core$List$map, fn, _p41._0));
+		} else {
+			return _mdgriffith$style_elements$Element_Internal_Model$Keyed(
+				A2(
+					_elm_lang$core$List$map,
+					_elm_lang$core$Tuple$mapSecond(fn),
+					_p41._0));
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$OnGrid = function (a) {
+	return {ctor: 'OnGrid', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$NamedOnGrid = function (a) {
+	return {ctor: 'NamedOnGrid', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Overflow = function (a) {
+	return {ctor: 'Overflow', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Shrink = function (a) {
+	return {ctor: 'Shrink', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$PointerEvents = function (a) {
+	return {ctor: 'PointerEvents', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$GridCoords = function (a) {
+	return {ctor: 'GridCoords', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$GridArea = function (a) {
+	return {ctor: 'GridArea', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Attr = function (a) {
+	return {ctor: 'Attr', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$InputEvent = function (a) {
+	return {ctor: 'InputEvent', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Event = function (a) {
+	return {ctor: 'Event', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$PhantomPadding = function (a) {
+	return {ctor: 'PhantomPadding', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Padding = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Padding', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$Expand = {ctor: 'Expand'};
+var _mdgriffith$style_elements$Element_Internal_Model$Margin = function (a) {
+	return {ctor: 'Margin', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Spacing = F2(
+	function (a, b) {
+		return {ctor: 'Spacing', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$Opacity = function (a) {
+	return {ctor: 'Opacity', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Hidden = {ctor: 'Hidden'};
+var _mdgriffith$style_elements$Element_Internal_Model$PositionFrame = function (a) {
+	return {ctor: 'PositionFrame', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Position = F3(
+	function (a, b, c) {
+		return {ctor: 'Position', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$VAlign = function (a) {
+	return {ctor: 'VAlign', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$HAlign = function (a) {
+	return {ctor: 'HAlign', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Inline = {ctor: 'Inline'};
+var _mdgriffith$style_elements$Element_Internal_Model$Width = function (a) {
+	return {ctor: 'Width', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Height = function (a) {
+	return {ctor: 'Height', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Vary = F2(
+	function (a, b) {
+		return {ctor: 'Vary', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$mapAllAttr = F3(
+	function (fnMsg, fnVar, attr) {
+		var _p42 = attr;
+		switch (_p42.ctor) {
+			case 'Event':
+				return _mdgriffith$style_elements$Element_Internal_Model$Event(
+					A2(_elm_lang$html$Html_Attributes$map, fnMsg, _p42._0));
+			case 'InputEvent':
+				return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+					A2(_elm_lang$html$Html_Attributes$map, fnMsg, _p42._0));
+			case 'Attr':
+				return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+					A2(_elm_lang$html$Html_Attributes$map, fnMsg, _p42._0));
+			case 'Vary':
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Model$Vary,
+					fnVar(_p42._0),
+					_p42._1);
+			case 'Height':
+				return _mdgriffith$style_elements$Element_Internal_Model$Height(_p42._0);
+			case 'Width':
+				return _mdgriffith$style_elements$Element_Internal_Model$Width(_p42._0);
+			case 'Inline':
+				return _mdgriffith$style_elements$Element_Internal_Model$Inline;
+			case 'HAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$HAlign(_p42._0);
+			case 'VAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$VAlign(_p42._0);
+			case 'Position':
+				return A3(_mdgriffith$style_elements$Element_Internal_Model$Position, _p42._0, _p42._1, _p42._2);
+			case 'PositionFrame':
+				return _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_p42._0);
+			case 'Hidden':
+				return _mdgriffith$style_elements$Element_Internal_Model$Hidden;
+			case 'Opacity':
+				return _mdgriffith$style_elements$Element_Internal_Model$Opacity(_p42._0);
+			case 'Spacing':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, _p42._0, _p42._1);
+			case 'Margin':
+				return _mdgriffith$style_elements$Element_Internal_Model$Margin(_p42._0);
+			case 'Expand':
+				return _mdgriffith$style_elements$Element_Internal_Model$Expand;
+			case 'Padding':
+				return A4(_mdgriffith$style_elements$Element_Internal_Model$Padding, _p42._0, _p42._1, _p42._2, _p42._3);
+			case 'PhantomPadding':
+				return _mdgriffith$style_elements$Element_Internal_Model$PhantomPadding(_p42._0);
+			case 'GridArea':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridArea(_p42._0);
+			case 'GridCoords':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridCoords(_p42._0);
+			case 'PointerEvents':
+				return _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(_p42._0);
+			case 'Shrink':
+				return _mdgriffith$style_elements$Element_Internal_Model$Shrink(_p42._0);
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Overflow(_p42._0);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$mapAll = F4(
+	function (onMsg, onStyle, onVariation, el) {
+		var _p43 = el;
+		switch (_p43.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p43._0);
+			case 'Text':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p43._0, _p43._1);
+			case 'Element':
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p43._0,
+						{
+							attrs: A2(
+								_elm_lang$core$List$map,
+								A2(_mdgriffith$style_elements$Element_Internal_Model$mapAllAttr, onMsg, onVariation),
+								_p43._0.attrs),
+							style: A2(_elm_lang$core$Maybe$map, onStyle, _p43._0.style),
+							child: A4(_mdgriffith$style_elements$Element_Internal_Model$mapAll, onMsg, onStyle, onVariation, _p43._0.child),
+							absolutelyPositioned: A2(
+								_elm_lang$core$Maybe$map,
+								_elm_lang$core$List$map(
+									function (child) {
+										return A4(_mdgriffith$style_elements$Element_Internal_Model$mapAll, onMsg, onStyle, onVariation, child);
+									}),
+								_p43._0.absolutelyPositioned)
+						}));
+			case 'Layout':
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p43._0,
+						{
+							attrs: A2(
+								_elm_lang$core$List$map,
+								A2(_mdgriffith$style_elements$Element_Internal_Model$mapAllAttr, onMsg, onVariation),
+								_p43._0.attrs),
+							style: A2(_elm_lang$core$Maybe$map, onStyle, _p43._0.style),
+							children: A2(
+								_mdgriffith$style_elements$Element_Internal_Model$mapChildren,
+								function (child) {
+									return A4(_mdgriffith$style_elements$Element_Internal_Model$mapAll, onMsg, onStyle, onVariation, child);
+								},
+								_p43._0.children),
+							absolutelyPositioned: A2(
+								_elm_lang$core$Maybe$map,
+								_elm_lang$core$List$map(
+									function (child) {
+										return A4(_mdgriffith$style_elements$Element_Internal_Model$mapAll, onMsg, onStyle, onVariation, child);
+									}),
+								_p43._0.absolutelyPositioned)
+						}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(
+					A2(_elm_lang$html$Html$map, onMsg, _p43._0));
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$mapAttr = F2(
+	function (fn, attr) {
+		var _p44 = attr;
+		switch (_p44.ctor) {
+			case 'Event':
+				return _mdgriffith$style_elements$Element_Internal_Model$Event(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p44._0));
+			case 'InputEvent':
+				return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p44._0));
+			case 'Attr':
+				return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p44._0));
+			case 'Vary':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Vary, _p44._0, _p44._1);
+			case 'Height':
+				return _mdgriffith$style_elements$Element_Internal_Model$Height(_p44._0);
+			case 'Width':
+				return _mdgriffith$style_elements$Element_Internal_Model$Width(_p44._0);
+			case 'Inline':
+				return _mdgriffith$style_elements$Element_Internal_Model$Inline;
+			case 'HAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$HAlign(_p44._0);
+			case 'VAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$VAlign(_p44._0);
+			case 'Position':
+				return A3(_mdgriffith$style_elements$Element_Internal_Model$Position, _p44._0, _p44._1, _p44._2);
+			case 'PositionFrame':
+				return _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_p44._0);
+			case 'Hidden':
+				return _mdgriffith$style_elements$Element_Internal_Model$Hidden;
+			case 'Opacity':
+				return _mdgriffith$style_elements$Element_Internal_Model$Opacity(_p44._0);
+			case 'Spacing':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, _p44._0, _p44._1);
+			case 'Margin':
+				return _mdgriffith$style_elements$Element_Internal_Model$Margin(_p44._0);
+			case 'Expand':
+				return _mdgriffith$style_elements$Element_Internal_Model$Expand;
+			case 'Padding':
+				return A4(_mdgriffith$style_elements$Element_Internal_Model$Padding, _p44._0, _p44._1, _p44._2, _p44._3);
+			case 'PhantomPadding':
+				return _mdgriffith$style_elements$Element_Internal_Model$PhantomPadding(_p44._0);
+			case 'GridArea':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridArea(_p44._0);
+			case 'GridCoords':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridCoords(_p44._0);
+			case 'PointerEvents':
+				return _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(_p44._0);
+			case 'Shrink':
+				return _mdgriffith$style_elements$Element_Internal_Model$Shrink(_p44._0);
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Overflow(_p44._0);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$mapMsg = F2(
+	function (fn, el) {
+		var _p45 = el;
+		switch (_p45.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p45._0);
+			case 'Text':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p45._0, _p45._1);
+			case 'Element':
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p45._0,
+						{
+							attrs: A2(
+								_elm_lang$core$List$map,
+								_mdgriffith$style_elements$Element_Internal_Model$mapAttr(fn),
+								_p45._0.attrs),
+							child: A2(_mdgriffith$style_elements$Element_Internal_Model$mapMsg, fn, _p45._0.child),
+							absolutelyPositioned: A2(
+								_elm_lang$core$Maybe$map,
+								_elm_lang$core$List$map(
+									function (child) {
+										return A2(_mdgriffith$style_elements$Element_Internal_Model$mapMsg, fn, child);
+									}),
+								_p45._0.absolutelyPositioned)
+						}));
+			case 'Layout':
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p45._0,
+						{
+							attrs: A2(
+								_elm_lang$core$List$map,
+								_mdgriffith$style_elements$Element_Internal_Model$mapAttr(fn),
+								_p45._0.attrs),
+							children: A2(
+								_mdgriffith$style_elements$Element_Internal_Model$mapChildren,
+								_mdgriffith$style_elements$Element_Internal_Model$mapMsg(fn),
+								_p45._0.children),
+							absolutelyPositioned: A2(
+								_elm_lang$core$Maybe$map,
+								_elm_lang$core$List$map(
+									function (child) {
+										return A2(_mdgriffith$style_elements$Element_Internal_Model$mapMsg, fn, child);
+									}),
+								_p45._0.absolutelyPositioned)
+						}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(
+					A2(_elm_lang$html$Html$map, fn, _p45._0));
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Model$AllAxis = {ctor: 'AllAxis'};
+var _mdgriffith$style_elements$Element_Internal_Model$YAxis = {ctor: 'YAxis'};
+var _mdgriffith$style_elements$Element_Internal_Model$XAxis = {ctor: 'XAxis'};
+var _mdgriffith$style_elements$Element_Internal_Model$Sub = {ctor: 'Sub'};
+var _mdgriffith$style_elements$Element_Internal_Model$Super = {ctor: 'Super'};
+var _mdgriffith$style_elements$Element_Internal_Model$Strike = {ctor: 'Strike'};
+var _mdgriffith$style_elements$Element_Internal_Model$Underline = {ctor: 'Underline'};
+var _mdgriffith$style_elements$Element_Internal_Model$Italic = {ctor: 'Italic'};
+var _mdgriffith$style_elements$Element_Internal_Model$Bold = {ctor: 'Bold'};
+var _mdgriffith$style_elements$Element_Internal_Model$RawText = {ctor: 'RawText'};
+var _mdgriffith$style_elements$Element_Internal_Model$NoDecoration = {ctor: 'NoDecoration'};
+var _mdgriffith$style_elements$Element_Internal_Model$Nearby = function (a) {
+	return {ctor: 'Nearby', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Absolute = function (a) {
+	return {ctor: 'Absolute', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Model$Relative = {ctor: 'Relative'};
+var _mdgriffith$style_elements$Element_Internal_Model$Screen = {ctor: 'Screen'};
+var _mdgriffith$style_elements$Element_Internal_Model$BottomLeft = {ctor: 'BottomLeft'};
+var _mdgriffith$style_elements$Element_Internal_Model$TopLeft = {ctor: 'TopLeft'};
+var _mdgriffith$style_elements$Element_Internal_Model$Within = {ctor: 'Within'};
+var _mdgriffith$style_elements$Element_Internal_Model$OnRight = {ctor: 'OnRight'};
+var _mdgriffith$style_elements$Element_Internal_Model$OnLeft = {ctor: 'OnLeft'};
+var _mdgriffith$style_elements$Element_Internal_Model$Above = {ctor: 'Above'};
+var _mdgriffith$style_elements$Element_Internal_Model$Below = {ctor: 'Below'};
+var _mdgriffith$style_elements$Element_Internal_Model$Justify = {ctor: 'Justify'};
+var _mdgriffith$style_elements$Element_Internal_Model$Center = {ctor: 'Center'};
+var _mdgriffith$style_elements$Element_Internal_Model$Right = {ctor: 'Right'};
+var _mdgriffith$style_elements$Element_Internal_Model$Left = {ctor: 'Left'};
+var _mdgriffith$style_elements$Element_Internal_Model$VerticalJustify = {ctor: 'VerticalJustify'};
+var _mdgriffith$style_elements$Element_Internal_Model$VerticalCenter = {ctor: 'VerticalCenter'};
+var _mdgriffith$style_elements$Element_Internal_Model$Bottom = {ctor: 'Bottom'};
+var _mdgriffith$style_elements$Element_Internal_Model$Top = {ctor: 'Top'};
+
+var _mdgriffith$style_elements$Style_Internal_Render_Value$typeface = function (families) {
+	var renderFont = function (font) {
+		var _p0 = font;
+		switch (_p0.ctor) {
+			case 'Serif':
+				return 'serif';
+			case 'SansSerif':
+				return 'sans-serif';
+			case 'Cursive':
+				return 'cursive';
+			case 'Fantasy':
+				return 'fantasy';
+			case 'Monospace':
+				return 'monospace';
+			case 'FontName':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'\"',
+					A2(_elm_lang$core$Basics_ops['++'], _p0._0, '\"'));
+			default:
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'\"',
+					A2(_elm_lang$core$Basics_ops['++'], _p0._0, '\"'));
+		}
+	};
+	return A2(
+		_elm_lang$core$String$join,
+		', ',
+		A2(_elm_lang$core$List$map, renderFont, families));
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Value$gridPosition = function (_p1) {
+	var _p2 = _p1;
+	var _p7 = _p2._0.width;
+	var _p6 = _p2._0.height;
+	var _p3 = _p2._0.start;
+	var x = _p3._0;
+	var y = _p3._1;
+	var _p4 = {ctor: '_Tuple2', _0: y + 1, _1: (y + 1) + _p6};
+	var rowStart = _p4._0;
+	var rowEnd = _p4._1;
+	var _p5 = {ctor: '_Tuple2', _0: x + 1, _1: (x + 1) + _p7};
+	var colStart = _p5._0;
+	var colEnd = _p5._1;
+	return (_elm_lang$core$Native_Utils.eq(_p7, 0) || _elm_lang$core$Native_Utils.eq(_p6, 0)) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(
+		A2(
+			_elm_lang$core$String$join,
+			' / ',
+			{
+				ctor: '::',
+				_0: _elm_lang$core$Basics$toString(rowStart),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$core$Basics$toString(colStart),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$core$Basics$toString(rowEnd),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$core$Basics$toString(colEnd),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}));
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Value$color = function (color) {
+	var _p8 = _elm_lang$core$Color$toRgb(color);
+	var red = _p8.red;
+	var green = _p8.green;
+	var blue = _p8.blue;
+	var alpha = _p8.alpha;
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'rgba(',
+			_elm_lang$core$Basics$toString(red)),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				',',
+				_elm_lang$core$Basics$toString(green)),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
 				A2(
 					_elm_lang$core$Basics_ops['++'],
-					'Tried to convert ',
+					',',
+					_elm_lang$core$Basics$toString(blue)),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					',',
 					A2(
 						_elm_lang$core$Basics_ops['++'],
-						_rtfeldman$hex$Hex$toString(num),
-						' to hexadecimal.')));
-	}
+						_elm_lang$core$Basics$toString(alpha),
+						')')))));
 };
-var _rtfeldman$hex$Hex$fromStringHelp = F3(
-	function (position, chars, accumulated) {
-		var _p2 = chars;
-		if (_p2.ctor === '[]') {
-			return _elm_lang$core$Result$Ok(accumulated);
-		} else {
-			var recurse = function (additional) {
-				return A3(
-					_rtfeldman$hex$Hex$fromStringHelp,
-					position - 1,
-					_p2._1,
-					accumulated + (additional * Math.pow(16, position)));
-			};
-			var _p3 = _p2._0;
-			switch (_p3.valueOf()) {
-				case '0':
-					return recurse(0);
-				case '1':
-					return recurse(1);
-				case '2':
-					return recurse(2);
-				case '3':
-					return recurse(3);
-				case '4':
-					return recurse(4);
-				case '5':
-					return recurse(5);
-				case '6':
-					return recurse(6);
-				case '7':
-					return recurse(7);
-				case '8':
-					return recurse(8);
-				case '9':
-					return recurse(9);
-				case 'a':
-					return recurse(10);
-				case 'b':
-					return recurse(11);
-				case 'c':
-					return recurse(12);
-				case 'd':
-					return recurse(13);
-				case 'e':
-					return recurse(14);
-				case 'f':
-					return recurse(15);
-				default:
-					return _elm_lang$core$Result$Err(
+var _mdgriffith$style_elements$Style_Internal_Render_Value$shadow = function (_p9) {
+	var _p10 = _p9;
+	var _p11 = _p10._0;
+	return A2(
+		_elm_lang$core$String$join,
+		' ',
+		A2(
+			_elm_lang$core$List$filterMap,
+			_elm_lang$core$Basics$identity,
+			{
+				ctor: '::',
+				_0: _elm_lang$core$Native_Utils.eq(_p11.kind, 'inset') ? _elm_lang$core$Maybe$Just('inset') : _elm_lang$core$Maybe$Nothing,
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$core$Maybe$Just(
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Basics$toString(_p3),
-							' is not a valid hexadecimal character.'));
-			}
+							_elm_lang$core$Basics$toString(
+								_elm_lang$core$Tuple$first(_p11.offset)),
+							'px')),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$core$Maybe$Just(
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(
+									_elm_lang$core$Tuple$second(_p11.offset)),
+								'px')),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$core$Maybe$Just(
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p11.blur),
+									'px')),
+							_1: {
+								ctor: '::',
+								_0: (_elm_lang$core$Native_Utils.eq(_p11.kind, 'text') || _elm_lang$core$Native_Utils.eq(_p11.kind, 'drop')) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p11.size),
+										'px')),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$core$Maybe$Just(
+										_mdgriffith$style_elements$Style_Internal_Render_Value$color(_p11.color)),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}));
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Value$parentAdjustedLength = F2(
+	function (len, adjustment) {
+		var _p12 = len;
+		switch (_p12.ctor) {
+			case 'Px':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p12._0),
+					'px');
+			case 'Percent':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'calc(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p12._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'% - ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(adjustment),
+								'px)'))));
+			case 'Auto':
+				return 'auto';
+			case 'Fill':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'calc(100% - ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(adjustment),
+						'px)'));
+			default:
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'calc(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p12._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'% + ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p12._1),
+								'px)'))));
 		}
 	});
-var _rtfeldman$hex$Hex$fromString = function (str) {
-	if (_elm_lang$core$String$isEmpty(str)) {
-		return _elm_lang$core$Result$Err('Empty strings are not valid hexadecimal strings.');
-	} else {
-		var formatError = function (err) {
+var _mdgriffith$style_elements$Style_Internal_Render_Value$length = function (l) {
+	var _p13 = l;
+	switch (_p13.ctor) {
+		case 'Px':
 			return A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: _elm_lang$core$Basics$toString(str),
-					_1: {
-						ctor: '::',
-						_0: 'is not a valid hexadecimal string because',
-						_1: {
-							ctor: '::',
-							_0: err,
-							_1: {ctor: '[]'}
-						}
-					}
-				});
-		};
-		var result = function () {
-			if (A2(_elm_lang$core$String$startsWith, '-', str)) {
-				var list = A2(
-					_elm_lang$core$Maybe$withDefault,
-					{ctor: '[]'},
-					_elm_lang$core$List$tail(
-						_elm_lang$core$String$toList(str)));
-				return A2(
-					_elm_lang$core$Result$map,
-					_elm_lang$core$Basics$negate,
-					A3(
-						_rtfeldman$hex$Hex$fromStringHelp,
-						_elm_lang$core$List$length(list) - 1,
-						list,
-						0));
-			} else {
-				return A3(
-					_rtfeldman$hex$Hex$fromStringHelp,
-					_elm_lang$core$String$length(str) - 1,
-					_elm_lang$core$String$toList(str),
-					0);
-			}
-		}();
-		return A2(_elm_lang$core$Result$mapError, formatError, result);
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(_p13._0),
+				'px');
+		case 'Percent':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(_p13._0),
+				'%');
+		case 'Auto':
+			return 'auto';
+		case 'Fill':
+			return '100%';
+		default:
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'calc(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p13._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'% + ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p13._1),
+							'px)'))));
 	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Value$box = function (_p14) {
+	var _p15 = _p14;
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(_p15._0),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'px ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(_p15._1),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'px ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p15._2),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'px ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p15._3),
+								'px')))))));
 };
 
-var _rtfeldman$elm_css$Css$manipulation = {value: 'manipulation', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$pinchZoom = {value: 'pinch-zoom', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panDown = {value: 'pan-down', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panUp = {value: 'pan-up', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panY = {value: 'pan-y', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panRight = {value: 'pan-right', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panLeft = {value: 'pan-left', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$panX = {value: 'pan-x', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$asPairsDEPRECATED = _rtfeldman$elm_css$Css_Preprocess$toPropertyPairs;
-var _rtfeldman$elm_css$Css$stringsToValue = function (list) {
-	return _elm_lang$core$List$isEmpty(list) ? {value: 'none'} : {
-		value: A2(
-			_elm_lang$core$String$join,
-			', ',
-			A2(
-				_elm_lang$core$List$map,
-				function (s) {
-					return s;
-				},
-				list))
-	};
+var _mdgriffith$style_elements$Element_Attributes$toAttr = _mdgriffith$style_elements$Element_Internal_Model$Attr;
+var _mdgriffith$style_elements$Element_Attributes$language = function (str) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$lang(str));
 };
-var _rtfeldman$elm_css$Css$valuesOrNone = function (list) {
-	return _elm_lang$core$List$isEmpty(list) ? {value: 'none'} : {
-		value: A2(
-			_elm_lang$core$String$join,
-			' ',
-			A2(
-				_elm_lang$core$List$map,
-				function (_) {
-					return _.value;
-				},
-				list))
-	};
+var _mdgriffith$style_elements$Element_Attributes$id = function (str) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$id(str));
 };
-var _rtfeldman$elm_css$Css$stringToInt = function (str) {
-	return A2(
-		_elm_lang$core$Result$withDefault,
-		0,
-		_elm_lang$core$String$toInt(str));
+var _mdgriffith$style_elements$Element_Attributes$class = function (cls) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$class(cls));
 };
-var _rtfeldman$elm_css$Css$numberToString = function (num) {
-	return _elm_lang$core$Basics$toString(num + 0);
-};
-var _rtfeldman$elm_css$Css$numericalPercentageToString = function (value) {
-	return A3(
-		_elm_lang$core$Basics$flip,
-		F2(
-			function (x, y) {
-				return A2(_elm_lang$core$Basics_ops['++'], x, y);
-			}),
-		'%',
-		_rtfeldman$elm_css$Css$numberToString(
-			A2(
-				F2(
-					function (x, y) {
-						return x * y;
-					}),
-				100,
-				value)));
-};
-var _rtfeldman$elm_css$Css$pseudoElement = function (element) {
-	return _rtfeldman$elm_css$Css_Preprocess$WithPseudoElement(
-		_rtfeldman$elm_css$Css_Structure$PseudoElement(element));
-};
-var _rtfeldman$elm_css$Css$after = _rtfeldman$elm_css$Css$pseudoElement('after');
-var _rtfeldman$elm_css$Css$before = _rtfeldman$elm_css$Css$pseudoElement('before');
-var _rtfeldman$elm_css$Css$firstLetter = _rtfeldman$elm_css$Css$pseudoElement('first-letter');
-var _rtfeldman$elm_css$Css$firstLine = _rtfeldman$elm_css$Css$pseudoElement('first-line');
-var _rtfeldman$elm_css$Css$selection = _rtfeldman$elm_css$Css$pseudoElement('selection');
-var _rtfeldman$elm_css$Css$pseudoClass = function ($class) {
-	return _rtfeldman$elm_css$Css_Preprocess$ExtendSelector(
-		_rtfeldman$elm_css$Css_Structure$PseudoClassSelector($class));
-};
-var _rtfeldman$elm_css$Css$active = _rtfeldman$elm_css$Css$pseudoClass('active');
-var _rtfeldman$elm_css$Css$any = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'any(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$checked = _rtfeldman$elm_css$Css$pseudoClass('checked');
-var _rtfeldman$elm_css$Css$disabled = _rtfeldman$elm_css$Css$pseudoClass('disabled');
-var _rtfeldman$elm_css$Css$empty = _rtfeldman$elm_css$Css$pseudoClass('empty');
-var _rtfeldman$elm_css$Css$enabled = _rtfeldman$elm_css$Css$pseudoClass('enabled');
-var _rtfeldman$elm_css$Css$first = _rtfeldman$elm_css$Css$pseudoClass('first');
-var _rtfeldman$elm_css$Css$firstChild = _rtfeldman$elm_css$Css$pseudoClass('first-child');
-var _rtfeldman$elm_css$Css$firstOfType = _rtfeldman$elm_css$Css$pseudoClass('first-of-type');
-var _rtfeldman$elm_css$Css$fullscreen = _rtfeldman$elm_css$Css$pseudoClass('fullscreen');
-var _rtfeldman$elm_css$Css$focus = _rtfeldman$elm_css$Css$pseudoClass('focus');
-var _rtfeldman$elm_css$Css$hover = _rtfeldman$elm_css$Css$pseudoClass('hover');
-var _rtfeldman$elm_css$Css$visited = _rtfeldman$elm_css$Css$pseudoClass('visited');
-var _rtfeldman$elm_css$Css$indeterminate = _rtfeldman$elm_css$Css$pseudoClass('indeterminate');
-var _rtfeldman$elm_css$Css$invalid = _rtfeldman$elm_css$Css$pseudoClass('invalid');
-var _rtfeldman$elm_css$Css$lang = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'lang(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$lastChild = _rtfeldman$elm_css$Css$pseudoClass('last-child');
-var _rtfeldman$elm_css$Css$lastOfType = _rtfeldman$elm_css$Css$pseudoClass('last-of-type');
-var _rtfeldman$elm_css$Css$link = _rtfeldman$elm_css$Css$pseudoClass('link');
-var _rtfeldman$elm_css$Css$nthChild = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'nth-child(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$nthLastChild = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'nth-last-child(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$nthLastOfType = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'nth-last-of-type(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$nthOfType = function (str) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'nth-of-type(',
-			A2(_elm_lang$core$Basics_ops['++'], str, ')')));
-};
-var _rtfeldman$elm_css$Css$onlyChild = _rtfeldman$elm_css$Css$pseudoClass('only-child');
-var _rtfeldman$elm_css$Css$onlyOfType = _rtfeldman$elm_css$Css$pseudoClass('only-of-type');
-var _rtfeldman$elm_css$Css$optional = _rtfeldman$elm_css$Css$pseudoClass('optional');
-var _rtfeldman$elm_css$Css$outOfRange = _rtfeldman$elm_css$Css$pseudoClass('out-of-range');
-var _rtfeldman$elm_css$Css$readWrite = _rtfeldman$elm_css$Css$pseudoClass('read-write');
-var _rtfeldman$elm_css$Css$required = _rtfeldman$elm_css$Css$pseudoClass('required');
-var _rtfeldman$elm_css$Css$root = _rtfeldman$elm_css$Css$pseudoClass('root');
-var _rtfeldman$elm_css$Css$scope = _rtfeldman$elm_css$Css$pseudoClass('scope');
-var _rtfeldman$elm_css$Css$target = _rtfeldman$elm_css$Css$pseudoClass('target');
-var _rtfeldman$elm_css$Css$valid = _rtfeldman$elm_css$Css$pseudoClass('valid');
-var _rtfeldman$elm_css$Css$directionalityToString = function (directionality) {
-	var _p0 = directionality;
-	if (_p0.ctor === 'Ltr') {
-		return 'ltr';
-	} else {
-		return 'rtl';
-	}
-};
-var _rtfeldman$elm_css$Css$dir = function (directionality) {
-	return _rtfeldman$elm_css$Css$pseudoClass(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'dir(',
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				_rtfeldman$elm_css$Css$directionalityToString(directionality),
-				')')));
-};
-var _rtfeldman$elm_css$Css$propertyWithWarnings = F3(
-	function (warnings, key, value) {
-		return _rtfeldman$elm_css$Css_Preprocess$AppendProperty(
-			{key: key, value: value, important: false, warnings: warnings});
+var _mdgriffith$style_elements$Element_Attributes$map = F2(
+	function (fn, attr) {
+		var _p0 = attr;
+		switch (_p0.ctor) {
+			case 'Attr':
+				return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p0._0));
+			case 'Vary':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Vary, _p0._0, _p0._1);
+			case 'Height':
+				return _mdgriffith$style_elements$Element_Internal_Model$Height(_p0._0);
+			case 'Width':
+				return _mdgriffith$style_elements$Element_Internal_Model$Width(_p0._0);
+			case 'Inline':
+				return _mdgriffith$style_elements$Element_Internal_Model$Inline;
+			case 'Hidden':
+				return _mdgriffith$style_elements$Element_Internal_Model$Hidden;
+			case 'PositionFrame':
+				return _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_p0._0);
+			case 'Opacity':
+				return _mdgriffith$style_elements$Element_Internal_Model$Opacity(_p0._0);
+			case 'Expand':
+				return _mdgriffith$style_elements$Element_Internal_Model$Expand;
+			case 'Padding':
+				return A4(_mdgriffith$style_elements$Element_Internal_Model$Padding, _p0._0, _p0._1, _p0._2, _p0._3);
+			case 'PhantomPadding':
+				return _mdgriffith$style_elements$Element_Internal_Model$PhantomPadding(_p0._0);
+			case 'Margin':
+				return _mdgriffith$style_elements$Element_Internal_Model$Margin(_p0._0);
+			case 'GridArea':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridArea(_p0._0);
+			case 'GridCoords':
+				return _mdgriffith$style_elements$Element_Internal_Model$GridCoords(_p0._0);
+			case 'PointerEvents':
+				return _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(_p0._0);
+			case 'Event':
+				return _mdgriffith$style_elements$Element_Internal_Model$Event(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p0._0));
+			case 'InputEvent':
+				return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+					A2(_elm_lang$html$Html_Attributes$map, fn, _p0._0));
+			case 'Position':
+				return A3(_mdgriffith$style_elements$Element_Internal_Model$Position, _p0._0, _p0._1, _p0._2);
+			case 'Spacing':
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, _p0._0, _p0._1);
+			case 'VAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$VAlign(_p0._0);
+			case 'HAlign':
+				return _mdgriffith$style_elements$Element_Internal_Model$HAlign(_p0._0);
+			case 'Shrink':
+				return _mdgriffith$style_elements$Element_Internal_Model$Shrink(_p0._0);
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Overflow(_p0._0);
+		}
 	});
-var _rtfeldman$elm_css$Css$property = _rtfeldman$elm_css$Css$propertyWithWarnings(
-	{ctor: '[]'});
-var _rtfeldman$elm_css$Css$batch = _rtfeldman$elm_css$Css_Preprocess$ApplyStyles;
-var _rtfeldman$elm_css$Css$animationNames = function (identifiers) {
-	var value = A2(
-		_elm_lang$core$String$join,
-		', ',
-		A2(
-			_elm_lang$core$List$map,
-			_rtfeldman$elm_css_util$Css_Helpers$identifierToString(''),
-			identifiers));
-	return A2(_rtfeldman$elm_css$Css$property, 'animation-name', value);
+var _mdgriffith$style_elements$Element_Attributes$attribute = F2(
+	function (name, val) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+			A2(_elm_lang$html$Html_Attributes$attribute, name, val));
+	});
+var _mdgriffith$style_elements$Element_Attributes$property = F2(
+	function (str, val) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+			A2(_elm_lang$html$Html_Attributes$property, str, val));
+	});
+var _mdgriffith$style_elements$Element_Attributes$inlineStyle = function (_p1) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$virtual_dom$VirtualDom$style(_p1));
 };
-var _rtfeldman$elm_css$Css$animationName = function (identifier) {
-	return _rtfeldman$elm_css$Css$animationNames(
+var _mdgriffith$style_elements$Element_Attributes$classList = function (_p2) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$classList(_p2));
+};
+var _mdgriffith$style_elements$Element_Attributes$clipY = _mdgriffith$style_elements$Element_Internal_Model$Attr(
+	_elm_lang$virtual_dom$VirtualDom$style(
 		{
 			ctor: '::',
-			_0: identifier,
+			_0: {ctor: '_Tuple2', _0: 'overflow-y', _1: 'hidden'},
 			_1: {ctor: '[]'}
-		});
-};
-var _rtfeldman$elm_css$Css$preLine = {value: 'pre-line', whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$preWrap = {value: 'pre-wrap', whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$pre = {value: 'pre', whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$grabbing = {value: 'grabbing', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$grab = {value: 'grab', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$zoomOut = {value: 'zoom-out', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$zoomIn = {value: 'zoom-in', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$allScroll = {value: 'all-scroll', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$rowResize = {value: 'row-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$colResize = {value: 'col-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$nwseResize = {value: 'nwse-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$neswResize = {value: 'nesw-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$nsResize = {value: 'ns-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$ewResize = {value: 'ew-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$wResize = {value: 'w-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$swResize = {value: 'sw-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$seResize = {value: 'se-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$sResize = {value: 's-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$nwResize = {value: 'nw-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$neResize = {value: 'ne-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$nResize = {value: 'n-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$eResize = {value: 'e-resize', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$notAllowed = {value: 'not-allowed', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noDrop = {value: 'no-drop', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$move = {value: 'move', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$copy = {value: 'copy', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cursorAlias = {value: 'alias', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$verticalText = {value: 'vertical-text', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$text_ = {value: 'text', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cell = {value: 'cell', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$wait = {value: 'wait', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$progress = {value: 'progress', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$pointer = {value: 'pointer', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$help = {value: 'help', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$contextMenu = {value: 'context-menu', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$crosshair = {value: 'crosshair', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$default = {value: 'default', cursor: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fontWeight = function (_p1) {
-	var _p2 = _p1;
-	var _p3 = _p2.value;
-	var validWeight = function (weight) {
-		return (!_elm_lang$core$Native_Utils.eq(
-			_p3,
-			_elm_lang$core$Basics$toString(weight))) ? true : A2(
-			_elm_lang$core$List$member,
-			weight,
-			A2(
-				_elm_lang$core$List$map,
-				F2(
-					function (x, y) {
-						return x * y;
-					})(100),
-				A2(_elm_lang$core$List$range, 1, 9)));
-	};
-	var warnings = validWeight(
-		_rtfeldman$elm_css$Css$stringToInt(_p3)) ? {ctor: '[]'} : {
-		ctor: '::',
-		_0: A2(
-			_elm_lang$core$Basics_ops['++'],
-			'fontWeight ',
-			A2(_elm_lang$core$Basics_ops['++'], _p3, ' is invalid. Valid weights are: 100, 200, 300, 400, 500, 600, 700, 800, 900. Please see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values')),
-		_1: {ctor: '[]'}
-	};
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'font-weight', _p3);
-};
-var _rtfeldman$elm_css$Css$fontFeatureSettingsList = function (featureTagValues) {
-	var warnings = _elm_lang$core$List$concat(
-		A2(
-			_elm_lang$core$List$map,
-			function (_) {
-				return _.warnings;
-			},
-			featureTagValues));
-	var value = A2(
-		_elm_lang$core$String$join,
-		', ',
-		A2(
-			_elm_lang$core$List$map,
-			function (_) {
-				return _.value;
-			},
-			featureTagValues));
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'font-feature-settings', value);
-};
-var _rtfeldman$elm_css$Css$fontFeatureSettings = function (_p4) {
-	var _p5 = _p4;
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, _p5.warnings, 'font-feature-settings', _p5.value);
-};
-var _rtfeldman$elm_css$Css$qt = function (str) {
-	return _elm_lang$core$Basics$toString(str);
-};
-var _rtfeldman$elm_css$Css$fontFace = function (value) {
-	return A2(_elm_lang$core$Basics_ops['++'], 'font-face ', value);
-};
-var _rtfeldman$elm_css$Css$src_ = function (value) {
-	return _elm_lang$core$Basics$toString(value.value);
-};
-var _rtfeldman$elm_css$Css$color = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'color', c.value);
-};
-var _rtfeldman$elm_css$Css$backgroundColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'background-color', c.value);
-};
-var _rtfeldman$elm_css$Css$outlineColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'outline-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderColor4 = F4(
-	function (c1, c2, c3, c4) {
-		var value = A2(
-			_elm_lang$core$String$join,
-			' ',
-			{
-				ctor: '::',
-				_0: c1.value,
-				_1: {
-					ctor: '::',
-					_0: c2.value,
-					_1: {
-						ctor: '::',
-						_0: c3.value,
-						_1: {
-							ctor: '::',
-							_0: c4.value,
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			});
-		var warnings = A2(
-			_elm_lang$core$Basics_ops['++'],
-			c1.warnings,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				c2.warnings,
-				A2(_elm_lang$core$Basics_ops['++'], c3.warnings, c4.warnings)));
-		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'border-color', value);
-	});
-var _rtfeldman$elm_css$Css$borderColor3 = F3(
-	function (c1, c2, c3) {
-		var value = A2(
-			_elm_lang$core$String$join,
-			' ',
-			{
-				ctor: '::',
-				_0: c1.value,
-				_1: {
-					ctor: '::',
-					_0: c2.value,
-					_1: {
-						ctor: '::',
-						_0: c3.value,
-						_1: {ctor: '[]'}
-					}
-				}
-			});
-		var warnings = A2(
-			_elm_lang$core$Basics_ops['++'],
-			c1.warnings,
-			A2(_elm_lang$core$Basics_ops['++'], c2.warnings, c3.warnings));
-		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'border-color', value);
-	});
-var _rtfeldman$elm_css$Css$borderColor2 = F2(
-	function (c1, c2) {
-		var value = A2(
-			_elm_lang$core$String$join,
-			' ',
-			{
-				ctor: '::',
-				_0: c1.value,
-				_1: {
-					ctor: '::',
-					_0: c2.value,
-					_1: {ctor: '[]'}
-				}
-			});
-		var warnings = A2(_elm_lang$core$Basics_ops['++'], c1.warnings, c2.warnings);
-		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'border-color', value);
-	});
-var _rtfeldman$elm_css$Css$borderColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderBlockEndColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-block-end-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderTopColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-top-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderRightColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-right-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderLeftColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-left-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderInlineEndColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-inline-end-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderInlineStartColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-inline-start-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderBottomColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-bottom-color', c.value);
-};
-var _rtfeldman$elm_css$Css$borderBlockStartColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'border-block-start-color', c.value);
-};
-var _rtfeldman$elm_css$Css$featureTag2 = F2(
-	function (tag, value) {
-		var potentialWarnings = {
+		}));
+var _mdgriffith$style_elements$Element_Attributes$clipX = _mdgriffith$style_elements$Element_Internal_Model$Attr(
+	_elm_lang$virtual_dom$VirtualDom$style(
+		{
 			ctor: '::',
-			_0: {
-				ctor: '_Tuple2',
-				_0: !_elm_lang$core$Native_Utils.eq(
-					_elm_lang$core$String$length(tag),
-					4),
-				_1: A2(
-					_elm_lang$core$Basics_ops['++'],
-					'Feature tags must be exactly 4 characters long. ',
-					A2(_elm_lang$core$Basics_ops['++'], tag, ' is invalid.'))
-			},
-			_1: {
+			_0: {ctor: '_Tuple2', _0: 'overflow-x', _1: 'hidden'},
+			_1: {ctor: '[]'}
+		}));
+var _mdgriffith$style_elements$Element_Attributes$clip = _mdgriffith$style_elements$Element_Internal_Model$Attr(
+	_elm_lang$virtual_dom$VirtualDom$style(
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'hidden'},
+			_1: {ctor: '[]'}
+		}));
+var _mdgriffith$style_elements$Element_Attributes$xScrollbar = _mdgriffith$style_elements$Element_Internal_Model$Overflow(_mdgriffith$style_elements$Element_Internal_Model$XAxis);
+var _mdgriffith$style_elements$Element_Attributes$yScrollbar = _mdgriffith$style_elements$Element_Internal_Model$Overflow(_mdgriffith$style_elements$Element_Internal_Model$YAxis);
+var _mdgriffith$style_elements$Element_Attributes$scrollbars = _mdgriffith$style_elements$Element_Internal_Model$Overflow(_mdgriffith$style_elements$Element_Internal_Model$AllAxis);
+var _mdgriffith$style_elements$Element_Attributes$hidden = _mdgriffith$style_elements$Element_Internal_Model$Hidden;
+var _mdgriffith$style_elements$Element_Attributes$paddingBottom = function (x) {
+	return A4(
+		_mdgriffith$style_elements$Element_Internal_Model$Padding,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$paddingTop = function (x) {
+	return A4(
+		_mdgriffith$style_elements$Element_Internal_Model$Padding,
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$paddingRight = function (x) {
+	return A4(
+		_mdgriffith$style_elements$Element_Internal_Model$Padding,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$paddingLeft = function (x) {
+	return A4(
+		_mdgriffith$style_elements$Element_Internal_Model$Padding,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Just(x));
+};
+var _mdgriffith$style_elements$Element_Attributes$paddingXY = F2(
+	function (x, y) {
+		return A4(
+			_mdgriffith$style_elements$Element_Internal_Model$Padding,
+			_elm_lang$core$Maybe$Just(y),
+			_elm_lang$core$Maybe$Just(x),
+			_elm_lang$core$Maybe$Just(y),
+			_elm_lang$core$Maybe$Just(x));
+	});
+var _mdgriffith$style_elements$Element_Attributes$padding = function (x) {
+	return A4(
+		_mdgriffith$style_elements$Element_Internal_Model$Padding,
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Just(x));
+};
+var _mdgriffith$style_elements$Element_Attributes$spacingXY = _mdgriffith$style_elements$Element_Internal_Model$Spacing;
+var _mdgriffith$style_elements$Element_Attributes$spacing = function (x) {
+	return A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, x, x);
+};
+var _mdgriffith$style_elements$Element_Attributes$vary = _mdgriffith$style_elements$Element_Internal_Model$Vary;
+var _mdgriffith$style_elements$Element_Attributes$percent = _mdgriffith$style_elements$Style_Internal_Model$Percent;
+var _mdgriffith$style_elements$Element_Attributes$fillPortion = function (_p3) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Fill(
+		_elm_lang$core$Basics$toFloat(_p3));
+};
+var _mdgriffith$style_elements$Element_Attributes$fill = _mdgriffith$style_elements$Style_Internal_Model$Fill(1);
+var _mdgriffith$style_elements$Element_Attributes$content = _mdgriffith$style_elements$Style_Internal_Model$Auto;
+var _mdgriffith$style_elements$Element_Attributes$px = _mdgriffith$style_elements$Style_Internal_Model$Px;
+var _mdgriffith$style_elements$Element_Attributes$height = _mdgriffith$style_elements$Element_Internal_Model$Height;
+var _mdgriffith$style_elements$Element_Attributes$maxHeight = function (len) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$style(
+			{
 				ctor: '::',
 				_0: {
 					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.cmp(value, 0) < 0,
-					_1: A2(
-						_elm_lang$core$Basics_ops['++'],
-						'Feature values cannot be negative. ',
-						A2(
-							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Basics$toString(value),
-							' is invalid.'))
+					_0: 'max-height',
+					_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(len)
 				},
 				_1: {ctor: '[]'}
-			}
-		};
-		var warnings = A2(
-			_elm_lang$core$List$map,
-			_elm_lang$core$Tuple$second,
-			A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$first, potentialWarnings));
-		return {
-			value: A2(
-				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(tag),
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					' ',
-					_elm_lang$core$Basics$toString(value))),
-			featureTagValue: _rtfeldman$elm_css$Css_Structure$Compatible,
-			warnings: warnings
-		};
-	});
-var _rtfeldman$elm_css$Css$featureTag = function (tag) {
-	return A2(_rtfeldman$elm_css$Css$featureTag2, tag, 1);
+			}));
 };
-var _rtfeldman$elm_css$Css$featureOff = 0;
-var _rtfeldman$elm_css$Css$featureOn = 1;
-var _rtfeldman$elm_css$Css$slashedZero = {value: 'slashed-zero', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$ordinal = {value: 'ordinal', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$stackedFractions = {value: 'stacked-fractions', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$diagonalFractions = {value: 'diagonal-fractions', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tabularNums = {value: 'tabular-nums', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$proportionalNums = {value: 'proportional-nums', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$oldstyleNums = {value: 'oldstyle-nums', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$liningNums = {value: 'lining-nums', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noContextual = {value: 'no-contextual', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$contextual = {value: 'context', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noHistoricalLigatures = {value: 'no-historical-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$historicalLigatures = {value: 'historical-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noDiscretionaryLigatures = {value: 'no-discretionary-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$discretionaryLigatures = {value: 'discretionary-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noCommonLigatures = {value: 'no-common-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$commonLigatures = {value: 'common-ligatures', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantLigatures: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$titlingCaps = {value: 'titling-caps', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$unicase = {value: 'unicase', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$allPetiteCaps = {value: 'all-petite-caps', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$petiteCaps = {value: 'petite-caps', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$allSmallCaps = {value: 'all-small-caps', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$smallCaps = {value: 'small-caps', fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$bolder = {value: 'bolder', fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lighter = {value: 'lighter', fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$bold = {value: 'bold', fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$oblique = {value: 'oblique', fontStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$italic = {value: 'italic', fontStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$normal = {
-	value: 'normal',
-	warnings: {ctor: '[]'},
-	fontStyle: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible,
-	featureTagValue: _rtfeldman$elm_css$Css_Structure$Compatible,
-	overflowWrap: _rtfeldman$elm_css$Css_Structure$Compatible,
-	whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible
-};
-var _rtfeldman$elm_css$Css$larger = {value: 'larger', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$smaller = {value: 'smaller', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$xxLarge = {value: 'xx-large', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$xLarge = {value: 'x-large', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$large = {value: 'large', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$medium = {value: 'medium', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$small = {value: 'small', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$xSmall = {value: 'x-small', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$xxSmall = {value: 'xx-small', fontSize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fantasy = {value: 'fantasy', fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cursive = {value: 'cursive', fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$monospace = {value: 'monospace', fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$sansSerif = {value: 'sans-serif', fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$serif = {value: 'serif', fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$absolute = {value: 'absolute', position: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$relative = {value: 'relative', position: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$sticky = {value: 'sticky', position: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fixed = {value: 'fixed', position: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundAttachment: _rtfeldman$elm_css$Css_Structure$Compatible, tableLayout: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$static = {value: 'static', position: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fillAvailable = {value: 'fill-available', minMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fitContent = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$fillAvailable,
-	{value: 'fit-content'});
-var _rtfeldman$elm_css$Css$minContent = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$fillAvailable,
-	{value: 'min-content'});
-var _rtfeldman$elm_css$Css$maxContent = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$fillAvailable,
-	{value: 'max-content'});
-var _rtfeldman$elm_css$Css$displayFlex = A2(_rtfeldman$elm_css$Css$property, 'display', 'flex');
-var _rtfeldman$elm_css$Css$textEmphasisColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'text-emphasis-color', c.value);
-};
-var _rtfeldman$elm_css$Css$textDecorationColor = function (c) {
-	return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'text-decoration-color', c.value);
-};
-var _rtfeldman$elm_css$Css$prop6 = F7(
-	function (key, argA, argB, argC, argD, argE, argF) {
-		return A2(
-			_rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: argA.value,
-					_1: {
-						ctor: '::',
-						_0: argB.value,
-						_1: {
-							ctor: '::',
-							_0: argC.value,
-							_1: {
-								ctor: '::',
-								_0: argD.value,
-								_1: {
-									ctor: '::',
-									_0: argE.value,
-									_1: {
-										ctor: '::',
-										_0: argF.value,
-										_1: {ctor: '[]'}
-									}
-								}
-							}
-						}
-					}
-				}));
-	});
-var _rtfeldman$elm_css$Css$boxShadow6 = _rtfeldman$elm_css$Css$prop6('box-shadow');
-var _rtfeldman$elm_css$Css$prop5 = F6(
-	function (key, argA, argB, argC, argD, argE) {
-		return A2(
-			_rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: argA.value,
-					_1: {
-						ctor: '::',
-						_0: argB.value,
-						_1: {
-							ctor: '::',
-							_0: argC.value,
-							_1: {
-								ctor: '::',
-								_0: argD.value,
-								_1: {
-									ctor: '::',
-									_0: argE.value,
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					}
-				}));
-	});
-var _rtfeldman$elm_css$Css$boxShadow5 = _rtfeldman$elm_css$Css$prop5('box-shadow');
-var _rtfeldman$elm_css$Css$prop4 = F5(
-	function (key, argA, argB, argC, argD) {
-		return A2(
-			_rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: argA.value,
-					_1: {
-						ctor: '::',
-						_0: argB.value,
-						_1: {
-							ctor: '::',
-							_0: argC.value,
-							_1: {
-								ctor: '::',
-								_0: argD.value,
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				}));
-	});
-var _rtfeldman$elm_css$Css$textShadow4 = _rtfeldman$elm_css$Css$prop4('text-shadow');
-var _rtfeldman$elm_css$Css$boxShadow4 = _rtfeldman$elm_css$Css$prop4('box-shadow');
-var _rtfeldman$elm_css$Css$padding4 = _rtfeldman$elm_css$Css$prop4('padding');
-var _rtfeldman$elm_css$Css$margin4 = _rtfeldman$elm_css$Css$prop4('margin');
-var _rtfeldman$elm_css$Css$borderImageOutset4 = _rtfeldman$elm_css$Css$prop4('border-image-outset');
-var _rtfeldman$elm_css$Css$borderImageWidth4 = _rtfeldman$elm_css$Css$prop4('border-image-width');
-var _rtfeldman$elm_css$Css$borderWidth4 = _rtfeldman$elm_css$Css$prop4('border-width');
-var _rtfeldman$elm_css$Css$borderRadius4 = _rtfeldman$elm_css$Css$prop4('border-radius');
-var _rtfeldman$elm_css$Css$prop3 = F4(
-	function (key, argA, argB, argC) {
-		return A2(
-			_rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: argA.value,
-					_1: {
-						ctor: '::',
-						_0: argB.value,
-						_1: {
-							ctor: '::',
-							_0: argC.value,
-							_1: {ctor: '[]'}
-						}
-					}
-				}));
-	});
-var _rtfeldman$elm_css$Css$textShadow3 = _rtfeldman$elm_css$Css$prop3('text-shadow');
-var _rtfeldman$elm_css$Css$boxShadow3 = _rtfeldman$elm_css$Css$prop3('box-shadow');
-var _rtfeldman$elm_css$Css$textIndent3 = _rtfeldman$elm_css$Css$prop3('text-indent');
-var _rtfeldman$elm_css$Css$padding3 = _rtfeldman$elm_css$Css$prop3('padding');
-var _rtfeldman$elm_css$Css$margin3 = _rtfeldman$elm_css$Css$prop3('margin');
-var _rtfeldman$elm_css$Css$border3 = _rtfeldman$elm_css$Css$prop3('border');
-var _rtfeldman$elm_css$Css$borderTop3 = _rtfeldman$elm_css$Css$prop3('border-top');
-var _rtfeldman$elm_css$Css$borderBottom3 = _rtfeldman$elm_css$Css$prop3('border-bottom');
-var _rtfeldman$elm_css$Css$borderLeft3 = _rtfeldman$elm_css$Css$prop3('border-left');
-var _rtfeldman$elm_css$Css$borderRight3 = _rtfeldman$elm_css$Css$prop3('border-right');
-var _rtfeldman$elm_css$Css$borderBlockStart3 = _rtfeldman$elm_css$Css$prop3('border-block-start');
-var _rtfeldman$elm_css$Css$borderBlockEnd3 = _rtfeldman$elm_css$Css$prop3('border-block-end');
-var _rtfeldman$elm_css$Css$borderInlineStart3 = _rtfeldman$elm_css$Css$prop3('border-block-start');
-var _rtfeldman$elm_css$Css$borderInlineEnd3 = _rtfeldman$elm_css$Css$prop3('border-block-end');
-var _rtfeldman$elm_css$Css$borderImageOutset3 = _rtfeldman$elm_css$Css$prop3('border-image-outset');
-var _rtfeldman$elm_css$Css$borderImageWidth3 = _rtfeldman$elm_css$Css$prop3('border-image-width');
-var _rtfeldman$elm_css$Css$borderWidth3 = _rtfeldman$elm_css$Css$prop3('border-width');
-var _rtfeldman$elm_css$Css$borderRadius3 = _rtfeldman$elm_css$Css$prop3('border-radius');
-var _rtfeldman$elm_css$Css$outline3 = _rtfeldman$elm_css$Css$prop3('outline');
-var _rtfeldman$elm_css$Css$fontVariant3 = _rtfeldman$elm_css$Css$prop3('font-variant');
-var _rtfeldman$elm_css$Css$fontVariantNumeric3 = _rtfeldman$elm_css$Css$prop3('font-variant-numeric');
-var _rtfeldman$elm_css$Css$textDecoration3 = _rtfeldman$elm_css$Css$prop3('text-decoration');
-var _rtfeldman$elm_css$Css$textDecorations3 = function (_p6) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop3,
-		'text-decoration',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p6));
-};
-var _rtfeldman$elm_css$Css$prop2 = F3(
-	function (key, argA, argB) {
-		return A2(
-			_rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: argA.value,
-					_1: {
-						ctor: '::',
-						_0: argB.value,
-						_1: {ctor: '[]'}
-					}
-				}));
-	});
-var _rtfeldman$elm_css$Css$textShadow2 = _rtfeldman$elm_css$Css$prop2('text-shadow');
-var _rtfeldman$elm_css$Css$boxShadow2 = _rtfeldman$elm_css$Css$prop2('box-shadow');
-var _rtfeldman$elm_css$Css$textIndent2 = _rtfeldman$elm_css$Css$prop2('text-indent');
-var _rtfeldman$elm_css$Css$padding2 = _rtfeldman$elm_css$Css$prop2('padding');
-var _rtfeldman$elm_css$Css$margin2 = _rtfeldman$elm_css$Css$prop2('margin');
-var _rtfeldman$elm_css$Css$border2 = _rtfeldman$elm_css$Css$prop2('border');
-var _rtfeldman$elm_css$Css$borderTop2 = _rtfeldman$elm_css$Css$prop2('border-top');
-var _rtfeldman$elm_css$Css$borderBottom2 = _rtfeldman$elm_css$Css$prop2('border-bottom');
-var _rtfeldman$elm_css$Css$borderLeft2 = _rtfeldman$elm_css$Css$prop2('border-left');
-var _rtfeldman$elm_css$Css$borderRight2 = _rtfeldman$elm_css$Css$prop2('border-right');
-var _rtfeldman$elm_css$Css$borderBlockStart2 = _rtfeldman$elm_css$Css$prop2('border-block-start');
-var _rtfeldman$elm_css$Css$borderBlockEnd2 = _rtfeldman$elm_css$Css$prop2('border-block-end');
-var _rtfeldman$elm_css$Css$borderInlineStart2 = _rtfeldman$elm_css$Css$prop2('border-block-start');
-var _rtfeldman$elm_css$Css$borderInlineEnd2 = _rtfeldman$elm_css$Css$prop2('border-block-end');
-var _rtfeldman$elm_css$Css$borderImageOutset2 = _rtfeldman$elm_css$Css$prop2('border-image-outset');
-var _rtfeldman$elm_css$Css$borderImageWidth2 = _rtfeldman$elm_css$Css$prop2('border-image-width');
-var _rtfeldman$elm_css$Css$borderWidth2 = _rtfeldman$elm_css$Css$prop2('border-width');
-var _rtfeldman$elm_css$Css$borderTopWidth2 = _rtfeldman$elm_css$Css$prop2('border-top-width');
-var _rtfeldman$elm_css$Css$borderBottomLeftRadius2 = _rtfeldman$elm_css$Css$prop2('border-bottom-left-radius');
-var _rtfeldman$elm_css$Css$borderBottomRightRadius2 = _rtfeldman$elm_css$Css$prop2('border-bottom-right-radius');
-var _rtfeldman$elm_css$Css$borderTopLeftRadius2 = _rtfeldman$elm_css$Css$prop2('border-top-left-radius');
-var _rtfeldman$elm_css$Css$borderTopRightRadius2 = _rtfeldman$elm_css$Css$prop2('border-top-right-radius');
-var _rtfeldman$elm_css$Css$borderRadius2 = _rtfeldman$elm_css$Css$prop2('border-radius');
-var _rtfeldman$elm_css$Css$borderSpacing2 = _rtfeldman$elm_css$Css$prop2('border-spacing');
-var _rtfeldman$elm_css$Css$backgroundRepeat2 = _rtfeldman$elm_css$Css$prop2('background-repeat');
-var _rtfeldman$elm_css$Css$backgroundPosition2 = _rtfeldman$elm_css$Css$prop2('background-position');
-var _rtfeldman$elm_css$Css$backgroundSize2 = _rtfeldman$elm_css$Css$prop2('background-size');
-var _rtfeldman$elm_css$Css$fontVariant2 = _rtfeldman$elm_css$Css$prop2('font-variant');
-var _rtfeldman$elm_css$Css$fontVariantNumeric2 = _rtfeldman$elm_css$Css$prop2('font-variant-numeric');
-var _rtfeldman$elm_css$Css$textDecoration2 = _rtfeldman$elm_css$Css$prop2('text-decoration');
-var _rtfeldman$elm_css$Css$textDecorations2 = function (_p7) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop2,
-		'text-decoration',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p7));
-};
-var _rtfeldman$elm_css$Css$prop1 = F2(
-	function (key, arg) {
-		return A2(_rtfeldman$elm_css$Css$property, key, arg.value);
-	});
-var _rtfeldman$elm_css$Css$textRendering = _rtfeldman$elm_css$Css$prop1('text-rendering');
-var _rtfeldman$elm_css$Css$textOrientation = _rtfeldman$elm_css$Css$prop1('text-orientation');
-var _rtfeldman$elm_css$Css$textOverflow = _rtfeldman$elm_css$Css$prop1('text-overflow');
-var _rtfeldman$elm_css$Css$textShadow = _rtfeldman$elm_css$Css$prop1('text-shadow');
-var _rtfeldman$elm_css$Css$boxShadow = _rtfeldman$elm_css$Css$prop1('box-shadow');
-var _rtfeldman$elm_css$Css$textIndent = _rtfeldman$elm_css$Css$prop1('text-indent');
-var _rtfeldman$elm_css$Css$textTransform = _rtfeldman$elm_css$Css$prop1('text-transform');
-var _rtfeldman$elm_css$Css$display = _rtfeldman$elm_css$Css$prop1('display');
-var _rtfeldman$elm_css$Css$opacity = _rtfeldman$elm_css$Css$prop1('opacity');
-var _rtfeldman$elm_css$Css$width = _rtfeldman$elm_css$Css$prop1('width');
-var _rtfeldman$elm_css$Css$maxWidth = _rtfeldman$elm_css$Css$prop1('max-width');
-var _rtfeldman$elm_css$Css$minWidth = _rtfeldman$elm_css$Css$prop1('min-width');
-var _rtfeldman$elm_css$Css$height = _rtfeldman$elm_css$Css$prop1('height');
-var _rtfeldman$elm_css$Css$minHeight = _rtfeldman$elm_css$Css$prop1('min-height');
-var _rtfeldman$elm_css$Css$maxHeight = _rtfeldman$elm_css$Css$prop1('max-height');
-var _rtfeldman$elm_css$Css$padding = _rtfeldman$elm_css$Css$prop1('padding');
-var _rtfeldman$elm_css$Css$paddingBlockStart = _rtfeldman$elm_css$Css$prop1('padding-block-start');
-var _rtfeldman$elm_css$Css$paddingBlockEnd = _rtfeldman$elm_css$Css$prop1('padding-block-end');
-var _rtfeldman$elm_css$Css$paddingInlineStart = _rtfeldman$elm_css$Css$prop1('padding-inline-start');
-var _rtfeldman$elm_css$Css$paddingInlineEnd = _rtfeldman$elm_css$Css$prop1('padding-inline-end');
-var _rtfeldman$elm_css$Css$paddingTop = _rtfeldman$elm_css$Css$prop1('padding-top');
-var _rtfeldman$elm_css$Css$paddingBottom = _rtfeldman$elm_css$Css$prop1('padding-bottom');
-var _rtfeldman$elm_css$Css$paddingRight = _rtfeldman$elm_css$Css$prop1('padding-right');
-var _rtfeldman$elm_css$Css$paddingLeft = _rtfeldman$elm_css$Css$prop1('padding-left');
-var _rtfeldman$elm_css$Css$margin = _rtfeldman$elm_css$Css$prop1('margin');
-var _rtfeldman$elm_css$Css$marginTop = _rtfeldman$elm_css$Css$prop1('margin-top');
-var _rtfeldman$elm_css$Css$marginBottom = _rtfeldman$elm_css$Css$prop1('margin-bottom');
-var _rtfeldman$elm_css$Css$marginRight = _rtfeldman$elm_css$Css$prop1('margin-right');
-var _rtfeldman$elm_css$Css$marginLeft = _rtfeldman$elm_css$Css$prop1('margin-left');
-var _rtfeldman$elm_css$Css$marginBlockStart = _rtfeldman$elm_css$Css$prop1('margin-block-start');
-var _rtfeldman$elm_css$Css$marginBlockEnd = _rtfeldman$elm_css$Css$prop1('margin-block-end');
-var _rtfeldman$elm_css$Css$marginInlineStart = _rtfeldman$elm_css$Css$prop1('margin-inline-start');
-var _rtfeldman$elm_css$Css$marginInlineEnd = _rtfeldman$elm_css$Css$prop1('margin-inline-end');
-var _rtfeldman$elm_css$Css$top = _rtfeldman$elm_css$Css$prop1('top');
-var _rtfeldman$elm_css$Css$bottom = _rtfeldman$elm_css$Css$prop1('bottom');
-var _rtfeldman$elm_css$Css$left = _rtfeldman$elm_css$Css$prop1('left');
-var _rtfeldman$elm_css$Css$right = _rtfeldman$elm_css$Css$prop1('right');
-var _rtfeldman$elm_css$Css$border = _rtfeldman$elm_css$Css$prop1('border');
-var _rtfeldman$elm_css$Css$borderTop = _rtfeldman$elm_css$Css$prop1('border-top');
-var _rtfeldman$elm_css$Css$borderBottom = _rtfeldman$elm_css$Css$prop1('border-bottom');
-var _rtfeldman$elm_css$Css$borderLeft = _rtfeldman$elm_css$Css$prop1('border-left');
-var _rtfeldman$elm_css$Css$borderRight = _rtfeldman$elm_css$Css$prop1('border-right');
-var _rtfeldman$elm_css$Css$borderBlockStart = _rtfeldman$elm_css$Css$prop1('border-block-start');
-var _rtfeldman$elm_css$Css$borderBlockEnd = _rtfeldman$elm_css$Css$prop1('border-block-end');
-var _rtfeldman$elm_css$Css$borderInlineStart = _rtfeldman$elm_css$Css$prop1('border-block-start');
-var _rtfeldman$elm_css$Css$borderInlineEnd = _rtfeldman$elm_css$Css$prop1('border-block-end');
-var _rtfeldman$elm_css$Css$borderImageOutset = _rtfeldman$elm_css$Css$prop1('border-image-outset');
-var _rtfeldman$elm_css$Css$borderImageWidth = _rtfeldman$elm_css$Css$prop1('border-image-width');
-var _rtfeldman$elm_css$Css$borderBlockEndStyle = _rtfeldman$elm_css$Css$prop1('border-block-end-style');
-var _rtfeldman$elm_css$Css$borderBlockStartStyle = _rtfeldman$elm_css$Css$prop1('border-block-start-style');
-var _rtfeldman$elm_css$Css$borderInlineEndStyle = _rtfeldman$elm_css$Css$prop1('border-inline-end-style');
-var _rtfeldman$elm_css$Css$borderBottomStyle = _rtfeldman$elm_css$Css$prop1('border-bottom-style');
-var _rtfeldman$elm_css$Css$borderInlineStartStyle = _rtfeldman$elm_css$Css$prop1('border-inline-start-style');
-var _rtfeldman$elm_css$Css$borderLeftStyle = _rtfeldman$elm_css$Css$prop1('border-left-style');
-var _rtfeldman$elm_css$Css$borderRightStyle = _rtfeldman$elm_css$Css$prop1('border-right-style');
-var _rtfeldman$elm_css$Css$borderTopStyle = _rtfeldman$elm_css$Css$prop1('border-top-style');
-var _rtfeldman$elm_css$Css$borderStyle = _rtfeldman$elm_css$Css$prop1('border-style');
-var _rtfeldman$elm_css$Css$borderCollapse = _rtfeldman$elm_css$Css$prop1('border-collapse');
-var _rtfeldman$elm_css$Css$borderWidth = _rtfeldman$elm_css$Css$prop1('border-width');
-var _rtfeldman$elm_css$Css$borderBottomWidth = _rtfeldman$elm_css$Css$prop1('border-bottom-width');
-var _rtfeldman$elm_css$Css$borderInlineEndWidth = _rtfeldman$elm_css$Css$prop1('border-inline-end-width');
-var _rtfeldman$elm_css$Css$borderLeftWidth = _rtfeldman$elm_css$Css$prop1('border-left-width');
-var _rtfeldman$elm_css$Css$borderRightWidth = _rtfeldman$elm_css$Css$prop1('border-right-width');
-var _rtfeldman$elm_css$Css$borderTopWidth = _rtfeldman$elm_css$Css$prop1('border-top-width');
-var _rtfeldman$elm_css$Css$borderBottomLeftRadius = _rtfeldman$elm_css$Css$prop1('border-bottom-left-radius');
-var _rtfeldman$elm_css$Css$borderBottomRightRadius = _rtfeldman$elm_css$Css$prop1('border-bottom-right-radius');
-var _rtfeldman$elm_css$Css$borderTopLeftRadius = _rtfeldman$elm_css$Css$prop1('border-top-left-radius');
-var _rtfeldman$elm_css$Css$borderTopRightRadius = _rtfeldman$elm_css$Css$prop1('border-top-right-radius');
-var _rtfeldman$elm_css$Css$borderRadius = _rtfeldman$elm_css$Css$prop1('border-radius');
-var _rtfeldman$elm_css$Css$borderSpacing = _rtfeldman$elm_css$Css$prop1('border-spacing');
-var _rtfeldman$elm_css$Css$outline = _rtfeldman$elm_css$Css$prop1('outline');
-var _rtfeldman$elm_css$Css$outlineWidth = _rtfeldman$elm_css$Css$prop1('outline-width');
-var _rtfeldman$elm_css$Css$outlineStyle = _rtfeldman$elm_css$Css$prop1('outline-style');
-var _rtfeldman$elm_css$Css$outlineOffset = _rtfeldman$elm_css$Css$prop1('outline-offset');
-var _rtfeldman$elm_css$Css$resize = _rtfeldman$elm_css$Css$prop1('resize');
-var _rtfeldman$elm_css$Css$fill = _rtfeldman$elm_css$Css$prop1('fill');
-var _rtfeldman$elm_css$Css$visibility = _rtfeldman$elm_css$Css$prop1('visibility');
-var _rtfeldman$elm_css$Css$overflow = _rtfeldman$elm_css$Css$prop1('overflow');
-var _rtfeldman$elm_css$Css$overflowX = _rtfeldman$elm_css$Css$prop1('overflow-x');
-var _rtfeldman$elm_css$Css$overflowY = _rtfeldman$elm_css$Css$prop1('overflow-y');
-var _rtfeldman$elm_css$Css$overflowWrap = _rtfeldman$elm_css$Css$prop1('overflow-wrap');
-var _rtfeldman$elm_css$Css$whiteSpace = _rtfeldman$elm_css$Css$prop1('white-space');
-var _rtfeldman$elm_css$Css$backgroundRepeat = _rtfeldman$elm_css$Css$prop1('background-repeat');
-var _rtfeldman$elm_css$Css$backgroundAttachment = _rtfeldman$elm_css$Css$prop1('background-attachment');
-var _rtfeldman$elm_css$Css$backgroundClip = _rtfeldman$elm_css$Css$prop1('background-clip');
-var _rtfeldman$elm_css$Css$backgroundOrigin = _rtfeldman$elm_css$Css$prop1('background-origin');
-var _rtfeldman$elm_css$Css$backgroundImage = _rtfeldman$elm_css$Css$prop1('background-image');
-var _rtfeldman$elm_css$Css$backgroundSize = _rtfeldman$elm_css$Css$prop1('background-size');
-var _rtfeldman$elm_css$Css$lineHeight = _rtfeldman$elm_css$Css$prop1('line-height');
-var _rtfeldman$elm_css$Css$letterSpacing = _rtfeldman$elm_css$Css$prop1('letter-spacing');
-var _rtfeldman$elm_css$Css$fontFamily = _rtfeldman$elm_css$Css$prop1('font-family');
-var _rtfeldman$elm_css$Css$fontFamilies = function (_p8) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop1,
-		'font-family',
-		_rtfeldman$elm_css$Css$stringsToValue(_p8));
-};
-var _rtfeldman$elm_css$Css$fontSize = _rtfeldman$elm_css$Css$prop1('font-size');
-var _rtfeldman$elm_css$Css$fontStyle = _rtfeldman$elm_css$Css$prop1('font-style');
-var _rtfeldman$elm_css$Css$fontVariant = _rtfeldman$elm_css$Css$prop1('font-variant');
-var _rtfeldman$elm_css$Css$fontVariantLigatures = _rtfeldman$elm_css$Css$prop1('font-variant-ligatures');
-var _rtfeldman$elm_css$Css$fontVariantCaps = _rtfeldman$elm_css$Css$prop1('font-variant-caps');
-var _rtfeldman$elm_css$Css$fontVariantNumeric = _rtfeldman$elm_css$Css$prop1('font-variant-numeric');
-var _rtfeldman$elm_css$Css$fontVariantNumerics = function (_p9) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop1,
-		'font-variant-numeric',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p9));
-};
-var _rtfeldman$elm_css$Css$cursor = _rtfeldman$elm_css$Css$prop1('cursor');
-var _rtfeldman$elm_css$Css$textDecoration = _rtfeldman$elm_css$Css$prop1('text-decoration');
-var _rtfeldman$elm_css$Css$textDecorations = function (_p10) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop1,
-		'text-decoration',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p10));
-};
-var _rtfeldman$elm_css$Css$textDecorationLine = _rtfeldman$elm_css$Css$prop1('text-decoration-line');
-var _rtfeldman$elm_css$Css$textDecorationLines = function (_p11) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop1,
-		'text-decoration-line',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p11));
-};
-var _rtfeldman$elm_css$Css$textDecorationStyle = _rtfeldman$elm_css$Css$prop1('text-decoration-style');
-var _rtfeldman$elm_css$Css$zIndex = _rtfeldman$elm_css$Css$prop1('z-index');
-var _rtfeldman$elm_css$Css$touchAction = _rtfeldman$elm_css$Css$prop1('touch-action');
-var _rtfeldman$elm_css$Css$tableLayout = _rtfeldman$elm_css$Css$prop1('table-layout');
-var _rtfeldman$elm_css$Css$position = _rtfeldman$elm_css$Css$prop1('position');
-var _rtfeldman$elm_css$Css$textBottom = _rtfeldman$elm_css$Css$prop1('text-bottom');
-var _rtfeldman$elm_css$Css$textTop = _rtfeldman$elm_css$Css$prop1('text-top');
-var _rtfeldman$elm_css$Css$super = _rtfeldman$elm_css$Css$prop1('super');
-var _rtfeldman$elm_css$Css$sub = _rtfeldman$elm_css$Css$prop1('sub');
-var _rtfeldman$elm_css$Css$baseline = _rtfeldman$elm_css$Css$prop1('baseline');
-var _rtfeldman$elm_css$Css$middle = _rtfeldman$elm_css$Css$prop1('middle');
-var _rtfeldman$elm_css$Css$noWrap = {value: 'nowrap', whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible, flexWrap: _rtfeldman$elm_css$Css_Structure$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$auto = {value: 'auto', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible, overflow: _rtfeldman$elm_css$Css_Structure$Compatible, textRendering: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, alignItemsOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible, justifyContentOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, intOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, tableLayout: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$none = {value: 'none', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, none: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible, display: _rtfeldman$elm_css$Css_Structure$Compatible, outline: _rtfeldman$elm_css$Css_Structure$Compatible, resize: _rtfeldman$elm_css$Css_Structure$Compatible, transform: _rtfeldman$elm_css$Css_Structure$Compatible, borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible, textTransform: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, updateFrequency: _rtfeldman$elm_css$Css_Structure$Compatible, blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, inlineAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, pointerDevice: _rtfeldman$elm_css$Css_Structure$Compatible, hoverCapability: _rtfeldman$elm_css$Css_Structure$Compatible, scriptingSupport: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inlineListItem = {value: 'inline-list-item', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$listItem = {value: 'list-item', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableFooterGroup = {value: 'table-footer-group', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableHeaderGroup = {value: 'table-header-group', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableColumnGroup = {value: 'table-column-group', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableRowGroup = {value: 'table-row-group', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableCaption = {value: 'table-caption', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableColumn = {value: 'table-column', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableCell = {value: 'table-cell', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$tableRow = {value: 'table-row', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inlineTable = {value: 'inline-table', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$table = {value: 'table', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inline = {value: 'inline', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inlineFlex = {value: 'inline-flex', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inlineBlock = {value: 'inline-block', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$block = {value: 'block', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTopLeft = {value: 'top left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toLeft = {value: 'left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottomLeft = {value: 'bottom left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottom = {value: 'bottom', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottomRight = {value: 'bottom right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toRight = {value: 'right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTopRight = {value: 'top right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTop = {value: 'top', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$stop2 = F2(
-	function (c, len) {
-		return {
-			ctor: '_Tuple2',
-			_0: c,
-			_1: _elm_lang$core$Maybe$Just(len)
-		};
-	});
-var _rtfeldman$elm_css$Css$stop = function (c) {
-	return {ctor: '_Tuple2', _0: c, _1: _elm_lang$core$Maybe$Nothing};
-};
-var _rtfeldman$elm_css$Css$collectStops = _elm_lang$core$List$map(
-	function (_p12) {
-		var _p13 = _p12;
-		return A2(
-			_elm_lang$core$String$append,
-			_p13._0.value,
-			A2(
-				_elm_lang$core$Maybe$withDefault,
-				'',
-				A2(
-					_elm_lang$core$Maybe$map,
-					function (_p14) {
-						return A2(
-							_elm_lang$core$String$cons,
-							_elm_lang$core$Native_Utils.chr(' '),
-							function (_) {
-								return _.value;
-							}(_p14));
-					},
-					_p13._1)));
-	});
-var _rtfeldman$elm_css$Css$local = {value: 'local', backgroundAttachment: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$noRepeat = {value: 'no-repeat', backgroundRepeat: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$round = {value: 'round', backgroundRepeat: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$space = {value: 'space', backgroundRepeat: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$repeat = {value: 'repeat', backgroundRepeat: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$repeatY = {value: 'repeat-y', backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$repeatX = {value: 'repeat-x', backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lineThrough = {value: 'line-through', textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$overline = {value: 'overline', textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$underline = {value: 'underline', textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$row = {value: 'row', flexDirection: _rtfeldman$elm_css$Css_Structure$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$rowReverse = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$row,
-	{value: 'row-reverse'});
-var _rtfeldman$elm_css$Css$column = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$row,
-	{value: 'column'});
-var _rtfeldman$elm_css$Css$columnReverse = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$row,
-	{value: 'column-reverse'});
-var _rtfeldman$elm_css$Css$stretch = _rtfeldman$elm_css$Css$prop1('stretch');
-var _rtfeldman$elm_css$Css$spaceBetween = _rtfeldman$elm_css$Css$prop1('space-between');
-var _rtfeldman$elm_css$Css$spaceAround = _rtfeldman$elm_css$Css$prop1('space-around');
-var _rtfeldman$elm_css$Css$flexEnd = _rtfeldman$elm_css$Css$prop1('flex-end');
-var _rtfeldman$elm_css$Css$flexStart = _rtfeldman$elm_css$Css$prop1('flex-start');
-var _rtfeldman$elm_css$Css$wrap = {value: 'wrap', flexWrap: _rtfeldman$elm_css$Css_Structure$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$wrapReverse = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$wrap,
-	{value: 'wrap-reverse'});
-var _rtfeldman$elm_css$Css$content = {value: 'content', flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$order = _rtfeldman$elm_css$Css$prop1('order');
-var _rtfeldman$elm_css$Css$flexFlow2 = _rtfeldman$elm_css$Css$prop2('flex-flow');
-var _rtfeldman$elm_css$Css$flexFlow1 = _rtfeldman$elm_css$Css$prop1('flex-flow');
-var _rtfeldman$elm_css$Css$flexDirection = _rtfeldman$elm_css$Css$prop1('flex-direction');
-var _rtfeldman$elm_css$Css$flexWrap = _rtfeldman$elm_css$Css$prop1('flex-wrap');
-var _rtfeldman$elm_css$Css$flexShrink = _rtfeldman$elm_css$Css$prop1('flex-shrink');
-var _rtfeldman$elm_css$Css$flexGrow = _rtfeldman$elm_css$Css$prop1('flex-grow');
-var _rtfeldman$elm_css$Css$flexBasis = _rtfeldman$elm_css$Css$prop1('flex-basis');
-var _rtfeldman$elm_css$Css$flex3 = _rtfeldman$elm_css$Css$prop3('flex');
-var _rtfeldman$elm_css$Css$flex2 = _rtfeldman$elm_css$Css$prop2('flex');
-var _rtfeldman$elm_css$Css$flex = _rtfeldman$elm_css$Css$prop1('flex');
-var _rtfeldman$elm_css$Css$listStyle3 = _rtfeldman$elm_css$Css$prop3('list-style');
-var _rtfeldman$elm_css$Css$listStyle2 = _rtfeldman$elm_css$Css$prop2('list-style');
-var _rtfeldman$elm_css$Css$listStyle = _rtfeldman$elm_css$Css$prop1('list-style');
-var _rtfeldman$elm_css$Css$thai = {value: 'thai', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$telugu = {value: 'telugu', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$oriya = {value: 'oriya', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$myanmar = {value: 'myanmar', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$malayalam = {value: 'malayalam', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lao = {value: 'lao', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$khmer = {value: 'khmer', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$kannada = {value: 'kannada', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$gurmukhi = {value: 'gurmukhi', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$gujarati = {value: 'gujarati', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$georgian = {value: 'georgian', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$devanagari = {value: 'devanagari', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cjkHeavenlyStem = {value: 'cjk-heavenly-stem', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cjkEarthlyBranch = {value: 'cjk-earthly-branch', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$bengali = {value: 'bengali', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$armenian = {value: 'armenian', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$arabicIndic = {value: 'arabic-indic', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$upperLatin = {value: 'upper-latin', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lowerLatin = {value: 'lower-latin', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$upperAlpha = {value: 'upper-alpha', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lowerAlpha = {value: 'lower-alpha', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$upperGreek = {value: 'upper-greek', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lowerGreek = {value: 'lower-greek', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$upperRoman = {value: 'upper-roman', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lowerRoman = {value: 'lower-roman', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$decimalLeadingZero = {value: 'decimal-leading-zero', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$decimal = {value: 'decimal', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$square = {value: 'square', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$circle = {value: 'circle', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$disc = {value: 'disc', listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$listStyleType = _rtfeldman$elm_css$Css$prop1('list-style-type');
-var _rtfeldman$elm_css$Css$outside = {value: 'outside', listStylePosition: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inside = {value: 'inside', listStylePosition: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$listStylePosition = _rtfeldman$elm_css$Css$prop1('list-style-position');
-var _rtfeldman$elm_css$Css$transformStyle = _rtfeldman$elm_css$Css$prop1('transform-style');
-var _rtfeldman$elm_css$Css$flat = {value: 'flat', transformStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$preserve3d = {value: 'preserve-3d', transformStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$boxSizing = _rtfeldman$elm_css$Css$prop1('box-sizing');
-var _rtfeldman$elm_css$Css$transformBox = _rtfeldman$elm_css$Css$prop1('transform-box');
-var _rtfeldman$elm_css$Css$viewBox = {value: 'view-box', transformBox: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$borderBox = {value: 'border-box', boxSizing: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundClip: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$contentBox = {value: 'content-box', boxSizing: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundClip: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fillBox = {value: 'fill-box', transformBox: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$transforms = function (_p15) {
-	return A2(
-		_rtfeldman$elm_css$Css$prop1,
-		'transform',
-		_rtfeldman$elm_css$Css$valuesOrNone(_p15));
-};
-var _rtfeldman$elm_css$Css$transform = function (only) {
-	return _rtfeldman$elm_css$Css$transforms(
-		{
-			ctor: '::',
-			_0: only,
-			_1: {ctor: '[]'}
-		});
-};
-var _rtfeldman$elm_css$Css$angleConverter = F2(
-	function (suffix, num) {
-		return {
-			value: A2(
-				_elm_lang$core$Basics_ops['++'],
-				_rtfeldman$elm_css$Css$numberToString(num),
-				suffix),
-			angle: _rtfeldman$elm_css$Css_Structure$Compatible,
-			angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$deg = _rtfeldman$elm_css$Css$angleConverter('deg');
-var _rtfeldman$elm_css$Css$grad = _rtfeldman$elm_css$Css$angleConverter('grad');
-var _rtfeldman$elm_css$Css$rad = _rtfeldman$elm_css$Css$angleConverter('rad');
-var _rtfeldman$elm_css$Css$turn = _rtfeldman$elm_css$Css$angleConverter('turn');
-var _rtfeldman$elm_css$Css$lengthConverter = F3(
-	function (units, unitLabel, numericValue) {
-		return {
-			value: A2(
-				_elm_lang$core$Basics_ops['++'],
-				_rtfeldman$elm_css$Css$numberToString(numericValue),
-				unitLabel),
-			numericValue: numericValue,
-			units: units,
-			unitLabel: unitLabel,
-			length: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible,
-			textIndent: _rtfeldman$elm_css$Css_Structure$Compatible,
-			flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible,
-			fontSize: _rtfeldman$elm_css$Css_Structure$Compatible,
-			absoluteLength: _rtfeldman$elm_css$Css_Structure$Compatible,
-			lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible,
-			calc: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$true = _rtfeldman$elm_css$Css$prop1('true');
-var _rtfeldman$elm_css$Css$matchParent = _rtfeldman$elm_css$Css$prop1('match-parent');
-var _rtfeldman$elm_css$Css$end = _rtfeldman$elm_css$Css$prop1('end');
-var _rtfeldman$elm_css$Css$start = _rtfeldman$elm_css$Css$prop1('start');
-var _rtfeldman$elm_css$Css$justifyAll = _rtfeldman$elm_css$Css$prop1('justify-all');
-var _rtfeldman$elm_css$Css$justify = _rtfeldman$elm_css$Css$prop1('justify');
-var _rtfeldman$elm_css$Css$center = _rtfeldman$elm_css$Css$prop1('center');
-var _rtfeldman$elm_css$Css$collapse = {value: 'collapse', borderCollapse: _rtfeldman$elm_css$Css_Structure$Compatible, visibility: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$separate = {value: 'separate', borderCollapse: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$outset = {value: 'outset', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$inset = {value: 'inset', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$ridge = {value: 'ridge', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$groove = {value: 'groove', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$double = {value: 'double', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$solid = {value: 'solid', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$dashed = {value: 'dashed', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$dotted = {value: 'dotted', borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$wavy = {value: 'wavy', textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$clip = {value: 'clip', textOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$ellipsis = {value: 'ellipsis', textOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$fullWidth = {value: 'full-width', textTransform: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$lowercase = {value: 'lowercase', textTransform: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$uppercase = {value: 'uppercase', textTransform: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$capitalize = {value: 'capitalize', textTransform: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$sideways = {value: 'sideways', textOrientation: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$upright = {value: 'upright', textOrientation: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$mixed = {value: 'mixed', textOrientation: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$eachLine = {value: 'each-line', textIndent: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$hanging = {value: 'hanging', textIndent: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$geometricPrecision = {value: 'geometricPrecision', textRendering: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$optimizeLegibility = {value: 'optimizeLegibility', textRendering: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$optimizeSpeed = {value: 'optimizeSpeed', textRendering: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$hslaToRgba = F6(
-	function (value, warnings, hue, saturation, lightness, hslAlpha) {
-		var _p16 = _elm_lang$core$Color$toRgb(
-			A4(_elm_lang$core$Color$hsla, hue, saturation, lightness, hslAlpha));
-		var red = _p16.red;
-		var green = _p16.green;
-		var blue = _p16.blue;
-		var alpha = _p16.alpha;
-		return {value: value, color: _rtfeldman$elm_css$Css_Structure$Compatible, red: red, green: green, blue: blue, alpha: alpha, warnings: warnings};
-	});
-var _rtfeldman$elm_css$Css$withPrecedingHash = function (str) {
-	return A2(_elm_lang$core$String$startsWith, '#', str) ? str : A2(
-		_elm_lang$core$String$cons,
-		_elm_lang$core$Native_Utils.chr('#'),
-		str);
-};
-var _rtfeldman$elm_css$Css$erroneousHex = function (str) {
-	return {
-		value: _rtfeldman$elm_css$Css$withPrecedingHash(str),
-		color: _rtfeldman$elm_css$Css_Structure$Compatible,
-		red: 0,
-		green: 0,
-		blue: 0,
-		alpha: 1,
-		warnings: _elm_lang$core$List$singleton(
-			A2(
-				_elm_lang$core$String$join,
-				' ',
-				{
-					ctor: '::',
-					_0: 'Hex color strings must contain exactly 3, 4, 6, or 8 hexadecimal digits, optionally preceded by \"#\".',
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$core$Basics$toString(str),
-						_1: {
-							ctor: '::',
-							_0: 'is an invalid hex color string.',
-							_1: {
-								ctor: '::',
-								_0: 'Please see: https://drafts.csswg.org/css-color/#hex-notation',
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				}))
-	};
-};
-var _rtfeldman$elm_css$Css$validHex = F5(
-	function (str, _p20, _p19, _p18, _p17) {
-		var _p21 = _p20;
-		var _p22 = _p19;
-		var _p23 = _p18;
-		var _p24 = _p17;
-		var toResult = function (_p25) {
-			return _rtfeldman$hex$Hex$fromString(
-				_elm_lang$core$String$toLower(
-					_elm_lang$core$String$fromList(_p25)));
-		};
-		var results = {
-			ctor: '_Tuple4',
-			_0: toResult(
-				{
-					ctor: '::',
-					_0: _p21._0,
-					_1: {
-						ctor: '::',
-						_0: _p21._1,
-						_1: {ctor: '[]'}
-					}
-				}),
-			_1: toResult(
-				{
-					ctor: '::',
-					_0: _p22._0,
-					_1: {
-						ctor: '::',
-						_0: _p22._1,
-						_1: {ctor: '[]'}
-					}
-				}),
-			_2: toResult(
-				{
-					ctor: '::',
-					_0: _p23._0,
-					_1: {
-						ctor: '::',
-						_0: _p23._1,
-						_1: {ctor: '[]'}
-					}
-				}),
-			_3: toResult(
-				{
-					ctor: '::',
-					_0: _p24._0,
-					_1: {
-						ctor: '::',
-						_0: _p24._1,
-						_1: {ctor: '[]'}
-					}
-				})
-		};
-		var _p26 = results;
-		if (((((_p26.ctor === '_Tuple4') && (_p26._0.ctor === 'Ok')) && (_p26._1.ctor === 'Ok')) && (_p26._2.ctor === 'Ok')) && (_p26._3.ctor === 'Ok')) {
-			return {
-				value: _rtfeldman$elm_css$Css$withPrecedingHash(str),
-				color: _rtfeldman$elm_css$Css_Structure$Compatible,
-				red: _p26._0._0,
-				green: _p26._1._0,
-				blue: _p26._2._0,
-				alpha: _elm_lang$core$Basics$toFloat(_p26._3._0) / 255,
-				warnings: {ctor: '[]'}
-			};
-		} else {
-			return _rtfeldman$elm_css$Css$erroneousHex(str);
-		}
-	});
-var _rtfeldman$elm_css$Css$hex = function (str) {
-	var withoutHash = A2(_elm_lang$core$String$startsWith, '#', str) ? A2(_elm_lang$core$String$dropLeft, 1, str) : str;
-	var _p27 = _elm_lang$core$String$toList(withoutHash);
-	_v9_4:
-	do {
-		if (((_p27.ctor === '::') && (_p27._1.ctor === '::')) && (_p27._1._1.ctor === '::')) {
-			if (_p27._1._1._1.ctor === '[]') {
-				var _p30 = _p27._0;
-				var _p29 = _p27._1._0;
-				var _p28 = _p27._1._1._0;
-				return A5(
-					_rtfeldman$elm_css$Css$validHex,
-					str,
-					{ctor: '_Tuple2', _0: _p30, _1: _p30},
-					{ctor: '_Tuple2', _0: _p29, _1: _p29},
-					{ctor: '_Tuple2', _0: _p28, _1: _p28},
-					{
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.chr('f'),
-						_1: _elm_lang$core$Native_Utils.chr('f')
-					});
-			} else {
-				if (_p27._1._1._1._1.ctor === '[]') {
-					var _p34 = _p27._0;
-					var _p33 = _p27._1._0;
-					var _p32 = _p27._1._1._0;
-					var _p31 = _p27._1._1._1._0;
-					return A5(
-						_rtfeldman$elm_css$Css$validHex,
-						str,
-						{ctor: '_Tuple2', _0: _p34, _1: _p34},
-						{ctor: '_Tuple2', _0: _p33, _1: _p33},
-						{ctor: '_Tuple2', _0: _p32, _1: _p32},
-						{ctor: '_Tuple2', _0: _p31, _1: _p31});
-				} else {
-					if (_p27._1._1._1._1._1.ctor === '::') {
-						if (_p27._1._1._1._1._1._1.ctor === '[]') {
-							return A5(
-								_rtfeldman$elm_css$Css$validHex,
-								str,
-								{ctor: '_Tuple2', _0: _p27._0, _1: _p27._1._0},
-								{ctor: '_Tuple2', _0: _p27._1._1._0, _1: _p27._1._1._1._0},
-								{ctor: '_Tuple2', _0: _p27._1._1._1._1._0, _1: _p27._1._1._1._1._1._0},
-								{
-									ctor: '_Tuple2',
-									_0: _elm_lang$core$Native_Utils.chr('f'),
-									_1: _elm_lang$core$Native_Utils.chr('f')
-								});
-						} else {
-							if ((_p27._1._1._1._1._1._1._1.ctor === '::') && (_p27._1._1._1._1._1._1._1._1.ctor === '[]')) {
-								return A5(
-									_rtfeldman$elm_css$Css$validHex,
-									str,
-									{ctor: '_Tuple2', _0: _p27._0, _1: _p27._1._0},
-									{ctor: '_Tuple2', _0: _p27._1._1._0, _1: _p27._1._1._1._0},
-									{ctor: '_Tuple2', _0: _p27._1._1._1._1._0, _1: _p27._1._1._1._1._1._0},
-									{ctor: '_Tuple2', _0: _p27._1._1._1._1._1._1._0, _1: _p27._1._1._1._1._1._1._1._0});
-							} else {
-								break _v9_4;
-							}
-						}
-					} else {
-						break _v9_4;
-					}
-				}
-			}
-		} else {
-			break _v9_4;
-		}
-	} while(false);
-	return _rtfeldman$elm_css$Css$erroneousHex(str);
-};
-var _rtfeldman$elm_css$Css$hidden = {value: 'hidden', overflow: _rtfeldman$elm_css$Css_Structure$Compatible, borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, visibility: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$contain = {value: 'contain', lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$cover = {value: 'cover', lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$url = function (urlValue) {
-	return {
-		value: A2(
-			_elm_lang$core$Basics_ops['++'],
-			'url(',
-			A2(_elm_lang$core$Basics_ops['++'], urlValue, ')')),
-		backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$paddingBox = {value: 'padding-box', backgroundClip: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$luminosity = _rtfeldman$elm_css$Css$prop1('luminosity');
-var _rtfeldman$elm_css$Css$saturation = _rtfeldman$elm_css$Css$prop1('saturation');
-var _rtfeldman$elm_css$Css$hue = _rtfeldman$elm_css$Css$prop1('hue');
-var _rtfeldman$elm_css$Css$exclusion = _rtfeldman$elm_css$Css$prop1('exclusion');
-var _rtfeldman$elm_css$Css$difference = _rtfeldman$elm_css$Css$prop1('difference');
-var _rtfeldman$elm_css$Css$softLight = _rtfeldman$elm_css$Css$prop1('soft-light');
-var _rtfeldman$elm_css$Css$hardLight = _rtfeldman$elm_css$Css$prop1('hard-light');
-var _rtfeldman$elm_css$Css$colorBurn = _rtfeldman$elm_css$Css$prop1('color-burn');
-var _rtfeldman$elm_css$Css$colorDodge = _rtfeldman$elm_css$Css$prop1('color-dodge');
-var _rtfeldman$elm_css$Css$lighten = _rtfeldman$elm_css$Css$prop1('lighten');
-var _rtfeldman$elm_css$Css$darken = _rtfeldman$elm_css$Css$prop1('darken');
-var _rtfeldman$elm_css$Css$overlay = _rtfeldman$elm_css$Css$prop1('overlay');
-var _rtfeldman$elm_css$Css$screenBlendMode = _rtfeldman$elm_css$Css$prop1('screen');
-var _rtfeldman$elm_css$Css$multiply = _rtfeldman$elm_css$Css$prop1('multiply');
-var _rtfeldman$elm_css$Css$vertical = {value: 'vertical', resize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$horizontal = {value: 'horizontal', resize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$both = {value: 'both', resize: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$breakWord = {value: 'break-word', overflowWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$scroll = {value: 'scroll', scroll: _rtfeldman$elm_css$Css_Structure$Compatible, overflow: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundAttachment: _rtfeldman$elm_css$Css_Structure$Compatible, blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, inlineAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$visible = {value: 'visible', overflow: _rtfeldman$elm_css$Css_Structure$Compatible, visibility: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$currentColor = {
-	value: 'currentColor',
-	color: _rtfeldman$elm_css$Css_Structure$Compatible,
-	warnings: {ctor: '[]'}
-};
-var _rtfeldman$elm_css$Css$transparent = {
-	value: 'transparent',
-	color: _rtfeldman$elm_css$Css_Structure$Compatible,
-	warnings: {ctor: '[]'}
-};
-var _rtfeldman$elm_css$Css$important = _rtfeldman$elm_css$Css_Preprocess$mapLastProperty(
-	function (property) {
-		return _elm_lang$core$Native_Utils.update(
-			property,
-			{important: true});
-	});
-var _rtfeldman$elm_css$Css$all = _rtfeldman$elm_css$Css$prop1('all');
-var _rtfeldman$elm_css$Css$combineLengths = F3(
-	function (operation, first, second) {
-		var numericValue = A2(operation, first.numericValue, second.numericValue);
-		var value = A2(
-			_elm_lang$core$String$join,
-			'',
-			A2(
-				_elm_lang$core$List$filter,
-				function (_p35) {
-					return !_elm_lang$core$String$isEmpty(_p35);
+var _mdgriffith$style_elements$Element_Attributes$minHeight = function (len) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$style(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'min-height',
+					_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(len)
 				},
-				{
+				_1: {ctor: '[]'}
+			}));
+};
+var _mdgriffith$style_elements$Element_Attributes$maxWidth = function (len) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$style(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'max-width',
+					_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(len)
+				},
+				_1: {ctor: '[]'}
+			}));
+};
+var _mdgriffith$style_elements$Element_Attributes$minWidth = function (len) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$style(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'min-width',
+					_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(len)
+				},
+				_1: {ctor: '[]'}
+			}));
+};
+var _mdgriffith$style_elements$Element_Attributes$width = _mdgriffith$style_elements$Element_Internal_Model$Width;
+var _mdgriffith$style_elements$Element_Attributes$moveLeft = function (x) {
+	return A3(
+		_mdgriffith$style_elements$Element_Internal_Model$Position,
+		_elm_lang$core$Maybe$Just(
+			_elm_lang$core$Basics$negate(x)),
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$moveRight = function (x) {
+	return A3(
+		_mdgriffith$style_elements$Element_Internal_Model$Position,
+		_elm_lang$core$Maybe$Just(x),
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$moveDown = function (y) {
+	return A3(
+		_mdgriffith$style_elements$Element_Internal_Model$Position,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Just(y),
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$moveUp = function (y) {
+	return A3(
+		_mdgriffith$style_elements$Element_Internal_Model$Position,
+		_elm_lang$core$Maybe$Nothing,
+		_elm_lang$core$Maybe$Just(
+			_elm_lang$core$Basics$negate(y)),
+		_elm_lang$core$Maybe$Nothing);
+};
+var _mdgriffith$style_elements$Element_Attributes$alignRight = _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Right);
+var _mdgriffith$style_elements$Element_Attributes$alignLeft = _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Left);
+var _mdgriffith$style_elements$Element_Attributes$alignBottom = _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Bottom);
+var _mdgriffith$style_elements$Element_Attributes$alignTop = _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Top);
+var _mdgriffith$style_elements$Element_Attributes$spread = _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Justify);
+var _mdgriffith$style_elements$Element_Attributes$verticalSpread = _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$VerticalJustify);
+var _mdgriffith$style_elements$Element_Attributes$verticalCenter = _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$VerticalCenter);
+var _mdgriffith$style_elements$Element_Attributes$center = _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Center);
+
+var _mdgriffith$style_elements$Element_Internal_Modify$getTextList = function (el) {
+	getTextList:
+	while (true) {
+		var _p0 = el;
+		switch (_p0.ctor) {
+			case 'Empty':
+				return {ctor: '[]'};
+			case 'Spacer':
+				return {ctor: '[]'};
+			case 'Raw':
+				return {ctor: '[]'};
+			case 'Layout':
+				var _p1 = _p0._0.children;
+				if (_p1.ctor === 'Normal') {
+					return A2(_elm_lang$core$List$concatMap, _mdgriffith$style_elements$Element_Internal_Modify$getTextList, _p1._0);
+				} else {
+					return A2(
+						_elm_lang$core$List$concatMap,
+						function (_p2) {
+							return _mdgriffith$style_elements$Element_Internal_Modify$getTextList(
+								_elm_lang$core$Tuple$second(_p2));
+						},
+						_p1._0);
+				}
+			case 'Element':
+				var _v2 = _p0._0.child;
+				el = _v2;
+				continue getTextList;
+			default:
+				return {
 					ctor: '::',
-					_0: _elm_lang$core$Basics$toString(numericValue),
-					_1: {
-						ctor: '::',
-						_0: first.unitLabel,
-						_1: {ctor: '[]'}
-					}
-				}));
-		return _elm_lang$core$Native_Utils.update(
-			first,
-			{value: value, numericValue: numericValue});
-	});
-var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
-_rtfeldman$elm_css$Css_ops['|*|'] = _rtfeldman$elm_css$Css$combineLengths(
-	F2(
-		function (x, y) {
-			return x * y;
-		}));
-var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
-_rtfeldman$elm_css$Css_ops['|/|'] = _rtfeldman$elm_css$Css$combineLengths(
-	F2(
-		function (x, y) {
-			return x / y;
-		}));
-var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
-_rtfeldman$elm_css$Css_ops['|-|'] = _rtfeldman$elm_css$Css$combineLengths(
-	F2(
-		function (x, y) {
-			return x - y;
-		}));
-var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
-_rtfeldman$elm_css$Css_ops['|+|'] = _rtfeldman$elm_css$Css$combineLengths(
-	F2(
-		function (x, y) {
-			return x + y;
-		}));
-var _rtfeldman$elm_css$Css$calcExpressionToString = function (expression) {
-	var _p36 = expression;
-	if (_p36.ctor === 'Addition') {
-		return '+';
-	} else {
-		return '-';
+					_0: _p0._1,
+					_1: {ctor: '[]'}
+				};
+		}
 	}
 };
-var _rtfeldman$elm_css$Css$colorValueForOverloadedProperty = _rtfeldman$elm_css$Css$transparent;
-var _rtfeldman$elm_css$Css$getOverloadedProperty = F3(
-	function (functionName, desiredKey, style) {
-		getOverloadedProperty:
-		while (true) {
-			var _p37 = style;
-			switch (_p37.ctor) {
-				case 'AppendProperty':
-					return A2(_rtfeldman$elm_css$Css$property, desiredKey, _p37._0.key);
-				case 'ExtendSelector':
-					return A3(
-						_rtfeldman$elm_css$Css$propertyWithWarnings,
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Basics_ops['++'],
-								'Cannot apply ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									functionName,
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' with inapplicable Style for selector ',
-										_elm_lang$core$Basics$toString(_p37._0)))),
-							_1: {ctor: '[]'}
-						},
-						desiredKey,
-						'');
-				case 'NestSnippet':
-					return A3(
-						_rtfeldman$elm_css$Css$propertyWithWarnings,
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Basics_ops['++'],
-								'Cannot apply ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									functionName,
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' with inapplicable Style for combinator ',
-										_elm_lang$core$Basics$toString(_p37._0)))),
-							_1: {ctor: '[]'}
-						},
-						desiredKey,
-						'');
-				case 'WithPseudoElement':
-					return A3(
-						_rtfeldman$elm_css$Css$propertyWithWarnings,
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Basics_ops['++'],
-								'Cannot apply ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									functionName,
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' with inapplicable Style for pseudo-element setter ',
-										_elm_lang$core$Basics$toString(_p37._0)))),
-							_1: {ctor: '[]'}
-						},
-						desiredKey,
-						'');
-				case 'WithMedia':
-					return A3(
-						_rtfeldman$elm_css$Css$propertyWithWarnings,
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Basics_ops['++'],
-								'Cannot apply ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									functionName,
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' with inapplicable Style for media query ',
-										_elm_lang$core$Basics$toString(_p37._0)))),
-							_1: {ctor: '[]'}
-						},
-						desiredKey,
-						'');
-				default:
-					if (_p37._0.ctor === '[]') {
-						return A3(
-							_rtfeldman$elm_css$Css$propertyWithWarnings,
+var _mdgriffith$style_elements$Element_Internal_Modify$getText = function (el) {
+	getText:
+	while (true) {
+		var _p3 = el;
+		switch (_p3.ctor) {
+			case 'Empty':
+				return '';
+			case 'Spacer':
+				return '';
+			case 'Raw':
+				return '';
+			case 'Layout':
+				var _p4 = _p3._0.children;
+				if (_p4.ctor === 'Normal') {
+					return A2(
+						_elm_lang$core$String$join,
+						'-',
+						A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Element_Internal_Modify$getText, _p4._0));
+				} else {
+					return A2(
+						_elm_lang$core$String$join,
+						'-',
+						A2(
+							_elm_lang$core$List$map,
+							function (_p5) {
+								return _mdgriffith$style_elements$Element_Internal_Modify$getText(
+									_elm_lang$core$Tuple$second(_p5));
+							},
+							_p4._0));
+				}
+			case 'Element':
+				var _v5 = _p3._0.child;
+				el = _v5;
+				continue getText;
+			default:
+				return _p3._1;
+		}
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$getChild = function (el) {
+	var _p6 = el;
+	switch (_p6.ctor) {
+		case 'Empty':
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+		case 'Spacer':
+			return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p6._0);
+		case 'Raw':
+			return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p6._0);
+		case 'Layout':
+			return el;
+		case 'Element':
+			return _p6._0.child;
+		default:
+			return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p6._0, _p6._1);
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$removeContent = function (el) {
+	var _p7 = el;
+	switch (_p7.ctor) {
+		case 'Empty':
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+		case 'Spacer':
+			return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p7._0);
+		case 'Raw':
+			return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p7._0);
+		case 'Layout':
+			return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+				_elm_lang$core$Native_Utils.update(
+					_p7._0,
+					{
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							{ctor: '[]'}),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}));
+		case 'Element':
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				_elm_lang$core$Native_Utils.update(
+					_p7._0,
+					{child: _mdgriffith$style_elements$Element_Internal_Model$Empty, absolutelyPositioned: _elm_lang$core$Maybe$Nothing}));
+		default:
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$removeStyle = function (el) {
+	var _p8 = el;
+	switch (_p8.ctor) {
+		case 'Empty':
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+		case 'Spacer':
+			return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p8._0);
+		case 'Raw':
+			return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p8._0);
+		case 'Layout':
+			return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+				_elm_lang$core$Native_Utils.update(
+					_p8._0,
+					{style: _elm_lang$core$Maybe$Nothing}));
+		case 'Element':
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				_elm_lang$core$Native_Utils.update(
+					_p8._0,
+					{style: _elm_lang$core$Maybe$Nothing}));
+		default:
+			return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p8._0, _p8._1);
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$getStyle = function (el) {
+	var _p9 = el;
+	switch (_p9.ctor) {
+		case 'Empty':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'Raw':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'Spacer':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'Layout':
+			return _p9._0.style;
+		case 'Element':
+			return _p9._0.style;
+		default:
+			return _elm_lang$core$Maybe$Nothing;
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$getAttrs = function (el) {
+	var _p10 = el;
+	switch (_p10.ctor) {
+		case 'Empty':
+			return {ctor: '[]'};
+		case 'Spacer':
+			return {ctor: '[]'};
+		case 'Raw':
+			return {ctor: '[]'};
+		case 'Layout':
+			return _p10._0.attrs;
+		case 'Element':
+			return _p10._0.attrs;
+		default:
+			return {ctor: '[]'};
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$addChild = F2(
+	function (parent, el) {
+		var _p11 = parent;
+		switch (_p11.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: {ctor: '[]'},
+						child: _mdgriffith$style_elements$Element_Internal_Model$Empty,
+						absolutelyPositioned: _elm_lang$core$Maybe$Just(
 							{
 								ctor: '::',
-								_0: A2(
-									_elm_lang$core$Basics_ops['++'],
-									'Cannot apply ',
-									A2(_elm_lang$core$Basics_ops['++'], functionName, ' with empty Style. ')),
+								_0: el,
 								_1: {ctor: '[]'}
-							},
-							desiredKey,
-							'');
-					} else {
-						if (_p37._0._1.ctor === '[]') {
-							var _v12 = functionName,
-								_v13 = desiredKey,
-								_v14 = _p37._0._0;
-							functionName = _v12;
-							desiredKey = _v13;
-							style = _v14;
-							continue getOverloadedProperty;
-						} else {
-							var _v15 = functionName,
-								_v16 = desiredKey,
-								_v17 = _rtfeldman$elm_css$Css_Preprocess$ApplyStyles(_p37._0._1);
-							functionName = _v15;
-							desiredKey = _v16;
-							style = _v17;
-							continue getOverloadedProperty;
-						}
-					}
-			}
+							})
+					});
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p11._0);
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p11._0);
+			case 'Layout':
+				var _p13 = _p11._0;
+				var _p12 = _p11._0.absolutelyPositioned;
+				if (_p12.ctor === 'Nothing') {
+					return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+						_elm_lang$core$Native_Utils.update(
+							_p13,
+							{
+								absolutelyPositioned: _elm_lang$core$Maybe$Just(
+									{
+										ctor: '::',
+										_0: el,
+										_1: {ctor: '[]'}
+									})
+							}));
+				} else {
+					return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+						_elm_lang$core$Native_Utils.update(
+							_p13,
+							{
+								absolutelyPositioned: _elm_lang$core$Maybe$Just(
+									{ctor: '::', _0: el, _1: _p12._0})
+							}));
+				}
+			case 'Element':
+				var _p15 = _p11._0;
+				var _p14 = _p11._0.absolutelyPositioned;
+				if (_p14.ctor === 'Nothing') {
+					return _mdgriffith$style_elements$Element_Internal_Model$Element(
+						_elm_lang$core$Native_Utils.update(
+							_p15,
+							{
+								absolutelyPositioned: _elm_lang$core$Maybe$Just(
+									{
+										ctor: '::',
+										_0: el,
+										_1: {ctor: '[]'}
+									})
+							}));
+				} else {
+					return _mdgriffith$style_elements$Element_Internal_Model$Element(
+						_elm_lang$core$Native_Utils.update(
+							_p15,
+							{
+								absolutelyPositioned: _elm_lang$core$Maybe$Just(
+									{ctor: '::', _0: el, _1: _p14._0})
+							}));
+				}
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: {ctor: '[]'},
+						child: A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p11._0, _p11._1),
+						absolutelyPositioned: _elm_lang$core$Maybe$Just(
+							{
+								ctor: '::',
+								_0: el,
+								_1: {ctor: '[]'}
+							})
+					});
 		}
 	});
-var _rtfeldman$elm_css$Css$backgroundBlendMode = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'backgroundBlendMode',
-		'background-blend-mode',
-		fn(_rtfeldman$elm_css$Css$colorValueForOverloadedProperty));
+var _mdgriffith$style_elements$Element_Internal_Modify$removeAllAttrs = function (el) {
+	var _p16 = el;
+	switch (_p16.ctor) {
+		case 'Empty':
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+		case 'Spacer':
+			return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p16._0);
+		case 'Raw':
+			return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p16._0);
+		case 'Layout':
+			return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+				_elm_lang$core$Native_Utils.update(
+					_p16._0,
+					{
+						attrs: {ctor: '[]'}
+					}));
+		case 'Element':
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				_elm_lang$core$Native_Utils.update(
+					_p16._0,
+					{
+						attrs: {ctor: '[]'}
+					}));
+		default:
+			return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p16._0, _p16._1);
+	}
 };
-var _rtfeldman$elm_css$Css$cssFunction = F2(
-	function (funcName, args) {
-		return A2(
-			_elm_lang$core$Basics_ops['++'],
-			funcName,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'(',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					A2(_elm_lang$core$String$join, ', ', args),
-					')')));
-	});
-var _rtfeldman$elm_css$Css$calc = F3(
-	function (first, expression, second) {
-		var grab = function (l) {
-			return A2(_elm_lang$core$String$startsWith, 'calc(', l.value) ? A2(_elm_lang$core$String$dropLeft, 4, l.value) : l.value;
+var _mdgriffith$style_elements$Element_Internal_Modify$removeAttrs = F2(
+	function (props, el) {
+		var match = function (p) {
+			return !A2(_elm_lang$core$List$member, p, props);
 		};
-		var calcs = A2(
-			_elm_lang$core$String$join,
-			' ',
-			{
-				ctor: '::',
-				_0: grab(first),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$calcExpressionToString(expression),
-					_1: {
-						ctor: '::',
-						_0: grab(second),
-						_1: {ctor: '[]'}
-					}
-				}
-			});
-		var value = A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'calc',
-			{
-				ctor: '::',
-				_0: calcs,
-				_1: {ctor: '[]'}
-			});
-		return {value: value, length: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, textIndent: _rtfeldman$elm_css$Css_Structure$Compatible, flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, fontSize: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible, calc: _rtfeldman$elm_css$Css_Structure$Compatible};
+		var _p17 = el;
+		switch (_p17.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p17._0);
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p17._0);
+			case 'Layout':
+				var _p18 = _p17._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p18,
+						{
+							attrs: A2(_elm_lang$core$List$filter, match, _p18.attrs)
+						}));
+			case 'Element':
+				var _p19 = _p17._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p19,
+						{
+							attrs: A2(_elm_lang$core$List$filter, match, _p19.attrs)
+						}));
+			default:
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p17._0, _p17._1);
+		}
 	});
-var _rtfeldman$elm_css$Css$rgb = F3(
-	function (red, green, blue) {
-		var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(blue, 255) > 0)))))) ? {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$core$Basics_ops['++'],
-				'RGB color values must be between 0 and 255. rgb(',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					_elm_lang$core$Basics$toString(red),
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						', ',
-						A2(
-							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Basics$toString(green),
-							A2(
+var _mdgriffith$style_elements$Element_Internal_Modify$setAttrs = F2(
+	function (props, el) {
+		var _p20 = el;
+		switch (_p20.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p20._0);
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p20._0);
+			case 'Layout':
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p20._0,
+						{attrs: props}));
+			case 'Element':
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p20._0,
+						{attrs: props}));
+			default:
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p20._0, _p20._1);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$addAttrList = F2(
+	function (props, el) {
+		var _p21 = el;
+		switch (_p21.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p21._0);
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p21._0);
+			case 'Layout':
+				var _p22 = _p21._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p22,
+						{
+							attrs: A2(_elm_lang$core$Basics_ops['++'], props, _p22.attrs)
+						}));
+			case 'Element':
+				var _p23 = _p21._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p23,
+						{
+							attrs: A2(_elm_lang$core$Basics_ops['++'], props, _p23.attrs)
+						}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: props,
+						child: A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p21._0, _p21._1),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					});
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$addAttrPriority = F2(
+	function (prop, el) {
+		var _p24 = el;
+		switch (_p24.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p24._0);
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p24._0);
+			case 'Layout':
+				var _p25 = _p24._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p25,
+						{
+							attrs: A2(
 								_elm_lang$core$Basics_ops['++'],
-								', ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(blue),
-									') is not valid.')))))),
-			_1: {ctor: '[]'}
-		} : {ctor: '[]'};
+								_p25.attrs,
+								{
+									ctor: '::',
+									_0: prop,
+									_1: {ctor: '[]'}
+								})
+						}));
+			case 'Element':
+				var _p26 = _p24._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p26,
+						{
+							attrs: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_p26.attrs,
+								{
+									ctor: '::',
+									_0: prop,
+									_1: {ctor: '[]'}
+								})
+						}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: {
+							ctor: '::',
+							_0: prop,
+							_1: {ctor: '[]'}
+						},
+						child: A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p24._0, _p24._1),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					});
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$addAttr = F2(
+	function (prop, el) {
+		var _p27 = el;
+		switch (_p27.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p27._0);
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p27._0);
+			case 'Layout':
+				var _p28 = _p27._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p28,
+						{
+							attrs: {ctor: '::', _0: prop, _1: _p28.attrs}
+						}));
+			case 'Element':
+				var _p29 = _p27._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p29,
+						{
+							attrs: {ctor: '::', _0: prop, _1: _p29.attrs}
+						}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: {
+							ctor: '::',
+							_0: prop,
+							_1: {ctor: '[]'}
+						},
+						child: A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p27._0, _p27._1),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					});
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$addAttrToNonText = F2(
+	function (prop, el) {
+		var _p30 = el;
+		switch (_p30.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p30._0);
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p30._0);
+			case 'Layout':
+				var _p31 = _p30._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p31,
+						{
+							attrs: {ctor: '::', _0: prop, _1: _p31.attrs}
+						}));
+			case 'Element':
+				var _p32 = _p30._0;
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p32,
+						{
+							attrs: {ctor: '::', _0: prop, _1: _p32.attrs}
+						}));
+			default:
+				return A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p30._0, _p30._1);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$makeInline = function (el) {
+	var _p33 = el;
+	switch (_p33.ctor) {
+		case 'Empty':
+			return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+		case 'Raw':
+			return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p33._0);
+		case 'Spacer':
+			return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p33._0);
+		case 'Layout':
+			var _p34 = _p33._0;
+			return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+				_elm_lang$core$Native_Utils.update(
+					_p34,
+					{
+						attrs: {ctor: '::', _0: _mdgriffith$style_elements$Element_Internal_Model$Inline, _1: _p34.attrs}
+					}));
+		case 'Element':
+			var _p35 = _p33._0;
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				_elm_lang$core$Native_Utils.update(
+					_p35,
+					{
+						attrs: {ctor: '::', _0: _mdgriffith$style_elements$Element_Internal_Model$Inline, _1: _p35.attrs},
+						child: _mdgriffith$style_elements$Element_Internal_Modify$makeInline(_p35.child)
+					}));
+		default:
+			return A2(
+				_mdgriffith$style_elements$Element_Internal_Model$Text,
+				_elm_lang$core$Native_Utils.update(
+					_p33._0,
+					{inline: true}),
+				_p33._1);
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Modify$setNode = F2(
+	function (node, el) {
+		var _p36 = el;
+		switch (_p36.ctor) {
+			case 'Empty':
+				return _mdgriffith$style_elements$Element_Internal_Model$Empty;
+			case 'Raw':
+				return _mdgriffith$style_elements$Element_Internal_Model$Raw(_p36._0);
+			case 'Spacer':
+				return _mdgriffith$style_elements$Element_Internal_Model$Spacer(_p36._0);
+			case 'Layout':
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p36._0,
+						{node: node}));
+			case 'Element':
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					_elm_lang$core$Native_Utils.update(
+						_p36._0,
+						{node: node}));
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Model$Element(
+					{
+						node: node,
+						style: _elm_lang$core$Maybe$Nothing,
+						attrs: {ctor: '[]'},
+						child: A2(_mdgriffith$style_elements$Element_Internal_Model$Text, _p36._0, _p36._1),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					});
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Modify$wrapHtml = function (el) {
+	var _p37 = el;
+	if (_p37.ctor === 'Raw') {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {ctor: '[]'},
+				child: _mdgriffith$style_elements$Element_Internal_Model$Raw(_p37._0),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	} else {
+		return _p37;
+	}
+};
+
+var _mdgriffith$style_elements$Element_Internal_Adjustments$spacingToMargin = function (attrs) {
+	var spaceToMarg = function (a) {
+		var _p0 = a;
+		if (_p0.ctor === 'Spacing') {
+			var _p2 = _p0._1;
+			var _p1 = _p0._0;
+			return _mdgriffith$style_elements$Element_Internal_Model$Margin(
+				{ctor: '_Tuple4', _0: _p2, _1: _p1, _2: _p2, _3: _p1});
+		} else {
+			return _p0;
+		}
+	};
+	return A2(_elm_lang$core$List$map, spaceToMarg, attrs);
+};
+var _mdgriffith$style_elements$Element_Internal_Adjustments$defaultPadding = F2(
+	function (_p4, _p3) {
+		var _p5 = _p4;
+		var _p6 = _p3;
 		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'rgb',
-				A2(
-					_elm_lang$core$List$map,
-					_rtfeldman$elm_css$Css$numberToString,
+			ctor: '_Tuple4',
+			_0: A2(_elm_lang$core$Maybe$withDefault, _p6._0, _p5._0),
+			_1: A2(_elm_lang$core$Maybe$withDefault, _p6._1, _p5._1),
+			_2: A2(_elm_lang$core$Maybe$withDefault, _p6._2, _p5._2),
+			_3: A2(_elm_lang$core$Maybe$withDefault, _p6._3, _p5._3)
+		};
+	});
+var _mdgriffith$style_elements$Element_Internal_Adjustments$hoistFixedScreenElements = function (el) {
+	var elementIsOnScreen = function (attrs) {
+		return A2(
+			_elm_lang$core$List$any,
+			function (attr) {
+				return _elm_lang$core$Native_Utils.eq(
+					attr,
+					_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Screen));
+			},
+			attrs);
+	};
+	var _p7 = el;
+	switch (_p7.ctor) {
+		case 'Element':
+			return elementIsOnScreen(_p7._0.attrs) ? {
+				ctor: '_Tuple2',
+				_0: _mdgriffith$style_elements$Element_Internal_Model$Empty,
+				_1: _elm_lang$core$Maybe$Just(
 					{
 						ctor: '::',
-						_0: red,
-						_1: {
+						_0: el,
+						_1: {ctor: '[]'}
+					})
+			} : {ctor: '_Tuple2', _0: el, _1: _elm_lang$core$Maybe$Nothing};
+		case 'Layout':
+			return elementIsOnScreen(_p7._0.attrs) ? {
+				ctor: '_Tuple2',
+				_0: _mdgriffith$style_elements$Element_Internal_Model$Empty,
+				_1: _elm_lang$core$Maybe$Just(
+					{
+						ctor: '::',
+						_0: el,
+						_1: {ctor: '[]'}
+					})
+			} : {ctor: '_Tuple2', _0: el, _1: _elm_lang$core$Maybe$Nothing};
+		default:
+			return {ctor: '_Tuple2', _0: el, _1: _elm_lang$core$Maybe$Nothing};
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Adjustments$tagIntermediates = false;
+var _mdgriffith$style_elements$Element_Internal_Adjustments$tag = function (str) {
+	return _mdgriffith$style_elements$Element_Internal_Adjustments$tagIntermediates ? _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$class(str)) : _mdgriffith$style_elements$Element_Internal_Model$Attr(
+		_elm_lang$html$Html_Attributes$class(''));
+};
+var _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing = function (elm) {
+	var _p8 = elm;
+	if (_p8.ctor === 'Layout') {
+		var _p25 = _p8._0.layout;
+		var _p24 = _p8._0.attrs;
+		var forPadding = function (posAttr) {
+			var _p9 = posAttr;
+			if (_p9.ctor === 'Padding') {
+				return _elm_lang$core$Maybe$Just(
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Adjustments$defaultPadding,
+						{ctor: '_Tuple4', _0: _p9._0, _1: _p9._1, _2: _p9._2, _3: _p9._3},
+						{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0}));
+			} else {
+				return _elm_lang$core$Maybe$Nothing;
+			}
+		};
+		var forSpacing = function (posAttr) {
+			var _p10 = posAttr;
+			if (_p10.ctor === 'Spacing') {
+				var _p12 = _p10._1;
+				var _p11 = _p10._0;
+				return _elm_lang$core$Maybe$Just(
+					{ctor: '_Tuple4', _0: _p12, _1: _p11, _2: _p12, _3: _p11});
+			} else {
+				return _elm_lang$core$Maybe$Nothing;
+			}
+		};
+		var padding = _elm_lang$core$List$head(
+			_elm_lang$core$List$reverse(
+				A2(_elm_lang$core$List$filterMap, forPadding, _p24)));
+		var spacing = _elm_lang$core$List$head(
+			_elm_lang$core$List$reverse(
+				A2(_elm_lang$core$List$filterMap, forSpacing, _p24)));
+		var hasSpacing = function () {
+			var _p13 = spacing;
+			if (_p13.ctor === 'Nothing') {
+				return false;
+			} else {
+				return true;
+			}
+		}();
+		var _p14 = A2(
+			_elm_lang$core$List$partition,
+			function (attr) {
+				return _elm_lang$core$Native_Utils.eq(
+					attr,
+					_mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Center)) || _elm_lang$core$Native_Utils.eq(
+					attr,
+					_mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$VerticalCenter));
+			},
+			_p24);
+		var centeredProps = _p14._0;
+		var others = _p14._1;
+		var _p15 = _p25;
+		if (_p15.ctor === 'FlexLayout') {
+			if (hasSpacing) {
+				var phantomPadding = _mdgriffith$style_elements$Element_Internal_Model$PhantomPadding(
+					A2(
+						_elm_lang$core$Maybe$withDefault,
+						{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0},
+						padding));
+				var _p16 = function () {
+					var _p17 = spacing;
+					if (_p17.ctor === 'Nothing') {
+						return {
+							ctor: '_Tuple3',
+							_0: {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0},
+							_1: A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, 0, 0),
+							_2: 0
+						};
+					} else {
+						var _p20 = _p17._0._1;
+						var _p19 = _p17._0._3;
+						var _p18 = _p17._0._2;
+						return {
+							ctor: '_Tuple3',
+							_0: {ctor: '_Tuple4', _0: -1 * _p17._0._0, _1: -1 * _p20, _2: -1 * _p18, _3: -1 * _p19},
+							_1: A2(_mdgriffith$style_elements$Element_Internal_Model$Spacing, _p20, _p18),
+							_2: (_p20 + _p19) / 2
+						};
+					}
+				}();
+				var negativeMargin = _p16._0;
+				var spacingAttr = _p16._1;
+				var totalHSpacing = _p16._2;
+				var forAlignment = function (attr) {
+					var _p21 = attr;
+					switch (_p21.ctor) {
+						case 'HAlign':
+							return true;
+						case 'VAlign':
+							return true;
+						default:
+							return false;
+					}
+				};
+				var _p22 = A2(_elm_lang$core$List$partition, forAlignment, _p24);
+				var aligned = _p22._0;
+				var unaligned = _p22._1;
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					{
+						node: _p8._0.node,
+						style: _p8._0.style,
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+							{ctor: '[]'}),
+						attrs: {
 							ctor: '::',
-							_0: green,
+							_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('counter-spacing-container'),
 							_1: {
 								ctor: '::',
-								_0: blue,
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+								_1: unaligned
+							}
+						},
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Layout(
+									{
+										node: 'div',
+										style: _elm_lang$core$Maybe$Nothing,
+										layout: _p25,
+										attrs: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('counter-spacing'),
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+												_1: {
+													ctor: '::',
+													_0: phantomPadding,
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Internal_Model$Margin(negativeMargin),
+														_1: {
+															ctor: '::',
+															_0: spacingAttr,
+															_1: {
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+																	A2(_mdgriffith$style_elements$Style_Internal_Model$Calc, 100, totalHSpacing)),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Element_Internal_Model$Shrink(1),
+																	_1: aligned
+																}
+															}
+														}
+													}
+												}
+											}
+										},
+										children: function () {
+											var _p23 = _p8._0.children;
+											if (_p23.ctor === 'Normal') {
+												return _mdgriffith$style_elements$Element_Internal_Model$Normal(
+													A2(
+														_elm_lang$core$List$map,
+														_mdgriffith$style_elements$Element_Internal_Modify$addAttr(
+															_mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true)),
+														_p23._0));
+											} else {
+												return _mdgriffith$style_elements$Element_Internal_Model$Keyed(
+													A2(
+														_elm_lang$core$List$map,
+														_elm_lang$core$Tuple$mapSecond(
+															_mdgriffith$style_elements$Element_Internal_Modify$addAttr(
+																_mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true))),
+														_p23._0));
+											}
+										}(),
+										absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+									}),
 								_1: {ctor: '[]'}
+							}),
+						absolutelyPositioned: _p8._0.absolutelyPositioned
+					});
+			} else {
+				return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					_elm_lang$core$Native_Utils.update(
+						_p8._0,
+						{
+							attrs: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+								_1: _p24
+							}
+						}));
+			}
+		} else {
+			return elm;
+		}
+	} else {
+		return elm;
+	}
+};
+var _mdgriffith$style_elements$Element_Internal_Adjustments$positionNearby = F2(
+	function (parent, elm) {
+		var setPosition = F3(
+			function (nearbyPosition, _p26, el) {
+				var _p27 = _p26;
+				var _p37 = _p27._1;
+				var _p36 = _p27._0;
+				var nearbyAlignment = function () {
+					var _p28 = nearbyPosition;
+					_v13_4:
+					do {
+						if ((_p28.ctor === 'Just') && (_p28._0.ctor === 'Nearby')) {
+							switch (_p28._0._0.ctor) {
+								case 'Above':
+									return {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Top),
+										_1: {ctor: '[]'}
+									};
+								case 'Below':
+									return {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Bottom),
+										_1: {ctor: '[]'}
+									};
+								case 'OnRight':
+									return {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Right),
+										_1: {ctor: '[]'}
+									};
+								case 'OnLeft':
+									return {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Left),
+										_1: {ctor: '[]'}
+									};
+								default:
+									break _v13_4;
+							}
+						} else {
+							break _v13_4;
+						}
+					} while(false);
+					return {ctor: '[]'};
+				}();
+				var isLayout = function () {
+					var _p29 = elm;
+					if (_p29.ctor === 'Layout') {
+						return true;
+					} else {
+						return false;
+					}
+				}();
+				var framed = function () {
+					var _p30 = nearbyPosition;
+					if (_p30.ctor === 'Nothing') {
+						return false;
+					} else {
+						return true;
+					}
+				}();
+				var forHeight = function (prop) {
+					var _p31 = prop;
+					if (_p31.ctor === 'Height') {
+						return true;
+					} else {
+						return false;
+					}
+				};
+				var height = _elm_lang$core$List$head(
+					_elm_lang$core$List$reverse(
+						A2(_elm_lang$core$List$filter, forHeight, _p37)));
+				var forWidth = function (prop) {
+					var _p32 = prop;
+					if (_p32.ctor === 'Width') {
+						return true;
+					} else {
+						return false;
+					}
+				};
+				var width = _elm_lang$core$List$head(
+					_elm_lang$core$List$reverse(
+						A2(_elm_lang$core$List$filter, forWidth, _p37)));
+				var addWidthHeight = function (attrs) {
+					var _p33 = {ctor: '_Tuple2', _0: width, _1: height};
+					if (_p33._0.ctor === 'Nothing') {
+						if (_p33._1.ctor === 'Nothing') {
+							return attrs;
+						} else {
+							return {ctor: '::', _0: _p33._1._0, _1: attrs};
+						}
+					} else {
+						if (_p33._1.ctor === 'Just') {
+							return {
+								ctor: '::',
+								_0: _p33._0._0,
+								_1: {ctor: '::', _0: _p33._1._0, _1: attrs}
+							};
+						} else {
+							return {ctor: '::', _0: _p33._0._0, _1: attrs};
+						}
+					}
+				};
+				var adjustWidthHeight = function (elem) {
+					var adjustHeight = function (element) {
+						var _p34 = height;
+						if (_p34.ctor === 'Nothing') {
+							return element;
+						} else {
+							if ((_p34._0.ctor === 'Height') && (_p34._0._0.ctor === 'Percent')) {
+								return A2(
+									_mdgriffith$style_elements$Element_Internal_Modify$addAttrPriority,
+									_mdgriffith$style_elements$Element_Internal_Model$Width(
+										_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+									element);
+							} else {
+								return element;
 							}
 						}
-					})),
-			color: _rtfeldman$elm_css$Css_Structure$Compatible,
-			warnings: warnings,
-			red: red,
-			green: green,
-			blue: blue,
-			alpha: 1
-		};
-	});
-var _rtfeldman$elm_css$Css$rgba = F4(
-	function (red, green, blue, alpha) {
-		var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0)))))))) ? {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$core$Basics_ops['++'],
-				'RGB color values must be between 0 and 255, and the alpha in RGBA must be between 0 and 1. rgba(',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					_elm_lang$core$Basics$toString(red),
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						', ',
-						A2(
-							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Basics$toString(green),
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								', ',
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(blue),
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										', ',
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											_elm_lang$core$Basics$toString(alpha),
-											') is not valid.')))))))),
-			_1: {ctor: '[]'}
-		} : {ctor: '[]'};
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'rgba',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$Css$numberToString,
-						{
-							ctor: '::',
-							_0: red,
-							_1: {
-								ctor: '::',
-								_0: green,
-								_1: {
-									ctor: '::',
-									_0: blue,
-									_1: {ctor: '[]'}
-								}
+					};
+					var adjustWidth = function (element) {
+						var _p35 = width;
+						if (_p35.ctor === 'Nothing') {
+							return element;
+						} else {
+							if ((_p35._0.ctor === 'Width') && (_p35._0._0.ctor === 'Percent')) {
+								return A2(
+									_mdgriffith$style_elements$Element_Internal_Modify$addAttrPriority,
+									_mdgriffith$style_elements$Element_Internal_Model$Width(
+										_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+									element);
+							} else {
+								return element;
 							}
-						}),
+						}
+					};
+					return adjustHeight(
+						adjustWidth(elem));
+				};
+				return (_elm_lang$core$Native_Utils.eq(
+					nearbyPosition,
+					_elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Above))) || _elm_lang$core$Native_Utils.eq(
+					nearbyPosition,
+					_elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Below)))) ? _mdgriffith$style_elements$Element_Internal_Model$Layout(
 					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$numberToString(alpha),
-						_1: {ctor: '[]'}
-					})),
-			color: _rtfeldman$elm_css$Css_Structure$Compatible,
-			warnings: warnings,
-			red: red,
-			green: green,
-			blue: blue,
-			alpha: alpha
-		};
-	});
-var _rtfeldman$elm_css$Css$hsl = F3(
-	function (hue, saturation, lightness) {
-		var valuesList = {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$numberToString(hue),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$numericalPercentageToString(lightness),
-					_1: {ctor: '[]'}
-				}
-			}
-		};
-		var value = A2(_rtfeldman$elm_css$Css$cssFunction, 'hsl', valuesList);
-		var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0)))))) ? {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$core$Basics_ops['++'],
-				'HSL color values must have an H value between 0 and 360 (as in degrees) and S and L values between 0 and 1. ',
-				A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.')),
-			_1: {ctor: '[]'}
-		} : {ctor: '[]'};
-		return A6(_rtfeldman$elm_css$Css$hslaToRgba, value, warnings, hue, saturation, lightness, 1);
-	});
-var _rtfeldman$elm_css$Css$hsla = F4(
-	function (hue, saturation, lightness, alpha) {
-		var valuesList = {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$numberToString(hue),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$numericalPercentageToString(lightness),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$numberToString(alpha),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		};
-		var value = A2(_rtfeldman$elm_css$Css$cssFunction, 'hsla', valuesList);
-		var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0)))))))) ? {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$core$Basics_ops['++'],
-				'HSLA color values must have an H value between 0 and 360 (as in degrees) and S, L, and A values between 0 and 1. ',
-				A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.')),
-			_1: {ctor: '[]'}
-		} : {ctor: '[]'};
-		return A6(_rtfeldman$elm_css$Css$hslaToRgba, value, warnings, hue, saturation, lightness, alpha);
-	});
-var _rtfeldman$elm_css$Css$matrix = F6(
-	function (a, b, c, d, tx, ty) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'matrix',
-				A2(
-					_elm_lang$core$List$map,
-					_rtfeldman$elm_css$Css$numberToString,
-					{
-						ctor: '::',
-						_0: a,
-						_1: {
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+							{ctor: '[]'}),
+						attrs: {
 							ctor: '::',
-							_0: b,
+							_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('above-below-intermediate-parent'),
 							_1: {
 								ctor: '::',
-								_0: c,
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
 								_1: {
 									ctor: '::',
-									_0: d,
+									_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+										_mdgriffith$style_elements$Style_Internal_Model$Px(0)),
 									_1: {
 										ctor: '::',
-										_0: tx,
+										_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+											_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
 										_1: {
 											ctor: '::',
-											_0: ty,
-											_1: {ctor: '[]'}
+											_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+												_mdgriffith$style_elements$Element_Internal_Model$Absolute(
+													_elm_lang$core$Native_Utils.eq(
+														nearbyPosition,
+														_elm_lang$core$Maybe$Just(
+															_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Above))) ? _mdgriffith$style_elements$Element_Internal_Model$TopLeft : _mdgriffith$style_elements$Element_Internal_Model$BottomLeft)),
+											_1: {
+												ctor: '::',
+												_0: A3(
+													_mdgriffith$style_elements$Element_Internal_Model$Position,
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Nothing),
+												_1: isLayout ? nearbyAlignment : A2(_elm_lang$core$Basics_ops['++'], nearbyAlignment, _p36)
+											}
 										}
 									}
 								}
 							}
-						}
-					})),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$matrix3d = function (a1) {
-	return function (a2) {
-		return function (a3) {
-			return function (a4) {
-				return function (b1) {
-					return function (b2) {
-						return function (b3) {
-							return function (b4) {
-								return function (c1) {
-									return function (c2) {
-										return function (c3) {
-											return function (c4) {
-												return function (d1) {
-													return function (d2) {
-														return function (d3) {
-															return function (d4) {
-																return {
-																	value: A2(
-																		_rtfeldman$elm_css$Css$cssFunction,
-																		'matrix3d',
-																		A2(
-																			_elm_lang$core$List$map,
-																			_rtfeldman$elm_css$Css$numberToString,
-																			{
-																				ctor: '::',
-																				_0: a1,
-																				_1: {
-																					ctor: '::',
-																					_0: a2,
-																					_1: {
-																						ctor: '::',
-																						_0: a3,
-																						_1: {
-																							ctor: '::',
-																							_0: a4,
-																							_1: {
-																								ctor: '::',
-																								_0: b1,
-																								_1: {
-																									ctor: '::',
-																									_0: b2,
-																									_1: {
-																										ctor: '::',
-																										_0: b3,
-																										_1: {
-																											ctor: '::',
-																											_0: b4,
-																											_1: {
-																												ctor: '::',
-																												_0: c1,
-																												_1: {
-																													ctor: '::',
-																													_0: c2,
-																													_1: {
-																														ctor: '::',
-																														_0: c3,
-																														_1: {
-																															ctor: '::',
-																															_0: c4,
-																															_1: {
-																																ctor: '::',
-																																_0: d1,
-																																_1: {
-																																	ctor: '::',
-																																	_0: d2,
-																																	_1: {
-																																		ctor: '::',
-																																		_0: d3,
-																																		_1: {
-																																			ctor: '::',
-																																			_0: d4,
-																																			_1: {ctor: '[]'}
-																																		}
-																																	}
-																																}
-																															}
-																														}
-																													}
-																												}
-																											}
-																										}
-																									}
-																								}
-																							}
-																						}
-																					}
-																				}
-																			})),
-																	transform: _rtfeldman$elm_css$Css_Structure$Compatible
-																};
-															};
-														};
-													};
-												};
+						},
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Element(
+									{
+										node: 'div',
+										style: _elm_lang$core$Maybe$Nothing,
+										attrs: function () {
+											var addWidth = function (attrs) {
+												return isLayout ? {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+														_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+													_1: attrs
+												} : attrs;
 											};
-										};
-									};
-								};
-							};
-						};
-					};
-				};
-			};
+											return addWidth(
+												{
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('above-below-intermediate'),
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+																_mdgriffith$style_elements$Element_Internal_Model$Absolute(
+																	_elm_lang$core$Native_Utils.eq(
+																		nearbyPosition,
+																		_elm_lang$core$Maybe$Just(
+																			_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Above))) ? _mdgriffith$style_elements$Element_Internal_Model$BottomLeft : _mdgriffith$style_elements$Element_Internal_Model$TopLeft)),
+															_1: {
+																ctor: '::',
+																_0: A3(
+																	_mdgriffith$style_elements$Element_Internal_Model$Position,
+																	_elm_lang$core$Maybe$Nothing,
+																	_elm_lang$core$Maybe$Just(0),
+																	_elm_lang$core$Maybe$Nothing),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Bottom),
+																	_1: {
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+																			_elm_lang$html$Html_Attributes$style(
+																				{
+																					ctor: '::',
+																					_0: {ctor: '_Tuple2', _0: 'z-index', _1: '10'},
+																					_1: {ctor: '[]'}
+																				})),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															}
+														}
+													}
+												});
+										}(),
+										child: _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(
+											A2(
+												_mdgriffith$style_elements$Element_Internal_Modify$setAttrs,
+												{
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+															_mdgriffith$style_elements$Element_Internal_Model$Absolute(_mdgriffith$style_elements$Element_Internal_Model$TopLeft)),
+														_1: {
+															ctor: '::',
+															_0: A3(
+																_mdgriffith$style_elements$Element_Internal_Model$Position,
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Nothing),
+															_1: _p37
+														}
+													}
+												},
+												el)),
+										absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+									}),
+								_1: {ctor: '[]'}
+							}),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}) : (framed ? _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+							{ctor: '[]'}),
+						attrs: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('nearby-intermediate-parent'),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+										_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+											_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+										_1: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+												_mdgriffith$style_elements$Element_Internal_Model$Absolute(_mdgriffith$style_elements$Element_Internal_Model$TopLeft)),
+											_1: {
+												ctor: '::',
+												_0: A3(
+													_mdgriffith$style_elements$Element_Internal_Model$Position,
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Nothing),
+												_1: isLayout ? nearbyAlignment : A2(_elm_lang$core$Basics_ops['++'], nearbyAlignment, _p36)
+											}
+										}
+									}
+								}
+							}
+						},
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Element(
+									{
+										node: 'div',
+										style: _elm_lang$core$Maybe$Nothing,
+										attrs: addWidthHeight(
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Relative),
+													_1: {
+														ctor: '::',
+														_0: A3(
+															_mdgriffith$style_elements$Element_Internal_Model$Position,
+															_elm_lang$core$Maybe$Just(0),
+															_elm_lang$core$Maybe$Just(0),
+															_elm_lang$core$Maybe$Nothing),
+														_1: {
+															ctor: '::',
+															_0: A4(
+																_mdgriffith$style_elements$Element_Internal_Model$Padding,
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0)),
+															_1: {
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+																	_elm_lang$html$Html_Attributes$style(
+																		{
+																			ctor: '::',
+																			_0: {ctor: '_Tuple2', _0: 'z-index', _1: '10'},
+																			_1: {ctor: '[]'}
+																		})),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('nearby-intermediate'),
+																	_1: {ctor: '[]'}
+																}
+															}
+														}
+													}
+												}
+											}),
+										child: _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(
+											adjustWidthHeight(
+												A2(
+													_mdgriffith$style_elements$Element_Internal_Modify$addAttrList,
+													{
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+																_mdgriffith$style_elements$Element_Internal_Model$Absolute(_mdgriffith$style_elements$Element_Internal_Model$TopLeft)),
+															_1: {
+																ctor: '::',
+																_0: A3(
+																	_mdgriffith$style_elements$Element_Internal_Model$Position,
+																	_elm_lang$core$Maybe$Just(0),
+																	_elm_lang$core$Maybe$Just(0),
+																	_elm_lang$core$Maybe$Nothing),
+																_1: {ctor: '[]'}
+															}
+														}
+													},
+													el))),
+										absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+									}),
+								_1: {ctor: '[]'}
+							}),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}) : ((!_elm_lang$core$List$isEmpty(_p36)) ? _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					{
+						node: 'div',
+						style: _elm_lang$core$Maybe$Nothing,
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+							{ctor: '[]'}),
+						attrs: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('nearby-aligned-intermediate-parent'),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+										_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+											_mdgriffith$style_elements$Style_Internal_Model$Percent(100)),
+										_1: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Relative),
+											_1: {
+												ctor: '::',
+												_0: A3(
+													_mdgriffith$style_elements$Element_Internal_Model$Position,
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Just(0),
+													_elm_lang$core$Maybe$Nothing),
+												_1: isLayout ? nearbyAlignment : A2(_elm_lang$core$Basics_ops['++'], nearbyAlignment, _p36)
+											}
+										}
+									}
+								}
+							}
+						},
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Element(
+									{
+										node: 'div',
+										style: _elm_lang$core$Maybe$Nothing,
+										attrs: addWidthHeight(
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Relative),
+													_1: {
+														ctor: '::',
+														_0: A3(
+															_mdgriffith$style_elements$Element_Internal_Model$Position,
+															_elm_lang$core$Maybe$Just(0),
+															_elm_lang$core$Maybe$Just(0),
+															_elm_lang$core$Maybe$Nothing),
+														_1: {
+															ctor: '::',
+															_0: A4(
+																_mdgriffith$style_elements$Element_Internal_Model$Padding,
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0),
+																_elm_lang$core$Maybe$Just(0)),
+															_1: {
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('nearby-aligned-intermediate'),
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											}),
+										child: _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(
+											adjustWidthHeight(
+												A2(
+													_mdgriffith$style_elements$Element_Internal_Modify$addAttrList,
+													{
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Relative),
+															_1: {
+																ctor: '::',
+																_0: A3(
+																	_mdgriffith$style_elements$Element_Internal_Model$Position,
+																	_elm_lang$core$Maybe$Just(0),
+																	_elm_lang$core$Maybe$Just(0),
+																	_elm_lang$core$Maybe$Nothing),
+																_1: {ctor: '[]'}
+															}
+														}
+													},
+													el))),
+										absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+									}),
+								_1: {ctor: '[]'}
+							}),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}) : _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(elm)));
+			});
+		var forAlignment = function (attr) {
+			var _p38 = attr;
+			switch (_p38.ctor) {
+				case 'HAlign':
+					return true;
+				case 'VAlign':
+					return true;
+				default:
+					return false;
+			}
 		};
-	};
+		var separateAlignment = function (attrs) {
+			return A2(_elm_lang$core$List$partition, forAlignment, attrs);
+		};
+		var _p39 = elm;
+		switch (_p39.ctor) {
+			case 'Element':
+				var _p43 = _p39._0.attrs;
+				var isFrame = function (attr) {
+					var _p40 = attr;
+					if (_p40.ctor === 'PositionFrame') {
+						return _elm_lang$core$Maybe$Just(_p40._0);
+					} else {
+						return _elm_lang$core$Maybe$Nothing;
+					}
+				};
+				var frame = _elm_lang$core$List$head(
+					A2(_elm_lang$core$List$filterMap, isFrame, _p43));
+				var _p41 = separateAlignment(_p43);
+				var aligned = _p41._0;
+				var unaligned = _p41._1;
+				var _p42 = parent;
+				if (_p42.ctor === 'Nothing') {
+					return A3(
+						setPosition,
+						frame,
+						{ctor: '_Tuple2', _0: aligned, _1: unaligned},
+						elm);
+				} else {
+					return elm;
+				}
+			case 'Layout':
+				var _p47 = _p39._0.attrs;
+				var isFrame = function (attr) {
+					var _p44 = attr;
+					if (_p44.ctor === 'PositionFrame') {
+						return _elm_lang$core$Maybe$Just(_p44._0);
+					} else {
+						return _elm_lang$core$Maybe$Nothing;
+					}
+				};
+				var frame = _elm_lang$core$List$head(
+					A2(_elm_lang$core$List$filterMap, isFrame, _p47));
+				var _p45 = separateAlignment(_p47);
+				var aligned = _p45._0;
+				var unaligned = _p45._1;
+				var _p46 = parent;
+				if (_p46.ctor === 'Nothing') {
+					return A3(
+						setPosition,
+						frame,
+						{ctor: '_Tuple2', _0: aligned, _1: unaligned},
+						elm);
+				} else {
+					return _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(elm);
+				}
+			default:
+				return _mdgriffith$style_elements$Element_Internal_Adjustments$counterSpacing(elm);
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Adjustments$centerTextLayout = function (elm) {
+	var _p48 = elm;
+	if (_p48.ctor === 'Layout') {
+		var _p49 = A2(
+			_elm_lang$core$List$partition,
+			function (attr) {
+				return _elm_lang$core$Native_Utils.eq(
+					attr,
+					_mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Center)) || _elm_lang$core$Native_Utils.eq(
+					attr,
+					_mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$VerticalCenter));
+			},
+			_p48._0.attrs);
+		var centeredProps = _p49._0;
+		var others = _p49._1;
+		var _p50 = _p48._0.layout;
+		if (_p50.ctor === 'TextLayout') {
+			return (!_elm_lang$core$List$isEmpty(centeredProps)) ? _mdgriffith$style_elements$Element_Internal_Model$Layout(
+				{
+					node: 'div',
+					style: _elm_lang$core$Maybe$Nothing,
+					layout: A2(
+						_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+						_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+						{ctor: '[]'}),
+					attrs: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Adjustments$tag('center-text'),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+							_1: centeredProps
+						}
+					},
+					children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Layout(
+								_elm_lang$core$Native_Utils.update(
+									_p48._0,
+									{
+										attrs: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(true),
+											_1: others
+										}
+									})),
+							_1: {ctor: '[]'}
+						}),
+					absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+				}) : elm;
+		} else {
+			return elm;
+		}
+	} else {
+		return elm;
+	}
 };
-var _rtfeldman$elm_css$Css$perspective = function (l) {
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'perspective',
+var _mdgriffith$style_elements$Element_Internal_Adjustments$apply = function (root) {
+	var stack = F2(
+		function (parent, el) {
+			return function (_p51) {
+				return _mdgriffith$style_elements$Element_Internal_Adjustments$hoistFixedScreenElements(
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Adjustments$positionNearby,
+						parent,
+						_mdgriffith$style_elements$Element_Internal_Adjustments$centerTextLayout(_p51)));
+			}(el);
+		});
+	return A3(_mdgriffith$style_elements$Element_Internal_Model$adjust, stack, _elm_lang$core$Maybe$Nothing, root);
+};
+
+var _mdgriffith$style_elements$Style_Internal_Render_Property$flexbox = F2(
+	function (dir, el) {
+		var _p0 = el;
+		switch (_p0.ctor) {
+			case 'Wrap':
+				return _p0._0 ? {ctor: '_Tuple2', _0: 'flex-wrap', _1: 'wrap'} : {ctor: '_Tuple2', _0: 'flex-wrap', _1: 'nowrap'};
+			case 'Horz':
+				var _p6 = _p0._0;
+				var _p1 = dir;
+				switch (_p1.ctor) {
+					case 'GoRight':
+						var _p2 = _p6;
+						switch (_p2.ctor) {
+							case 'Other':
+								if (_p2._0.ctor === 'Left') {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+							default:
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+						}
+					case 'GoLeft':
+						var _p3 = _p6;
+						switch (_p3.ctor) {
+							case 'Other':
+								if (_p3._0.ctor === 'Left') {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-end'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-start'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+							default:
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+						}
+					case 'Down':
+						var _p4 = _p6;
+						switch (_p4.ctor) {
+							case 'Other':
+								if (_p4._0.ctor === 'Left') {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+					default:
+						var _p5 = _p6;
+						switch (_p5.ctor) {
+							case 'Other':
+								if (_p5._0.ctor === 'Left') {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+				}
+			default:
+				var _p12 = _p0._0;
+				var _p7 = dir;
+				switch (_p7.ctor) {
+					case 'GoRight':
+						var _p8 = _p12;
+						switch (_p8.ctor) {
+							case 'Other':
+								if (_p8._0.ctor === 'Top') {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+					case 'GoLeft':
+						var _p9 = _p12;
+						switch (_p9.ctor) {
+							case 'Other':
+								if (_p9._0.ctor === 'Top') {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'align-items', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+					case 'Down':
+						var _p10 = _p12;
+						switch (_p10.ctor) {
+							case 'Other':
+								if (_p10._0.ctor === 'Top') {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-start'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-end'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+					default:
+						var _p11 = _p12;
+						switch (_p11.ctor) {
+							case 'Other':
+								if (_p11._0.ctor === 'Top') {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-end'};
+								} else {
+									return {ctor: '_Tuple2', _0: 'justify-content', _1: 'flex-start'};
+								}
+							case 'Center':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'};
+							case 'Justify':
+								return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+							default:
+								return {ctor: '_Tuple2', _0: 'align-items', _1: 'Justify'};
+						}
+				}
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render_Property$transition = function (_p13) {
+	var _p14 = _p13;
+	var formatTrans = function (prop) {
+		return A2(
+			_elm_lang$core$String$join,
+			' ',
 			{
 				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numberToString(l),
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$rotate = function (_p38) {
-	var _p39 = _p38;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'rotate',
-			{
-				ctor: '::',
-				_0: _p39.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$rotateX = function (_p40) {
-	var _p41 = _p40;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'rotateX',
-			{
-				ctor: '::',
-				_0: _p41.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$rotateY = function (_p42) {
-	var _p43 = _p42;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'rotateY',
-			{
-				ctor: '::',
-				_0: _p43.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$rotateZ = function (_p44) {
-	var _p45 = _p44;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'rotateZ',
-			{
-				ctor: '::',
-				_0: _p45.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$rotate3d = F4(
-	function (x, y, z, _p46) {
-		var _p47 = _p46;
-		var coordsAsStrings = A2(
-			_elm_lang$core$List$map,
-			_rtfeldman$elm_css$Css$numberToString,
-			{
-				ctor: '::',
-				_0: x,
+				_0: prop,
 				_1: {
 					ctor: '::',
-					_0: y,
+					_0: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p14._0.duration * _elm_lang$core$Time$millisecond),
+						'ms'),
 					_1: {
 						ctor: '::',
-						_0: z,
-						_1: {ctor: '[]'}
+						_0: _p14._0.easing,
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p14._0.delay * _elm_lang$core$Time$millisecond),
+								'ms'),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			});
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'rotate3d',
-				A2(
+	};
+	return A2(
+		_elm_lang$core$String$join,
+		', ',
+		A2(_elm_lang$core$List$map, formatTrans, _p14._0.props));
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$direction = function (dir) {
+	var _p15 = dir;
+	switch (_p15.ctor) {
+		case 'GoRight':
+			return {ctor: '_Tuple2', _0: 'flex-direction', _1: 'row'};
+		case 'GoLeft':
+			return {ctor: '_Tuple2', _0: 'flex-direction', _1: 'row-reverse'};
+		case 'Down':
+			return {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'};
+		default:
+			return {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column-reverse'};
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$gridAlignment = function (align) {
+	var _p16 = align;
+	switch (_p16.ctor) {
+		case 'GridGap':
+			return {
+				ctor: '_Tuple2',
+				_0: 'grid-gap',
+				_1: A2(
 					_elm_lang$core$Basics_ops['++'],
-					coordsAsStrings,
-					{
-						ctor: '::',
-						_0: _p47.value,
-						_1: {ctor: '[]'}
-					})),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$scale = function (x) {
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'scale',
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numberToString(x),
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$scale2 = F2(
-	function (x, y) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'scale',
-				A2(
-					_elm_lang$core$List$map,
-					_rtfeldman$elm_css$Css$numberToString,
-					{
-						ctor: '::',
-						_0: x,
-						_1: {
-							ctor: '::',
-							_0: y,
-							_1: {ctor: '[]'}
-						}
-					})),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$scaleX = function (x) {
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'scaleX',
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numberToString(x),
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$scaleY = function (y) {
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'scaleY',
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$numberToString(y),
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$scale3d = F3(
-	function (x, y, z) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'scale3d',
-				A2(
-					_elm_lang$core$List$map,
-					_rtfeldman$elm_css$Css$numberToString,
-					{
-						ctor: '::',
-						_0: x,
-						_1: {
-							ctor: '::',
-							_0: y,
-							_1: {
-								ctor: '::',
-								_0: z,
-								_1: {ctor: '[]'}
-							}
-						}
-					})),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$skew = function (_p48) {
-	var _p49 = _p48;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'skew',
-			{
-				ctor: '::',
-				_0: _p49.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$skew2 = F2(
-	function (ax, ay) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'skew',
-				{
-					ctor: '::',
-					_0: ax.value,
-					_1: {
-						ctor: '::',
-						_0: ay.value,
-						_1: {ctor: '[]'}
-					}
-				}),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$skewX = function (_p50) {
-	var _p51 = _p50;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'skewX',
-			{
-				ctor: '::',
-				_0: _p51.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$skewY = function (_p52) {
-	var _p53 = _p52;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'skewY',
-			{
-				ctor: '::',
-				_0: _p53.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$translate = function (_p54) {
-	var _p55 = _p54;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'translate',
-			{
-				ctor: '::',
-				_0: _p55.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$translate2 = F2(
-	function (tx, ty) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'translate',
-				{
-					ctor: '::',
-					_0: tx.value,
-					_1: {
-						ctor: '::',
-						_0: ty.value,
-						_1: {ctor: '[]'}
-					}
-				}),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$translateX = function (_p56) {
-	var _p57 = _p56;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'translateX',
-			{
-				ctor: '::',
-				_0: _p57.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$translateY = function (_p58) {
-	var _p59 = _p58;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'translateY',
-			{
-				ctor: '::',
-				_0: _p59.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$translateZ = function (_p60) {
-	var _p61 = _p60;
-	return {
-		value: A2(
-			_rtfeldman$elm_css$Css$cssFunction,
-			'translateZ',
-			{
-				ctor: '::',
-				_0: _p61.value,
-				_1: {ctor: '[]'}
-			}),
-		transform: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css$translate3d = F3(
-	function (tx, ty, tz) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'translate3d',
-				{
-					ctor: '::',
-					_0: tx.value,
-					_1: {
-						ctor: '::',
-						_0: ty.value,
-						_1: {
-							ctor: '::',
-							_0: tz.value,
-							_1: {ctor: '[]'}
-						}
-					}
-				}),
-			transform: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$linearGradient = F3(
-	function (stop1, stop2, stops) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'linear-gradient',
-				_rtfeldman$elm_css$Css$collectStops(
+					_elm_lang$core$Basics$toString(_p16._0),
 					A2(
 						_elm_lang$core$Basics_ops['++'],
-						{
-							ctor: '::',
-							_0: stop1,
-							_1: {
-								ctor: '::',
-								_0: stop2,
-								_1: {ctor: '[]'}
-							}
-						},
-						stops))),
-			backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible,
-			listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css$linearGradient2 = F4(
-	function (dir, stop1, stop2, stops) {
-		return {
-			value: A2(
-				_rtfeldman$elm_css$Css$cssFunction,
-				'linear-gradient',
-				A2(
-					F2(
-						function (x, y) {
-							return {ctor: '::', _0: x, _1: y};
-						}),
-					A2(_elm_lang$core$Basics_ops['++'], 'to ', dir.value),
-					_rtfeldman$elm_css$Css$collectStops(
+						'px ',
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							{
+							_elm_lang$core$Basics$toString(_p16._1),
+							'px')))
+			};
+		case 'GridH':
+			var _p17 = _p16._0;
+			switch (_p17.ctor) {
+				case 'Other':
+					if (_p17._0.ctor === 'Left') {
+						return {ctor: '_Tuple2', _0: 'justify-content', _1: 'start'};
+					} else {
+						return {ctor: '_Tuple2', _0: 'justify-content', _1: 'end'};
+					}
+				case 'Center':
+					return {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'};
+				case 'Justify':
+					return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+				default:
+					return {ctor: '_Tuple2', _0: 'justify-content', _1: 'space-between'};
+			}
+		default:
+			var _p18 = _p16._0;
+			switch (_p18.ctor) {
+				case 'Other':
+					if (_p18._0.ctor === 'Top') {
+						return {ctor: '_Tuple2', _0: 'align-content', _1: 'start'};
+					} else {
+						return {ctor: '_Tuple2', _0: 'align-content', _1: 'end'};
+					}
+				case 'Center':
+					return {ctor: '_Tuple2', _0: 'align-content', _1: 'center'};
+				case 'Justify':
+					return {ctor: '_Tuple2', _0: 'align-content', _1: 'space-between'};
+				default:
+					return {ctor: '_Tuple2', _0: 'align-content', _1: 'space-between'};
+			}
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$layout = F2(
+	function (inline, lay) {
+		var _p19 = lay;
+		switch (_p19.ctor) {
+			case 'TextLayout':
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'display',
+						_1: inline ? 'inline-block' : 'block'
+					},
+					_1: {ctor: '[]'}
+				};
+			case 'FlexLayout':
+				var _p20 = _p19._0;
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'display',
+						_1: inline ? 'inline-flex' : 'flex'
+					},
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Internal_Render_Property$direction(_p20),
+						_1: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Render_Property$flexbox(_p20),
+							_p19._1)
+					}
+				};
+			default:
+				if (_p19._0.ctor === 'NamedGridTemplate') {
+					var _p31 = _p19._0._0.rows;
+					var _p30 = _p19._0._0.columns;
+					var areaSpan = function (_p21) {
+						var _p22 = _p21;
+						var name = function () {
+							var _p23 = _p22._1;
+							if (_p23.ctor === 'Nothing') {
+								return '.';
+							} else {
+								return _p23._0;
+							}
+						}();
+						var _p24 = _p22._0;
+						if (_p24.ctor === 'SpanAll') {
+							return A2(
+								_elm_lang$core$List$repeat,
+								_elm_lang$core$List$length(_p30),
+								name);
+						} else {
+							return A2(_elm_lang$core$List$repeat, _p24._0, name);
+						}
+					};
+					var areasInRow = function (areas) {
+						var areaStrs = A2(_elm_lang$core$List$concatMap, areaSpan, areas);
+						var quote = function (str) {
+							return A2(
+								_elm_lang$core$Basics_ops['++'],
+								'\"',
+								A2(_elm_lang$core$Basics_ops['++'], str, '\"'));
+						};
+						if (_elm_lang$core$Native_Utils.cmp(
+							_elm_lang$core$List$length(areaStrs),
+							_elm_lang$core$List$length(_p30)) > 0) {
+							var _p25 = A2(
+								_elm_lang$core$Basics_ops['++'],
+								A2(_elm_lang$core$Debug$log, 'style-elements', 'Named grid row ('),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(areas),
+									') is too big for this grid!'));
+							return quote(
+								A2(_elm_lang$core$String$join, ' ', areaStrs));
+						} else {
+							if (_elm_lang$core$Native_Utils.cmp(
+								_elm_lang$core$List$length(areaStrs),
+								_elm_lang$core$List$length(_p30)) < 0) {
+								var _p26 = A2(
+									_elm_lang$core$Basics_ops['++'],
+									A2(_elm_lang$core$Debug$log, 'style-elements', 'Named grid row ('),
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(areas),
+										') doesn\'t have enough names to fit this grid!'));
+								return quote(
+									A2(_elm_lang$core$String$join, ' ', areaStrs));
+							} else {
+								return quote(
+									A2(_elm_lang$core$String$join, ' ', areaStrs));
+							}
+						}
+					};
+					var alignment = A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Property$gridAlignment, _p19._1);
+					var renderLen = function (len) {
+						var _p27 = len;
+						switch (_p27.ctor) {
+							case 'Px':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p27._0),
+									'px');
+							case 'Percent':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p27._0),
+									'%');
+							case 'Auto':
+								return 'auto';
+							case 'Fill':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p27._0),
+									'fr');
+							default:
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									'calc(',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p27._0),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											'% + ',
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(_p27._1),
+												'px)'))));
+						}
+					};
+					var grid = inline ? {ctor: '_Tuple2', _0: 'display', _1: 'inline-grid'} : {ctor: '_Tuple2', _0: 'display', _1: 'grid'};
+					return {
+						ctor: '::',
+						_0: grid,
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'grid-template-rows',
+								_1: A2(
+									_elm_lang$core$String$join,
+									' ',
+									A2(
+										_elm_lang$core$List$map,
+										function (_p28) {
+											return renderLen(
+												_elm_lang$core$Tuple$first(_p28));
+										},
+										_p31))
+							},
+							_1: {
 								ctor: '::',
-								_0: stop1,
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'grid-template-columns',
+									_1: A2(
+										_elm_lang$core$String$join,
+										' ',
+										A2(_elm_lang$core$List$map, renderLen, _p30))
+								},
 								_1: {
 									ctor: '::',
-									_0: stop2,
-									_1: {ctor: '[]'}
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'grid-template-areas',
+										_1: A2(
+											_elm_lang$core$String$join,
+											'\n',
+											A2(
+												_elm_lang$core$List$map,
+												function (_p29) {
+													return areasInRow(
+														_elm_lang$core$Tuple$second(_p29));
+												},
+												_p31))
+									},
+									_1: alignment
 								}
+							}
+						}
+					};
+				} else {
+					var alignment = A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Property$gridAlignment, _p19._1);
+					var renderLen = function (len) {
+						var _p32 = len;
+						switch (_p32.ctor) {
+							case 'Px':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p32._0),
+									'px');
+							case 'Percent':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p32._0),
+									'%');
+							case 'Auto':
+								return 'auto';
+							case 'Fill':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p32._0),
+									'fr');
+							default:
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									'calc(',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p32._0),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											'% + ',
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(_p32._1),
+												'px)'))));
+						}
+					};
+					var grid = inline ? {ctor: '_Tuple2', _0: 'display', _1: 'inline-grid'} : {ctor: '_Tuple2', _0: 'display', _1: 'grid'};
+					return {
+						ctor: '::',
+						_0: grid,
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'grid-template-rows',
+								_1: A2(
+									_elm_lang$core$String$join,
+									' ',
+									A2(_elm_lang$core$List$map, renderLen, _p19._0._0.rows))
 							},
-							stops)))),
-			backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible,
-			listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'grid-template-columns',
+									_1: A2(
+										_elm_lang$core$String$join,
+										' ',
+										A2(_elm_lang$core$List$map, renderLen, _p19._0._0.columns))
+								},
+								_1: alignment
+							}
+						}
+					};
+				}
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render_Property$background = function (prop) {
+	var renderStep = function (step) {
+		var _p33 = step;
+		switch (_p33.ctor) {
+			case 'ColorStep':
+				return _mdgriffith$style_elements$Style_Internal_Render_Value$color(_p33._0);
+			case 'PercentStep':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					_mdgriffith$style_elements$Style_Internal_Render_Value$color(_p33._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						' ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p33._1),
+							'%')));
+			default:
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					_mdgriffith$style_elements$Style_Internal_Render_Value$color(_p33._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						' ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p33._1),
+							'px')));
+		}
+	};
+	var directionName = function (dir) {
+		var _p34 = dir;
+		switch (_p34.ctor) {
+			case 'ToUp':
+				return 'to top';
+			case 'ToDown':
+				return 'to bottom';
+			case 'ToRight':
+				return 'to right';
+			case 'ToTopRight':
+				return 'to top right';
+			case 'ToBottomRight':
+				return 'to bottom right';
+			case 'ToLeft':
+				return 'to left';
+			case 'ToTopLeft':
+				return 'to top left';
+			case 'ToBottomLeft':
+				return 'to bottom left';
+			default:
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p34._0),
+					'rad');
+		}
+	};
+	var _p35 = prop;
+	switch (_p35.ctor) {
+		case 'BackgroundElement':
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: _p35._0, _1: _p35._1},
+				_1: {ctor: '[]'}
+			};
+		case 'BackgroundImage':
+			var _p38 = _p35._0.position;
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'background-image',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						'url(',
+						A2(_elm_lang$core$Basics_ops['++'], _p35._0.src, ')'))
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'background-position',
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(
+								_elm_lang$core$Tuple$first(_p38)),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'px ',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(
+										_elm_lang$core$Tuple$second(_p38)),
+									'px')))
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'background-repeat',
+							_1: function () {
+								var _p36 = _p35._0.repeat;
+								switch (_p36.ctor) {
+									case 'RepeatX':
+										return 'repeat-x';
+									case 'RepeatY':
+										return 'repeat-y';
+									case 'Repeat':
+										return 'repeat';
+									case 'Space':
+										return 'space';
+									case 'Round':
+										return 'round';
+									default:
+										return 'no-repeat';
+								}
+							}()
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'background-size',
+								_1: function () {
+									var _p37 = _p35._0.size;
+									switch (_p37.ctor) {
+										case 'Contain':
+											return 'contain';
+										case 'Cover':
+											return 'cover';
+										case 'BackgroundWidth':
+											return A2(
+												_elm_lang$core$Basics_ops['++'],
+												_mdgriffith$style_elements$Style_Internal_Render_Value$length(_p37._0),
+												' auto');
+										case 'BackgroundHeight':
+											return A2(
+												_elm_lang$core$Basics_ops['++'],
+												'auto ',
+												_mdgriffith$style_elements$Style_Internal_Render_Value$length(_p37._0));
+										default:
+											return A2(
+												_elm_lang$core$Basics_ops['++'],
+												_mdgriffith$style_elements$Style_Internal_Render_Value$length(_p37._0.width),
+												A2(
+													_elm_lang$core$Basics_ops['++'],
+													' ',
+													_mdgriffith$style_elements$Style_Internal_Render_Value$length(_p37._0.height)));
+									}
+								}()
+							},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			};
+		default:
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'background-image',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						'linear-gradient(',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(
+								_elm_lang$core$String$join,
+								', ',
+								{
+									ctor: '::',
+									_0: directionName(_p35._0),
+									_1: A2(_elm_lang$core$List$map, renderStep, _p35._1)
+								}),
+							')'))
+				},
+				_1: {ctor: '[]'}
+			};
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$position = function (posEls) {
+	var renderPos = function (pos) {
+		var _p39 = pos;
+		switch (_p39.ctor) {
+			case 'RelativeTo':
+				switch (_p39._0.ctor) {
+					case 'Screen':
+						return {ctor: '_Tuple2', _0: 'position', _1: 'fixed'};
+					case 'Parent':
+						return {ctor: '_Tuple2', _0: 'position', _1: 'absolute'};
+					default:
+						return {ctor: '_Tuple2', _0: 'position', _1: 'relative'};
+				}
+			case 'PosLeft':
+				return {
+					ctor: '_Tuple2',
+					_0: 'left',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p39._0),
+						'px')
+				};
+			case 'PosRight':
+				return {
+					ctor: '_Tuple2',
+					_0: 'right',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p39._0),
+						'px')
+				};
+			case 'PosTop':
+				return {
+					ctor: '_Tuple2',
+					_0: 'top',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p39._0),
+						'px')
+				};
+			case 'PosBottom':
+				return {
+					ctor: '_Tuple2',
+					_0: 'bottom',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p39._0),
+						'px')
+				};
+			case 'ZIndex':
+				return {
+					ctor: '_Tuple2',
+					_0: 'z-index',
+					_1: _elm_lang$core$Basics$toString(_p39._0)
+				};
+			case 'Inline':
+				return {ctor: '_Tuple2', _0: 'display', _1: 'inline-block'};
+			default:
+				switch (_p39._0.ctor) {
+					case 'FloatLeft':
+						return {ctor: '_Tuple2', _0: 'float', _1: 'left'};
+					case 'FloatRight':
+						return {ctor: '_Tuple2', _0: 'float', _1: 'right'};
+					case 'FloatTopLeft':
+						return {ctor: '_Tuple2', _0: 'float', _1: 'left'};
+					default:
+						return {ctor: '_Tuple2', _0: 'float', _1: 'right'};
+				}
+		}
+	};
+	return A2(_elm_lang$core$List$map, renderPos, posEls);
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$transformations = function (transforms) {
+	var transformToString = function (transform) {
+		var _p40 = transform;
+		switch (_p40.ctor) {
+			case 'Translate':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'translate3d(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p40._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'px, ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p40._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'px, ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p40._2),
+										'px)'))))));
+			case 'RotateAround':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'rotate3d(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p40._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p40._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									',',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p40._2),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											',',
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(_p40._3),
+												'rad)'))))))));
+			case 'Rotate':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'rotate(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p40._0),
+						'rad)'));
+			default:
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'scale3d(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p40._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							', ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p40._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									', ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p40._2),
+										')'))))));
+		}
+	};
+	var transformString = A2(
+		_elm_lang$core$String$join,
+		' ',
+		A2(_elm_lang$core$List$map, transformToString, transforms));
+	var renderedTransforms = (_elm_lang$core$Native_Utils.cmp(
+		_elm_lang$core$String$length(transformString),
+		0) > 0) ? {
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'transform', _1: transformString},
+		_1: {ctor: '[]'}
+	} : {ctor: '[]'};
+	return _elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$List$length(transforms),
+		0) ? {ctor: '[]'} : renderedTransforms;
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$box = function (_p41) {
+	var _p42 = _p41;
+	return {ctor: '_Tuple2', _0: _p42._0, _1: _p42._1};
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$shadow = function (shadows) {
+	var _p43 = A2(
+		_elm_lang$core$List$partition,
+		function (_p44) {
+			var _p45 = _p44;
+			return _elm_lang$core$Native_Utils.eq(_p45._0.kind, 'text');
+		},
+		shadows);
+	var text = _p43._0;
+	var box = _p43._1;
+	var renderedBox = A2(
+		_elm_lang$core$String$join,
+		', ',
+		A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Value$shadow, box));
+	var renderedText = A2(
+		_elm_lang$core$String$join,
+		', ',
+		A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Value$shadow, text));
+	return A2(
+		_elm_lang$core$List$filterMap,
+		_elm_lang$core$Basics$identity,
+		{
+			ctor: '::',
+			_0: _elm_lang$core$Native_Utils.eq(renderedBox, '') ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(
+				{ctor: '_Tuple2', _0: 'box-shadow', _1: renderedBox}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$core$Native_Utils.eq(renderedText, '') ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(
+					{ctor: '_Tuple2', _0: 'text-shadow', _1: renderedText}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$filters = function (filters) {
+	var filterName = function (filtr) {
+		var _p46 = filtr;
+		switch (_p46.ctor) {
+			case 'FilterUrl':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'url(',
+					A2(_elm_lang$core$Basics_ops['++'], _p46._0, ')'));
+			case 'Blur':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'blur(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'px)'));
+			case 'Brightness':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'brightness(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'Contrast':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'contrast(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'Grayscale':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'grayscale(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'HueRotate':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'hueRotate(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'deg)'));
+			case 'Invert':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'invert(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'OpacityFilter':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'opacity(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'Saturate':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'saturate(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			case 'Sepia':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'sepia(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p46._0),
+						'%)'));
+			default:
+				var _p47 = _p46._0;
+				var shadowModel = _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+					{kind: 'drop', offset: _p47.offset, size: _p47.size, blur: _p47.blur, color: _p47.color});
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'drop-shadow(',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_mdgriffith$style_elements$Style_Internal_Render_Value$shadow(shadowModel),
+						')'));
+		}
+	};
+	return _elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$List$length(filters),
+		0) ? {ctor: '[]'} : {
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'filter',
+			_1: A2(
+				_elm_lang$core$String$join,
+				' ',
+				A2(_elm_lang$core$List$map, filterName, filters))
+		},
+		_1: {ctor: '[]'}
+	};
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$flexHeight = function (l) {
+	var _p48 = l;
+	switch (_p48.ctor) {
+		case 'Px':
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'height',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p48._0),
+						'px')
+				},
+				_1: {ctor: '[]'}
+			};
+		case 'Percent':
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'height',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p48._0),
+						'%')
+				},
+				_1: {ctor: '[]'}
+			};
+		case 'Auto':
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'height', _1: 'auto'},
+				_1: {ctor: '[]'}
+			};
+		case 'Fill':
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'flex-grow',
+					_1: _elm_lang$core$Basics$toString(_p48._0)
+				},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'flex-basis', _1: '0'},
+					_1: {ctor: '[]'}
+				}
+			};
+		default:
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'height',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						'calc(',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p48._0),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'% + ',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p48._1),
+									'px)'))))
+				},
+				_1: {ctor: '[]'}
+			};
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render_Property$flexWidth = F2(
+	function (len, adjustment) {
+		var _p49 = len;
+		switch (_p49.ctor) {
+			case 'Px':
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'width',
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p49._0),
+							'px')
+					},
+					_1: {ctor: '[]'}
+				};
+			case 'Percent':
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'width',
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							'calc(',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p49._0),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'% - ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(adjustment),
+										'px)'))))
+					},
+					_1: {ctor: '[]'}
+				};
+			case 'Auto':
+				return {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'width', _1: 'auto'},
+					_1: {ctor: '[]'}
+				};
+			case 'Fill':
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'flex-grow',
+						_1: _elm_lang$core$Basics$toString(_p49._0)
+					},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'flex-basis', _1: '0'},
+						_1: {ctor: '[]'}
+					}
+				};
+			default:
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'width',
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							'calc(',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p49._0),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'% + ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p49._1),
+										'px)'))))
+					},
+					_1: {ctor: '[]'}
+				};
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render_Property$visibility = function (vis) {
+	var _p50 = vis;
+	switch (_p50.ctor) {
+		case 'Hidden':
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'display', _1: 'none'},
+				_1: {ctor: '[]'}
+			};
+		case 'Invisible':
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'hidden'},
+				_1: {ctor: '[]'}
+			};
+		default:
+			return {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'opacity',
+					_1: _elm_lang$core$Basics$toString(_p50._0)
+				},
+				_1: {ctor: '[]'}
+			};
+	}
+};
+
+var _mdgriffith$style_elements$Element_Internal_Render$renderPadding = function (_p0) {
+	var _p1 = _p0;
+	var format = F2(
+		function (name, x) {
+			return {
+				ctor: '_Tuple2',
+				_0: name,
+				_1: A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(x),
+					'px')
+			};
+		});
+	return A2(
+		_elm_lang$core$List$filterMap,
+		_elm_lang$core$Basics$identity,
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$core$Maybe$map,
+				format('padding-top'),
+				_p1._0),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$core$Maybe$map,
+					format('padding-bottom'),
+					_p1._2),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$core$Maybe$map,
+						format('padding-left'),
+						_p1._3),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$core$Maybe$map,
+							format('padding-right'),
+							_p1._1),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _mdgriffith$style_elements$Element_Internal_Render$flexboxVerticalIndividualAlignment = F2(
+	function (direction, alignment) {
+		var _p2 = direction;
+		switch (_p2.ctor) {
+			case 'GoRight':
+				var _p3 = alignment;
+				switch (_p3.ctor) {
+					case 'Top':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-start'});
+					case 'Bottom':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-end'});
+					case 'VerticalCenter':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+					default:
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+				}
+			case 'GoLeft':
+				var _p4 = alignment;
+				switch (_p4.ctor) {
+					case 'Top':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-start'});
+					case 'Bottom':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-end'});
+					case 'VerticalCenter':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+					default:
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+				}
+			case 'Down':
+				var _p5 = alignment;
+				switch (_p5.ctor) {
+					case 'Top':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Bottom':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'VerticalCenter':
+						return _elm_lang$core$Maybe$Nothing;
+					default:
+						return _elm_lang$core$Maybe$Nothing;
+				}
+			default:
+				var _p6 = alignment;
+				switch (_p6.ctor) {
+					case 'Top':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Bottom':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'VerticalCenter':
+						return _elm_lang$core$Maybe$Nothing;
+					default:
+						return _elm_lang$core$Maybe$Nothing;
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$flexboxHorizontalIndividualAlignment = F2(
+	function (direction, alignment) {
+		var _p7 = direction;
+		switch (_p7.ctor) {
+			case 'GoRight':
+				var _p8 = alignment;
+				switch (_p8.ctor) {
+					case 'Left':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Right':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Center':
+						return _elm_lang$core$Maybe$Nothing;
+					default:
+						return _elm_lang$core$Maybe$Nothing;
+				}
+			case 'GoLeft':
+				var _p9 = alignment;
+				switch (_p9.ctor) {
+					case 'Left':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Right':
+						return _elm_lang$core$Maybe$Nothing;
+					case 'Center':
+						return _elm_lang$core$Maybe$Nothing;
+					default:
+						return _elm_lang$core$Maybe$Nothing;
+				}
+			case 'Down':
+				var _p10 = alignment;
+				switch (_p10.ctor) {
+					case 'Left':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-start'});
+					case 'Right':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-end'});
+					case 'Center':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+					default:
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'stretch'});
+				}
+			default:
+				var _p11 = alignment;
+				switch (_p11.ctor) {
+					case 'Left':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-start'});
+					case 'Right':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'flex-end'});
+					case 'Center':
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'center'});
+					default:
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: 'align-self', _1: 'stretch'});
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$alignLayout = F3(
+	function (maybeHorizontal, maybeVertical, layout) {
+		var alignGridVertical = function (align) {
+			var _p12 = align;
+			switch (_p12.ctor) {
+				case 'Top':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridV(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Top));
+				case 'Bottom':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridV(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Bottom));
+				case 'VerticalCenter':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridV(_mdgriffith$style_elements$Style_Internal_Model$Center);
+				default:
+					return _mdgriffith$style_elements$Style_Internal_Model$GridV(_mdgriffith$style_elements$Style_Internal_Model$Justify);
+			}
+		};
+		var alignGridHorizontal = function (align) {
+			var _p13 = align;
+			switch (_p13.ctor) {
+				case 'Left':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridH(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Left));
+				case 'Right':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridH(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Right));
+				case 'Center':
+					return _mdgriffith$style_elements$Style_Internal_Model$GridH(_mdgriffith$style_elements$Style_Internal_Model$Center);
+				default:
+					return _mdgriffith$style_elements$Style_Internal_Model$GridH(_mdgriffith$style_elements$Style_Internal_Model$Justify);
+			}
+		};
+		var alignFlexboxVertical = function (align) {
+			var _p14 = align;
+			switch (_p14.ctor) {
+				case 'Top':
+					return _mdgriffith$style_elements$Style_Internal_Model$Vert(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Top));
+				case 'Bottom':
+					return _mdgriffith$style_elements$Style_Internal_Model$Vert(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Bottom));
+				case 'VerticalCenter':
+					return _mdgriffith$style_elements$Style_Internal_Model$Vert(_mdgriffith$style_elements$Style_Internal_Model$Center);
+				default:
+					return _mdgriffith$style_elements$Style_Internal_Model$Vert(_mdgriffith$style_elements$Style_Internal_Model$Justify);
+			}
+		};
+		var alignFlexboxHorizontal = function (align) {
+			var _p15 = align;
+			switch (_p15.ctor) {
+				case 'Left':
+					return _mdgriffith$style_elements$Style_Internal_Model$Horz(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Left));
+				case 'Right':
+					return _mdgriffith$style_elements$Style_Internal_Model$Horz(
+						_mdgriffith$style_elements$Style_Internal_Model$Other(_mdgriffith$style_elements$Style_Internal_Model$Right));
+				case 'Center':
+					return _mdgriffith$style_elements$Style_Internal_Model$Horz(_mdgriffith$style_elements$Style_Internal_Model$Center);
+				default:
+					return _mdgriffith$style_elements$Style_Internal_Model$Horz(_mdgriffith$style_elements$Style_Internal_Model$Justify);
+			}
+		};
+		var _p16 = layout;
+		switch (_p16.ctor) {
+			case 'TextLayout':
+				return _mdgriffith$style_elements$Style_Internal_Model$TextLayout(_p16._0);
+			case 'FlexLayout':
+				var _p19 = _p16._1;
+				var _p18 = _p16._0;
+				var _p17 = {ctor: '_Tuple2', _0: maybeHorizontal, _1: maybeVertical};
+				if (_p17._0.ctor === 'Nothing') {
+					if (_p17._1.ctor === 'Nothing') {
+						return A2(_mdgriffith$style_elements$Style_Internal_Model$FlexLayout, _p18, _p19);
+					} else {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_p18,
+							{
+								ctor: '::',
+								_0: alignFlexboxVertical(_p17._1._0),
+								_1: _p19
+							});
+					}
+				} else {
+					if (_p17._1.ctor === 'Nothing') {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_p18,
+							{
+								ctor: '::',
+								_0: alignFlexboxHorizontal(_p17._0._0),
+								_1: _p19
+							});
+					} else {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_p18,
+							{
+								ctor: '::',
+								_0: alignFlexboxHorizontal(_p17._0._0),
+								_1: {
+									ctor: '::',
+									_0: alignFlexboxVertical(_p17._1._0),
+									_1: _p19
+								}
+							});
+					}
+				}
+			default:
+				var _p22 = _p16._0;
+				var _p21 = _p16._1;
+				var _p20 = {ctor: '_Tuple2', _0: maybeHorizontal, _1: maybeVertical};
+				if (_p20._0.ctor === 'Nothing') {
+					if (_p20._1.ctor === 'Nothing') {
+						return A2(_mdgriffith$style_elements$Style_Internal_Model$Grid, _p22, _p21);
+					} else {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$Grid,
+							_p22,
+							{
+								ctor: '::',
+								_0: alignGridVertical(_p20._1._0),
+								_1: _p21
+							});
+					}
+				} else {
+					if (_p20._1.ctor === 'Nothing') {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$Grid,
+							_p22,
+							{
+								ctor: '::',
+								_0: alignGridHorizontal(_p20._0._0),
+								_1: _p21
+							});
+					} else {
+						return A2(
+							_mdgriffith$style_elements$Style_Internal_Model$Grid,
+							_p22,
+							{
+								ctor: '::',
+								_0: alignGridHorizontal(_p20._0._0),
+								_1: {
+									ctor: '::',
+									_0: alignGridVertical(_p20._1._0),
+									_1: _p21
+								}
+							});
+					}
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$makePositionable = F2(
+	function (attr, pos) {
+		var _p23 = attr;
+		switch (_p23.ctor) {
+			case 'Overflow':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						overflow: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Shrink':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						shrink: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Inline':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{inline: true});
+			case 'Expand':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{expand: true});
+			case 'Vary':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						variations: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: _p23._0, _1: _p23._1},
+							_1: pos.variations
+						}
+					});
+			case 'Height':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						height: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Width':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						width: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Position':
+				var _p24 = pos.positioned;
+				var currentX = _p24._0;
+				var currentY = _p24._1;
+				var currentZ = _p24._2;
+				var newX = function () {
+					var _p25 = _p23._0;
+					if (_p25.ctor === 'Nothing') {
+						return currentX;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p25._0);
+					}
+				}();
+				var newY = function () {
+					var _p26 = _p23._1;
+					if (_p26.ctor === 'Nothing') {
+						return currentY;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p26._0);
+					}
+				}();
+				var newZ = function () {
+					var _p27 = _p23._2;
+					if (_p27.ctor === 'Nothing') {
+						return currentZ;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p27._0);
+					}
+				}();
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						positioned: {ctor: '_Tuple3', _0: newX, _1: newY, _2: newZ}
+					});
+			case 'PositionFrame':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						frame: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'HAlign':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						horizontal: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'VAlign':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						vertical: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Spacing':
+				return pos;
+			case 'Margin':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						margin: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'PhantomPadding':
+				return pos;
+			case 'Padding':
+				var _p28 = pos.padding;
+				var currentTop = _p28._0;
+				var currentRight = _p28._1;
+				var currentBottom = _p28._2;
+				var currentLeft = _p28._3;
+				var newTop = function () {
+					var _p29 = _p23._0;
+					if (_p29.ctor === 'Nothing') {
+						return currentTop;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p29._0);
+					}
+				}();
+				var newRight = function () {
+					var _p30 = _p23._1;
+					if (_p30.ctor === 'Nothing') {
+						return currentRight;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p30._0);
+					}
+				}();
+				var newBottom = function () {
+					var _p31 = _p23._2;
+					if (_p31.ctor === 'Nothing') {
+						return currentBottom;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p31._0);
+					}
+				}();
+				var newLeft = function () {
+					var _p32 = _p23._3;
+					if (_p32.ctor === 'Nothing') {
+						return currentLeft;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p32._0);
+					}
+				}();
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						padding: {ctor: '_Tuple4', _0: newTop, _1: newRight, _2: newBottom, _3: newLeft}
+					});
+			case 'Hidden':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{hidden: true});
+			case 'Opacity':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						opacity: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'Event':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						attrs: {ctor: '::', _0: _p23._0, _1: pos.attrs}
+					});
+			case 'InputEvent':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						attrs: {ctor: '::', _0: _p23._0, _1: pos.attrs}
+					});
+			case 'Attr':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						attrs: {ctor: '::', _0: _p23._0, _1: pos.attrs}
+					});
+			case 'PointerEvents':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						pointerevents: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			case 'GridArea':
+				return _elm_lang$core$Native_Utils.update(
+					pos,
+					{
+						gridPosition: _elm_lang$core$Maybe$Just(_p23._0)
+					});
+			default:
+				var _p33 = _mdgriffith$style_elements$Style_Internal_Render_Value$gridPosition(_p23._0);
+				if (_p33.ctor === 'Nothing') {
+					return _elm_lang$core$Native_Utils.update(
+						pos,
+						{hidden: true});
+				} else {
+					return _elm_lang$core$Native_Utils.update(
+						pos,
+						{
+							gridPosition: _elm_lang$core$Maybe$Just(_p33._0)
+						});
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$emptyPositionable = {
+	inline: false,
+	horizontal: _elm_lang$core$Maybe$Nothing,
+	vertical: _elm_lang$core$Maybe$Nothing,
+	frame: _elm_lang$core$Maybe$Nothing,
+	expand: false,
+	hidden: false,
+	width: _elm_lang$core$Maybe$Nothing,
+	height: _elm_lang$core$Maybe$Nothing,
+	positioned: {ctor: '_Tuple3', _0: _elm_lang$core$Maybe$Nothing, _1: _elm_lang$core$Maybe$Nothing, _2: _elm_lang$core$Maybe$Nothing},
+	margin: _elm_lang$core$Maybe$Nothing,
+	padding: {ctor: '_Tuple4', _0: _elm_lang$core$Maybe$Nothing, _1: _elm_lang$core$Maybe$Nothing, _2: _elm_lang$core$Maybe$Nothing, _3: _elm_lang$core$Maybe$Nothing},
+	variations: {ctor: '[]'},
+	opacity: _elm_lang$core$Maybe$Nothing,
+	gridPosition: _elm_lang$core$Maybe$Nothing,
+	pointerevents: _elm_lang$core$Maybe$Nothing,
+	attrs: {ctor: '[]'},
+	shrink: _elm_lang$core$Maybe$Nothing,
+	overflow: _elm_lang$core$Maybe$Nothing
+};
+var _mdgriffith$style_elements$Element_Internal_Render$gather = function (attrs) {
+	return A3(_elm_lang$core$List$foldl, _mdgriffith$style_elements$Element_Internal_Render$makePositionable, _mdgriffith$style_elements$Element_Internal_Render$emptyPositionable, attrs);
+};
+var _mdgriffith$style_elements$Element_Internal_Render$defaultPadding = F2(
+	function (_p35, _p34) {
+		var _p36 = _p35;
+		var _p37 = _p34;
+		return {
+			ctor: '_Tuple4',
+			_0: A2(_elm_lang$core$Maybe$withDefault, _p37._0, _p36._0),
+			_1: A2(_elm_lang$core$Maybe$withDefault, _p37._1, _p36._1),
+			_2: A2(_elm_lang$core$Maybe$withDefault, _p37._2, _p36._2),
+			_3: A2(_elm_lang$core$Maybe$withDefault, _p37._3, _p36._3)
 		};
 	});
-var _rtfeldman$elm_css$Css$CalculatedLength = function (a) {
-	return function (b) {
-		return function (c) {
-			return function (d) {
-				return function (e) {
-					return function (f) {
-						return function (g) {
-							return function (h) {
-								return function (i) {
-									return function (j) {
-										return function (k) {
-											return function (l) {
-												return function (m) {
-													return {value: a, length: b, lengthOrAuto: c, lengthOrNumber: d, lengthOrNone: e, lengthOrMinMaxDimension: f, lengthOrNoneOrMinMaxDimension: g, textIndent: h, flexBasis: i, lengthOrNumberOrAutoOrNoneOrContent: j, fontSize: k, lengthOrAutoOrCoverOrContain: l, calc: m};
-												};
-											};
-										};
-									};
-								};
-							};
-						};
-					};
+var _mdgriffith$style_elements$Element_Internal_Render$calcPosition = F2(
+	function (frame, _p38) {
+		var _p39 = _p38;
+		var _p46 = _p39._1;
+		var _p45 = _p39._0;
+		var z = A2(_elm_lang$core$Maybe$withDefault, 0, _p39._2);
+		var y = A2(_elm_lang$core$Maybe$withDefault, 0, _p46);
+		var x = A2(_elm_lang$core$Maybe$withDefault, 0, _p45);
+		var _p40 = frame;
+		switch (_p40.ctor) {
+			case 'Relative':
+				return {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'left',
+							_1: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(x),
+								'px')
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'top',
+								_1: A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(y),
+									'px')
+							},
+							_1: {ctor: '[]'}
+						}
+					}
 				};
-			};
-		};
-	};
-};
-var _rtfeldman$elm_css$Css$ExplicitLength = function (a) {
-	return function (b) {
-		return function (c) {
-			return function (d) {
-				return function (e) {
-					return function (f) {
-						return function (g) {
-							return function (h) {
-								return function (i) {
-									return function (j) {
-										return function (k) {
-											return function (l) {
-												return function (m) {
-													return function (n) {
-														return function (o) {
-															return function (p) {
-																return function (q) {
-																	return {value: a, numericValue: b, units: c, unitLabel: d, length: e, lengthOrAuto: f, lengthOrNumber: g, lengthOrNone: h, lengthOrMinMaxDimension: i, lengthOrNoneOrMinMaxDimension: j, textIndent: k, flexBasis: l, absoluteLength: m, lengthOrNumberOrAutoOrNoneOrContent: n, fontSize: o, lengthOrAutoOrCoverOrContain: p, calc: q};
-																};
-															};
-														};
-													};
-												};
-											};
-										};
-									};
-								};
-							};
-						};
-					};
+			case 'Screen':
+				return {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'position', _1: 'fixed'},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'left',
+							_1: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(x),
+								'px')
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'top',
+								_1: A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(y),
+									'px')
+							},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'z-index', _1: '1000'},
+								_1: {ctor: '[]'}
+							}
+						}
+					}
 				};
-			};
-		};
+			case 'Absolute':
+				if (_p40._0.ctor === 'TopLeft') {
+					return A2(
+						_elm_lang$core$List$filterMap,
+						_elm_lang$core$Basics$identity,
+						{
+							ctor: '::',
+							_0: _elm_lang$core$Maybe$Just(
+								{ctor: '_Tuple2', _0: 'position', _1: 'absolute'}),
+							_1: {
+								ctor: '::',
+								_0: function () {
+									var _p41 = _p45;
+									if (_p41.ctor === 'Just') {
+										return _elm_lang$core$Maybe$Just(
+											{
+												ctor: '_Tuple2',
+												_0: 'left',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(_p41._0),
+													'px')
+											});
+									} else {
+										return _elm_lang$core$Maybe$Nothing;
+									}
+								}(),
+								_1: {
+									ctor: '::',
+									_0: function () {
+										var _p42 = _p46;
+										if (_p42.ctor === 'Just') {
+											return _elm_lang$core$Maybe$Just(
+												{
+													ctor: '_Tuple2',
+													_0: 'top',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														_elm_lang$core$Basics$toString(_p42._0),
+														'px')
+												});
+										} else {
+											return _elm_lang$core$Maybe$Nothing;
+										}
+									}(),
+									_1: {ctor: '[]'}
+								}
+							}
+						});
+				} else {
+					return A2(
+						_elm_lang$core$List$filterMap,
+						_elm_lang$core$Basics$identity,
+						{
+							ctor: '::',
+							_0: _elm_lang$core$Maybe$Just(
+								{ctor: '_Tuple2', _0: 'position', _1: 'absolute'}),
+							_1: {
+								ctor: '::',
+								_0: function () {
+									var _p43 = _p45;
+									if (_p43.ctor === 'Just') {
+										return _elm_lang$core$Maybe$Just(
+											{
+												ctor: '_Tuple2',
+												_0: 'left',
+												_1: A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(_p43._0),
+													'px')
+											});
+									} else {
+										return _elm_lang$core$Maybe$Nothing;
+									}
+								}(),
+								_1: {
+									ctor: '::',
+									_0: function () {
+										var _p44 = _p46;
+										if (_p44.ctor === 'Just') {
+											return _elm_lang$core$Maybe$Just(
+												{
+													ctor: '_Tuple2',
+													_0: 'bottom',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														_elm_lang$core$Basics$toString(_p44._0),
+														'px')
+												});
+										} else {
+											return _elm_lang$core$Maybe$Nothing;
+										}
+									}(),
+									_1: {ctor: '[]'}
+								}
+							}
+						});
+				}
+			default:
+				switch (_p40._0.ctor) {
+					case 'Within':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'top',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(y),
+										'px')
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'left',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(x),
+											'px')
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					case 'Above':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'top',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(y),
+										'px')
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'left',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(x),
+											'px')
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					case 'Below':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'top',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										'calc(100% + ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(y),
+											'px)'))
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'left',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(x),
+											'px')
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					case 'OnLeft':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'right',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										'calc(100% - ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(x),
+											'px)'))
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'top',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(y),
+											'px')
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					default:
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'left',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										'calc(100% + ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(x),
+											'px)'))
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'top',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(y),
+											'px')
+									},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$spacingToMargin = function (attrs) {
+	var spaceToMarg = function (a) {
+		var _p47 = a;
+		if (_p47.ctor === 'Spacing') {
+			var _p49 = _p47._1;
+			var _p48 = _p47._0;
+			return _mdgriffith$style_elements$Element_Internal_Model$Margin(
+				{ctor: '_Tuple4', _0: _p49, _1: _p48, _2: _p49, _3: _p48});
+		} else {
+			return _p47;
+		}
 	};
+	return A2(_elm_lang$core$List$map, spaceToMarg, attrs);
 };
-var _rtfeldman$elm_css$Css$NonMixable = {};
-var _rtfeldman$elm_css$Css$BasicProperty = function (a) {
+var _mdgriffith$style_elements$Element_Internal_Render$withFocus = '\n\n.style-elements em.el {\n    padding: 0;\n    padding-left: 0.2em;\n}\n\n.style-elements button.button-focus:focus {\n   outline: none;\n   box-shadow: 0 0 3px 3px rgba(155,203,255,1.0);\n   border-color: rgba(155,203,255,1.0);\n}\n\n.style-elements textarea:focus, .style-elements input:focus {\n   outline: none;\n   box-shadow: 0 0 2px 2px rgba(155,203,255,1.0);\n   border-color: rgba(155,203,255,1.0);\n}\n.style-elements input[type=\'checkbox\'] {\n    border-radius: 3px;\n}\n.style-elements input[type=\'radio\'] {\n    border-radius: 7px;\n}\n.style-elements input[type=\'radio\']:focus {\n    border-radius: 7px;\n    box-shadow: 0 0 4px 4px rgba(155,203,255,1.0);\n}\n\n.style-elements select.focus-override:focus, .style-elements input.focus-override:focus {\n    outline: none;\n    box-shadow: none;\n    border-color:transparent;\n}\n.style-elements input.focus-override:focus ~ .alt-icon {\n    box-shadow: 0 0 3px 3px rgba(155,203,255,1.0);\n    border-color: rgba(155,203,255,1.0);\n}\n.style-elements select.focus-override:focus ~ .alt-icon {\n    box-shadow: 0 0 3px 3px rgba(155,203,255,1.0);\n    border-color: rgba(155,203,255,1.0);\n}\n.style-elements .arrows {\n    display:block;\n    position: relative;\n    height: 10px;\n    width: 10px;\n}\n/*\n.style-elements .arrows::after {\n    content: \" \";\n    position:absolute;\n    top:-2px;\n    left:0;\n    width: 0;\n    height: 0;\n    border-left: 5px solid transparent;\n    border-right: 5px solid transparent;\n    border-bottom: 5px solid black;\n}\n*/\n\n.style-elements .arrows::before {\n    content: \" \";\n    position:absolute;\n    top:2px;\n    left:0;\n    width: 0;\n    height: 0;\n    border-left: 5px solid transparent;\n    border-right: 5px solid transparent;\n    border-top: 5px solid black;\n}\n\n\n';
+var _mdgriffith$style_elements$Element_Internal_Render$miniNormalize = A2(_elm_lang$core$Basics_ops['++'], 'html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin:0;padding:0;border:0}body{margin:0}.style-elements{display:block;position:relative;margin:0;padding:0;border:0;font-size:100%;font:inherit;box-sizing:border-box;line-height:1.2}.el{display:block;position:relative;margin:0;padding:0;border:0;border-style:solid;font-size:100%;font:inherit;box-sizing:border-box}em.el{font-style:italic}b.el,strong.el{font-weight:bolder}strike.el{text-decoration:line-through}u.el{text-decoration:underline}a.el{text-decoration:none;color:inherit}img.el{border-style:none}sub.el,sup.el{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub.el{bottom:-0.25em}sup.el{top:-0.5em}', _mdgriffith$style_elements$Element_Internal_Render$withFocus);
+var _mdgriffith$style_elements$Element_Internal_Render$embed = F2(
+	function (full, stylesheet) {
+		return {
+			ctor: '::',
+			_0: A3(
+				_elm_lang$html$Html$node,
+				'style',
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						full ? A2(_elm_lang$core$Basics_ops['++'], 'html,body{width:100%;height:100%;}', _mdgriffith$style_elements$Element_Internal_Render$miniNormalize) : _mdgriffith$style_elements$Element_Internal_Render$miniNormalize),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_elm_lang$html$Html$node,
+					'style',
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(stylesheet.css),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		};
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$qualifiedNormalize = A2(_elm_lang$core$Basics_ops['++'], 'html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin:0;padding:0;border:0}body{margin:0}.style-elements article,.style-elements aside,.style-elements footer,.style-elements header,.style-elements nav,.style-elements section{display:block}.style-elements h1{font-size:1em;margin:0}.style-elements figcaption,.style-elements figure,.style-elements main{display:block}.style-elements figure{margin:1em 40px}.style-elements hr{box-sizing:content-box;height:0;overflow:visible}.style-elements pre{font-family:monospace, monospace;font-size:1em}.style-elements a{background-color:transparent;-webkit-text-decoration-skip:objects}.style-elements abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}.style-elements b,.style-elements strong{font-weight:inherit}.style-elements b,.style-elements strong{font-weight:bolder}.style-elements code,.style-elements kbd,.style-elements samp{font-family:monospace, monospace;font-size:1em}.style-elements dfn{font-style:italic}.style-elements mark{background-color:#ff0;color:#000}.style-elements small{font-size:80%}.style-elements audio,.style-elements video{display:inline-block}.style-elements audio:not([controls]){display:none;height:0}.style-elements img{border-style:none}.style-elements svg:not(:root){overflow:hidden}.style-elements button,.style-elements input,.style-elements optgroup,.style-elements select,.style-elements textarea{font-family:sans-serif;font-size:100%;margin:0}.style-elements button,.style-elements input{overflow:visible}.style-elements button,.style-elements select{text-transform:none}.style-elements button,.style-elements html [type=\"button\"],.style-elements [type=\"reset\"],.style-elements [type=\"submit\"]{-webkit-appearance:button}.style-elements [type=\"button\"]::-moz-focus-inner,.style-elements [type=\"reset\"]::-moz-focus-inner,.style-elements [type=\"submit\"]::-moz-focus-inner,.style-elements button::-moz-focus-inner{border-style:none;padding:0}.style-elements [type=\"button\"]:-moz-focusring,.style-elements [type=\"reset\"]:-moz-focusring,.style-elements [type=\"submit\"]:-moz-focusring,.style-elements button:-moz-focusring{outline:1px dotted ButtonText}.style-elements fieldset{padding:0.35em 0.75em 0.625em}.style-elements legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}.style-elements progress{display:inline-block;vertical-align:baseline}.style-elements textarea{overflow:auto}.style-elements [type=\"checkbox\"],.style-elements [type=\"radio\"]{box-sizing:border-box;padding:0}.style-elements [type=\"number\"]::-webkit-inner-spin-button,.style-elements [type=\"number\"]::-webkit-outer-spin-button{height:auto}.style-elements [type=\"search\"]{-webkit-appearance:textfield;outline-offset:-2px}.style-elements [type=\"search\"]::-webkit-search-cancel-button,.style-elements [type=\"search\"]::-webkit-search-decoration{-webkit-appearance:none}.style-elements::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.style-elements details,.style-elements menu{display:block}.style-elements summary{display:list-item}.style-elements canvas{display:inline-block}.style-elements template{display:none}.style-elements [hidden]{display:none}.style-elements a{text-decoration:none}.style-elements input,.style-elements textarea{border:0}.style-elements .clearfix:after{content:\"\";display:table;clear:both}.style-elements a,.style-elements abbr,.style-elements acronym,.style-elements address,.style-elements applet,.style-elements article,.style-elements aside,.style-elements audio,.style-elements b,.style-elements big,.style-elements blockquote,.style-elements canvas,.style-elements caption,.style-elements center,.style-elements cite,.style-elements code,.style-elements dd,.style-elements del,.style-elements details,.style-elements dfn,.style-elements div,.style-elements dl,.style-elements dt,.style-elements em,.style-elements embed,.style-elements fieldset,.style-elements figcaption,.style-elements figure,.style-elements footer,.style-elements form,.style-elements h1,.style-elements h2,.style-elements h3,.style-elements h4,.style-elements h5,.style-elements h6,.style-elements header,.style-elements hgroup,.style-elements hr,.style-elements i,.style-elements iframe,.style-elements img,.style-elements ins,.style-elements kbd,.style-elements label,.style-elements legend,.style-elements li,.style-elements mark,.style-elements menu,.style-elements nav,.style-elements object,.style-elements ol,.style-elements output,.style-elements p,.style-elements pre,.style-elements q,.style-elements ruby,.style-elements s,.style-elements samp,.style-elements section,.style-elements small,.style-elements span,.style-elements strike,.style-elements strong,.style-elements sub,.style-elements summary,.style-elements sup,.style-elements table,.style-elements tbody,.style-elements td,.style-elements tfoot,.style-elements th,.style-elements thead,.style-elements time,.style-elements tr,.style-elements tt,.style-elements u,.style-elements ul,.style-elements var,.style-elements video{margin:0;padding:0;border:0;font-size:100%;font:inherit;box-sizing:border-box}.style-elements{margin:0;padding:0;border:0;font-size:100%;font:inherit;line-height:1}.style-elements em.el{font-style:italic}.style-elements strong.el{font-weight:bold}.style-elements strike.el{text-decoration:line-through}.style-elements u.el{text-decoration:underline}.style-elements sub.el,.style-elements sup.el{font-size:75%;line-height:0;position:relative;vertical-align:baseline}.style-elements sub.el{bottom:-0.25em}.style-elements sup.el{top:-0.5em}', _mdgriffith$style_elements$Element_Internal_Render$withFocus);
+var _mdgriffith$style_elements$Element_Internal_Render$Parent = F3(
+	function (a, b, c) {
+		return {parentSpecifiedSpacing: a, layout: b, parentPadding: c};
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$Positionable = function (a) {
 	return function (b) {
 		return function (c) {
 			return function (d) {
@@ -11756,77 +15288,7 @@ var _rtfeldman$elm_css$Css$BasicProperty = function (a) {
 															return function (p) {
 																return function (q) {
 																	return function (r) {
-																		return function (s) {
-																			return function (t) {
-																				return function (u) {
-																					return function (v) {
-																						return function (w) {
-																							return function (x) {
-																								return function (y) {
-																									return function (z) {
-																										return function (_1) {
-																											return function (_2) {
-																												return function (_3) {
-																													return function (_4) {
-																														return function (_5) {
-																															return function (_6) {
-																																return function (_7) {
-																																	return function (_8) {
-																																		return function (_9) {
-																																			return function (_10) {
-																																				return function (_11) {
-																																					return function (_12) {
-																																						return function (_13) {
-																																							return function (_14) {
-																																								return function (_15) {
-																																									return function (_16) {
-																																										return function (_17) {
-																																											return function (_18) {
-																																												return function (_19) {
-																																													return function (_20) {
-																																														return function (_21) {
-																																															return function (_22) {
-																																																return function (_23) {
-																																																	return function (_24) {
-																																																		return function (_25) {
-																																																			return function (_26) {
-																																																				return function (_27) {
-																																																					return {value: a, all: b, alignItems: c, borderStyle: d, boxSizing: e, color: f, cursor: g, display: h, flexBasis: i, flexWrap: j, flexDirection: k, flexDirectionOrWrap: l, justifyContent: m, none: n, number: o, outline: p, overflow: q, visibility: r, textDecorationLine: s, textRendering: t, textIndent: u, textDecorationStyle: v, textTransform: w, length: x, lengthOrAuto: y, lengthOrNone: z, lengthOrNumber: _1, lengthOrMinMaxDimension: _2, lengthOrNoneOrMinMaxDimension: _3, lengthOrNumberOrAutoOrNoneOrContent: _4, listStyleType: _5, listStylePosition: _6, listStyleTypeOrPositionOrImage: _7, fontFamily: _8, fontSize: _9, fontStyle: _10, fontWeight: _11, fontVariant: _12, units: _13, numericValue: _14, unitLabel: _15, warnings: _16, backgroundRepeat: _17, backgroundRepeatShorthand: _18, backgroundAttachment: _19, backgroundBlendMode: _20, backgroundOrigin: _21, backgroundImage: _22, lengthOrAutoOrCoverOrContain: _23, intOrAuto: _24, touchAction: _25, whiteSpace: _26, tableLayout: _27};
-																																																				};
-																																																			};
-																																																		};
-																																																	};
-																																																};
-																																															};
-																																														};
-																																													};
-																																												};
-																																											};
-																																										};
-																																									};
-																																								};
-																																							};
-																																						};
-																																					};
-																																				};
-																																			};
-																																		};
-																																	};
-																																};
-																															};
-																														};
-																													};
-																												};
-																											};
-																										};
-																									};
-																								};
-																							};
-																						};
-																					};
-																				};
-																			};
-																		};
+																		return {inline: a, horizontal: b, vertical: c, frame: d, expand: e, hidden: f, width: g, height: h, positioned: i, margin: j, padding: k, variations: l, opacity: m, gridPosition: n, pointerevents: o, attrs: p, shrink: q, overflow: r};
 																	};
 																};
 															};
@@ -11845,706 +15307,6813 @@ var _rtfeldman$elm_css$Css$BasicProperty = function (a) {
 		};
 	};
 };
-var _rtfeldman$elm_css$Css$Normal = F7(
-	function (a, b, c, d, e, f, g) {
-		return {value: a, warnings: b, fontStyle: c, fontWeight: d, featureTagValue: e, overflowWrap: f, whiteSpace: g};
+var _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast = {ctor: 'FirstAndLast'};
+var _mdgriffith$style_elements$Element_Internal_Render$Last = {ctor: 'Last'};
+var _mdgriffith$style_elements$Element_Internal_Render$Middle = function (a) {
+	return {ctor: 'Middle', _0: a};
+};
+var _mdgriffith$style_elements$Element_Internal_Render$First = {ctor: 'First'};
+var _mdgriffith$style_elements$Element_Internal_Render$detectOrder = F2(
+	function (list, i) {
+		var len = _elm_lang$core$List$length(list);
+		return (_elm_lang$core$Native_Utils.eq(i, 0) && _elm_lang$core$Native_Utils.eq(len, 1)) ? _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast : (_elm_lang$core$Native_Utils.eq(i, 0) ? _mdgriffith$style_elements$Element_Internal_Render$First : (_elm_lang$core$Native_Utils.eq(i, len - 1) ? _mdgriffith$style_elements$Element_Internal_Render$Last : _mdgriffith$style_elements$Element_Internal_Render$Middle(i)));
 	});
-var _rtfeldman$elm_css$Css$Subtraction = {ctor: 'Subtraction'};
-var _rtfeldman$elm_css$Css$minus = _rtfeldman$elm_css$Css$Subtraction;
-var _rtfeldman$elm_css$Css$Addition = {ctor: 'Addition'};
-var _rtfeldman$elm_css$Css$plus = _rtfeldman$elm_css$Css$Addition;
-var _rtfeldman$elm_css$Css$PercentageUnits = {ctor: 'PercentageUnits'};
-var _rtfeldman$elm_css$Css$pct = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$PercentageUnits, '%');
-var _rtfeldman$elm_css$Css$EmUnits = {ctor: 'EmUnits'};
-var _rtfeldman$elm_css$Css$em = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$EmUnits, 'em');
-var _rtfeldman$elm_css$Css$ExUnits = {ctor: 'ExUnits'};
-var _rtfeldman$elm_css$Css$ex = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$ExUnits, 'ex');
-var _rtfeldman$elm_css$Css$ChUnits = {ctor: 'ChUnits'};
-var _rtfeldman$elm_css$Css$ch = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$ChUnits, 'ch');
-var _rtfeldman$elm_css$Css$RemUnits = {ctor: 'RemUnits'};
-var _rtfeldman$elm_css$Css$rem = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$RemUnits, 'rem');
-var _rtfeldman$elm_css$Css$VhUnits = {ctor: 'VhUnits'};
-var _rtfeldman$elm_css$Css$vh = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$VhUnits, 'vh');
-var _rtfeldman$elm_css$Css$VwUnits = {ctor: 'VwUnits'};
-var _rtfeldman$elm_css$Css$vw = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$VwUnits, 'vw');
-var _rtfeldman$elm_css$Css$VMinUnits = {ctor: 'VMinUnits'};
-var _rtfeldman$elm_css$Css$vmin = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$VMinUnits, 'vmin');
-var _rtfeldman$elm_css$Css$VMaxUnits = {ctor: 'VMaxUnits'};
-var _rtfeldman$elm_css$Css$vmax = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$VMaxUnits, 'vmax');
-var _rtfeldman$elm_css$Css$PxUnits = {ctor: 'PxUnits'};
-var _rtfeldman$elm_css$Css$px = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$PxUnits, 'px');
-var _rtfeldman$elm_css$Css$MMUnits = {ctor: 'MMUnits'};
-var _rtfeldman$elm_css$Css$mm = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$MMUnits, 'mm');
-var _rtfeldman$elm_css$Css$CMUnits = {ctor: 'CMUnits'};
-var _rtfeldman$elm_css$Css$cm = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$CMUnits, 'cm');
-var _rtfeldman$elm_css$Css$InchUnits = {ctor: 'InchUnits'};
-var _rtfeldman$elm_css$Css$inches = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$InchUnits, 'in');
-var _rtfeldman$elm_css$Css$PtUnits = {ctor: 'PtUnits'};
-var _rtfeldman$elm_css$Css$pt = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$PtUnits, 'pt');
-var _rtfeldman$elm_css$Css$PcUnits = {ctor: 'PcUnits'};
-var _rtfeldman$elm_css$Css$pc = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$PcUnits, 'pc');
-var _rtfeldman$elm_css$Css$UnitlessInteger = {ctor: 'UnitlessInteger'};
-var _rtfeldman$elm_css$Css$zero = {value: '0', length: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, number: _rtfeldman$elm_css$Css_Structure$Compatible, outline: _rtfeldman$elm_css$Css_Structure$Compatible, units: _rtfeldman$elm_css$Css$UnitlessInteger, unitLabel: '', numericValue: 0, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$int = function (val) {
-	return {
-		value: _rtfeldman$elm_css$Css$numberToString(val),
-		lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible,
-		number: _rtfeldman$elm_css$Css_Structure$Compatible,
-		fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible,
-		lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible,
-		intOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible,
-		numericValue: _elm_lang$core$Basics$toFloat(val),
-		unitLabel: '',
-		units: _rtfeldman$elm_css$Css$UnitlessInteger
-	};
+var _mdgriffith$style_elements$Element_Internal_Render$LayoutElement = function (a) {
+	return {ctor: 'LayoutElement', _0: a};
 };
-var _rtfeldman$elm_css$Css$UnitlessFloat = {ctor: 'UnitlessFloat'};
-var _rtfeldman$elm_css$Css$num = function (val) {
-	return {
-		value: _rtfeldman$elm_css$Css$numberToString(val),
-		lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible,
-		number: _rtfeldman$elm_css$Css_Structure$Compatible,
-		lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible,
-		numericValue: val,
-		unitLabel: '',
-		units: _rtfeldman$elm_css$Css$UnitlessFloat
-	};
-};
-var _rtfeldman$elm_css$Css$IncompatibleUnits = {ctor: 'IncompatibleUnits'};
-var _rtfeldman$elm_css$Css$initial = {
-	value: 'initial',
-	overflow: _rtfeldman$elm_css$Css_Structure$Compatible,
-	visibility: _rtfeldman$elm_css$Css_Structure$Compatible,
-	none: _rtfeldman$elm_css$Css_Structure$Compatible,
-	number: _rtfeldman$elm_css$Css_Structure$Compatible,
-	textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible,
-	textRendering: _rtfeldman$elm_css$Css_Structure$Compatible,
-	textIndent: _rtfeldman$elm_css$Css_Structure$Compatible,
-	textDecorationStyle: _rtfeldman$elm_css$Css_Structure$Compatible,
-	textTransform: _rtfeldman$elm_css$Css_Structure$Compatible,
-	borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible,
-	boxSizing: _rtfeldman$elm_css$Css_Structure$Compatible,
-	color: _rtfeldman$elm_css$Css_Structure$Compatible,
-	cursor: _rtfeldman$elm_css$Css_Structure$Compatible,
-	display: _rtfeldman$elm_css$Css_Structure$Compatible,
-	all: _rtfeldman$elm_css$Css_Structure$Compatible,
-	alignItems: _rtfeldman$elm_css$Css_Structure$Compatible,
-	justifyContent: _rtfeldman$elm_css$Css_Structure$Compatible,
-	length: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrNumber: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible,
-	listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible,
-	listStylePosition: _rtfeldman$elm_css$Css_Structure$Compatible,
-	listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible,
-	flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible,
-	flexWrap: _rtfeldman$elm_css$Css_Structure$Compatible,
-	flexDirection: _rtfeldman$elm_css$Css_Structure$Compatible,
-	flexDirectionOrWrap: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontFamily: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontSize: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontStyle: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible,
-	fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible,
-	outline: _rtfeldman$elm_css$Css_Structure$Compatible,
-	units: _rtfeldman$elm_css$Css$IncompatibleUnits,
-	numericValue: 0,
-	unitLabel: '',
-	warnings: {ctor: '[]'},
-	backgroundRepeat: _rtfeldman$elm_css$Css_Structure$Compatible,
-	backgroundRepeatShorthand: _rtfeldman$elm_css$Css_Structure$Compatible,
-	backgroundAttachment: _rtfeldman$elm_css$Css_Structure$Compatible,
-	backgroundBlendMode: _rtfeldman$elm_css$Css_Structure$Compatible,
-	backgroundOrigin: _rtfeldman$elm_css$Css_Structure$Compatible,
-	backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible,
-	lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible,
-	intOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible,
-	touchAction: _rtfeldman$elm_css$Css_Structure$Compatible,
-	whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible,
-	tableLayout: _rtfeldman$elm_css$Css_Structure$Compatible
-};
-var _rtfeldman$elm_css$Css$unset = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$initial,
-	{value: 'unset'});
-var _rtfeldman$elm_css$Css$inherit = _elm_lang$core$Native_Utils.update(
-	_rtfeldman$elm_css$Css$initial,
-	{value: 'inherit'});
-var _rtfeldman$elm_css$Css$lengthForOverloadedProperty = A3(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$IncompatibleUnits, '', 0);
-var _rtfeldman$elm_css$Css$alignItems = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'alignItems',
-		'align-items',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$alignSelf = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'alignSelf',
-		'align-self',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$justifyContent = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'justifyContent',
-		'justify-content',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$float = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'float',
-		'float',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$textAlignLast = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'textAlignLast',
-		'text-align-last',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$textAlign = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'textAlign',
-		'text-align',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$verticalAlign = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'verticalAlign',
-		'vertical-align',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$backgroundPosition = function (fn) {
-	return A3(
-		_rtfeldman$elm_css$Css$getOverloadedProperty,
-		'backgroundPosition',
-		'background-position',
-		fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
-};
-var _rtfeldman$elm_css$Css$Rtl = {ctor: 'Rtl'};
-var _rtfeldman$elm_css$Css$Ltr = {ctor: 'Ltr'};
-var _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs = {ctor: 'IntentionallyUnsupportedPleaseSeeDocs'};
-var _rtfeldman$elm_css$Css$thin = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
-var _rtfeldman$elm_css$Css$thick = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
-var _rtfeldman$elm_css$Css$blink = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
-
-var _rtfeldman$elm_css$Css_Media$unparameterizedFeature = function (key) {
-	return {feature: key, value: _elm_lang$core$Maybe$Nothing};
-};
-var _rtfeldman$elm_css$Css_Media$feature = F2(
-	function (key, _p0) {
-		var _p1 = _p0;
-		return {
-			feature: key,
-			value: _elm_lang$core$Maybe$Just(_p1.value)
-		};
-	});
-var _rtfeldman$elm_css$Css_Media$scripting = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'scripting', value);
-};
-var _rtfeldman$elm_css$Css_Media$enabled = {value: 'enabled', scriptingSupport: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$initialOnly = {value: 'initial-only', scriptingSupport: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$anyHover = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'any-hover', value);
-};
-var _rtfeldman$elm_css$Css_Media$hover = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'hover', value);
-};
-var _rtfeldman$elm_css$Css_Media$canHover = {value: 'hover', hoverCapability: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$anyPointer = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'any-pointer', value);
-};
-var _rtfeldman$elm_css$Css_Media$pointer = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'pointer', value);
-};
-var _rtfeldman$elm_css$Css_Media$coarse = {value: 'coarse', pointerDevice: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$fine = {value: 'fine', pointerDevice: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$colorGamut = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'color-gamut', value);
-};
-var _rtfeldman$elm_css$Css_Media$rec2020 = {value: 'rec2020', colorGamut: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$p3 = {value: 'p3', colorGamut: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$srgb = {value: 'srgb', colorGamut: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$maxColorIndex = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-color-index', value);
-};
-var _rtfeldman$elm_css$Css_Media$minColorIndex = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-color-index', value);
-};
-var _rtfeldman$elm_css$Css_Media$colorIndex = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'color-index', value);
-};
-var _rtfeldman$elm_css$Css_Media$maxMonochrome = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-monochrome', value);
-};
-var _rtfeldman$elm_css$Css_Media$minMonochrome = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-monochrome', value);
-};
-var _rtfeldman$elm_css$Css_Media$monochrome = _rtfeldman$elm_css$Css_Media$unparameterizedFeature('monochrome');
-var _rtfeldman$elm_css$Css_Media$maxColor = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-color', value);
-};
-var _rtfeldman$elm_css$Css_Media$color = _rtfeldman$elm_css$Css_Media$unparameterizedFeature('color');
-var _rtfeldman$elm_css$Css_Media$minColor = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-color', value);
-};
-var _rtfeldman$elm_css$Css_Media$bits = function (value) {
-	return {
-		value: _elm_lang$core$Basics$toString(value),
-		bits: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css_Media$overflowInline = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'overflow-inline', value);
-};
-var _rtfeldman$elm_css$Css_Media$overflowBlock = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'overflow-block', value);
-};
-var _rtfeldman$elm_css$Css_Media$optionalPaged = {value: 'optional-paged', blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$paged = {value: 'paged', blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$update = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'update', value);
-};
-var _rtfeldman$elm_css$Css_Media$fast = {value: 'fast', updateFrequency: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$slow = {value: 'slow', updateFrequency: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$grid = _rtfeldman$elm_css$Css_Media$unparameterizedFeature('grid');
-var _rtfeldman$elm_css$Css_Media$scan = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'scan', value);
-};
-var _rtfeldman$elm_css$Css_Media$interlace = {value: 'interlace', scanningProcess: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$progressive = {value: 'progressive', scanningProcess: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$maxResolution = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-resolution', value);
-};
-var _rtfeldman$elm_css$Css_Media$resolution = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'resolution', value);
-};
-var _rtfeldman$elm_css$Css_Media$minResolution = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-resolution', value);
-};
-var _rtfeldman$elm_css$Css_Media$dppx = function (value) {
-	return {
-		value: A2(
-			_elm_lang$core$Basics_ops['++'],
-			_elm_lang$core$Basics$toString(value),
-			'dppx'),
-		resolution: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css_Media$dpcm = function (value) {
-	return {
-		value: A2(
-			_elm_lang$core$Basics_ops['++'],
-			_elm_lang$core$Basics$toString(value),
-			'dpcm'),
-		resolution: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css_Media$dpi = function (value) {
-	return {
-		value: A2(
-			_elm_lang$core$Basics_ops['++'],
-			_elm_lang$core$Basics$toString(value),
-			'dpi'),
-		resolution: _rtfeldman$elm_css$Css_Structure$Compatible
-	};
-};
-var _rtfeldman$elm_css$Css_Media$orientation = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'orientation', value);
-};
-var _rtfeldman$elm_css$Css_Media$portrait = {value: 'portrait', orientation: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$landscape = {value: 'landscape', orientation: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css_Media$maxAspectRatio = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-aspect-ratio', value);
-};
-var _rtfeldman$elm_css$Css_Media$aspectRatio = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'aspect-ratio', value);
-};
-var _rtfeldman$elm_css$Css_Media$minAspectRatio = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-aspect-ratio', value);
-};
-var _rtfeldman$elm_css$Css_Media$ratio = F2(
-	function (numerator, denominator) {
-		return {
-			value: A2(
-				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(numerator),
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					'/',
-					_elm_lang$core$Basics$toString(denominator))),
-			ratio: _rtfeldman$elm_css$Css_Structure$Compatible
-		};
-	});
-var _rtfeldman$elm_css$Css_Media$maxHeight = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-height', value);
-};
-var _rtfeldman$elm_css$Css_Media$height = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'height', value);
-};
-var _rtfeldman$elm_css$Css_Media$minHeight = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-height', value);
-};
-var _rtfeldman$elm_css$Css_Media$maxWidth = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'max-width', value);
-};
-var _rtfeldman$elm_css$Css_Media$width = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'width', value);
-};
-var _rtfeldman$elm_css$Css_Media$minWidth = function (value) {
-	return A2(_rtfeldman$elm_css$Css_Media$feature, 'min-width', value);
-};
-var _rtfeldman$elm_css$Css_Media$speech = _rtfeldman$elm_css$Css_Structure$Speech;
-var _rtfeldman$elm_css$Css_Media$screen = _rtfeldman$elm_css$Css_Structure$Screen;
-var _rtfeldman$elm_css$Css_Media$print = _rtfeldman$elm_css$Css_Structure$Print;
-var _rtfeldman$elm_css$Css_Media$connectWith = F2(
-	function (connect, queries) {
-		var _p2 = queries;
-		if (_p2.ctor === '[]') {
-			return _elm_lang$core$Maybe$Nothing;
-		} else {
-			var _p4 = _p2._0;
-			var _p3 = A2(_rtfeldman$elm_css$Css_Media$connectWith, connect, _p2._1);
-			if (_p3.ctor === 'Nothing') {
-				return _elm_lang$core$Maybe$Just(_p4);
+var _mdgriffith$style_elements$Element_Internal_Render$Single = {ctor: 'Single'};
+var _mdgriffith$style_elements$Element_Internal_Render$renderAttributes = F6(
+	function (elType, order, maybeElemID, parent, stylesheet, elem) {
+		var attributes = function () {
+			var _p50 = maybeElemID;
+			if (_p50.ctor === 'Nothing') {
+				return elem.attrs;
 			} else {
-				return _elm_lang$core$Maybe$Just(
-					A2(connect, _p4, _p3._0));
+				var _p51 = _p50._0;
+				return (_elm_lang$core$Native_Utils.cmp(
+					_elm_lang$core$List$length(elem.variations),
+					0) > 0) ? {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$classList(
+						A2(stylesheet.variations, _p51, elem.variations)),
+					_1: elem.attrs
+				} : {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class(
+						stylesheet.style(_p51)),
+					_1: elem.attrs
+				};
+			}
+		}();
+		var defaults = {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'box-sizing', _1: 'border-box'},
+			_1: {ctor: '[]'}
+		};
+		var adjustspacing = function (_p52) {
+			var _p53 = _p52;
+			var _p62 = _p53._0;
+			var _p61 = _p53._1;
+			var _p60 = _p53._3;
+			var _p59 = _p53._2;
+			var onScreen = function () {
+				var _p54 = elem.frame;
+				if ((_p54.ctor === 'Just') && (_p54._0.ctor === 'Screen')) {
+					return true;
+				} else {
+					return false;
+				}
+			}();
+			var halved = {ctor: '_Tuple4', _0: _p62 / 2, _1: _p61 / 2, _2: _p59 / 2, _3: _p60 / 2};
+			if (onScreen) {
+				return {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0};
+			} else {
+				var _p55 = parent;
+				if (_p55.ctor === 'Nothing') {
+					return {ctor: '_Tuple4', _0: _p62, _1: _p61, _2: _p59, _3: _p60};
+				} else {
+					var _p56 = _p55._0.layout;
+					if (_p56.ctor === 'TextLayout') {
+						var _p57 = elem.horizontal;
+						if (_p57.ctor === 'Nothing') {
+							return (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0} : (elem.inline ? {ctor: '_Tuple4', _0: 0, _1: _p61, _2: 0, _3: 0} : {ctor: '_Tuple4', _0: 0, _1: 0, _2: _p59, _3: 0});
+						} else {
+							if ((!elem.inline) && _elm_lang$core$Native_Utils.eq(elem.frame, _elm_lang$core$Maybe$Nothing)) {
+								var _p58 = _p57._0;
+								switch (_p58.ctor) {
+									case 'Left':
+										return _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) ? {ctor: '_Tuple4', _0: 0, _1: _p61, _2: _p59, _3: 0} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast) ? {ctor: '_Tuple4', _0: 0, _1: _p61, _2: 0, _3: 0} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) ? {ctor: '_Tuple4', _0: 0, _1: _p61, _2: 0, _3: 0} : {ctor: '_Tuple4', _0: 0, _1: _p61, _2: _p59, _3: 0}));
+									case 'Right':
+										return _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) ? {ctor: '_Tuple4', _0: 0, _1: 0, _2: _p59, _3: _p60} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast) ? {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: _p60} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) ? {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: _p60} : {ctor: '_Tuple4', _0: 0, _1: 0, _2: _p59, _3: _p60}));
+									default:
+										return (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0} : {ctor: '_Tuple4', _0: 0, _1: 0, _2: _p59, _3: 0};
+								}
+							} else {
+								return {ctor: '_Tuple4', _0: _p62, _1: _p61, _2: _p59, _3: _p60};
+							}
+						}
+					} else {
+						return halved;
+					}
+				}
+			}
+		};
+		var spacing = function (attrs) {
+			var _p63 = elem.margin;
+			if (_p63.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'margin',
+						_1: _mdgriffith$style_elements$Style_Internal_Render_Value$box(
+							adjustspacing(_p63._0))
+					},
+					_1: attrs
+				};
+			}
+		};
+		var gridPos = function (attrs) {
+			var _p64 = elem.gridPosition;
+			if (_p64.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				return {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'grid-area', _1: _p64._0},
+					_1: attrs
+				};
+			}
+		};
+		var padding = function (attrs) {
+			var paddings = _mdgriffith$style_elements$Element_Internal_Render$renderPadding(elem.padding);
+			return (_elm_lang$core$Native_Utils.cmp(
+				_elm_lang$core$List$length(paddings),
+				0) > 0) ? A2(_elm_lang$core$Basics_ops['++'], paddings, attrs) : attrs;
+		};
+		var opacity = function (attrs) {
+			var _p65 = elem.opacity;
+			if (_p65.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'opacity',
+						_1: _elm_lang$core$Basics$toString(_p65._0)
+					},
+					_1: attrs
+				};
+			}
+		};
+		var height = function (attrs) {
+			var _p66 = elem.height;
+			if (_p66.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				var _p71 = _p66._0;
+				var _p67 = parent;
+				if (_p67.ctor === 'Just') {
+					var hundredPercentOrFill = function (x) {
+						var _p68 = x;
+						switch (_p68.ctor) {
+							case 'Percent':
+								return _elm_lang$core$Native_Utils.eq(_p68._0, 100);
+							case 'Fill':
+								return true;
+							case 'Calc':
+								return _elm_lang$core$Native_Utils.eq(_p68._0, 100);
+							default:
+								return false;
+						}
+					};
+					var _p69 = A2(
+						_elm_lang$core$Maybe$withDefault,
+						{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0},
+						_p67._0.parentSpecifiedSpacing);
+					var topPad = _p69._0;
+					var bottomPad = _p69._2;
+					var paddingAdjustment = (topPad + bottomPad) / 2;
+					var _p70 = _p67._0.layout;
+					if (_p70.ctor === 'FlexLayout') {
+						switch (_p70._0.ctor) {
+							case 'Down':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_mdgriffith$style_elements$Style_Internal_Render_Property$flexHeight(_p71),
+									attrs);
+							case 'Up':
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									_mdgriffith$style_elements$Style_Internal_Render_Property$flexHeight(_p71),
+									attrs);
+							case 'GoRight':
+								return hundredPercentOrFill(_p71) ? {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'height', _1: 'auto'},
+									_1: attrs
+								} : {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'height',
+										_1: A2(_mdgriffith$style_elements$Style_Internal_Render_Value$parentAdjustedLength, _p71, paddingAdjustment)
+									},
+									_1: attrs
+								};
+							default:
+								return hundredPercentOrFill(_p71) ? {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'height', _1: 'auto'},
+									_1: attrs
+								} : {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'height',
+										_1: A2(_mdgriffith$style_elements$Style_Internal_Render_Value$parentAdjustedLength, _p71, paddingAdjustment)
+									},
+									_1: attrs
+								};
+						}
+					} else {
+						return {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'height',
+								_1: A2(_mdgriffith$style_elements$Style_Internal_Render_Value$parentAdjustedLength, _p71, paddingAdjustment)
+							},
+							_1: attrs
+						};
+					}
+				} else {
+					return {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'height',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(_p71)
+						},
+						_1: attrs
+					};
+				}
+			}
+		};
+		var width = function (attrs) {
+			var _p72 = elem.width;
+			if (_p72.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				var _p76 = _p72._0;
+				var _p73 = parent;
+				if (_p73.ctor === 'Just') {
+					var _p74 = A2(
+						_elm_lang$core$Maybe$withDefault,
+						{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0},
+						_p73._0.parentSpecifiedSpacing);
+					var rightPad = _p74._1;
+					var leftPad = _p74._3;
+					var paddingAdjustment = (rightPad + leftPad) / 2;
+					var _p75 = _p73._0.layout;
+					_v52_2:
+					do {
+						if (_p75.ctor === 'FlexLayout') {
+							switch (_p75._0.ctor) {
+								case 'GoRight':
+									return A2(
+										_elm_lang$core$Basics_ops['++'],
+										A2(_mdgriffith$style_elements$Style_Internal_Render_Property$flexWidth, _p76, paddingAdjustment),
+										attrs);
+								case 'GoLeft':
+									return A2(
+										_elm_lang$core$Basics_ops['++'],
+										A2(_mdgriffith$style_elements$Style_Internal_Render_Property$flexWidth, _p76, paddingAdjustment),
+										attrs);
+								default:
+									break _v52_2;
+							}
+						} else {
+							break _v52_2;
+						}
+					} while(false);
+					return {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'width',
+							_1: A2(_mdgriffith$style_elements$Style_Internal_Render_Value$parentAdjustedLength, _p76, paddingAdjustment)
+						},
+						_1: attrs
+					};
+				} else {
+					return {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'width',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$length(_p76)
+						},
+						_1: attrs
+					};
+				}
+			}
+		};
+		var shrink = function (attrs) {
+			var _p77 = elem.shrink;
+			if (_p77.ctor === 'Just') {
+				return {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'flex-shrink',
+						_1: _elm_lang$core$Basics$toString(_p77._0)
+					},
+					_1: attrs
+				};
+			} else {
+				var _p78 = parent;
+				if (_p78.ctor === 'Nothing') {
+					return attrs;
+				} else {
+					var horizontalOverflow = function () {
+						var _p79 = elem.overflow;
+						if (_p79.ctor === 'Just') {
+							switch (_p79._0.ctor) {
+								case 'XAxis':
+									return true;
+								case 'YAxis':
+									return false;
+								default:
+									return true;
+							}
+						} else {
+							return false;
+						}
+					}();
+					var verticalOverflow = function () {
+						var _p80 = elem.overflow;
+						if (_p80.ctor === 'Just') {
+							switch (_p80._0.ctor) {
+								case 'XAxis':
+									return false;
+								case 'YAxis':
+									return true;
+								default:
+									return true;
+							}
+						} else {
+							return false;
+						}
+					}();
+					var isVertical = function (dir) {
+						var _p81 = dir;
+						switch (_p81.ctor) {
+							case 'Up':
+								return true;
+							case 'Down':
+								return true;
+							default:
+								return false;
+						}
+					};
+					var isHorizontal = function (dir) {
+						var _p82 = dir;
+						switch (_p82.ctor) {
+							case 'GoRight':
+								return true;
+							case 'GoLeft':
+								return true;
+							default:
+								return false;
+						}
+					};
+					var isPx = function (x) {
+						var _p83 = x;
+						if ((_p83.ctor === 'Just') && (_p83._0.ctor === 'Px')) {
+							return true;
+						} else {
+							return false;
+						}
+					};
+					var isPercent = function (x) {
+						var _p84 = x;
+						if ((_p84.ctor === 'Just') && (_p84._0.ctor === 'Percent')) {
+							return true;
+						} else {
+							return false;
+						}
+					};
+					var _p85 = _p78._0.layout;
+					if (_p85.ctor === 'FlexLayout') {
+						var _p87 = _p85._0;
+						if (isHorizontal(_p87) && isPx(elem.width)) {
+							return {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+								_1: attrs
+							};
+						} else {
+							if (isHorizontal(_p87) && isPercent(elem.width)) {
+								return {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+									_1: attrs
+								};
+							} else {
+								if (isHorizontal(_p87) && (!_elm_lang$core$Native_Utils.eq(elem.width, _elm_lang$core$Maybe$Nothing))) {
+									return {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+										_1: attrs
+									};
+								} else {
+									if (isHorizontal(_p87) && horizontalOverflow) {
+										return {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+											_1: attrs
+										};
+									} else {
+										if (isVertical(_p87) && isPx(elem.height)) {
+											return {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+												_1: attrs
+											};
+										} else {
+											if (isVertical(_p87) && isPercent(elem.height)) {
+												return {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+													_1: attrs
+												};
+											} else {
+												if (isVertical(_p87) && (!_elm_lang$core$Native_Utils.eq(elem.height, _elm_lang$core$Maybe$Nothing))) {
+													return {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+														_1: attrs
+													};
+												} else {
+													if (isVertical(_p87) && verticalOverflow) {
+														return {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+															_1: attrs
+														};
+													} else {
+														if (isHorizontal(_p87) && _elm_lang$core$Native_Utils.eq(elem.width, _elm_lang$core$Maybe$Nothing)) {
+															return {
+																ctor: '::',
+																_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+																_1: attrs
+															};
+														} else {
+															if (isVertical(_p87) && _elm_lang$core$Native_Utils.eq(elem.height, _elm_lang$core$Maybe$Nothing)) {
+																var _p86 = elType;
+																if (_p86.ctor === 'Single') {
+																	return {
+																		ctor: '::',
+																		_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '1'},
+																		_1: attrs
+																	};
+																} else {
+																	return {
+																		ctor: '::',
+																		_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+																		_1: attrs
+																	};
+																}
+															} else {
+																return {
+																	ctor: '::',
+																	_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+																	_1: attrs
+																};
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					} else {
+						return attrs;
+					}
+				}
+			}
+		};
+		var overflow = function (attrs) {
+			var _p88 = elem.overflow;
+			if (_p88.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				var _p89 = _p88._0;
+				switch (_p89.ctor) {
+					case 'XAxis':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'overflow-x', _1: 'auto'},
+							_1: attrs
+						};
+					case 'YAxis':
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'overflow-y', _1: 'auto'},
+							_1: attrs
+						};
+					default:
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'auto'},
+							_1: attrs
+						};
+				}
+			}
+		};
+		var horizontal = function (attrs) {
+			var _p90 = elem.horizontal;
+			if (_p90.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				var _p98 = _p90._0;
+				if (elem.inline && _elm_lang$core$Native_Utils.eq(elType, _mdgriffith$style_elements$Element_Internal_Render$Single)) {
+					var _p91 = _p98;
+					switch (_p91.ctor) {
+						case 'Left':
+							return {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'z-index', _1: '1'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'float', _1: 'left'},
+									_1: attrs
+								}
+							};
+						case 'Right':
+							return {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'z-index', _1: '1'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
+									_1: attrs
+								}
+							};
+						case 'Center':
+							return attrs;
+						default:
+							return attrs;
+					}
+				} else {
+					if (elem.inline) {
+						return attrs;
+					} else {
+						if (!_elm_lang$core$Native_Utils.eq(elem.frame, _elm_lang$core$Maybe$Nothing)) {
+							var _p92 = _p98;
+							switch (_p92.ctor) {
+								case 'Left':
+									return {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'left', _1: '0'},
+										_1: attrs
+									};
+								case 'Right':
+									return {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'right', _1: '0'},
+										_1: attrs
+									};
+								case 'Center':
+									return attrs;
+								default:
+									return attrs;
+							}
+						} else {
+							var _p93 = elType;
+							if (_p93.ctor === 'LayoutElement') {
+								return attrs;
+							} else {
+								var _p94 = parent;
+								if (_p94.ctor === 'Nothing') {
+									return attrs;
+								} else {
+									var _p95 = _p94._0.layout;
+									switch (_p95.ctor) {
+										case 'TextLayout':
+											var _p96 = _p98;
+											switch (_p96.ctor) {
+												case 'Left':
+													return {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'z-index', _1: '1'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'float', _1: 'left'},
+															_1: attrs
+														}
+													};
+												case 'Right':
+													return {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'z-index', _1: '1'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
+															_1: attrs
+														}
+													};
+												case 'Center':
+													return attrs;
+												default:
+													return attrs;
+											}
+										case 'FlexLayout':
+											var _p97 = A2(_mdgriffith$style_elements$Element_Internal_Render$flexboxHorizontalIndividualAlignment, _p95._0, _p98);
+											if (_p97.ctor === 'Nothing') {
+												return attrs;
+											} else {
+												return {ctor: '::', _0: _p97._0, _1: attrs};
+											}
+										default:
+											return attrs;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		};
+		var vertical = function (attrs) {
+			var _p99 = elem.vertical;
+			if (_p99.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				var _p104 = _p99._0;
+				if (elem.inline && _elm_lang$core$Native_Utils.eq(elType, _mdgriffith$style_elements$Element_Internal_Render$Single)) {
+					return attrs;
+				} else {
+					if (elem.inline) {
+						return attrs;
+					} else {
+						if (!_elm_lang$core$Native_Utils.eq(elem.frame, _elm_lang$core$Maybe$Nothing)) {
+							var _p100 = _p104;
+							switch (_p100.ctor) {
+								case 'Top':
+									return {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'top', _1: '0'},
+										_1: attrs
+									};
+								case 'Bottom':
+									return {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'bottom', _1: '0'},
+										_1: attrs
+									};
+								case 'VerticalCenter':
+									return attrs;
+								default:
+									return attrs;
+							}
+						} else {
+							var _p101 = parent;
+							if (_p101.ctor === 'Nothing') {
+								return attrs;
+							} else {
+								var _p102 = _p101._0.layout;
+								if (_p102.ctor === 'FlexLayout') {
+									var _p103 = A2(_mdgriffith$style_elements$Element_Internal_Render$flexboxVerticalIndividualAlignment, _p102._0, _p104);
+									if (_p103.ctor === 'Nothing') {
+										return attrs;
+									} else {
+										return {ctor: '::', _0: _p103._0, _1: attrs};
+									}
+								} else {
+									return attrs;
+								}
+							}
+						}
+					}
+				}
+			}
+		};
+		var passthrough = function (attrs) {
+			var _p105 = elem.pointerevents;
+			if (_p105.ctor === 'Nothing') {
+				return attrs;
+			} else {
+				if (_p105._0 === false) {
+					return {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'pointer-events', _1: 'none'},
+						_1: attrs
+					};
+				} else {
+					return {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'pointer-events', _1: 'auto'},
+						_1: attrs
+					};
+				}
+			}
+		};
+		var position = function (attrs) {
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(
+					_mdgriffith$style_elements$Element_Internal_Render$calcPosition,
+					A2(_elm_lang$core$Maybe$withDefault, _mdgriffith$style_elements$Element_Internal_Model$Relative, elem.frame),
+					elem.positioned),
+				attrs);
+		};
+		var layout = function (attrs) {
+			var _p106 = elType;
+			if (_p106.ctor === 'Single') {
+				return elem.inline ? {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'display', _1: 'inline'},
+					_1: attrs
+				} : {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'display', _1: 'block'},
+					_1: attrs
+				};
+			} else {
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(
+						_mdgriffith$style_elements$Style_Internal_Render_Property$layout,
+						elem.inline,
+						A3(_mdgriffith$style_elements$Element_Internal_Render$alignLayout, elem.horizontal, elem.vertical, _p106._0)),
+					attrs);
+			}
+		};
+		if (elem.hidden) {
+			return {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'none'},
+						_1: {ctor: '[]'}
+					}),
+				_1: attributes
+			};
+		} else {
+			if (elem.expand) {
+				var expandedProps = function () {
+					var _p107 = parent;
+					if (_p107.ctor === 'Nothing') {
+						return {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					} else {
+						var _p114 = _p107._0.parentPadding;
+						var _p108 = _p107._0.layout;
+						switch (_p108.ctor) {
+							case 'TextLayout':
+								var borders = _elm_lang$core$List$concat(
+									{
+										ctor: '::',
+										_0: _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) ? {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'border-top-right-radius', _1: '0'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'border-top-left-radius', _1: '0'},
+												_1: {ctor: '[]'}
+											}
+										} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) ? {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'border-bottom-right-radius', _1: '0'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'border-bottom-left-radius', _1: '0'},
+												_1: {ctor: '[]'}
+											}
+										} : (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast) ? {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'border-top-right-radius', _1: '0'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'border-top-left-radius', _1: '0'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'border-bottom-right-radius', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'border-bottom-left-radius', _1: '0'},
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										} : {ctor: '[]'})),
+										_1: {ctor: '[]'}
+									});
+								var _p109 = _p114;
+								var top = _p109._0;
+								var right = _p109._1;
+								var bottom = _p109._2;
+								var left = _p109._3;
+								return A2(
+									_elm_lang$core$Basics_ops['++'],
+									{
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'width',
+											_1: A2(
+												_elm_lang$core$Basics_ops['++'],
+												'calc(100% + ',
+												A2(
+													_elm_lang$core$Basics_ops['++'],
+													_elm_lang$core$Basics$toString(right + left),
+													'px'))
+										},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+											_1: {
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: 'margin-left',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														_elm_lang$core$Basics$toString(-1 * left),
+														'px')
+												},
+												_1: {
+													ctor: '::',
+													_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+														ctor: '_Tuple2',
+														_0: 'margin-top',
+														_1: A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString(-1 * top),
+															'px')
+													} : {ctor: '_Tuple2', _0: 'margin-top', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+															ctor: '_Tuple2',
+															_0: 'margin-bottom',
+															_1: A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString(-1 * bottom),
+																'px')
+														} : {ctor: '_Tuple2', _0: 'margin-bottom', _1: '0'},
+														_1: {
+															ctor: '::',
+															_0: {
+																ctor: '_Tuple2',
+																_0: 'padding',
+																_1: _mdgriffith$style_elements$Style_Internal_Render_Value$box(
+																	A2(_mdgriffith$style_elements$Element_Internal_Render$defaultPadding, elem.padding, _p114))
+															},
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									},
+									borders);
+							case 'FlexLayout':
+								var _p110 = function () {
+									var _p111 = _p107._0.parentSpecifiedSpacing;
+									if (_p111.ctor === 'Nothing') {
+										return {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0};
+									} else {
+										return _p111._0;
+									}
+								}();
+								var parentSpaceTop = _p110._0;
+								var parentSpaceRight = _p110._1;
+								var parentSpaceBottom = _p110._2;
+								var parentSpaceLeft = _p110._3;
+								var _p112 = _p114;
+								var top = _p112._0;
+								var right = _p112._1;
+								var bottom = _p112._2;
+								var left = _p112._3;
+								var _p113 = _p108._0;
+								switch (_p113.ctor) {
+									case 'GoRight':
+										return width(
+											{
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: 'height',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														'calc(100% + ',
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString((top + bottom) - ((parentSpaceTop + parentSpaceBottom) / 2)),
+															'px'))
+												},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: {
+															ctor: '_Tuple2',
+															_0: 'margin-top',
+															_1: A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString((-1 * top) + (parentSpaceTop / 2)),
+																'px')
+														},
+														_1: {
+															ctor: '::',
+															_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																ctor: '_Tuple2',
+																_0: 'margin-left',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(-1 * left),
+																	'px')
+															} : {
+																ctor: '_Tuple2',
+																_0: 'margin-left',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(parentSpaceLeft / 2),
+																	'px')
+															},
+															_1: {
+																ctor: '::',
+																_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																	ctor: '_Tuple2',
+																	_0: 'margin-right',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(-1 * right),
+																		'px')
+																} : {
+																	ctor: '_Tuple2',
+																	_0: 'margin-right',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(parentSpaceRight / 2),
+																		'px')
+																},
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											});
+									case 'GoLeft':
+										return width(
+											{
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: 'height',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														'calc(100% + ',
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString((top + bottom) - ((parentSpaceTop + parentSpaceBottom) / 2)),
+															'px'))
+												},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: {
+															ctor: '_Tuple2',
+															_0: 'margin-top',
+															_1: A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString((-1 * top) + (parentSpaceTop / 2)),
+																'px')
+														},
+														_1: {
+															ctor: '::',
+															_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																ctor: '_Tuple2',
+																_0: 'margin-right',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(-1 * right),
+																	'px')
+															} : {
+																ctor: '_Tuple2',
+																_0: 'margin-right',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(parentSpaceRight / 2),
+																	'px')
+															},
+															_1: {
+																ctor: '::',
+																_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																	ctor: '_Tuple2',
+																	_0: 'margin-left',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(-1 * left),
+																		'px')
+																} : {
+																	ctor: '_Tuple2',
+																	_0: 'margin-left',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(parentSpaceLeft / 2),
+																		'px')
+																},
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											});
+									case 'Up':
+										return height(
+											{
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: 'width',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														'calc(100% + ',
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString((left + right) - ((parentSpaceLeft + parentSpaceRight) / 2)),
+															'px'))
+												},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: {
+															ctor: '_Tuple2',
+															_0: 'margin-left',
+															_1: A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString((-1 * left) + (parentSpaceLeft / 2)),
+																'px')
+														},
+														_1: {
+															ctor: '::',
+															_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																ctor: '_Tuple2',
+																_0: 'margin-bottom',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(-1 * top),
+																	'px')
+															} : {
+																ctor: '_Tuple2',
+																_0: 'margin-bottom',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(parentSpaceBottom / 2),
+																	'px')
+															},
+															_1: {
+																ctor: '::',
+																_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																	ctor: '_Tuple2',
+																	_0: 'margin-top',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(-1 * bottom),
+																		'px')
+																} : {
+																	ctor: '_Tuple2',
+																	_0: 'margin-top',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(parentSpaceTop / 2),
+																		'px')
+																},
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											});
+									default:
+										return height(
+											{
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: 'width',
+													_1: A2(
+														_elm_lang$core$Basics_ops['++'],
+														'calc(100% + ',
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString((left + right) - ((parentSpaceLeft + parentSpaceRight) / 2)),
+															'px'))
+												},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'margin', _1: '0'},
+													_1: {
+														ctor: '::',
+														_0: {
+															ctor: '_Tuple2',
+															_0: 'margin-left',
+															_1: A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString((-1 * left) + (parentSpaceLeft / 2)),
+																'px')
+														},
+														_1: {
+															ctor: '::',
+															_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$First) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																ctor: '_Tuple2',
+																_0: 'margin-top',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(-1 * top),
+																	'px')
+															} : {
+																ctor: '_Tuple2',
+																_0: 'margin-top',
+																_1: A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	_elm_lang$core$Basics$toString(parentSpaceTop / 2),
+																	'px')
+															},
+															_1: {
+																ctor: '::',
+																_0: (_elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$Last) || _elm_lang$core$Native_Utils.eq(order, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast)) ? {
+																	ctor: '_Tuple2',
+																	_0: 'margin-bottom',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(-1 * bottom),
+																		'px')
+																} : {
+																	ctor: '_Tuple2',
+																	_0: 'margin-bottom',
+																	_1: A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		_elm_lang$core$Basics$toString(parentSpaceBottom / 2),
+																		'px')
+																},
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											});
+								}
+							default:
+								return {ctor: '[]'};
+						}
+					}
+				}();
+				return {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							defaults,
+							function (_p115) {
+								return passthrough(
+									gridPos(
+										layout(
+											spacing(
+												opacity(
+													shrink(
+														padding(
+															position(
+																overflow(_p115)))))))));
+							}(expandedProps))),
+					_1: attributes
+				};
+			} else {
+				return {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						function (_p116) {
+							return passthrough(
+								gridPos(
+									layout(
+										spacing(
+											opacity(
+												shrink(
+													width(
+														height(
+															padding(
+																horizontal(
+																	vertical(
+																		position(
+																			overflow(_p116)))))))))))));
+						}(defaults)),
+					_1: attributes
+				};
 			}
 		}
 	});
-var _rtfeldman$elm_css$Css_Media$not = _rtfeldman$elm_css$Css_Structure$NotQuery;
-var _rtfeldman$elm_css$Css_Media$only = _rtfeldman$elm_css$Css_Structure$OnlyQuery;
-var _rtfeldman$elm_css$Css_Media$all = _rtfeldman$elm_css$Css_Structure$AllQuery;
-var _rtfeldman$elm_css$Css_Media$withMediaQuery = function (queries) {
-	return _rtfeldman$elm_css$Css_Preprocess$WithMedia(
-		A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure$CustomQuery, queries));
-};
-var _rtfeldman$elm_css$Css_Media$withMedia = function (queries) {
-	return _rtfeldman$elm_css$Css_Preprocess$WithMedia(queries);
-};
-var _rtfeldman$elm_css$Css_Media$Ratio = F2(
-	function (a, b) {
-		return {value: a, ratio: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Landscape = F2(
-	function (a, b) {
-		return {value: a, orientation: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Portrait = F2(
-	function (a, b) {
-		return {value: a, orientation: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Resolution = F2(
-	function (a, b) {
-		return {value: a, resolution: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Progressive = F2(
-	function (a, b) {
-		return {value: a, scanningProcess: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Interlace = F2(
-	function (a, b) {
-		return {value: a, scanningProcess: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Slow = F2(
-	function (a, b) {
-		return {value: a, updateFrequency: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Fast = F2(
-	function (a, b) {
-		return {value: a, updateFrequency: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Paged = F2(
-	function (a, b) {
-		return {value: a, blockAxisOverflow: b};
-	});
-var _rtfeldman$elm_css$Css_Media$OptionalPaged = F2(
-	function (a, b) {
-		return {value: a, blockAxisOverflow: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Bits = F2(
-	function (a, b) {
-		return {value: a, bits: b};
-	});
-var _rtfeldman$elm_css$Css_Media$SRGB = F2(
-	function (a, b) {
-		return {value: a, colorGamut: b};
-	});
-var _rtfeldman$elm_css$Css_Media$P3 = F2(
-	function (a, b) {
-		return {value: a, colorGamut: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Rec2020 = F2(
-	function (a, b) {
-		return {value: a, colorGamut: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Fine = F2(
-	function (a, b) {
-		return {value: a, pointerDevice: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Coarse = F2(
-	function (a, b) {
-		return {value: a, pointerDevice: b};
-	});
-var _rtfeldman$elm_css$Css_Media$CanHover = F2(
-	function (a, b) {
-		return {value: a, hoverCapability: b};
-	});
-var _rtfeldman$elm_css$Css_Media$InitialOnly = F2(
-	function (a, b) {
-		return {value: a, scriptingSupport: b};
-	});
-var _rtfeldman$elm_css$Css_Media$Enabled = F2(
-	function (a, b) {
-		return {value: a, scriptingSupport: b};
-	});
-
-var _rtfeldman$elm_css$Css_Structure_Output$noIndent = '';
-var _rtfeldman$elm_css$Css_Structure_Output$spaceIndent = '    ';
-var _rtfeldman$elm_css$Css_Structure_Output$indent = function (str) {
-	return A2(_elm_lang$core$Basics_ops['++'], _rtfeldman$elm_css$Css_Structure_Output$spaceIndent, str);
-};
-var _rtfeldman$elm_css$Css_Structure_Output$prettyPrintProperty = function (_p0) {
-	var _p1 = _p0;
-	var suffix = _p1.important ? ' !important;' : ';';
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		_p1.key,
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			': ',
-			A2(_elm_lang$core$Basics_ops['++'], _p1.value, suffix)));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$prettyPrintProperties = function (properties) {
-	return A2(
-		_elm_lang$core$String$join,
-		'\n',
-		A2(
-			_elm_lang$core$List$map,
-			function (_p2) {
-				return _rtfeldman$elm_css$Css_Structure_Output$indent(
-					_rtfeldman$elm_css$Css_Structure_Output$prettyPrintProperty(_p2));
-			},
-			properties));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$combinatorToString = function (combinator) {
-	var _p3 = combinator;
-	switch (_p3.ctor) {
-		case 'AdjacentSibling':
-			return '+';
-		case 'GeneralSibling':
-			return '~';
-		case 'Child':
-			return '>';
-		default:
-			return '';
-	}
-};
-var _rtfeldman$elm_css$Css_Structure_Output$pseudoElementToString = function (_p4) {
-	var _p5 = _p4;
-	return A2(_elm_lang$core$Basics_ops['++'], '::', _p5._0);
-};
-var _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString = function (repeatableSimpleSelector) {
-	var _p6 = repeatableSimpleSelector;
-	switch (_p6.ctor) {
-		case 'ClassSelector':
-			return A2(_elm_lang$core$Basics_ops['++'], '.', _p6._0);
-		case 'IdSelector':
-			return A2(_elm_lang$core$Basics_ops['++'], '#', _p6._0);
-		default:
-			return A2(_elm_lang$core$Basics_ops['++'], ':', _p6._0);
-	}
-};
-var _rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString = function (simpleSelectorSequence) {
-	var _p7 = simpleSelectorSequence;
-	switch (_p7.ctor) {
-		case 'TypeSelectorSequence':
-			return A2(
-				_elm_lang$core$String$join,
-				'',
-				{
+var _mdgriffith$style_elements$Element_Internal_Render$renderElement = F4(
+	function (parent, stylesheet, order, elm) {
+		var _p117 = elm;
+		switch (_p117.ctor) {
+			case 'Empty':
+				return _elm_lang$html$Html$text('');
+			case 'Raw':
+				return _p117._0;
+			case 'Spacer':
+				var _p121 = _p117._0;
+				var forSpacing = function (posAttr) {
+					var _p118 = posAttr;
+					if (_p118.ctor === 'Spacing') {
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: _p118._0, _1: _p118._1});
+					} else {
+						return _elm_lang$core$Maybe$Nothing;
+					}
+				};
+				var _p119 = function () {
+					var _p120 = parent;
+					if (_p120.ctor === 'Just') {
+						return A2(
+							_elm_lang$core$Maybe$withDefault,
+							{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0},
+							_p120._0.parentSpecifiedSpacing);
+					} else {
+						return {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0};
+					}
+				}();
+				var spacingX = _p119._0;
+				var spacingY = _p119._1;
+				var inline = {
 					ctor: '::',
-					_0: _p7._0._0,
-					_1: A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)
-				});
-		case 'UniversalSelectorSequence':
-			var _p8 = _p7._0;
-			return _elm_lang$core$List$isEmpty(_p8) ? '*' : A2(
-				_elm_lang$core$String$join,
-				'',
-				A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p8));
-		default:
-			return A2(
-				_elm_lang$core$String$join,
-				'',
-				{
-					ctor: '::',
-					_0: _p7._0,
-					_1: A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)
-				});
-	}
-};
-var _rtfeldman$elm_css$Css_Structure_Output$selectorChainToString = function (_p9) {
-	var _p10 = _p9;
-	return A2(
-		_elm_lang$core$String$join,
-		' ',
-		{
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure_Output$combinatorToString(_p10._0),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p10._1),
-				_1: {ctor: '[]'}
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'width',
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p121 * spacingX),
+							'px')
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'height',
+							_1: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p121 * spacingY),
+								'px')
+						},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'hidden'},
+							_1: {ctor: '[]'}
+						}
+					}
+				};
+				return A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(inline),
+						_1: {ctor: '[]'}
+					},
+					{ctor: '[]'});
+			case 'Text':
+				var _p123 = _p117._1;
+				var attrs = _p117._0.inline ? _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'inline'},
+						_1: {ctor: '[]'}
+					}) : _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'white-space', _1: 'pre'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'text-overflow', _1: 'ellipsis'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'hidden'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'display', _1: 'block'},
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					});
+				var _p122 = _p117._0.decoration;
+				switch (_p122.ctor) {
+					case 'NoDecoration':
+						return A2(
+							_elm_lang$html$Html$span,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					case 'RawText':
+						return _elm_lang$html$Html$text(_p123);
+					case 'Bold':
+						return A2(
+							_elm_lang$html$Html$strong,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					case 'Italic':
+						return A2(
+							_elm_lang$html$Html$em,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					case 'Underline':
+						return A2(
+							_elm_lang$html$Html$u,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					case 'Strike':
+						return A2(
+							_elm_lang$html$Html$s,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					case 'Super':
+						return A2(
+							_elm_lang$html$Html$sup,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+					default:
+						return A2(
+							_elm_lang$html$Html$sub,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: {
+									ctor: '::',
+									_0: attrs,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(_p123),
+								_1: {ctor: '[]'}
+							});
+				}
+			case 'Element':
+				var _p134 = _p117._0.child;
+				var _p133 = _p117._0.attrs;
+				var parentTextLayout = function (layout) {
+					var _p124 = layout;
+					if (_p124.ctor === 'TextLayout') {
+						return true;
+					} else {
+						return false;
+					}
+				};
+				var attributes = function () {
+					var _p125 = parent;
+					if (_p125.ctor === 'Nothing') {
+						return _mdgriffith$style_elements$Element_Internal_Render$spacingToMargin(_p133);
+					} else {
+						var _p131 = _p125._0;
+						var _p126 = _p131.parentSpecifiedSpacing;
+						if (_p126.ctor === 'Nothing') {
+							return (parentTextLayout(_p131.layout) || A2(
+								_elm_lang$core$List$any,
+								F2(
+									function (x, y) {
+										return _elm_lang$core$Native_Utils.eq(x, y);
+									})(_mdgriffith$style_elements$Element_Internal_Model$Inline),
+								_p133)) ? _mdgriffith$style_elements$Element_Internal_Render$spacingToMargin(_p133) : _p133;
+						} else {
+							var _p130 = _p126._0._0;
+							var _p129 = _p126._0._1;
+							var _p128 = _p126._0._3;
+							var _p127 = _p126._0._2;
+							return (parentTextLayout(_p131.layout) || A2(
+								_elm_lang$core$List$any,
+								F2(
+									function (x, y) {
+										return _elm_lang$core$Native_Utils.eq(x, y);
+									})(_mdgriffith$style_elements$Element_Internal_Model$Inline),
+								_p133)) ? {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Margin(
+									{ctor: '_Tuple4', _0: _p130, _1: _p129, _2: _p127, _3: _p128}),
+								_1: _mdgriffith$style_elements$Element_Internal_Render$spacingToMargin(_p133)
+							} : {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Margin(
+									{ctor: '_Tuple4', _0: _p130, _1: _p129, _2: _p127, _3: _p128}),
+								_1: _p133
+							};
+						}
+					}
+				}();
+				var htmlAttrs = A6(
+					_mdgriffith$style_elements$Element_Internal_Render$renderAttributes,
+					_mdgriffith$style_elements$Element_Internal_Render$Single,
+					order,
+					_p117._0.style,
+					parent,
+					stylesheet,
+					_mdgriffith$style_elements$Element_Internal_Render$gather(attributes));
+				var childHtml = function () {
+					var _p132 = _p117._0.absolutelyPositioned;
+					if (_p132.ctor === 'Nothing') {
+						return {
+							ctor: '::',
+							_0: A4(_mdgriffith$style_elements$Element_Internal_Render$renderElement, _elm_lang$core$Maybe$Nothing, stylesheet, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast, _p134),
+							_1: {ctor: '[]'}
+						};
+					} else {
+						return A2(
+							_elm_lang$core$List$map,
+							A3(_mdgriffith$style_elements$Element_Internal_Render$renderElement, _elm_lang$core$Maybe$Nothing, stylesheet, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast),
+							{ctor: '::', _0: _p134, _1: _p132._0});
+					}
+				}();
+				return A3(
+					_elm_lang$html$Html$node,
+					_p117._0.node,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('el'),
+						_1: htmlAttrs
+					},
+					childHtml);
+			default:
+				var _p156 = _p117._0.node;
+				var _p155 = _p117._0.layout;
+				var _p154 = _p117._0.attrs;
+				var isFlexbox = function (layout) {
+					var _p135 = layout;
+					if (_p135.ctor === 'FlexLayout') {
+						return true;
+					} else {
+						return false;
+					}
+				};
+				var adjacentFlexboxCorrection = function (htmlNode) {
+					var _p136 = parent;
+					if (_p136.ctor === 'Nothing') {
+						return htmlNode;
+					} else {
+						return (isFlexbox(_p136._0.layout) && isFlexbox(_p155)) ? htmlNode : htmlNode;
+					}
+				};
+				var findSpacing = function (posAttr) {
+					var _p137 = posAttr;
+					if (_p137.ctor === 'Spacing') {
+						var _p139 = _p137._1;
+						var _p138 = _p137._0;
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple4', _0: _p139, _1: _p138, _2: _p139, _3: _p138});
+					} else {
+						return _elm_lang$core$Maybe$Nothing;
+					}
+				};
+				var forSpacing = function (_p140) {
+					return function (x) {
+						return !_elm_lang$core$Native_Utils.eq(x, _elm_lang$core$Maybe$Nothing);
+					}(
+						findSpacing(_p140));
+				};
+				var _p141 = A2(_elm_lang$core$List$partition, forSpacing, _p154);
+				var spacing = _p141._0;
+				var forPadding = function (posAttr) {
+					var _p142 = posAttr;
+					switch (_p142.ctor) {
+						case 'Padding':
+							return _elm_lang$core$Maybe$Just(
+								A2(
+									_mdgriffith$style_elements$Element_Internal_Render$defaultPadding,
+									{ctor: '_Tuple4', _0: _p142._0, _1: _p142._1, _2: _p142._2, _3: _p142._3},
+									{ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0}));
+						case 'PhantomPadding':
+							return _elm_lang$core$Maybe$Just(_p142._0);
+						default:
+							return _elm_lang$core$Maybe$Nothing;
+					}
+				};
+				var clearfix = function (attrs) {
+					var _p143 = _p155;
+					if (_p143.ctor === 'TextLayout') {
+						return _p143._0 ? {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('clearfix'),
+							_1: attrs
+						} : attrs;
+					} else {
+						return attrs;
+					}
+				};
+				var attributes = function () {
+					var _p144 = parent;
+					if (_p144.ctor === 'Nothing') {
+						return _p154;
+					} else {
+						var _p145 = _p144._0.parentSpecifiedSpacing;
+						if (_p145.ctor === 'Nothing') {
+							return _p154;
+						} else {
+							return {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$Margin(_p145._0),
+								_1: _p154
+							};
+						}
+					}
+				}();
+				var padding = function () {
+					var _p146 = _elm_lang$core$List$head(
+						A2(_elm_lang$core$List$filterMap, forPadding, attributes));
+					if (_p146.ctor === 'Nothing') {
+						return {ctor: '_Tuple4', _0: 0, _1: 0, _2: 0, _3: 0};
+					} else {
+						return _p146._0;
+					}
+				}();
+				var inherit = {
+					parentSpecifiedSpacing: _elm_lang$core$List$head(
+						A2(_elm_lang$core$List$filterMap, findSpacing, _p154)),
+					layout: _p155,
+					parentPadding: padding
+				};
+				var htmlAttrs = clearfix(
+					A6(
+						_mdgriffith$style_elements$Element_Internal_Render$renderAttributes,
+						_mdgriffith$style_elements$Element_Internal_Render$LayoutElement(_p155),
+						order,
+						_p117._0.style,
+						parent,
+						stylesheet,
+						_mdgriffith$style_elements$Element_Internal_Render$gather(attributes)));
+				var _p147 = A2(
+					_elm_lang$core$List$partition,
+					function (attr) {
+						return _elm_lang$core$Native_Utils.eq(
+							attr,
+							_mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Center)) || _elm_lang$core$Native_Utils.eq(
+							attr,
+							_mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$VerticalCenter));
+					},
+					_p154);
+				var centeredProps = _p147._0;
+				var others = _p147._1;
+				var _p148 = _p117._0.children;
+				if (_p148.ctor === 'Normal') {
+					var _p150 = _p148._0;
+					var childHtml = A2(
+						_elm_lang$core$List$indexedMap,
+						F2(
+							function (i, child) {
+								return A4(
+									_mdgriffith$style_elements$Element_Internal_Render$renderElement,
+									_elm_lang$core$Maybe$Just(inherit),
+									stylesheet,
+									A2(_mdgriffith$style_elements$Element_Internal_Render$detectOrder, _p150, i),
+									child);
+							}),
+						_p150);
+					var allChildren = function () {
+						var _p149 = _p117._0.absolutelyPositioned;
+						if (_p149.ctor === 'Nothing') {
+							return childHtml;
+						} else {
+							return A2(
+								_elm_lang$core$Basics_ops['++'],
+								childHtml,
+								A2(
+									_elm_lang$core$List$map,
+									A3(_mdgriffith$style_elements$Element_Internal_Render$renderElement, _elm_lang$core$Maybe$Nothing, stylesheet, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast),
+									_p149._0));
+						}
+					}();
+					return adjacentFlexboxCorrection(
+						A3(
+							_elm_lang$html$Html$node,
+							_p156,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: htmlAttrs
+							},
+							allChildren));
+				} else {
+					var _p153 = _p148._0;
+					var childHtml = A2(
+						_elm_lang$core$List$indexedMap,
+						F2(
+							function (i, _p151) {
+								var _p152 = _p151;
+								return {
+									ctor: '_Tuple2',
+									_0: _p152._0,
+									_1: A4(
+										_mdgriffith$style_elements$Element_Internal_Render$renderElement,
+										_elm_lang$core$Maybe$Just(inherit),
+										stylesheet,
+										A2(_mdgriffith$style_elements$Element_Internal_Render$detectOrder, _p153, i),
+										_p152._1)
+								};
+							}),
+						_p153);
+					return adjacentFlexboxCorrection(
+						A3(
+							_elm_lang$html$Html_Keyed$node,
+							_p156,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('el'),
+								_1: htmlAttrs
+							},
+							childHtml));
+				}
+		}
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$render = F2(
+	function (stylesheet, elm) {
+		var _p157 = _mdgriffith$style_elements$Element_Internal_Adjustments$apply(elm);
+		var adjusted = _p157._0;
+		var onScreen = _p157._1;
+		var fixedScreenElements = function () {
+			var _p158 = onScreen;
+			if (_p158.ctor === 'Nothing') {
+				return {ctor: '[]'};
+			} else {
+				return A2(
+					_elm_lang$core$List$map,
+					A3(_mdgriffith$style_elements$Element_Internal_Render$renderElement, _elm_lang$core$Maybe$Nothing, stylesheet, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast),
+					_p158._0);
 			}
-		});
-};
-var _rtfeldman$elm_css$Css_Structure_Output$selectorToString = function (_p11) {
-	var _p12 = _p11;
-	var pseudoElementsString = A2(
-		_elm_lang$core$String$join,
-		'',
-		{
+		}();
+		return {
 			ctor: '::',
-			_0: A2(
-				_elm_lang$core$Maybe$withDefault,
-				'',
-				A2(_elm_lang$core$Maybe$map, _rtfeldman$elm_css$Css_Structure_Output$pseudoElementToString, _p12._2)),
-			_1: {ctor: '[]'}
-		});
-	var segments = A2(
-		_elm_lang$core$Basics_ops['++'],
-		{
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p12._0),
-			_1: {ctor: '[]'}
-		},
-		A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$selectorChainToString, _p12._1));
-	return A3(
-		_elm_lang$core$Basics$flip,
-		F2(
-			function (x, y) {
-				return A2(_elm_lang$core$Basics_ops['++'], x, y);
-			}),
-		pseudoElementsString,
-		A2(
-			_elm_lang$core$String$join,
-			' ',
-			A2(
-				_elm_lang$core$List$filter,
-				function (_p13) {
-					return !_elm_lang$core$String$isEmpty(_p13);
-				},
-				segments)));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$mediaExpressionToString = function (expression) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		'(',
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			expression.feature,
+			_0: A4(_mdgriffith$style_elements$Element_Internal_Render$renderElement, _elm_lang$core$Maybe$Nothing, stylesheet, _mdgriffith$style_elements$Element_Internal_Render$FirstAndLast, adjusted),
+			_1: fixedScreenElements
+		};
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$viewport = F2(
+	function (stylesheet, elm) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('style-elements'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}
+			},
 			A2(
 				_elm_lang$core$Basics_ops['++'],
-				A2(
-					_elm_lang$core$Maybe$withDefault,
-					'',
+				A2(_mdgriffith$style_elements$Element_Internal_Render$embed, true, stylesheet),
+				A2(_mdgriffith$style_elements$Element_Internal_Render$render, stylesheet, elm)));
+	});
+var _mdgriffith$style_elements$Element_Internal_Render$root = F2(
+	function (stylesheet, elm) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('style-elements'),
+				_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(_mdgriffith$style_elements$Element_Internal_Render$embed, false, stylesheet),
+				A2(_mdgriffith$style_elements$Element_Internal_Render$render, stylesheet, elm)));
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Batchable$toList = function (batchables) {
+	var flatten = function (batch) {
+		var _p0 = batch;
+		switch (_p0.ctor) {
+			case 'One':
+				return {
+					ctor: '::',
+					_0: _p0._0,
+					_1: {ctor: '[]'}
+				};
+			case 'Many':
+				return _p0._0;
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Batchable$toList(_p0._0);
+		}
+	};
+	return A2(_elm_lang$core$List$concatMap, flatten, batchables);
+};
+var _mdgriffith$style_elements$Style_Internal_Batchable$Batch = function (a) {
+	return {ctor: 'Batch', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Batchable$batch = _mdgriffith$style_elements$Style_Internal_Batchable$Batch;
+var _mdgriffith$style_elements$Style_Internal_Batchable$Many = function (a) {
+	return {ctor: 'Many', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Batchable$many = _mdgriffith$style_elements$Style_Internal_Batchable$Many;
+var _mdgriffith$style_elements$Style_Internal_Batchable$One = function (a) {
+	return {ctor: 'One', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Batchable$one = _mdgriffith$style_elements$Style_Internal_Batchable$One;
+var _mdgriffith$style_elements$Style_Internal_Batchable$map = F2(
+	function (fn, batchable) {
+		var _p1 = batchable;
+		switch (_p1.ctor) {
+			case 'One':
+				return _mdgriffith$style_elements$Style_Internal_Batchable$One(
+					fn(_p1._0));
+			case 'Many':
+				return _mdgriffith$style_elements$Style_Internal_Batchable$Many(
+					A2(_elm_lang$core$List$map, fn, _p1._0));
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Batchable$Batch(
 					A2(
-						_elm_lang$core$Maybe$map,
-						F2(
-							function (x, y) {
-								return A2(_elm_lang$core$Basics_ops['++'], x, y);
-							})(': '),
-						expression.value)),
-				')')));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$mediaTypeToString = function (mediaType) {
-	var _p14 = mediaType;
-	switch (_p14.ctor) {
-		case 'Print':
-			return 'print';
-		case 'Screen':
-			return 'screen';
-		default:
-			return 'speech';
-	}
-};
-var _rtfeldman$elm_css$Css_Structure_Output$mediaQueryToString = function (mediaQuery) {
-	var prefixWith = F3(
-		function (str, mediaType, expressions) {
+						_elm_lang$core$List$map,
+						_mdgriffith$style_elements$Style_Internal_Batchable$map(fn),
+						_p1._0));
+		}
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Find$variation = F3(
+	function ($class, variation, elements) {
+		var find = function (el) {
+			var _p0 = el;
+			if (_p0.ctor === 'Variation') {
+				return (_elm_lang$core$Native_Utils.eq($class, _p0._0) && _elm_lang$core$Native_Utils.eq(_p0._1, variation)) ? _elm_lang$core$Maybe$Just(_p0._2) : _elm_lang$core$Maybe$Nothing;
+			} else {
+				return _elm_lang$core$Maybe$Nothing;
+			}
+		};
+		var found = _elm_lang$core$List$head(
+			A2(_elm_lang$core$List$filterMap, find, elements));
+		var _p1 = found;
+		if (_p1.ctor === 'Nothing') {
 			return A2(
+				_elm_lang$core$Debug$log,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'No ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(variation),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' variation  present for ',
+							_elm_lang$core$Basics$toString($class)))),
+				'');
+		} else {
+			return _p1._0;
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Find$style = F2(
+	function ($class, elements) {
+		var find = function (el) {
+			var _p2 = el;
+			if (_p2.ctor === 'Style') {
+				return _elm_lang$core$Native_Utils.eq(_p2._0, $class) ? _elm_lang$core$Maybe$Just(_p2._1) : _elm_lang$core$Maybe$Nothing;
+			} else {
+				return _elm_lang$core$Maybe$Nothing;
+			}
+		};
+		var found = _elm_lang$core$List$head(
+			A2(_elm_lang$core$List$filterMap, find, elements));
+		var _p3 = found;
+		if (_p3.ctor === 'Nothing') {
+			return A2(
+				_elm_lang$core$Debug$log,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'No style present for ',
+					_elm_lang$core$Basics$toString($class)),
+				'');
+		} else {
+			return _p3._0;
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Find$Variation = F3(
+	function (a, b, c) {
+		return {ctor: 'Variation', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$style_elements$Style_Internal_Find$toVariation = F3(
+	function ($var, newName, element) {
+		var _p4 = element;
+		if (_p4.ctor === 'Style') {
+			return A3(_mdgriffith$style_elements$Style_Internal_Find$Variation, _p4._0, $var, newName);
+		} else {
+			return A3(_mdgriffith$style_elements$Style_Internal_Find$Variation, _p4._0, $var, newName);
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Find$Style = F2(
+	function (a, b) {
+		return {ctor: 'Style', _0: a, _1: b};
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Render_Css$prop = F2(
+	function (i, _p0) {
+		var _p1 = _p0;
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			A2(_elm_lang$core$String$repeat, i, ' '),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_p1._0,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					': ',
+					A2(_elm_lang$core$Basics_ops['++'], _p1._1, ';'))));
+	});
+var _mdgriffith$style_elements$Style_Internal_Render_Css$brace = F2(
+	function (i, str) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			' {\n',
+			A2(
 				_elm_lang$core$Basics_ops['++'],
 				str,
 				A2(
 					_elm_lang$core$Basics_ops['++'],
-					' ',
+					'\n',
 					A2(
-						_elm_lang$core$String$join,
-						' and ',
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Structure_Output$mediaTypeToString(mediaType),
-							_1: A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$mediaExpressionToString, expressions)
-						})));
-		});
-	var _p15 = mediaQuery;
-	switch (_p15.ctor) {
-		case 'AllQuery':
-			return A2(
-				_elm_lang$core$String$join,
-				' and ',
-				A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$mediaExpressionToString, _p15._0));
-		case 'OnlyQuery':
-			return A3(prefixWith, 'only', _p15._0, _p15._1);
-		case 'NotQuery':
-			return A3(prefixWith, 'not', _p15._0, _p15._1);
-		default:
-			return _p15._0;
+						_elm_lang$core$Basics_ops['++'],
+						A2(_elm_lang$core$String$repeat, i, ' '),
+						'}'))));
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Selector$getFindable = function (find) {
+	getFindable:
+	while (true) {
+		var _p0 = find;
+		switch (_p0.ctor) {
+			case 'Select':
+				return {
+					ctor: '::',
+					_0: _p0._1,
+					_1: {ctor: '[]'}
+				};
+			case 'SelectChild':
+				var _v1 = _p0._0;
+				find = _v1;
+				continue getFindable;
+			case 'Stack':
+				return A2(
+					_elm_lang$core$Maybe$withDefault,
+					{ctor: '[]'},
+					A2(
+						_elm_lang$core$Maybe$map,
+						function (x) {
+							return {
+								ctor: '::',
+								_0: x,
+								_1: {ctor: '[]'}
+							};
+						},
+						_elm_lang$core$List$head(
+							_elm_lang$core$List$reverse(
+								A2(_elm_lang$core$List$concatMap, _mdgriffith$style_elements$Style_Internal_Selector$getFindable, _p0._0)))));
+			default:
+				return {ctor: '[]'};
+		}
 	}
 };
-var _rtfeldman$elm_css$Css_Structure_Output$prettyPrintStyleBlock = F2(
-	function (indentLevel, _p16) {
-		var _p17 = _p16;
-		var selectorStr = A2(
-			_elm_lang$core$String$join,
-			', ',
-			A2(
-				_elm_lang$core$List$map,
-				_rtfeldman$elm_css$Css_Structure_Output$selectorToString,
-				{ctor: '::', _0: _p17._0, _1: _p17._1}));
-		return A2(
-			_elm_lang$core$String$join,
-			'',
+var _mdgriffith$style_elements$Style_Internal_Selector$render = F2(
+	function (maybeGuard, selector) {
+		var spacer = function (sel) {
+			var _p1 = sel;
+			if (_p1.ctor === 'Pseudo') {
+				return '';
+			} else {
+				return ' ';
+			}
+		};
+		var renderAndSpace = F2(
+			function (i, sel) {
+				return _elm_lang$core$Native_Utils.eq(i, 0) ? A2(_mdgriffith$style_elements$Style_Internal_Selector$render, maybeGuard, sel) : A2(
+					_elm_lang$core$Basics_ops['++'],
+					spacer(sel),
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$render, maybeGuard, sel));
+			});
+		var guard = function (str) {
+			var _p2 = maybeGuard;
+			if (_p2.ctor === 'Nothing') {
+				return str;
+			} else {
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					str,
+					A2(_elm_lang$core$Basics_ops['++'], '--', _p2._0));
+			}
+		};
+		var _p3 = selector;
+		switch (_p3.ctor) {
+			case 'Select':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'.style-elements .',
+					guard(_p3._0));
+			case 'SelectChild':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'> ',
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$render, maybeGuard, _p3._0));
+			case 'Free':
+				return _p3._0;
+			case 'Pseudo':
+				return _p3._0;
+			default:
+				return _elm_lang$core$String$concat(
+					A2(_elm_lang$core$List$indexedMap, renderAndSpace, _p3._0));
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Selector$topName = function (selector) {
+	topName:
+	while (true) {
+		var _p4 = selector;
+		switch (_p4.ctor) {
+			case 'Select':
+				return _p4._0;
+			case 'SelectChild':
+				var _v6 = _p4._0;
+				selector = _v6;
+				continue topName;
+			case 'Stack':
+				return A2(
+					_elm_lang$core$Maybe$withDefault,
+					'',
+					_elm_lang$core$List$head(
+						_elm_lang$core$List$reverse(
+							A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Selector$topName, _p4._0))));
+			default:
+				return '';
+		}
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$uncapitalize = function (str) {
+	var tail = A2(_elm_lang$core$String$dropLeft, 1, str);
+	var head = _elm_lang$core$String$toLower(
+		A2(_elm_lang$core$String$left, 1, str));
+	return A2(_elm_lang$core$Basics_ops['++'], head, tail);
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$formatName = function (x) {
+	return A4(
+		_elm_lang$core$Regex$replace,
+		_elm_lang$core$Regex$All,
+		_elm_lang$core$Regex$regex('[\\s+]'),
+		function (_p5) {
+			return '-';
+		},
+		A4(
+			_elm_lang$core$Regex$replace,
+			_elm_lang$core$Regex$All,
+			_elm_lang$core$Regex$regex('[A-Z0-9]+'),
+			function (_p6) {
+				var _p7 = _p6;
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$String$toLower(_p7.match));
+			},
+			A4(
+				_elm_lang$core$Regex$replace,
+				_elm_lang$core$Regex$All,
+				_elm_lang$core$Regex$regex('[^a-zA-Z0-9_-]'),
+				function (_p8) {
+					return '';
+				},
+				_mdgriffith$style_elements$Style_Internal_Selector$uncapitalize(
+					_elm_lang$core$Basics$toString(x)))));
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$Stack = function (a) {
+	return {ctor: 'Stack', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$Free = function (a) {
+	return {ctor: 'Free', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$free = function (str) {
+	return _mdgriffith$style_elements$Style_Internal_Selector$Free(str);
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$SelectChild = function (a) {
+	return {ctor: 'SelectChild', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$child = F2(
+	function (parent, selector) {
+		return _mdgriffith$style_elements$Style_Internal_Selector$Stack(
 			{
 				ctor: '::',
-				_0: selectorStr,
+				_0: parent,
 				_1: {
 					ctor: '::',
-					_0: ' {\n',
-					_1: {
+					_0: _mdgriffith$style_elements$Style_Internal_Selector$SelectChild(selector),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _mdgriffith$style_elements$Style_Internal_Selector$Pseudo = function (a) {
+	return {ctor: 'Pseudo', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$Select = F2(
+	function (a, b) {
+		return {ctor: 'Select', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Selector$guard = F2(
+	function (guard, selector) {
+		var addGuard = function (str) {
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				str,
+				A2(_elm_lang$core$Basics_ops['++'], '__', guard));
+		};
+		var onFindable = function (findable) {
+			var _p9 = findable;
+			if (_p9.ctor === 'Style') {
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Find$Style,
+					_p9._0,
+					addGuard(_p9._1));
+			} else {
+				return A3(
+					_mdgriffith$style_elements$Style_Internal_Find$Variation,
+					_p9._0,
+					_p9._1,
+					addGuard(_p9._2));
+			}
+		};
+		var onSelector = function (sel) {
+			var _p10 = sel;
+			switch (_p10.ctor) {
+				case 'Select':
+					return A2(
+						_mdgriffith$style_elements$Style_Internal_Selector$Select,
+						addGuard(_p10._0),
+						onFindable(_p10._1));
+				case 'SelectChild':
+					return _mdgriffith$style_elements$Style_Internal_Selector$SelectChild(
+						onSelector(_p10._0));
+				case 'Stack':
+					return _mdgriffith$style_elements$Style_Internal_Selector$Stack(
+						A2(_elm_lang$core$List$map, onSelector, _p10._0));
+				default:
+					return _p10;
+			}
+		};
+		return onSelector(selector);
+	});
+var _mdgriffith$style_elements$Style_Internal_Selector$select = function ($class) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Selector$Select,
+		_mdgriffith$style_elements$Style_Internal_Selector$formatName($class),
+		A2(
+			_mdgriffith$style_elements$Style_Internal_Find$Style,
+			$class,
+			_mdgriffith$style_elements$Style_Internal_Selector$formatName($class)));
+};
+var _mdgriffith$style_elements$Style_Internal_Selector$variant = F2(
+	function (sel, $var) {
+		var _p11 = sel;
+		switch (_p11.ctor) {
+			case 'Pseudo':
+				return _mdgriffith$style_elements$Style_Internal_Selector$Pseudo(_p11._0);
+			case 'Select':
+				var _p12 = _p11._0;
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Selector$Select,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_p12,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'-',
+							_mdgriffith$style_elements$Style_Internal_Selector$formatName($var))),
+					A3(
+						_mdgriffith$style_elements$Style_Internal_Find$toVariation,
+						$var,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_p12,
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'-',
+								_mdgriffith$style_elements$Style_Internal_Selector$formatName($var))),
+						_p11._1));
+			case 'SelectChild':
+				return _mdgriffith$style_elements$Style_Internal_Selector$SelectChild(
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$variant, _p11._0, $var));
+			case 'Free':
+				return _mdgriffith$style_elements$Style_Internal_Selector$Free(_p11._0);
+			default:
+				var _p14 = _p11._0;
+				var init = _elm_lang$core$List$reverse(
+					A2(
+						_elm_lang$core$List$drop,
+						1,
+						_elm_lang$core$List$reverse(_p14)));
+				var lastElem = _elm_lang$core$List$head(
+					_elm_lang$core$List$reverse(_p14));
+				var _p13 = lastElem;
+				if (_p13.ctor === 'Nothing') {
+					return _mdgriffith$style_elements$Style_Internal_Selector$Stack(_p14);
+				} else {
+					return _mdgriffith$style_elements$Style_Internal_Selector$Stack(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							init,
+							{
+								ctor: '::',
+								_0: A2(_mdgriffith$style_elements$Style_Internal_Selector$variant, _p13._0, $var),
+								_1: {ctor: '[]'}
+							}));
+				}
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Selector$pseudo = F2(
+	function (psu, sel) {
+		var _p15 = sel;
+		switch (_p15.ctor) {
+			case 'Pseudo':
+				return _mdgriffith$style_elements$Style_Internal_Selector$Pseudo(
+					A2(_elm_lang$core$Basics_ops['++'], _p15._0, psu));
+			case 'Select':
+				return _mdgriffith$style_elements$Style_Internal_Selector$Stack(
+					{
 						ctor: '::',
-						_0: indentLevel,
+						_0: A2(_mdgriffith$style_elements$Style_Internal_Selector$Select, _p15._0, _p15._1),
 						_1: {
 							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Structure_Output$prettyPrintProperties(_p17._2),
+							_0: _mdgriffith$style_elements$Style_Internal_Selector$Pseudo(psu),
+							_1: {ctor: '[]'}
+						}
+					});
+			case 'SelectChild':
+				return _mdgriffith$style_elements$Style_Internal_Selector$SelectChild(
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, psu, _p15._0));
+			case 'Free':
+				return _mdgriffith$style_elements$Style_Internal_Selector$Free(_p15._0);
+			default:
+				var _p17 = _p15._0;
+				var init = _elm_lang$core$List$reverse(
+					A2(
+						_elm_lang$core$List$drop,
+						1,
+						_elm_lang$core$List$reverse(_p17)));
+				var lastElem = _elm_lang$core$List$head(
+					_elm_lang$core$List$reverse(_p17));
+				var _p16 = lastElem;
+				if (_p16.ctor === 'Nothing') {
+					return _mdgriffith$style_elements$Style_Internal_Selector$Stack(_p17);
+				} else {
+					return _mdgriffith$style_elements$Style_Internal_Selector$Stack(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							init,
+							{
+								ctor: '::',
+								_0: A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, psu, _p16._0),
+								_1: {ctor: '[]'}
+							}));
+				}
+		}
+	});
+
+var _mdgriffith$style_elements$Style_Internal_Intermediate$asFindable = function (intermediate) {
+	var findableProp = function (prop) {
+		var _p0 = prop;
+		switch (_p0.ctor) {
+			case 'SubClass':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$asFindable(_p0._0);
+			case 'PropsAndSub':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$asFindable(_p0._1);
+			default:
+				return {ctor: '[]'};
+		}
+	};
+	var _p1 = intermediate;
+	if (_p1.ctor === 'Class') {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			_mdgriffith$style_elements$Style_Internal_Selector$getFindable(_p1._0.selector),
+			A2(_elm_lang$core$List$concatMap, findableProp, _p1._0.props));
+	} else {
+		return {ctor: '[]'};
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$render = function (renderable) {
+	var _p2 = renderable;
+	switch (_p2.ctor) {
+		case 'RenderableClass':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				_p2._0,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(
+						_mdgriffith$style_elements$Style_Internal_Render_Css$brace,
+						0,
+						A2(
+							_elm_lang$core$String$join,
+							'\n',
+							A2(
+								_elm_lang$core$List$map,
+								_mdgriffith$style_elements$Style_Internal_Render_Css$prop(2),
+								_p2._1))),
+					'\n'));
+		case 'RenderableMedia':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				_p2._0,
+				A2(
+					_mdgriffith$style_elements$Style_Internal_Render_Css$brace,
+					0,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'  ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_p2._1,
+							A2(
+								_mdgriffith$style_elements$Style_Internal_Render_Css$brace,
+								2,
+								A2(
+									_elm_lang$core$String$join,
+									'\n',
+									A2(
+										_elm_lang$core$List$map,
+										_mdgriffith$style_elements$Style_Internal_Render_Css$prop(4),
+										_p2._2)))))));
+		default:
+			return _p2._0;
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$hash = function (value) {
+	return _elm_lang$core$Basics$toString(
+		A2(_Skinney$murmur3$Murmur3$hashString, 8675309, value));
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$calculateGuard = function ($class) {
+	var propToString = function (_p3) {
+		var _p4 = _p3;
+		return A2(_elm_lang$core$Basics_ops['++'], _p4._0, _p4._1);
+	};
+	var asString = function (prop) {
+		var _p5 = prop;
+		switch (_p5.ctor) {
+			case 'Props':
+				return _elm_lang$core$String$concat(
+					A2(_elm_lang$core$List$map, propToString, _p5._0));
+			case 'SubClass':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$calculateGuard(_p5._0);
+			case 'PropsAndSub':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$String$concat(
+						A2(_elm_lang$core$List$map, propToString, _p5._0)),
+					_mdgriffith$style_elements$Style_Internal_Intermediate$calculateGuard(_p5._1));
+			default:
+				return '';
+		}
+	};
+	var _p6 = $class;
+	switch (_p6.ctor) {
+		case 'Class':
+			return _elm_lang$core$String$concat(
+				A2(_elm_lang$core$List$map, asString, _p6._0.props));
+		case 'Media':
+			return _elm_lang$core$String$concat(
+				A2(_elm_lang$core$List$map, asString, _p6._0.props));
+		default:
+			return '';
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Free = function (a) {
+	return {ctor: 'Free', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Media = function (a) {
+	return {ctor: 'Media', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Class = function (a) {
+	return {ctor: 'Class', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Animation = {ctor: 'Animation'};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$PropsAndSub = F2(
+	function (a, b) {
+		return {ctor: 'PropsAndSub', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass = function (a) {
+	return {ctor: 'SubClass', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$applyGuard = F2(
+	function (guard, $class) {
+		var guardProp = function (prop) {
+			var _p7 = prop;
+			if (_p7.ctor === 'SubClass') {
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+					A2(_mdgriffith$style_elements$Style_Internal_Intermediate$applyGuard, guard, _p7._0));
+			} else {
+				return _p7;
+			}
+		};
+		var _p8 = $class;
+		switch (_p8.ctor) {
+			case 'Class':
+				var _p9 = _p8._0;
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Class(
+					{
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$guard, guard, _p9.selector),
+						props: A2(_elm_lang$core$List$map, guardProp, _p9.props)
+					});
+			case 'Media':
+				var _p10 = _p8._0;
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Media(
+					{
+						query: _p10.query,
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$guard, guard, _p10.selector),
+						props: A2(_elm_lang$core$List$map, guardProp, _p10.props)
+					});
+			default:
+				return _p8;
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Intermediate$guard = function ($class) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Intermediate$applyGuard,
+		_mdgriffith$style_elements$Style_Internal_Intermediate$hash(
+			_mdgriffith$style_elements$Style_Internal_Intermediate$calculateGuard($class)),
+		$class);
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$asMediaQuery = F2(
+	function (query, prop) {
+		var classAsMediaQuery = function (cls) {
+			var _p11 = cls;
+			if (_p11.ctor === 'Class') {
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Media(
+					{query: query, selector: _p11._0.selector, props: _p11._0.props});
+			} else {
+				return _p11;
+			}
+		};
+		var _p12 = prop;
+		switch (_p12.ctor) {
+			case 'SubClass':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+					classAsMediaQuery(_p12._0));
+			case 'PropsAndSub':
+				return A2(
+					_mdgriffith$style_elements$Style_Internal_Intermediate$PropsAndSub,
+					_p12._0,
+					classAsMediaQuery(_p12._1));
+			default:
+				return _p12;
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Props = function (a) {
+	return {ctor: 'Props', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$props = _mdgriffith$style_elements$Style_Internal_Intermediate$Props;
+var _mdgriffith$style_elements$Style_Internal_Intermediate$RenderableFree = function (a) {
+	return {ctor: 'RenderableFree', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$RenderableMedia = F3(
+	function (a, b, c) {
+		return {ctor: 'RenderableMedia', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$style_elements$Style_Internal_Intermediate$RenderableClass = F2(
+	function (a, b) {
+		return {ctor: 'RenderableClass', _0: a, _1: b};
+	});
+var _mdgriffith$style_elements$Style_Internal_Intermediate$makeRenderable = function (cls) {
+	var renderableProps = F2(
+		function (prop, _p13) {
+			var _p14 = _p13;
+			var _p17 = _p14._1;
+			var _p16 = _p14._0;
+			var _p15 = prop;
+			switch (_p15.ctor) {
+				case 'Props':
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_elm_lang$core$Basics_ops['++'], _p16, _p15._0),
+						_1: _p17
+					};
+				case 'SubClass':
+					return {
+						ctor: '_Tuple2',
+						_0: _p16,
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							_p17,
+							_mdgriffith$style_elements$Style_Internal_Intermediate$makeRenderable(_p15._0))
+					};
+				case 'PropsAndSub':
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_elm_lang$core$Basics_ops['++'], _p16, _p15._0),
+						_1: A2(
+							_elm_lang$core$Basics_ops['++'],
+							_p17,
+							_mdgriffith$style_elements$Style_Internal_Intermediate$makeRenderable(_p15._1))
+					};
+				default:
+					return {ctor: '_Tuple2', _0: _p16, _1: _p17};
+			}
+		});
+	var _p18 = cls;
+	switch (_p18.ctor) {
+		case 'Class':
+			var _p19 = A3(
+				_elm_lang$core$List$foldl,
+				renderableProps,
+				{
+					ctor: '_Tuple2',
+					_0: {ctor: '[]'},
+					_1: {ctor: '[]'}
+				},
+				_p18._0.props);
+			var rendered = _p19._0;
+			var subelements = _p19._1;
+			return {
+				ctor: '::',
+				_0: A2(
+					_mdgriffith$style_elements$Style_Internal_Intermediate$RenderableClass,
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$render, _elm_lang$core$Maybe$Nothing, _p18._0.selector),
+					rendered),
+				_1: subelements
+			};
+		case 'Media':
+			var _p20 = A3(
+				_elm_lang$core$List$foldl,
+				renderableProps,
+				{
+					ctor: '_Tuple2',
+					_0: {ctor: '[]'},
+					_1: {ctor: '[]'}
+				},
+				_p18._0.props);
+			var rendered = _p20._0;
+			var subelements = _p20._1;
+			return {
+				ctor: '::',
+				_0: A3(
+					_mdgriffith$style_elements$Style_Internal_Intermediate$RenderableMedia,
+					_p18._0.query,
+					A2(_mdgriffith$style_elements$Style_Internal_Selector$render, _elm_lang$core$Maybe$Nothing, _p18._0.selector),
+					rendered),
+				_1: subelements
+			};
+		default:
+			return {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Internal_Intermediate$RenderableFree(_p18._0),
+				_1: {ctor: '[]'}
+			};
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$raw = function (cls) {
+	var topName = function () {
+		var _p21 = cls;
+		switch (_p21.ctor) {
+			case 'Class':
+				return _mdgriffith$style_elements$Style_Internal_Selector$topName(_p21._0.selector);
+			case 'Media':
+				return _mdgriffith$style_elements$Style_Internal_Selector$topName(_p21._0.selector);
+			default:
+				return '';
+		}
+	}();
+	return {
+		ctor: '_Tuple2',
+		_0: topName,
+		_1: A2(
+			_elm_lang$core$String$join,
+			'\n',
+			A2(
+				_elm_lang$core$List$map,
+				_mdgriffith$style_elements$Style_Internal_Intermediate$render,
+				_mdgriffith$style_elements$Style_Internal_Intermediate$makeRenderable(cls)))
+	};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$Rendered = function (a) {
+	return {ctor: 'Rendered', _0: a};
+};
+var _mdgriffith$style_elements$Style_Internal_Intermediate$finalize = function (intermediates) {
+	var finalizeCss = function (cls) {
+		return A2(
+			_elm_lang$core$String$join,
+			'\n',
+			A2(
+				_elm_lang$core$List$map,
+				_mdgriffith$style_elements$Style_Internal_Intermediate$render,
+				_mdgriffith$style_elements$Style_Internal_Intermediate$makeRenderable(cls)));
+	};
+	return _mdgriffith$style_elements$Style_Internal_Intermediate$Rendered(
+		{
+			css: A2(
+				_elm_lang$core$String$join,
+				'\n',
+				A2(_elm_lang$core$List$map, finalizeCss, intermediates)),
+			findable: A2(_elm_lang$core$List$concatMap, _mdgriffith$style_elements$Style_Internal_Intermediate$asFindable, intermediates)
+		});
+};
+
+var _mdgriffith$style_elements$Style_Internal_Render$renderVariationProp = F2(
+	function (parentClass, prop) {
+		var _p0 = prop;
+		switch (_p0.ctor) {
+			case 'Child':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'Variation':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'PseudoElement':
+				return function (_p1) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+							_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p1)));
+				}(
+					{
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, _p0._0, parentClass),
+						props: A2(
+							_elm_lang$core$List$filterMap,
+							_mdgriffith$style_elements$Style_Internal_Render$renderVariationProp(parentClass),
+							_p0._1)
+					});
+			case 'MediaQuery':
+				var _p3 = _p0._0;
+				return function (_p2) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+							_mdgriffith$style_elements$Style_Internal_Intermediate$Media(_p2)));
+				}(
+					{
+						query: A2(_elm_lang$core$Basics_ops['++'], '@media ', _p3),
+						selector: parentClass,
+						props: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Intermediate$asMediaQuery(_p3),
+							A2(
+								_elm_lang$core$List$filterMap,
+								_mdgriffith$style_elements$Style_Internal_Render$renderVariationProp(parentClass),
+								_p0._1))
+					});
+			case 'Exact':
+				return function (_p4) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p4));
+				}(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _p0._0, _1: _p0._1},
+						_1: {ctor: '[]'}
+					});
+			case 'Visibility':
+				return function (_p5) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p5));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$visibility(_p0._0));
+			case 'Position':
+				return function (_p6) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p6));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$position(_p0._0));
+			case 'Font':
+				return function (_p7) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p7));
+				}(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _p0._0, _1: _p0._1},
+						_1: {ctor: '[]'}
+					});
+			case 'FontFamily':
+				return function (_p8) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p8));
+				}(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'font-family',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$typeface(_p0._0)
+						},
+						_1: {ctor: '[]'}
+					});
+			case 'Layout':
+				return function (_p9) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p9));
+				}(
+					A2(_mdgriffith$style_elements$Style_Internal_Render_Property$layout, false, _p0._0));
+			case 'Background':
+				return function (_p10) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p10));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$background(_p0._0));
+			case 'Shadows':
+				return function (_p11) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p11));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$shadow(_p0._0));
+			case 'Transform':
+				return function (_p12) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p12));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$transformations(_p0._0));
+			case 'Filters':
+				return function (_p13) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p13));
+				}(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$filters(_p0._0));
+			case 'TextColor':
+				return function (_p14) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$props(_p14));
+				}(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'color',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$color(_p0._0)
+						},
+						_1: {ctor: '[]'}
+					});
+			case 'SelectionColor':
+				return function (_p15) {
+					return _elm_lang$core$Maybe$Just(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+							_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p15)));
+				}(
+					{
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, '::selection', parentClass),
+						props: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+								{
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'background-color',
+										_1: _mdgriffith$style_elements$Style_Internal_Render_Value$color(_p0._0)
+									},
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					});
+			default:
+				return _elm_lang$core$Maybe$Just(
+					_mdgriffith$style_elements$Style_Internal_Intermediate$props(
+						{
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'transition',
+								_1: A2(
+									_elm_lang$core$String$join,
+									', ',
+									A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Property$transition, _p0._0))
+							},
+							_1: {ctor: '[]'}
+						}));
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$renderProp = F2(
+	function (parentClass, prop) {
+		var _p16 = prop;
+		switch (_p16.ctor) {
+			case 'Child':
+				return function (_p17) {
+					return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p17));
+				}(
+					{
+						selector: A2(
+							_mdgriffith$style_elements$Style_Internal_Selector$child,
+							parentClass,
+							_mdgriffith$style_elements$Style_Internal_Selector$select(_p16._0)),
+						props: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Render$renderProp(parentClass),
+							_p16._1)
+					});
+			case 'Variation':
+				var selectVariation = A2(_mdgriffith$style_elements$Style_Internal_Selector$variant, parentClass, _p16._0);
+				return function (_p18) {
+					return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p18));
+				}(
+					{
+						selector: selectVariation,
+						props: A2(
+							_elm_lang$core$List$filterMap,
+							_mdgriffith$style_elements$Style_Internal_Render$renderVariationProp(selectVariation),
+							_p16._1)
+					});
+			case 'PseudoElement':
+				return function (_p19) {
+					return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p19));
+				}(
+					{
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, _p16._0, parentClass),
+						props: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Render$renderProp(parentClass),
+							_p16._1)
+					});
+			case 'MediaQuery':
+				var _p21 = _p16._0;
+				return function (_p20) {
+					return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$Media(_p20));
+				}(
+					{
+						query: A2(_elm_lang$core$Basics_ops['++'], '@media ', _p21),
+						selector: parentClass,
+						props: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Intermediate$asMediaQuery(_p21),
+							A2(
+								_elm_lang$core$List$map,
+								_mdgriffith$style_elements$Style_Internal_Render$renderProp(parentClass),
+								_p16._1))
+					});
+			case 'Exact':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _p16._0, _1: _p16._1},
+						_1: {ctor: '[]'}
+					});
+			case 'Visibility':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$visibility(_p16._0));
+			case 'Position':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$position(_p16._0));
+			case 'Font':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _p16._0, _1: _p16._1},
+						_1: {ctor: '[]'}
+					});
+			case 'Layout':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					A2(_mdgriffith$style_elements$Style_Internal_Render_Property$layout, false, _p16._0));
+			case 'Background':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$background(_p16._0));
+			case 'Shadows':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$shadow(_p16._0));
+			case 'Transform':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$transformations(_p16._0));
+			case 'Filters':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					_mdgriffith$style_elements$Style_Internal_Render_Property$filters(_p16._0));
+			case 'SelectionColor':
+				return function (_p22) {
+					return _mdgriffith$style_elements$Style_Internal_Intermediate$SubClass(
+						_mdgriffith$style_elements$Style_Internal_Intermediate$Class(_p22));
+				}(
+					{
+						selector: A2(_mdgriffith$style_elements$Style_Internal_Selector$pseudo, '::selection', parentClass),
+						props: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+								{
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'background-color',
+										_1: _mdgriffith$style_elements$Style_Internal_Render_Value$color(_p16._0)
+									},
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					});
+			case 'TextColor':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'color',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$color(_p16._0)
+						},
+						_1: {ctor: '[]'}
+					});
+			case 'Transitions':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'transition',
+							_1: A2(
+								_elm_lang$core$String$join,
+								', ',
+								A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Render_Property$transition, _p16._0))
+						},
+						_1: {ctor: '[]'}
+					});
+			default:
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$props(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'font-family',
+							_1: _mdgriffith$style_elements$Style_Internal_Render_Value$typeface(_p16._0)
+						},
+						_1: {ctor: '[]'}
+					});
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$preprocess = function (style) {
+	var _p23 = style;
+	if (_p23.ctor === 'Style') {
+		var mergeShadowsAndFilters = function (props) {
+			var combine = function (_p24) {
+				var _p25 = _p24;
+				return {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Style_Internal_Model$Filters(_p25.filters),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Internal_Model$Shadows(_p25.shadows),
+						_1: _p25.others
+					}
+				};
+			};
+			var gather = F2(
+				function (prop, existing) {
+					var _p26 = prop;
+					switch (_p26.ctor) {
+						case 'Filters':
+							return _elm_lang$core$Native_Utils.update(
+								existing,
+								{
+									filters: A2(_elm_lang$core$Basics_ops['++'], _p26._0, existing.filters)
+								});
+						case 'Shadows':
+							return _elm_lang$core$Native_Utils.update(
+								existing,
+								{
+									shadows: A2(_elm_lang$core$Basics_ops['++'], _p26._0, existing.shadows)
+								});
+						default:
+							return _elm_lang$core$Native_Utils.update(
+								existing,
+								{
+									others: {ctor: '::', _0: prop, _1: existing.others}
+								});
+					}
+				});
+			return combine(
+				A3(
+					_elm_lang$core$List$foldr,
+					gather,
+					{
+						filters: {ctor: '[]'},
+						shadows: {ctor: '[]'},
+						others: {ctor: '[]'}
+					},
+					props));
+		};
+		var mergeTransforms = function (props) {
+			var applyTransforms = function (_p27) {
+				var _p28 = _p27;
+				var _p29 = _p28._1;
+				var transformations = A2(
+					_elm_lang$core$List$filterMap,
+					_elm_lang$core$Basics$identity,
+					{
+						ctor: '::',
+						_0: _p28._0.translate,
+						_1: {
+							ctor: '::',
+							_0: _p28._0.rotate,
 							_1: {
 								ctor: '::',
-								_0: '\n',
+								_0: _p28._0.scale,
+								_1: {ctor: '[]'}
+							}
+						}
+					});
+				return _elm_lang$core$List$isEmpty(transformations) ? _p29 : {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Style_Internal_Model$Transform(transformations),
+					_1: _p29
+				};
+			};
+			var setIfNothing = F2(
+				function (x, maybeX) {
+					var _p30 = maybeX;
+					if (_p30.ctor === 'Nothing') {
+						return _elm_lang$core$Maybe$Just(x);
+					} else {
+						return _p30;
+					}
+				});
+			var gatherTransformStack = F2(
+				function (transformation, gathered) {
+					var _p31 = transformation;
+					switch (_p31.ctor) {
+						case 'Translate':
+							return _elm_lang$core$Native_Utils.update(
+								gathered,
+								{
+									translate: A2(
+										setIfNothing,
+										A3(_mdgriffith$style_elements$Style_Internal_Model$Translate, _p31._0, _p31._1, _p31._2),
+										gathered.translate)
+								});
+						case 'Rotate':
+							return _elm_lang$core$Native_Utils.update(
+								gathered,
+								{
+									rotate: A2(
+										setIfNothing,
+										_mdgriffith$style_elements$Style_Internal_Model$Rotate(_p31._0),
+										gathered.rotate)
+								});
+						case 'RotateAround':
+							return _elm_lang$core$Native_Utils.update(
+								gathered,
+								{
+									rotate: A2(
+										setIfNothing,
+										A4(_mdgriffith$style_elements$Style_Internal_Model$RotateAround, _p31._0, _p31._1, _p31._2, _p31._3),
+										gathered.rotate)
+								});
+						default:
+							return _elm_lang$core$Native_Utils.update(
+								gathered,
+								{
+									scale: A2(
+										setIfNothing,
+										A3(_mdgriffith$style_elements$Style_Internal_Model$Scale, _p31._0, _p31._1, _p31._2),
+										gathered.scale)
+								});
+					}
+				});
+			var gatherTransforms = F2(
+				function (prop, _p32) {
+					var _p33 = _p32;
+					var _p36 = _p33._0;
+					var _p35 = _p33._1;
+					var _p34 = prop;
+					if (_p34.ctor === 'Transform') {
+						return {
+							ctor: '_Tuple2',
+							_0: A3(_elm_lang$core$List$foldr, gatherTransformStack, _p36, _p34._0),
+							_1: _p35
+						};
+					} else {
+						return {
+							ctor: '_Tuple2',
+							_0: _p36,
+							_1: {ctor: '::', _0: prop, _1: _p35}
+						};
+					}
+				});
+			return applyTransforms(
+				A3(
+					_elm_lang$core$List$foldr,
+					gatherTransforms,
+					{
+						ctor: '_Tuple2',
+						_0: {rotate: _elm_lang$core$Maybe$Nothing, scale: _elm_lang$core$Maybe$Nothing, translate: _elm_lang$core$Maybe$Nothing},
+						_1: {ctor: '[]'}
+					},
+					props));
+		};
+		var dropShadow = function (_p37) {
+			var _p38 = _p37;
+			return _elm_lang$core$Native_Utils.eq(_p38._0.kind, 'drop');
+		};
+		var overridePrevious = F2(
+			function (overridable, props) {
+				var eliminatePrevious = F2(
+					function (prop, _p39) {
+						var _p40 = _p39;
+						var _p42 = _p40._1;
+						var _p41 = _p40._0;
+						return (overridable(prop) && _p42) ? {ctor: '_Tuple2', _0: _p41, _1: _p42} : ((overridable(prop) && (!_p42)) ? {
+							ctor: '_Tuple2',
+							_0: {ctor: '::', _0: prop, _1: _p41},
+							_1: true
+						} : {
+							ctor: '_Tuple2',
+							_0: {ctor: '::', _0: prop, _1: _p41},
+							_1: _p42
+						});
+					});
+				return _elm_lang$core$Tuple$first(
+					A3(
+						_elm_lang$core$List$foldr,
+						eliminatePrevious,
+						{
+							ctor: '_Tuple2',
+							_0: {ctor: '[]'},
+							_1: false
+						},
+						props));
+			});
+		var prioritize = F2(
+			function (isPriority, props) {
+				var _p43 = A2(_elm_lang$core$List$partition, isPriority, props);
+				var high = _p43._0;
+				var low = _p43._1;
+				return A2(_elm_lang$core$Basics_ops['++'], low, high);
+			});
+		var shadows = function (prop) {
+			var _p44 = prop;
+			if (_p44.ctor === 'Shadows') {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		var visible = function (prop) {
+			var _p45 = prop;
+			if (_p45.ctor === 'Visibility') {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		var processed = mergeTransforms(
+			mergeShadowsAndFilters(
+				A2(
+					overridePrevious,
+					shadows,
+					A2(
+						prioritize,
+						shadows,
+						A2(
+							overridePrevious,
+							visible,
+							A2(prioritize, visible, _p23._1))))));
+		return A2(_mdgriffith$style_elements$Style_Internal_Model$Style, _p23._0, processed);
+	} else {
+		return style;
+	}
+};
+var _mdgriffith$style_elements$Style_Internal_Render$reorderImportAddReset = F2(
+	function (reset, styles) {
+		var reorder = F2(
+			function (style, _p46) {
+				var _p47 = _p46;
+				var _p50 = _p47._1;
+				var _p49 = _p47._0;
+				var _p48 = style;
+				if (_p48.ctor === 'Import') {
+					return {
+						ctor: '_Tuple2',
+						_0: {ctor: '::', _0: style, _1: _p49},
+						_1: _p50
+					};
+				} else {
+					return {
+						ctor: '_Tuple2',
+						_0: _p49,
+						_1: {ctor: '::', _0: style, _1: _p50}
+					};
+				}
+			});
+		var _p51 = A3(
+			_elm_lang$core$List$foldr,
+			reorder,
+			{
+				ctor: '_Tuple2',
+				_0: {ctor: '[]'},
+				_1: {ctor: '[]'}
+			},
+			styles);
+		var imports = _p51._0;
+		var allStyles = _p51._1;
+		var getFontStyle = function (style) {
+			var _p52 = style;
+			if (_p52.ctor === 'Style') {
+				var forFont = function (prop) {
+					var _p53 = prop;
+					if (_p53.ctor === 'FontFamily') {
+						var forImport = function (font) {
+							var _p54 = font;
+							if (_p54.ctor === 'ImportFont') {
+								return _elm_lang$core$Maybe$Just(_p54._1);
+							} else {
+								return _elm_lang$core$Maybe$Nothing;
+							}
+						};
+						return A2(_elm_lang$core$List$filterMap, forImport, _p53._0);
+					} else {
+						return {ctor: '[]'};
+					}
+				};
+				return A2(_elm_lang$core$List$concatMap, forFont, _p52._1);
+			} else {
+				return {ctor: '[]'};
+			}
+		};
+		var importedFonts = A2(
+			_elm_lang$core$List$map,
+			function (uri) {
+				return _mdgriffith$style_elements$Style_Internal_Model$Import(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'url(\'',
+						A2(_elm_lang$core$Basics_ops['++'], uri, '\')')));
+			},
+			function (_p55) {
+				return _elm_lang$core$Set$toList(
+					_elm_lang$core$Set$fromList(_p55));
+			}(
+				A2(_elm_lang$core$List$concatMap, getFontStyle, styles)));
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			imports,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				importedFonts,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Internal_Model$Reset(reset),
+						_1: {ctor: '[]'}
+					},
+					allStyles)));
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$spacing = function (box) {
+	var name = function () {
+		var _p56 = box;
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'spacing-',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(_p56._0),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'-',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p56._1),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'-',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p56._2),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'-',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p56._3),
+										' > *:not(.nospacing)'))))))));
+	}();
+	return function (cls) {
+		return {
+			ctor: '_Tuple2',
+			_0: name,
+			_1: A2(
+				_elm_lang$core$Basics_ops['++'],
+				'.',
+				A2(_elm_lang$core$Basics_ops['++'], name, cls))
+		};
+	}(
+		A2(
+			_mdgriffith$style_elements$Style_Internal_Render_Css$brace,
+			0,
+			A2(
+				_mdgriffith$style_elements$Style_Internal_Render_Css$prop,
+				2,
+				{
+					ctor: '_Tuple2',
+					_0: 'margin',
+					_1: _mdgriffith$style_elements$Style_Internal_Render_Value$box(box)
+				})));
+};
+var _mdgriffith$style_elements$Style_Internal_Render$class = F2(
+	function (name, props) {
+		var renderedProps = A2(
+			_elm_lang$core$String$join,
+			'\n',
+			A2(
+				_elm_lang$core$List$map,
+				_mdgriffith$style_elements$Style_Internal_Render_Css$prop(2),
+				props));
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'.',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				name,
+				A2(_mdgriffith$style_elements$Style_Internal_Render_Css$brace, 0, renderedProps)));
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$renderStyle = F2(
+	function (guarded, style) {
+		var _p57 = style;
+		switch (_p57.ctor) {
+			case 'Reset':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Free(_p57._0);
+			case 'Import':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Free(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'@import ',
+						A2(_elm_lang$core$Basics_ops['++'], _p57._0, ';')));
+			case 'RawStyle':
+				return _mdgriffith$style_elements$Style_Internal_Intermediate$Free(
+					A2(_mdgriffith$style_elements$Style_Internal_Render$class, _p57._0, _p57._1));
+			default:
+				var guard = function (i) {
+					return guarded ? _mdgriffith$style_elements$Style_Internal_Intermediate$guard(i) : i;
+				};
+				var selector = _mdgriffith$style_elements$Style_Internal_Selector$select(_p57._0);
+				var inter = _mdgriffith$style_elements$Style_Internal_Intermediate$Class(
+					{
+						selector: selector,
+						props: A2(
+							_elm_lang$core$List$map,
+							_mdgriffith$style_elements$Style_Internal_Render$renderProp(selector),
+							_p57._1)
+					});
+				return guard(inter);
+		}
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$stylesheet = F3(
+	function (reset, guard, batched) {
+		return _mdgriffith$style_elements$Style_Internal_Intermediate$finalize(
+			A2(
+				_elm_lang$core$List$map,
+				function (_p58) {
+					return A2(
+						_mdgriffith$style_elements$Style_Internal_Render$renderStyle,
+						guard,
+						_mdgriffith$style_elements$Style_Internal_Render$preprocess(_p58));
+				},
+				A2(
+					_mdgriffith$style_elements$Style_Internal_Render$reorderImportAddReset,
+					reset,
+					_mdgriffith$style_elements$Style_Internal_Batchable$toList(batched))));
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$unbatchedStylesheet = F2(
+	function (guard, styles) {
+		return _mdgriffith$style_elements$Style_Internal_Intermediate$finalize(
+			A2(
+				_elm_lang$core$List$map,
+				function (_p59) {
+					return A2(
+						_mdgriffith$style_elements$Style_Internal_Render$renderStyle,
+						guard,
+						_mdgriffith$style_elements$Style_Internal_Render$preprocess(_p59));
+				},
+				styles));
+	});
+var _mdgriffith$style_elements$Style_Internal_Render$single = F2(
+	function (guard, style) {
+		return function (_p60) {
+			return _mdgriffith$style_elements$Style_Internal_Intermediate$raw(
+				A2(
+					_mdgriffith$style_elements$Style_Internal_Render$renderStyle,
+					guard,
+					_mdgriffith$style_elements$Style_Internal_Render$preprocess(_p60)));
+		}(style);
+	});
+
+var _mdgriffith$style_elements$Style$prepareSheet = function (_p0) {
+	var _p1 = _p0;
+	var _p3 = _p1._0.findable;
+	var variations = F2(
+		function ($class, vs) {
+			var varys = A2(
+				_elm_lang$core$List$map,
+				function (cls) {
+					return {ctor: '_Tuple2', _0: cls, _1: true};
+				},
+				A2(
+					_elm_lang$core$List$map,
+					function (_p2) {
+						return function (vary) {
+							return A3(_mdgriffith$style_elements$Style_Internal_Find$variation, $class, vary, _p3);
+						}(
+							_elm_lang$core$Tuple$first(_p2));
+					},
+					A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, vs)));
+			var parent = A2(_mdgriffith$style_elements$Style_Internal_Find$style, $class, _p3);
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: parent, _1: true},
+				_1: varys
+			};
+		});
+	return {
+		style: function ($class) {
+			return A2(_mdgriffith$style_elements$Style_Internal_Find$style, $class, _p3);
+		},
+		variations: F2(
+			function ($class, varys) {
+				return A2(variations, $class, varys);
+			}),
+		css: _p1._0.css
+	};
+};
+var _mdgriffith$style_elements$Style$pseudo = F2(
+	function (psu, props) {
+		return A2(
+			_mdgriffith$style_elements$Style_Internal_Model$PseudoElement,
+			A2(_elm_lang$core$Basics_ops['++'], ':', psu),
+			props);
+	});
+var _mdgriffith$style_elements$Style$checked = function (props) {
+	return A2(_mdgriffith$style_elements$Style_Internal_Model$PseudoElement, ':checked', props);
+};
+var _mdgriffith$style_elements$Style$focus = function (props) {
+	return A2(_mdgriffith$style_elements$Style_Internal_Model$PseudoElement, ':focus', props);
+};
+var _mdgriffith$style_elements$Style$hover = function (props) {
+	return A2(_mdgriffith$style_elements$Style_Internal_Model$PseudoElement, ':hover', props);
+};
+var _mdgriffith$style_elements$Style$scale = F3(
+	function (x, y, z) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Transform(
+			{
+				ctor: '::',
+				_0: A3(_mdgriffith$style_elements$Style_Internal_Model$Scale, x, y, z),
+				_1: {ctor: '[]'}
+			});
+	});
+var _mdgriffith$style_elements$Style$translate = F3(
+	function (x, y, z) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Transform(
+			{
+				ctor: '::',
+				_0: A3(_mdgriffith$style_elements$Style_Internal_Model$Translate, x, y, z),
+				_1: {ctor: '[]'}
+			});
+	});
+var _mdgriffith$style_elements$Style$rotateAround = F2(
+	function (_p4, angle) {
+		var _p5 = _p4;
+		return _mdgriffith$style_elements$Style_Internal_Model$Transform(
+			{
+				ctor: '::',
+				_0: A4(_mdgriffith$style_elements$Style_Internal_Model$RotateAround, _p5._0, _p5._1, _p5._2, angle),
+				_1: {ctor: '[]'}
+			});
+	});
+var _mdgriffith$style_elements$Style$rotate = function (a) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Transform(
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Internal_Model$Rotate(a),
+			_1: {ctor: '[]'}
+		});
+};
+var _mdgriffith$style_elements$Style$origin = F3(
+	function (x, y, z) {
+		return A2(
+			_mdgriffith$style_elements$Style_Internal_Model$Exact,
+			'transform-origin',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(x),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'px  ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(y),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'px ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(z),
+								'px'))))));
+	});
+var _mdgriffith$style_elements$Style$cursor = function (name) {
+	return A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'cursor', name);
+};
+var _mdgriffith$style_elements$Style$opacity = function (o) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'opacity',
+		_elm_lang$core$Basics$toString(o));
+};
+var _mdgriffith$style_elements$Style$prop = F2(
+	function (name, val) {
+		return A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, name, val);
+	});
+var _mdgriffith$style_elements$Style$variation = F2(
+	function (variation, props) {
+		return A2(_mdgriffith$style_elements$Style_Internal_Model$Variation, variation, props);
+	});
+var _mdgriffith$style_elements$Style$style = F2(
+	function (cls, props) {
+		return _mdgriffith$style_elements$Style_Internal_Batchable$one(
+			A2(
+				_mdgriffith$style_elements$Style_Internal_Model$Style,
+				cls,
+				{
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Style$prop, 'border-style', 'solid'),
+					_1: props
+				}));
+	});
+var _mdgriffith$style_elements$Style$importCss = function (str) {
+	return _mdgriffith$style_elements$Style_Internal_Batchable$one(
+		_mdgriffith$style_elements$Style_Internal_Model$Import(
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'\"',
+				A2(_elm_lang$core$Basics_ops['++'], str, '\"'))));
+};
+var _mdgriffith$style_elements$Style$importUrl = function (url) {
+	return _mdgriffith$style_elements$Style_Internal_Batchable$one(
+		_mdgriffith$style_elements$Style_Internal_Model$Import(
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'url(\"',
+				A2(_elm_lang$core$Basics_ops['++'], url, '\")'))));
+};
+var _mdgriffith$style_elements$Style$Unguarded = {ctor: 'Unguarded'};
+var _mdgriffith$style_elements$Style$unguarded = _mdgriffith$style_elements$Style$Unguarded;
+var _mdgriffith$style_elements$Style$styleSheetWith = F2(
+	function (options, styles) {
+		var unguarded = A2(
+			_elm_lang$core$List$any,
+			F2(
+				function (x, y) {
+					return _elm_lang$core$Native_Utils.eq(x, y);
+				})(_mdgriffith$style_elements$Style$Unguarded),
+			options);
+		return _mdgriffith$style_elements$Style$prepareSheet(
+			A3(_mdgriffith$style_elements$Style_Internal_Render$stylesheet, '', !unguarded, styles));
+	});
+var _mdgriffith$style_elements$Style$styleSheet = function (styles) {
+	return A2(
+		_mdgriffith$style_elements$Style$styleSheetWith,
+		{ctor: '[]'},
+		styles);
+};
+
+var _mdgriffith$style_elements$Element$mainContent = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'main',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
+						_1: {
+							ctor: '::',
+							_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'main'),
+							_1: attrs
+						}
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$sidebar = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'aside',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$Down,
+					{ctor: '[]'}),
+				attrs: {
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'complementary'),
+					_1: attrs
+				},
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$footer = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'footer',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'contentinfo'),
+						_1: attrs
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$header = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'header',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'banner'),
+						_1: attrs
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$navigationColumn = F3(
+	function (style, attrs, _p0) {
+		var _p1 = _p0;
+		var wrap = function (el) {
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				{
+					node: 'li',
+					style: _elm_lang$core$Maybe$Nothing,
+					attrs: {ctor: '[]'},
+					child: el,
+					absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+				});
+		};
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'nav',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'navigation'),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'aria-label', _p1.name),
+						_1: {ctor: '[]'}
+					}
+				},
+				child: _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					{
+						node: 'ul',
+						style: _elm_lang$core$Maybe$Just(style),
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$Down,
+							{ctor: '[]'}),
+						attrs: attrs,
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							A2(_elm_lang$core$List$map, wrap, _p1.options)),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$navigation = F3(
+	function (style, attrs, _p2) {
+		var _p3 = _p2;
+		var wrap = function (el) {
+			return _mdgriffith$style_elements$Element_Internal_Model$Element(
+				{
+					node: 'li',
+					style: _elm_lang$core$Maybe$Nothing,
+					attrs: {ctor: '[]'},
+					child: el,
+					absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+				});
+		};
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'nav',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'navigation'),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'aria-label', _p3.name),
+						_1: {ctor: '[]'}
+					}
+				},
+				child: _mdgriffith$style_elements$Element_Internal_Model$Layout(
+					{
+						node: 'ul',
+						style: _elm_lang$core$Maybe$Just(style),
+						layout: A2(
+							_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+							_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+							{ctor: '[]'}),
+						attrs: attrs,
+						children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+							A2(_elm_lang$core$List$map, wrap, _p3.options)),
+						absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+					}),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$search = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'search'),
+						_1: attrs
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$mapAll = _mdgriffith$style_elements$Element_Internal_Model$mapAll;
+var _mdgriffith$style_elements$Element$map = _mdgriffith$style_elements$Element_Internal_Model$mapMsg;
+var _mdgriffith$style_elements$Element$responsive = F3(
+	function (a, _p5, _p4) {
+		var _p6 = _p5;
+		var _p11 = _p6._0;
+		var _p10 = _p6._1;
+		var _p7 = _p4;
+		var _p9 = _p7._0;
+		var _p8 = _p7._1;
+		if (_elm_lang$core$Native_Utils.cmp(a, _p11) < 1) {
+			return _p9;
+		} else {
+			if (_elm_lang$core$Native_Utils.cmp(a, _p10) > -1) {
+				return _p8;
+			} else {
+				var deltaA = (a - _p11) / (_p10 - _p11);
+				return (deltaA * (_p8 - _p9)) + _p9;
+			}
+		}
+	});
+var _mdgriffith$style_elements$Element$classifyDevice = function (_p12) {
+	var _p13 = _p12;
+	var _p15 = _p13.width;
+	var _p14 = _p13.height;
+	return {
+		width: _p15,
+		height: _p14,
+		phone: _elm_lang$core$Native_Utils.cmp(_p15, 600) < 1,
+		tablet: (_elm_lang$core$Native_Utils.cmp(_p15, 600) > 0) && (_elm_lang$core$Native_Utils.cmp(_p15, 1200) < 1),
+		desktop: (_elm_lang$core$Native_Utils.cmp(_p15, 1200) > 0) && (_elm_lang$core$Native_Utils.cmp(_p15, 1800) < 1),
+		bigDesktop: _elm_lang$core$Native_Utils.cmp(_p15, 1800) > 0,
+		portrait: _elm_lang$core$Native_Utils.cmp(_p15, _p14) < 0
+	};
+};
+var _mdgriffith$style_elements$Element$embedStylesheet = function (sheet) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		A2(_mdgriffith$style_elements$Element_Internal_Render$embed, false, sheet));
+};
+var _mdgriffith$style_elements$Element$toHtml = F2(
+	function (stylesheet, el) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{ctor: '[]'},
+			A2(_mdgriffith$style_elements$Element_Internal_Render$render, stylesheet, el));
+	});
+var _mdgriffith$style_elements$Element$viewport = _mdgriffith$style_elements$Element_Internal_Render$viewport;
+var _mdgriffith$style_elements$Element$layout = _mdgriffith$style_elements$Element_Internal_Render$root;
+var _mdgriffith$style_elements$Element$onLeft = F2(
+	function (nearbys, parent) {
+		var position = F2(
+			function (el, p) {
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Modify$addChild,
+					p,
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Modify$removeAttrs,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Right),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Left),
+								_1: {ctor: '[]'}
+							}
+						},
+						A2(
+							_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+							_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+								_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$OnLeft)),
+							_mdgriffith$style_elements$Element_Internal_Modify$wrapHtml(el))));
+			});
+		return A3(_elm_lang$core$List$foldr, position, parent, nearbys);
+	});
+var _mdgriffith$style_elements$Element$onRight = F2(
+	function (nearbys, parent) {
+		var position = F2(
+			function (el, p) {
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Modify$addChild,
+					p,
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Modify$removeAttrs,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Right),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$HAlign(_mdgriffith$style_elements$Element_Internal_Model$Left),
+								_1: {ctor: '[]'}
+							}
+						},
+						A2(
+							_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+							_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+								_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$OnRight)),
+							_mdgriffith$style_elements$Element_Internal_Modify$wrapHtml(el))));
+			});
+		return A3(_elm_lang$core$List$foldr, position, parent, nearbys);
+	});
+var _mdgriffith$style_elements$Element$below = F2(
+	function (nearbys, parent) {
+		var position = F2(
+			function (el, p) {
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Modify$addChild,
+					p,
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Modify$removeAttrs,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Top),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Bottom),
+								_1: {ctor: '[]'}
+							}
+						},
+						A2(
+							_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+							_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+								_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Below)),
+							_mdgriffith$style_elements$Element_Internal_Modify$wrapHtml(el))));
+			});
+		return A3(_elm_lang$core$List$foldr, position, parent, nearbys);
+	});
+var _mdgriffith$style_elements$Element$above = F2(
+	function (nearbys, parent) {
+		var position = F2(
+			function (el, p) {
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Modify$addChild,
+					p,
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Modify$removeAttrs,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Top),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$VAlign(_mdgriffith$style_elements$Element_Internal_Model$Bottom),
+								_1: {ctor: '[]'}
+							}
+						},
+						A2(
+							_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+							_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+								_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Above)),
+							_mdgriffith$style_elements$Element_Internal_Modify$wrapHtml(el))));
+			});
+		return A3(_elm_lang$core$List$foldr, position, parent, nearbys);
+	});
+var _mdgriffith$style_elements$Element$within = F2(
+	function (nearbys, parent) {
+		var position = F2(
+			function (el, p) {
+				return A2(
+					_mdgriffith$style_elements$Element_Internal_Modify$addChild,
+					p,
+					A2(
+						_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+						_mdgriffith$style_elements$Element_Internal_Model$PositionFrame(
+							_mdgriffith$style_elements$Element_Internal_Model$Nearby(_mdgriffith$style_elements$Element_Internal_Model$Within)),
+						_mdgriffith$style_elements$Element_Internal_Modify$wrapHtml(el)));
+			});
+		return A3(_elm_lang$core$List$foldr, position, parent, nearbys);
+	});
+var _mdgriffith$style_elements$Element$downloadAs = F2(
+	function (_p16, el) {
+		var _p17 = _p16;
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'a',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$href(_p17.src)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+							_elm_lang$html$Html_Attributes$downloadAs(_p17.filename)),
+						_1: {ctor: '[]'}
+					}
+				},
+				child: el,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$download = F2(
+	function (src, el) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'a',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$href(src)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+							_elm_lang$html$Html_Attributes$download(true)),
+						_1: {ctor: '[]'}
+					}
+				},
+				child: el,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$newTab = F2(
+	function (src, el) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'a',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$href(src)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+							_elm_lang$html$Html_Attributes$rel('noopener noreferrer')),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+								_elm_lang$html$Html_Attributes$target('_blank')),
+							_1: {ctor: '[]'}
+						}
+					}
+				},
+				child: el,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$link = F2(
+	function (src, el) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'a',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$href(src)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+							_elm_lang$html$Html_Attributes$rel('noopener noreferrer')),
+						_1: {ctor: '[]'}
+					}
+				},
+				child: el,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$spanAll = function (name) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Named,
+		_mdgriffith$style_elements$Style_Internal_Model$SpanAll,
+		_elm_lang$core$Maybe$Just(name));
+};
+var _mdgriffith$style_elements$Element$span = F2(
+	function (i, name) {
+		return A2(
+			_mdgriffith$style_elements$Style_Internal_Model$Named,
+			_mdgriffith$style_elements$Style_Internal_Model$SpanJust(i),
+			_elm_lang$core$Maybe$Just(name));
+	});
+var _mdgriffith$style_elements$Element$named = F2(
+	function (name, el) {
+		return _mdgriffith$style_elements$Element_Internal_Model$NamedOnGrid(
+			A2(
+				_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+				_mdgriffith$style_elements$Element_Internal_Model$GridArea(name),
+				el));
+	});
+var _mdgriffith$style_elements$Element$cell = function (box) {
+	var coords = {start: box.start, width: box.width, height: box.height};
+	return _mdgriffith$style_elements$Element_Internal_Model$OnGrid(
+		A2(
+			_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+			_mdgriffith$style_elements$Element_Internal_Model$GridCoords(
+				_mdgriffith$style_elements$Style_Internal_Model$GridPosition(coords)),
+			box.content));
+};
+var _mdgriffith$style_elements$Element$namedGrid = F3(
+	function (style, attrs, config) {
+		var forSpacing = function (attr) {
+			var _p18 = attr;
+			if (_p18.ctor === 'Spacing') {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		var _p19 = A2(_elm_lang$core$List$partition, forSpacing, attrs);
+		var spacing = _p19._0;
+		var notSpacingAttrs = _p19._1;
+		var gridAttributes = function () {
+			var _p20 = _elm_lang$core$List$head(
+				_elm_lang$core$List$reverse(spacing));
+			if (_p20.ctor === 'Nothing') {
+				return {ctor: '[]'};
+			} else {
+				if (_p20._0.ctor === 'Spacing') {
+					return {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Style_Internal_Model$GridGap, _p20._0._0, _p20._0._1),
+						_1: {ctor: '[]'}
+					};
+				} else {
+					return {ctor: '[]'};
+				}
+			}
+		}();
+		var prepare = function (el) {
+			return _mdgriffith$style_elements$Element_Internal_Model$Normal(
+				A2(
+					_elm_lang$core$List$map,
+					function (_p21) {
+						var _p22 = _p21;
+						return _p22._0;
+					},
+					el));
+		};
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Grid,
+					_mdgriffith$style_elements$Style_Internal_Model$NamedGridTemplate(
+						{rows: config.rows, columns: config.columns}),
+					gridAttributes),
+				attrs: notSpacingAttrs,
+				children: prepare(config.cells),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$grid = F3(
+	function (style, attrs, config) {
+		var forSpacing = function (attr) {
+			var _p23 = attr;
+			if (_p23.ctor === 'Spacing') {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		var _p24 = A2(_elm_lang$core$List$partition, forSpacing, attrs);
+		var spacing = _p24._0;
+		var notSpacingAttrs = _p24._1;
+		var gridAttributes = function () {
+			var _p25 = _elm_lang$core$List$head(
+				_elm_lang$core$List$reverse(spacing));
+			if (_p25.ctor === 'Nothing') {
+				return {ctor: '[]'};
+			} else {
+				if (_p25._0.ctor === 'Spacing') {
+					return {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Style_Internal_Model$GridGap, _p25._0._0, _p25._0._1),
+						_1: {ctor: '[]'}
+					};
+				} else {
+					return {ctor: '[]'};
+				}
+			}
+		}();
+		var prepare = function (el) {
+			return _mdgriffith$style_elements$Element_Internal_Model$Normal(
+				A2(
+					_elm_lang$core$List$map,
+					function (_p26) {
+						var _p27 = _p26;
+						return _p27._0;
+					},
+					el));
+		};
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$Grid,
+					_mdgriffith$style_elements$Style_Internal_Model$GridTemplate(
+						{rows: config.rows, columns: config.columns}),
+					gridAttributes),
+				attrs: notSpacingAttrs,
+				children: prepare(config.cells),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$table = F3(
+	function (style, attrs, rows) {
+		var children = _elm_lang$core$List$concat(
+			A2(
+				_elm_lang$core$List$indexedMap,
+				F2(
+					function (row, columns) {
+						return A2(
+							_elm_lang$core$List$indexedMap,
+							F2(
+								function (col, content) {
+									return _mdgriffith$style_elements$Element$cell(
+										{
+											start: {ctor: '_Tuple2', _0: row, _1: col},
+											width: 1,
+											height: 1,
+											content: content
+										});
+								}),
+							columns);
+					}),
+				rows));
+		return A3(
+			_mdgriffith$style_elements$Element$grid,
+			style,
+			attrs,
+			{
+				columns: {ctor: '[]'},
+				rows: {ctor: '[]'},
+				cells: children
+			});
+	});
+var _mdgriffith$style_elements$Element$wrappedColumn = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$Down,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Internal_Model$Wrap(true),
+						_1: {ctor: '[]'}
+					}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$wrappedRow = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Internal_Model$Wrap(true),
+						_1: {ctor: '[]'}
+					}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$column = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$Down,
+					{ctor: '[]'}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$row = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$GoRight,
+					{ctor: '[]'}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$paragraph = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'p',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: _mdgriffith$style_elements$Style_Internal_Model$TextLayout(false),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+					A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Element_Internal_Modify$makeInline, children)),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$textLayout = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: _mdgriffith$style_elements$Style_Internal_Model$TextLayout(true),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(children),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$full = F3(
+	function (elem, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(elem),
+				attrs: {ctor: '::', _0: _mdgriffith$style_elements$Element_Internal_Model$Expand, _1: attrs},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h6 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h6',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h5 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h5',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h4 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h4',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h3 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h3',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h2 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h2',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$h1 = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'h1',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$button = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'button',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$class('button-focus'),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$inlineStyle(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'cursor', _1: 'pointer'},
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$toAttr(
+								_elm_lang$html$Html_Attributes$tabindex(0)),
+							_1: attrs
+						}
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$node = function (str) {
+	return _mdgriffith$style_elements$Element_Internal_Modify$setNode(str);
+};
+var _mdgriffith$style_elements$Element$html = _mdgriffith$style_elements$Element_Internal_Model$Raw;
+var _mdgriffith$style_elements$Element$spacer = _mdgriffith$style_elements$Element_Internal_Model$Spacer;
+var _mdgriffith$style_elements$Element$circle = F4(
+	function (radius, style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$style(
+							{
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'border-radius',
+									_1: A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(radius),
+										'px')
+								},
+								_1: {ctor: '[]'}
+							})),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+							_mdgriffith$style_elements$Style_Internal_Model$Px(2 * radius)),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+								_mdgriffith$style_elements$Style_Internal_Model$Px(2 * radius)),
+							_1: attrs
+						}
+					}
+				},
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$aside = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'aside',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$article = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'article',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$section = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'section',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$el = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: child,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$bulleted = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'ul',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$Down,
+					{ctor: '[]'}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+					A2(
+						_elm_lang$core$List$map,
+						function (_p28) {
+							return A2(
+								_mdgriffith$style_elements$Element_Internal_Modify$setNode,
+								'li',
+								A2(
+									_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+									_mdgriffith$style_elements$Element_Attributes$inlineStyle(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'display', _1: 'list-item'},
+											_1: {ctor: '[]'}
+										}),
+									_p28));
+						},
+						children)),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$numbered = F3(
+	function (style, attrs, children) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Layout(
+			{
+				node: 'ol',
+				style: _elm_lang$core$Maybe$Just(style),
+				layout: A2(
+					_mdgriffith$style_elements$Style_Internal_Model$FlexLayout,
+					_mdgriffith$style_elements$Style_Internal_Model$Down,
+					{ctor: '[]'}),
+				attrs: attrs,
+				children: _mdgriffith$style_elements$Element_Internal_Model$Normal(
+					A2(
+						_elm_lang$core$List$map,
+						function (_p29) {
+							return A2(
+								_mdgriffith$style_elements$Element_Internal_Modify$setNode,
+								'li',
+								A2(
+									_mdgriffith$style_elements$Element_Internal_Modify$addAttr,
+									_mdgriffith$style_elements$Element_Attributes$inlineStyle(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'display', _1: 'list-item'},
+											_1: {ctor: '[]'}
+										}),
+									_p29));
+						},
+						children)),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$super = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Super, inline: false});
+var _mdgriffith$style_elements$Element$sub = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Sub, inline: false});
+var _mdgriffith$style_elements$Element$underline = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Underline, inline: false});
+var _mdgriffith$style_elements$Element$strike = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Strike, inline: false});
+var _mdgriffith$style_elements$Element$italic = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Italic, inline: false});
+var _mdgriffith$style_elements$Element$bold = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$Bold, inline: false});
+var _mdgriffith$style_elements$Element$text = _mdgriffith$style_elements$Element_Internal_Model$Text(
+	{decoration: _mdgriffith$style_elements$Element_Internal_Model$NoDecoration, inline: false});
+var _mdgriffith$style_elements$Element$subheading = F3(
+	function (style, attrs, str) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'p',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: attrs,
+				child: _mdgriffith$style_elements$Element$text(str),
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$empty = _mdgriffith$style_elements$Element_Internal_Model$Empty;
+var _mdgriffith$style_elements$Element$image = F3(
+	function (style, attrs, _p30) {
+		var _p31 = _p30;
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'img',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$src(_p31.src)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+							_elm_lang$html$Html_Attributes$alt(_p31.caption)),
+						_1: attrs
+					}
+				},
+				child: _mdgriffith$style_elements$Element$empty,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$decorativeImage = F3(
+	function (style, attrs, _p32) {
+		var _p33 = _p32;
+		return _mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'img',
+				style: _elm_lang$core$Maybe$Just(style),
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$Attr(
+						_elm_lang$html$Html_Attributes$src(_p33.src)),
+					_1: attrs
+				},
+				child: _mdgriffith$style_elements$Element$empty,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _mdgriffith$style_elements$Element$hairline = function (style) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Element(
+		{
+			node: 'hr',
+			style: _elm_lang$core$Maybe$Just(style),
+			attrs: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+					_mdgriffith$style_elements$Style_Internal_Model$Px(1)),
+				_1: {ctor: '[]'}
+			},
+			child: _mdgriffith$style_elements$Element$empty,
+			absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+		});
+};
+var _mdgriffith$style_elements$Element$when = F2(
+	function (bool, elm) {
+		return bool ? elm : _mdgriffith$style_elements$Element$empty;
+	});
+var _mdgriffith$style_elements$Element$whenJust = F2(
+	function (maybe, view) {
+		var _p34 = maybe;
+		if (_p34.ctor === 'Nothing') {
+			return _mdgriffith$style_elements$Element$empty;
+		} else {
+			return view(_p34._0);
+		}
+	});
+var _mdgriffith$style_elements$Element$screen = function (el) {
+	return A2(
+		_mdgriffith$style_elements$Element$within,
+		{
+			ctor: '::',
+			_0: el,
+			_1: {ctor: '[]'}
+		},
+		_mdgriffith$style_elements$Element_Internal_Model$Element(
+			{
+				node: 'div',
+				style: _elm_lang$core$Maybe$Nothing,
+				attrs: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Internal_Model$PositionFrame(_mdgriffith$style_elements$Element_Internal_Model$Screen),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Internal_Model$Width(
+							A2(_mdgriffith$style_elements$Style_Internal_Model$Calc, 100, 0)),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Internal_Model$Height(
+								A2(_mdgriffith$style_elements$Style_Internal_Model$Calc, 100, 0)),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Internal_Model$PointerEvents(false),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				},
+				child: _mdgriffith$style_elements$Element$empty,
+				absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+			}));
+};
+var _mdgriffith$style_elements$Element$modal = F3(
+	function (style, attrs, child) {
+		return _mdgriffith$style_elements$Element$screen(
+			_mdgriffith$style_elements$Element_Internal_Model$Element(
+				{
+					node: 'div',
+					style: _elm_lang$core$Maybe$Just(style),
+					attrs: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'alertdialog'),
+						_1: {
+							ctor: '::',
+							_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'aria-modal', 'true'),
+							_1: attrs
+						}
+					},
+					child: child,
+					absolutelyPositioned: _elm_lang$core$Maybe$Nothing
+				}));
+	});
+var _mdgriffith$style_elements$Element$Grid = F3(
+	function (a, b, c) {
+		return {rows: a, columns: b, cells: c};
+	});
+var _mdgriffith$style_elements$Element$NamedGrid = F3(
+	function (a, b, c) {
+		return {rows: a, columns: b, cells: c};
+	});
+var _mdgriffith$style_elements$Element$GridPosition = F4(
+	function (a, b, c, d) {
+		return {start: a, width: b, height: c, content: d};
+	});
+var _mdgriffith$style_elements$Element$Device = F7(
+	function (a, b, c, d, e, f, g) {
+		return {width: a, height: b, phone: c, tablet: d, desktop: e, bigDesktop: f, portrait: g};
+	});
+
+var _mdgriffith$style_elements$Element_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _mdgriffith$style_elements$Element_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _mdgriffith$style_elements$Element_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _mdgriffith$style_elements$Element_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _mdgriffith$style_elements$Element_Events$onWithOptions = F3(
+	function (event, options, decode) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Event(
+			A3(_elm_lang$html$Html_Events$onWithOptions, event, options, decode));
+	});
+var _mdgriffith$style_elements$Element_Events$on = F2(
+	function (event, decode) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Event(
+			A2(_elm_lang$html$Html_Events$on, event, decode));
+	});
+var _mdgriffith$style_elements$Element_Events$onFocus = function (_p0) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onFocus(_p0));
+};
+var _mdgriffith$style_elements$Element_Events$onBlur = function (_p1) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onBlur(_p1));
+};
+var _mdgriffith$style_elements$Element_Events$onSubmit = function (_p2) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onSubmit(_p2));
+};
+var _mdgriffith$style_elements$Element_Events$onCheck = function (_p3) {
+	return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+		_elm_lang$html$Html_Events$onCheck(_p3));
+};
+var _mdgriffith$style_elements$Element_Events$onInput = function (_p4) {
+	return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+		_elm_lang$html$Html_Events$onInput(_p4));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseOut = function (_p5) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseOut(_p5));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseOver = function (_p6) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseOver(_p6));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseLeave = function (_p7) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseLeave(_p7));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseEnter = function (_p8) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseEnter(_p8));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseUp = function (_p9) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseUp(_p9));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseDown = function (_p10) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseDown(_p10));
+};
+var _mdgriffith$style_elements$Element_Events$onDoubleClick = function (_p11) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onDoubleClick(_p11));
+};
+var _mdgriffith$style_elements$Element_Events$onClick = function (_p12) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onClick(_p12));
+};
+var _mdgriffith$style_elements$Element_Events$event = _mdgriffith$style_elements$Element_Internal_Model$Event;
+var _mdgriffith$style_elements$Element_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
+var _mdgriffith$style_elements$Style_Border$roundBottomLeft = function (x) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-bottom-left-radius',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(x),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$roundBottomRight = function (x) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-bottom-right-radius',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(x),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$roundTopRight = function (x) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-top-right-radius',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(x),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$roundTopLeft = function (x) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-top-left-radius',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(x),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$rounded = function (box) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-radius',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(box),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$dotted = A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'border-style', 'dotted');
+var _mdgriffith$style_elements$Style_Border$dashed = A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'border-style', 'dashed');
+var _mdgriffith$style_elements$Style_Border$solid = A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'border-style', 'solid');
+var _mdgriffith$style_elements$Style_Border$none = A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'border-width', '0');
+var _mdgriffith$style_elements$Style_Border$bottom = function (l) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-bottom-width',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(l),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$top = function (l) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-top-width',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(l),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$right = function (l) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-right-width',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(l),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$left = function (l) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-left-width',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(l),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Border$all = function (v) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-width',
+		_mdgriffith$style_elements$Style_Internal_Render_Value$box(
+			{ctor: '_Tuple4', _0: v, _1: v, _2: v, _3: v}));
+};
+
+var _mdgriffith$style_elements$Style_Color$placeholder = function (clr) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$PseudoElement,
+		'::placeholder',
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Internal_Model$TextColor(clr),
+			_1: {
+				ctor: '::',
+				_0: A2(_mdgriffith$style_elements$Style_Internal_Model$Exact, 'opacity', '1'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _mdgriffith$style_elements$Style_Color$selection = function (clr) {
+	return _mdgriffith$style_elements$Style_Internal_Model$SelectionColor(clr);
+};
+var _mdgriffith$style_elements$Style_Color$decoration = function (clr) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'text-decoration-color',
+		_mdgriffith$style_elements$Style_Internal_Render_Value$color(clr));
+};
+var _mdgriffith$style_elements$Style_Color$cursor = function (clr) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'cursor-color',
+		_mdgriffith$style_elements$Style_Internal_Render_Value$color(clr));
+};
+var _mdgriffith$style_elements$Style_Color$border = function (clr) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'border-color',
+		_mdgriffith$style_elements$Style_Internal_Render_Value$color(clr));
+};
+var _mdgriffith$style_elements$Style_Color$background = function (clr) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Exact,
+		'background-color',
+		_mdgriffith$style_elements$Style_Internal_Render_Value$color(clr));
+};
+var _mdgriffith$style_elements$Style_Color$text = _mdgriffith$style_elements$Style_Internal_Model$TextColor;
+
+var _mdgriffith$style_elements$Style_Font$lowercase = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-transform', 'lowercase');
+var _mdgriffith$style_elements$Style_Font$capitalize = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-transform', 'capitalize');
+var _mdgriffith$style_elements$Style_Font$uppercase = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-transform', 'uppercase');
+var _mdgriffith$style_elements$Style_Font$weight = function (fontWeight) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Font,
+		'font-weight',
+		_elm_lang$core$Basics$toString(fontWeight));
+};
+var _mdgriffith$style_elements$Style_Font$light = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'font-weight', '300');
+var _mdgriffith$style_elements$Style_Font$bold = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'font-weight', '700');
+var _mdgriffith$style_elements$Style_Font$italic = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'font-style', 'italic');
+var _mdgriffith$style_elements$Style_Font$strike = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-decoration', 'line-through');
+var _mdgriffith$style_elements$Style_Font$underline = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-decoration', 'underline');
+var _mdgriffith$style_elements$Style_Font$justifyAll = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-align', 'justify-all');
+var _mdgriffith$style_elements$Style_Font$justify = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-align', 'justify');
+var _mdgriffith$style_elements$Style_Font$center = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-align', 'center');
+var _mdgriffith$style_elements$Style_Font$alignRight = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-align', 'right');
+var _mdgriffith$style_elements$Style_Font$alignLeft = A2(_mdgriffith$style_elements$Style_Internal_Model$Font, 'text-align', 'left');
+var _mdgriffith$style_elements$Style_Font$wordSpacing = function (offset) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Font,
+		'word-spacing',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(offset),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Font$letterSpacing = function (offset) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Font,
+		'letter-spacing',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(offset),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Font$lineHeight = function (height) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Font,
+		'line-height',
+		_elm_lang$core$Basics$toString(height));
+};
+var _mdgriffith$style_elements$Style_Font$size = function (size) {
+	return A2(
+		_mdgriffith$style_elements$Style_Internal_Model$Font,
+		'font-size',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(size),
+			'px'));
+};
+var _mdgriffith$style_elements$Style_Font$importUrl = function (_p0) {
+	var _p1 = _p0;
+	return A2(_mdgriffith$style_elements$Style_Internal_Model$ImportFont, _p1.name, _p1.url);
+};
+var _mdgriffith$style_elements$Style_Font$font = _mdgriffith$style_elements$Style_Internal_Model$FontName;
+var _mdgriffith$style_elements$Style_Font$monospace = _mdgriffith$style_elements$Style_Internal_Model$Monospace;
+var _mdgriffith$style_elements$Style_Font$fantasy = _mdgriffith$style_elements$Style_Internal_Model$Fantasy;
+var _mdgriffith$style_elements$Style_Font$cursive = _mdgriffith$style_elements$Style_Internal_Model$Cursive;
+var _mdgriffith$style_elements$Style_Font$sansSerif = _mdgriffith$style_elements$Style_Internal_Model$SansSerif;
+var _mdgriffith$style_elements$Style_Font$serif = _mdgriffith$style_elements$Style_Internal_Model$Serif;
+var _mdgriffith$style_elements$Style_Font$typeface = function (families) {
+	return _mdgriffith$style_elements$Style_Internal_Model$FontFamily(families);
+};
+
+var _user$project$Content$Entry = F4(
+	function (a, b, c, d) {
+		return {id: a, hu: b, en: c, de: d};
+	});
+var _user$project$Content$CosmeticServices = {ctor: 'CosmeticServices'};
+var _user$project$Content$ProsthesesServices = {ctor: 'ProsthesesServices'};
+var _user$project$Content$ReparatoryServices = {ctor: 'ReparatoryServices'};
+var _user$project$Content$CosmeticServicesHeader = {ctor: 'CosmeticServicesHeader'};
+var _user$project$Content$ProsthesesServicesHeader = {ctor: 'ProsthesesServicesHeader'};
+var _user$project$Content$ReparatoryServicesHeader = {ctor: 'ReparatoryServicesHeader'};
+var _user$project$Content$WarrantyParagraph = {ctor: 'WarrantyParagraph'};
+var _user$project$Content$IntroductionParagraph = {ctor: 'IntroductionParagraph'};
+var _user$project$Content$WarrantyButton = {ctor: 'WarrantyButton'};
+var _user$project$Content$IntroductionButton = {ctor: 'IntroductionButton'};
+var _user$project$Content$PortraitAlt = {ctor: 'PortraitAlt'};
+var _user$project$Content$OpeningTime2 = {ctor: 'OpeningTime2'};
+var _user$project$Content$OpeningDays2 = {ctor: 'OpeningDays2'};
+var _user$project$Content$OpeningTime1 = {ctor: 'OpeningTime1'};
+var _user$project$Content$OpeningDays1 = {ctor: 'OpeningDays1'};
+var _user$project$Content$OpeningHoursHeader = {ctor: 'OpeningHoursHeader'};
+var _user$project$Content$AddressLine = {ctor: 'AddressLine'};
+var _user$project$Content$ContactHeader = {ctor: 'ContactHeader'};
+var _user$project$Content$GalleryMenu = {ctor: 'GalleryMenu'};
+var _user$project$Content$ServiceMenu = {ctor: 'ServiceMenu'};
+var _user$project$Content$IntroductionMenu = {ctor: 'IntroductionMenu'};
+var _user$project$Content$ContactMenu = {ctor: 'ContactMenu'};
+var _user$project$Content$LogoAlt = {ctor: 'LogoAlt'};
+var _user$project$Content$entries = {
+	ctor: '::',
+	_0: A4(_user$project$Content$Entry, _user$project$Content$LogoAlt, 'Vektoros kép egy panda fejről', 'Vector image of a panda head', ''),
+	_1: {
+		ctor: '::',
+		_0: A4(_user$project$Content$Entry, _user$project$Content$ContactMenu, 'Kapcsolat', 'Contact', 'Kontakt'),
+		_1: {
+			ctor: '::',
+			_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionMenu, 'Rólunk', 'About', 'Über uns'),
+			_1: {
+				ctor: '::',
+				_0: A4(_user$project$Content$Entry, _user$project$Content$ServiceMenu, 'Szolgáltatások', 'Services', 'Dienstleistungen'),
+				_1: {
+					ctor: '::',
+					_0: A4(_user$project$Content$Entry, _user$project$Content$GalleryMenu, 'Galléria', 'Gallery', 'Fotogallerie'),
+					_1: {
+						ctor: '::',
+						_0: A4(_user$project$Content$Entry, _user$project$Content$ContactHeader, 'Kapcsolat', 'Contact', 'Kontakt'),
+						_1: {
+							ctor: '::',
+							_0: A4(_user$project$Content$Entry, _user$project$Content$AddressLine, '2 Petőfi Sándor str. Hidas 7696', 'Hidas, Petőfi Sándor u. 2, 7696', 'Petőfi Sándor str. 2, 7696, Hidas'),
+							_1: {
+								ctor: '::',
+								_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningHoursHeader, 'Nyitvatartás', 'Opening Hours', 'Öffnungszeiten'),
 								_1: {
 									ctor: '::',
-									_0: indentLevel,
+									_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningDays1, 'Hétfő, Csütörtök', 'Monday, Thrusday', 'Montag, Donnerstag'),
 									_1: {
 										ctor: '::',
-										_0: '}',
+										_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningTime1, '    12 - 18', '  12 p.m - 6 p.m', '    12 - 18'),
+										_1: {
+											ctor: '::',
+											_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningDays2, 'Kedd, Szerda, Péntek', 'Tuesday, Wednesday, Friday', 'Dienstag, Mittwoch, Freitag'),
+											_1: {
+												ctor: '::',
+												_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningTime2, '    8 - 14', '  8 a.m - 2 p.m', '    8 - 14'),
+												_1: {
+													ctor: '::',
+													_0: A4(_user$project$Content$Entry, _user$project$Content$PortraitAlt, 'Portré Dr. Császár Mercedes Melanieról', 'A portrait from Dr. Mercedes Melanie Császár', ''),
+													_1: {
+														ctor: '::',
+														_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionButton, 'Bemutatkozás', 'Introduction', 'Einführung'),
+														_1: {
+															ctor: '::',
+															_0: A4(_user$project$Content$Entry, _user$project$Content$WarrantyButton, 'Garancia', 'Warranty', 'Garantie'),
+															_1: {
+																ctor: '::',
+																_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionParagraph, ' 2014-ben végeztem a Pécsi Tudományegyetem Fogorvostudományi Szakán.\n\nSzeretném a megszerzett tudásomat kamatoztatni, folyamatosan fejlődni és a legjobb tudásom szerint pácienseim állapotán javítani, gyógyítani. Parxisom megnyitásával szeretnék lehetőséget biztosítani mindenki számára, hogy minőségi és magas színvonalon történő ellátásban részesülhessen.\n\nElsősorban az esztétikai fogászat és a fogpótlástan tudománya áll közel hozzám, de a specializáltabb parodontális kezelések, fogszabályozás, szájsebészeti beavatkozások terén is segítségére sietek bárkinek, szükség esetén gondos kollégákhoz irányítva\n\nMivel a fogak egészségének és szépségének megőrzése közös feladatunk, munkám során rendszeres és részletes tájékoztatást adok az Ön kezeléseiről, állapotáról. Kérdéseire készséggel válaszolok. Amikor lehetséges, több megoldást is felkínálok az adott problémára, mellyel kapcsolatban a döntést Ön hozhatja meg az információk ismeretében\n\nRendelőmet a modern fogászati eljárások igényeinek megfelelően szereltem fel. Emellett a kényelem is fontos szempont volt közös munkánk terének kialakításában, így egy tágas, otthonos helyen üdvözlöm Önt\n    ', ' I graduated from the University of Pécs in 2014 as a D.M.D.\n\n I want to use everything I learnt to help my patients to the best of my abilities, while maintaining a continous development of my skills. I am opening my practice to give everyone the opportunity of getting quality care and high standard treatments\n\nMy main fields of interest are Aesthetical Dentistry and Prosthodontics, and above that I can help you with certain problems in the fields of Oral Surgery, Periodontology and Orthodontology. When necessary, I can offer the help of colleagues with expertise in multiple faculties outside my main practice.\n\nBecause it is our shared task to maintain your beautiful and healthy smile, it is a priority for me to give you thorough information on a regular basis about your condition and your treatments. Your questions are always wellcome. Whenever possible, I offer multiple treatment options, so you can gain control over your healing using the information provided\n\nMy office is modern and well-equipped, and, as your comfort is also important, I greet you in a spatious and homely waiting room.\n', '## Deutsche Übersetzung kommt bald'),
+																_1: {
+																	ctor: '::',
+																	_0: A4(_user$project$Content$Entry, _user$project$Content$WarrantyParagraph, '\n### Rendelőnk a fogászatban elfogadott, modern kezelési elveknek megfelelve - garanciát vállal:\n- Esztétikus fogszínű tömésekre\n- Betétekre (inlay, onlay, overlay)\n- Koronákra/hidakra\n\n### Mit is jelent ez pontosan?\n\nAmennyiben a fentebb említett ellátási módok során a pótlás, vagy az ellátott fog (az esetlegesen szükségszerűvé váló gyökérkezelés nem tartozik ide) károsodik, a rendeltetésszerű használat mellett le-, vagy eltörik, meglazul, megreped ingyenesen helyreállítjuk.\n\n### A garancia abban az esetben érvényes, ha a beteg vállalja\n\n- Fogait megfelelően ápolja, tisztítja.\n- Ellenőrzésen 6 havonta (illetve ha azt az orvos másként nem rendeli) megjelenik,\n- A javasolt állapotfenntartó kezeléseket elfogadja és elvégezteti, pl. fogkő-eltávolítás, fogágykezelés stb.\n\n### Nem érvényes a garancia:\n\n- Nem a rendelőben készült gyökértömésekre ill. ezek következtében létrejött károsodásokra.\n- A rendelőben készült pótlások problémáira, amelyeket más fogorvos javítani próbált.\n- A kezelést megelőzően nem ismert allergiákra, általános betegségekre és következményeikre pl.: fogágybetegség, tályog, cysta, gyökércsúcsi felritkulás következtében nem megtartható fog és ezáltal az általunk elkészített pótlás elvesztése.\n- Gyulladások (fogíny, fogágy, gyökér) következményeképpen létrejövő szükségszerű fogeltávolítás, mely az elkészült tömést, pótlást érinti.\n- Elszíneződésre, mely dohányzásból, kávé vagy tea fogyasztásából adódik.\n- Extrém igénybevételre pl.: éjszakai fogcsikorgatás\n- Olyan tömésekre, melyekre hosszú távú megoldásként betét vagy korona javasolt.\n- Rendellenes használatra, baleseti sérülésre.\n\nKivehető protézisek készítése 4-5 évente javasolt (mivel baktériumok telepednek meg a szemmel nem látható mikrosérülésekben, melyek tisztítása lehetetlennek minősített).\n\n\n           ', '### Our office, according to modern treatment principles, offers a gurantee on:\n\n- Composite fillings\n- Inlays, onlays or overlays\n- Detal crowns/bridges\n\n### What does this mean?\nIn case of damage, cracks, chips, breaks, relaxation of the above mentioned, the restoration is free of charge.\n\n### The guarantee is only applicable if the patient:\n\n- Excercises proper dental health.\n- Takes part in regular checkups (at least every 6 months, except advised othervise).\n- Accepts and goes under suggested followup treatments (eg. calculus removal, periodontal treatment)\n\n### The guarantee is invalidated in the case of:\n\n- Root canal treatments made not in this  dentist’s office.\n- Any of the above mentioned (filling, inlay, crown, denture….) installed in this practice and reparatory treatments were made on by other practitioners.\n- Unkown allergies, diseases and other medical conditions resulting loss of teeth, or following medical conditions.\n- Gingival, periodontal inflammations or abscesses, therefore the removal of previously treated teeth.\n- Discoloration of smoking or consumption of tea or coffee.\n- Extreme stress (eg. nocturnal teeth grinding).\n- Temporary filling falls out.\n- Accidental damage, or mistreatment by patient.\n\nDentures are required to be replaced every 4-5 years, because microfissures on the surface become impossible to be cleaned of bacterial growth.\n\n', '## Deutsche Übersetzung kommt bald'),
+																	_1: {
+																		ctor: '::',
+																		_0: A4(_user$project$Content$Entry, _user$project$Content$ReparatoryServicesHeader, 'Helyreállító beavatkozások', 'Reparatory treatments', ''),
+																		_1: {
+																			ctor: '::',
+																			_0: A4(_user$project$Content$Entry, _user$project$Content$ProsthesesServicesHeader, 'Pótlások', 'Removable and fixed prostheses', ''),
+																			_1: {
+																				ctor: '::',
+																				_0: A4(_user$project$Content$Entry, _user$project$Content$CosmeticServicesHeader, 'Kozmetikai beavatkozások, egyéb', 'Cosmetic and other treatments', ''),
+																				_1: {
+																					ctor: '::',
+																					_0: A4(_user$project$Content$Entry, _user$project$Content$ReparatoryServices, '\n### Parodontológia\n\n- Fogkőeltávolítás\n- Polírozás\n- Gyulladt íny kezelése\n- Mozgó fogak sínezése\n\n### Tömések és betétek(inlay onlay, overlay)\n\n- Kompozit tömés\n- Cement tömés\n- Kompozit betét\n- Kerámia betét\n- Arany betét\n\n### Egyéb\n\n- Gyökérkezelés\n- Fogeltávolítás\n', '\n### Periodontal treatments\n\n- Calculus removal\n- Polishing\n- Gingivitis treatment\n- Stabilization of moving teeth\n\n### Fillings, indirect restorations\n\n- Composite fillings\n- Cement fillings\n- Composite inlay, onlay, overlay\n- Ceramic inlay, onlay, overlay,\n- Gold inlay, onlay, overlay\n\n### Other\n\n- Root canal treatment\n- Tooth extraction\n\n', ''),
+																					_1: {
+																						ctor: '::',
+																						_0: A4(_user$project$Content$Entry, _user$project$Content$ProsthesesServices, '\n### Kivehető pótlások\n\n- Klipsz\n- Akrilát alaplemezű teljes kivehető pótlás\n- Akrilát alaplemezű részleges kivehető pótlás\n- Részleges fogsor fém alaplemezzel-kapocs elhorgonyzással\n- Kombinált, rejtett, precíziós elhorgonyzású kivehető fogpótlás\n\n### Rögzített pótlások\n\n- Teljes kerámia korona és hídpótlások- fém vázzal\n- Teljes kerámia korona és hídpótlások- cirkon vázzal\n- Ideiglenes korona és hídpótlások\n- Kerámia héj\n', '\n### Dentures\n\n- Nesbit dentures\n- Acrylic based complete dentures\n- Acrylic based partial dentures\n- Partial dentures with metal base and clasps\n- Combined partial dentures, hidden / precision anchorage\n\n### Fixed prostheses\n\n- Full ceramic dental crowns and bridges - metal core\n- Full ceramic dental crowns and bridges - zirconia core\n- Temporary dental crowns and bridges\n- Venners\n\n', ''),
+																						_1: {
+																							ctor: '::',
+																							_0: A4(_user$project$Content$Entry, _user$project$Content$CosmeticServices, '\n- Fogsorjavítás\n- Fogsor alábélelés\n- Fogfehérítés\n- Fogékszer\n- Nyaki érzékenység kezelése\n- Éjszakai harapásemelő sín\n', '\n- Denture repair\n- Denture relining\n- Teeth whitening\n- Tooth gems\n- Dentin hypersensitivity treatment\n- Nocturnal mouth splints\n\n', ''),
+																							_1: {ctor: '[]'}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+
+var _user$project$Port_Dom$getAreaLocations = _elm_lang$core$Native_Platform.outgoingPort(
+	'getAreaLocations',
+	function (v) {
+		return _elm_lang$core$Native_List.toArray(v).map(
+			function (v) {
+				return v;
+			});
+	});
+var _user$project$Port_Dom$locations = _elm_lang$core$Native_Platform.incomingPort(
+	'locations',
+	_elm_lang$core$Json_Decode$list(
+		A2(
+			_elm_lang$core$Json_Decode$andThen,
+			function (x0) {
+				return A2(
+					_elm_lang$core$Json_Decode$andThen,
+					function (x1) {
+						return _elm_lang$core$Json_Decode$succeed(
+							{ctor: '_Tuple2', _0: x0, _1: x1});
+					},
+					A2(_elm_lang$core$Json_Decode$index, 1, _elm_lang$core$Json_Decode$float));
+			},
+			A2(_elm_lang$core$Json_Decode$index, 0, _elm_lang$core$Json_Decode$string))));
+var _user$project$Port_Dom$getScroll = _elm_lang$core$Native_Platform.outgoingPort(
+	'getScroll',
+	function (v) {
+		return v;
+	});
+var _user$project$Port_Dom$pageScroll = _elm_lang$core$Native_Platform.incomingPort('pageScroll', _elm_lang$core$Json_Decode$float);
+
+var _user$project$AppModel$text_ = F2(
+	function (content, targetId) {
+		return function (filtered) {
+			var _p0 = filtered;
+			if (_p0.ctor === 'Nothing') {
+				return '';
+			} else {
+				return function (_) {
+					return _.text;
+				}(_p0._0);
+			}
+		}(
+			_elm_lang$core$List$head(
+				A2(
+					_elm_lang$core$List$filter,
+					function (_p1) {
+						var _p2 = _p1;
+						return _elm_lang$core$Native_Utils.eq(_p2.id, targetId);
+					},
+					content)));
+	});
+var _user$project$AppModel$calcScalingFactor = F2(
+	function (etalonDisplay, device) {
+		var deviceSize = _elm_lang$core$Basics$sqrt(
+			Math.pow(
+				_elm_lang$core$Basics$toFloat(device.width),
+				2) + Math.pow(
+				_elm_lang$core$Basics$toFloat(device.height),
+				2));
+		var etalonSize = _elm_lang$core$Basics$sqrt(
+			Math.pow(
+				_elm_lang$core$Basics$toFloat(etalonDisplay.width),
+				2) + Math.pow(
+				_elm_lang$core$Basics$toFloat(etalonDisplay.height),
+				2));
+		return deviceSize / etalonSize;
+	});
+var _user$project$AppModel$classifyEnvironment = function (_p3) {
+	var _p4 = _p3;
+	var _p6 = _p4.width;
+	var _p5 = _p4.height;
+	return {
+		width: _elm_lang$core$Basics$toFloat(_p6),
+		height: _elm_lang$core$Basics$toFloat(_p5),
+		phone: _elm_lang$core$Native_Utils.cmp(_p6, 600) < 1,
+		tablet: (_elm_lang$core$Native_Utils.cmp(_p6, 600) > 0) && (_elm_lang$core$Native_Utils.cmp(_p6, 1200) < 1),
+		desktop: (_elm_lang$core$Native_Utils.cmp(_p6, 1200) > 0) && (_elm_lang$core$Native_Utils.cmp(_p6, 1800) < 1),
+		bigDesktop: _elm_lang$core$Native_Utils.cmp(_p6, 1800) > 0,
+		portrait: _elm_lang$core$Native_Utils.cmp(_p6, _p5) < 0
+	};
+};
+var _user$project$AppModel$Environment = F7(
+	function (a, b, c, d, e, f, g) {
+		return {width: a, height: b, phone: c, tablet: d, desktop: e, bigDesktop: f, portrait: g};
+	});
+var _user$project$AppModel$Content = F2(
+	function (a, b) {
+		return {id: a, text: b};
+	});
+var _user$project$AppModel$pickContent = function (lang) {
+	var get = function () {
+		var _p7 = lang;
+		switch (_p7) {
+			case 'hu':
+				return function (_) {
+					return _.hu;
+				};
+			case 'en':
+				return function (_) {
+					return _.en;
+				};
+			case 'de':
+				return function (_) {
+					return _.de;
+				};
+			default:
+				return function (_) {
+					return _.en;
+				};
+		}
+	}();
+	return _user$project$AppModel$text_(
+		A2(
+			_elm_lang$core$List$map,
+			function (entry) {
+				return A2(
+					_user$project$AppModel$Content,
+					entry.id,
+					get(entry));
+			},
+			_user$project$Content$entries));
+};
+var _user$project$AppModel$Interpolation = F2(
+	function (a, b) {
+		return {duration: a, ease: b};
+	});
+var _user$project$AppModel$Model = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return function (n) {
+														return function (o) {
+															return function (p) {
+																return {etalonDisplay: a, env: b, scrollPos: c, horizontalScaler: d, verticalScaler: e, diagonalScaler: f, colors: g, fonts: h, lang: i, content: j, activePage: k, locations: l, scrollY: m, serviceBoxeSelections: n, infoContent: o, navBarOffset: p};
+															};
+														};
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _user$project$AppModel$SwitchInfo = function (a) {
+	return {ctor: 'SwitchInfo', _0: a};
+};
+var _user$project$AppModel$ScrollEvent = {ctor: 'ScrollEvent'};
+var _user$project$AppModel$ElementNotFound = function (a) {
+	return {ctor: 'ElementNotFound', _0: a};
+};
+var _user$project$AppModel$NewLocations = function (a) {
+	return {ctor: 'NewLocations', _0: a};
+};
+var _user$project$AppModel$NewScrollY = function (a) {
+	return {ctor: 'NewScrollY', _0: a};
+};
+var _user$project$AppModel$askScrollY = function (elemId) {
+	return A2(
+		_elm_lang$core$Task$attempt,
+		function (result) {
+			var _p8 = result;
+			if (_p8.ctor === 'Ok') {
+				return _user$project$AppModel$NewScrollY(_p8._0);
+			} else {
+				return _user$project$AppModel$ElementNotFound(_p8._0);
+			}
+		},
+		_elm_lang$dom$Dom_Scroll$y(elemId));
+};
+var _user$project$AppModel$Navigate = function (a) {
+	return {ctor: 'Navigate', _0: a};
+};
+var _user$project$AppModel$NewLang = function (a) {
+	return {ctor: 'NewLang', _0: a};
+};
+var _user$project$AppModel$WheelEvent = F2(
+	function (a, b) {
+		return {ctor: 'WheelEvent', _0: a, _1: b};
+	});
+var _user$project$AppModel$MoveNavBar = function (a) {
+	return {ctor: 'MoveNavBar', _0: a};
+};
+var _user$project$AppModel$ScrollAnimate = function (a) {
+	return {ctor: 'ScrollAnimate', _0: a};
+};
+var _user$project$AppModel$NewFrame = function (a) {
+	return {ctor: 'NewFrame', _0: a};
+};
+var _user$project$AppModel$NewSize = function (a) {
+	return {ctor: 'NewSize', _0: a};
+};
+var _user$project$AppModel$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: _elm_lang$window$Window$resizes(
+				function (windowSize) {
+					return _user$project$AppModel$NewSize(windowSize);
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Port_Dom$locations(_user$project$AppModel$NewLocations),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$animation_frame$AnimationFrame$times(
+						function (time) {
+							return _user$project$AppModel$NewFrame(time);
+						}),
+					_1: {
+						ctor: '::',
+						_0: _user$project$Port_Dom$pageScroll(
+							function (offset) {
+								return _user$project$AppModel$MoveNavBar(offset);
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _user$project$AppModel$Intro = {ctor: 'Intro'};
+var _user$project$AppModel$Warranty = {ctor: 'Warranty'};
+var _user$project$AppModel$ServiceArea = {ctor: 'ServiceArea'};
+var _user$project$AppModel$InfoArea = {ctor: 'InfoArea'};
+var _user$project$AppModel$ContactArea = {ctor: 'ContactArea'};
+var _user$project$AppModel$init = {
+	ctor: '_Tuple2',
+	_0: _user$project$AppModel$Model(
+		A2(_elm_lang$window$Window$Size, 1920, 1080))(
+		_user$project$AppModel$classifyEnvironment(
+			A2(_elm_lang$window$Window$Size, 1920, 1080)))(0.0)(1.0)(1.0)(1.0)(
+		{
+			primary: A3(_elm_lang$core$Color$rgb, 156, 218, 120),
+			secondary: A3(_elm_lang$core$Color$rgb, 241, 249, 226),
+			fill: A3(_elm_lang$core$Color$rgb, 255, 255, 255),
+			text: A3(_elm_lang$core$Color$rgb, 0, 0, 0),
+			background: A3(_elm_lang$core$Color$rgb, 225, 248, 163)
+		})(
+		{
+			title: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Font$importUrl(
+					{url: 'fonts/MontserratAlternates-Medium/style.css', name: 'MontserratAlternates-Medium'}),
+				_1: {ctor: '[]'}
+			},
+			content: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Font$importUrl(
+					{url: 'fonts/Montserrat-Regular/style.css', name: 'Montserrat-Regular'}),
+				_1: {ctor: '[]'}
+			},
+			decoration: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Font$importUrl(
+					{url: 'fonts/Znikomit/style.css', name: 'Znikomit'}),
+				_1: {ctor: '[]'}
+			}
+		})('hu')(
+		_user$project$AppModel$pickContent('hu'))(_user$project$AppModel$ContactArea)(
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'ContactArea', _1: 0},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'InfoArea', _1: 0},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'ServiceArea', _1: 0},
+					_1: {ctor: '[]'}
+				}
+			}
+		})(0)(
+		{
+			ctor: '::',
+			_0: false,
+			_1: {
+				ctor: '::',
+				_0: false,
+				_1: {
+					ctor: '::',
+					_0: false,
+					_1: {ctor: '[]'}
+				}
+			}
+		})(_user$project$AppModel$Intro)(0),
+	_1: _elm_lang$core$Platform_Cmd$batch(
+		{
+			ctor: '::',
+			_0: A2(_elm_lang$core$Task$perform, _user$project$AppModel$NewSize, _elm_lang$window$Window$size),
+			_1: {
+				ctor: '::',
+				_0: _user$project$AppModel$askScrollY('scrollTarget'),
+				_1: {ctor: '[]'}
+			}
+		})
+};
+var _user$project$AppModel$update = F2(
+	function (msg, model) {
+		var _p9 = msg;
+		switch (_p9.ctor) {
+			case 'NewSize':
+				var _p10 = _p9._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							env: _user$project$AppModel$classifyEnvironment(_p10),
+							horizontalScaler: _elm_lang$core$Basics$toFloat(_p10.width) / _elm_lang$core$Basics$toFloat(model.etalonDisplay.width),
+							verticalScaler: _elm_lang$core$Basics$toFloat(_p10.height) / _elm_lang$core$Basics$toFloat(model.etalonDisplay.height),
+							diagonalScaler: A2(_user$project$AppModel$calcScalingFactor, model.etalonDisplay, _p10)
+						}),
+					_1: _user$project$Port_Dom$getAreaLocations(
+						A2(
+							_elm_lang$core$List$map,
+							function (x) {
+								return _elm_lang$core$Basics$toString(x);
+							},
+							{
+								ctor: '::',
+								_0: _user$project$AppModel$ContactArea,
+								_1: {
+									ctor: '::',
+									_0: _user$project$AppModel$InfoArea,
+									_1: {
+										ctor: '::',
+										_0: _user$project$AppModel$ServiceArea,
+										_1: {ctor: '[]'}
+									}
+								}
+							}))
+				};
+			case 'NewFrame':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: A2(
+						_elm_lang$core$Task$attempt,
+						function (result) {
+							var _p11 = result;
+							if (_p11.ctor === 'Ok') {
+								return _user$project$AppModel$ScrollAnimate(_p9._0);
+							} else {
+								return _user$project$AppModel$ElementNotFound(_p11._0);
+							}
+						},
+						_elm_lang$dom$Dom_Scroll$y('appContainer'))
+				};
+			case 'ScrollAnimate':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Port_Dom$getScroll('')
+				};
+			case 'MoveNavBar':
+				var _p12 = _p9._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							navBarOffset: (_elm_lang$core$Native_Utils.cmp(_p12, model.env.height * 0.18) < 0) ? (-1 * _p12) : ((-1 * model.env.height) * 0.18)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'WheelEvent':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{scrollPos: _p9._0 - _p9._1}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NewLocations':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{locations: _p9._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NewLang':
+				var _p13 = _p9._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							lang: _p13,
+							content: _user$project$AppModel$pickContent(_p13)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Navigate':
+				var _p18 = _p9._0;
+				var position = function (filtered) {
+					var _p14 = filtered;
+					if (_p14.ctor === 'Nothing') {
+						return 0;
+					} else {
+						return _elm_lang$core$Tuple$second(_p14._0);
+					}
+				}(
+					_elm_lang$core$List$head(
+						A2(
+							_elm_lang$core$List$filter,
+							function (_p15) {
+								var _p16 = _p15;
+								return _elm_lang$core$Native_Utils.eq(
+									_p16._0,
+									_elm_lang$core$Basics$toString(_p18));
+							},
+							model.locations)));
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{activePage: _p18}),
+					_1: A2(
+						_elm_lang$core$Task$attempt,
+						function (result) {
+							var _p17 = result;
+							if (_p17.ctor === 'Ok') {
+								return _user$project$AppModel$ScrollEvent;
+							} else {
+								return _user$project$AppModel$ScrollEvent;
+							}
+						},
+						A2(_elm_lang$dom$Dom_Scroll$toY, 'scrollTarget', position))
+				};
+			case 'NewScrollY':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{scrollY: _p9._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SwitchInfo':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{infoContent: _p9._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'ElementNotFound':
+				return function (_p19) {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}(
+					_elm_lang$core$Native_Utils.crash(
+						'AppModel',
+						{
+							start: {line: 237, column: 13},
+							end: {line: 237, column: 24}
+						})(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'There is no element with the id: ',
+							_elm_lang$core$Basics$toString(_p9._0))));
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+
+var _user$project$Internal_Props$zIndex = function (n) {
+	return A2(
+		_mdgriffith$style_elements$Style$prop,
+		'z-index',
+		_elm_lang$core$Basics$toString(n));
+};
+
+var _user$project$Stylesheet$InfoButtonContainer = {ctor: 'InfoButtonContainer'};
+var _user$project$Stylesheet$InfoButton = {ctor: 'InfoButton'};
+var _user$project$Stylesheet$DropDown = {ctor: 'DropDown'};
+var _user$project$Stylesheet$ServiceParagraph = {ctor: 'ServiceParagraph'};
+var _user$project$Stylesheet$ServiceIcon = {ctor: 'ServiceIcon'};
+var _user$project$Stylesheet$ServiceLayout = {ctor: 'ServiceLayout'};
+var _user$project$Stylesheet$ServiceSubHeader = {ctor: 'ServiceSubHeader'};
+var _user$project$Stylesheet$ServiceHeader = {ctor: 'ServiceHeader'};
+var _user$project$Stylesheet$ServiceBox = {ctor: 'ServiceBox'};
+var _user$project$Stylesheet$MenuItem = {ctor: 'MenuItem'};
+var _user$project$Stylesheet$MenuBox = {ctor: 'MenuBox'};
+var _user$project$Stylesheet$InfoText = {ctor: 'InfoText'};
+var _user$project$Stylesheet$InfoParagraph = {ctor: 'InfoParagraph'};
+var _user$project$Stylesheet$InfoIcon = {ctor: 'InfoIcon'};
+var _user$project$Stylesheet$InfoLayout = {ctor: 'InfoLayout'};
+var _user$project$Stylesheet$InfoHeader = {ctor: 'InfoHeader'};
+var _user$project$Stylesheet$InfoBox = {ctor: 'InfoBox'};
+var _user$project$Stylesheet$Flag = {ctor: 'Flag'};
+var _user$project$Stylesheet$TitleBox = {ctor: 'TitleBox'};
+var _user$project$Stylesheet$Home = {ctor: 'Home'};
+var _user$project$Stylesheet$Title = {ctor: 'Title'};
+var _user$project$Stylesheet$AppContainer = {ctor: 'AppContainer'};
+var _user$project$Stylesheet$None = {ctor: 'None'};
+var _user$project$Stylesheet$stylesheet = function (model) {
+	var fonts = model.fonts;
+	var colors = model.colors;
+	var mins = (_elm_lang$core$Native_Utils.cmp(model.horizontalScaler, model.verticalScaler) < 0) ? model.horizontalScaler : model.verticalScaler;
+	var ds = model.diagonalScaler;
+	var hs = model.horizontalScaler;
+	var sizes = model.env.portrait ? {title: 120 * hs, h2: 100 * hs, menuItem: 60 * hs, p: 75 * hs, serviceH2: 120 * hs, serviceH3: 100 * hs, serviceP: 60 * hs} : {title: 120 * hs, h2: 60 * hs, menuItem: 40 * hs, p: 30 * hs, serviceH2: 33 * hs, serviceH3: 30 * hs, serviceP: 25 * hs};
+	var vs = model.verticalScaler;
+	var env = model.env;
+	return _mdgriffith$style_elements$Style$styleSheet(
+		{
+			ctor: '::',
+			_0: A2(
+				_mdgriffith$style_elements$Style$style,
+				_user$project$Stylesheet$None,
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style$importCss('reset.css'),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_mdgriffith$style_elements$Style$style,
+						_user$project$Stylesheet$AppContainer,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Style_Color$background(colors.secondary),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_mdgriffith$style_elements$Style$style,
+							_user$project$Stylesheet$Home,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Style_Color$background(colors.secondary),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_mdgriffith$style_elements$Style$style,
+								_user$project$Stylesheet$TitleBox,
+								{
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_mdgriffith$style_elements$Style$style,
+									_user$project$Stylesheet$Flag,
+									{
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_mdgriffith$style_elements$Style$style,
+										_user$project$Stylesheet$Title,
+										{
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Style_Font$size(sizes.title),
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Style_Font$bold,
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.title),
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_mdgriffith$style_elements$Style$style,
+											_user$project$Stylesheet$InfoBox,
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_mdgriffith$style_elements$Style$style,
+												_user$project$Stylesheet$InfoHeader,
+												{
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+															_1: {
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																	_1: {
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Style_Font$bold,
+																		_1: {
+																			ctor: '::',
+																			_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																			_1: {ctor: '[]'}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_mdgriffith$style_elements$Style$style,
+													_user$project$Stylesheet$InfoIcon,
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_mdgriffith$style_elements$Style$style,
+														_user$project$Stylesheet$InfoLayout,
+														{ctor: '[]'}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_mdgriffith$style_elements$Style$style,
+															_user$project$Stylesheet$InfoParagraph,
+															{
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																	_1: {
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_mdgriffith$style_elements$Style$style,
+																_user$project$Stylesheet$ServiceBox,
+																{
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_mdgriffith$style_elements$Style$style,
+																	_user$project$Stylesheet$ServiceHeader,
+																	{
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+																		_1: {
+																			ctor: '::',
+																			_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+																			_1: {
+																				ctor: '::',
+																				_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+																				_1: {
+																					ctor: '::',
+																					_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH2),
+																					_1: {
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Font$bold,
+																						_1: {
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																							_1: {
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_mdgriffith$style_elements$Style$style,
+																		_user$project$Stylesheet$ServiceSubHeader,
+																		{
+																			ctor: '::',
+																			_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH3),
+																			_1: {
+																				ctor: '::',
+																				_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																				_1: {
+																					ctor: '::',
+																					_0: _mdgriffith$style_elements$Style_Font$bold,
+																					_1: {
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																						_1: {ctor: '[]'}
+																					}
+																				}
+																			}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_mdgriffith$style_elements$Style$style,
+																			_user$project$Stylesheet$ServiceIcon,
+																			{ctor: '[]'}),
+																		_1: {
+																			ctor: '::',
+																			_0: A2(
+																				_mdgriffith$style_elements$Style$style,
+																				_user$project$Stylesheet$ServiceLayout,
+																				{ctor: '[]'}),
+																			_1: {
+																				ctor: '::',
+																				_0: A2(
+																					_mdgriffith$style_elements$Style$style,
+																					_user$project$Stylesheet$ServiceParagraph,
+																					{
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
+																						_1: {
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																							_1: {
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					}),
+																				_1: {
+																					ctor: '::',
+																					_0: A2(
+																						_mdgriffith$style_elements$Style$style,
+																						_user$project$Stylesheet$MenuBox,
+																						{
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Border$all(env.height * 4.0e-3),
+																							_1: {
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+																								_1: {
+																									ctor: '::',
+																									_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+																									_1: {
+																										ctor: '::',
+																										_0: _mdgriffith$style_elements$Style_Font$size(sizes.menuItem),
+																										_1: {
+																											ctor: '::',
+																											_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																											_1: {
+																												ctor: '::',
+																												_0: _user$project$Internal_Props$zIndex(100),
+																												_1: {
+																													ctor: '::',
+																													_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																													_1: {ctor: '[]'}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}),
+																					_1: {
+																						ctor: '::',
+																						_0: A2(
+																							_mdgriffith$style_elements$Style$style,
+																							_user$project$Stylesheet$MenuItem,
+																							{
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																								_1: {ctor: '[]'}
+																							}),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								_mdgriffith$style_elements$Style$style,
+																								_user$project$Stylesheet$DropDown,
+																								{ctor: '[]'}),
+																							_1: {
+																								ctor: '::',
+																								_0: A2(
+																									_mdgriffith$style_elements$Style$style,
+																									_user$project$Stylesheet$InfoButtonContainer,
+																									{
+																										ctor: '::',
+																										_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+																										_1: {
+																											ctor: '::',
+																											_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
+																											_1: {
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																												_1: {
+																													ctor: '::',
+																													_0: _mdgriffith$style_elements$Style_Font$bold,
+																													_1: {
+																														ctor: '::',
+																														_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																														_1: {ctor: '[]'}
+																													}
+																												}
+																											}
+																										}
+																									}),
+																								_1: {
+																									ctor: '::',
+																									_0: A2(
+																										_mdgriffith$style_elements$Style$style,
+																										_user$project$Stylesheet$InfoButton,
+																										{
+																											ctor: '::',
+																											_0: _user$project$Internal_Props$zIndex(100),
+																											_1: {
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																												_1: {ctor: '[]'}
+																											}
+																										}),
+																									_1: {ctor: '[]'}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+
+var _user$project$Internal_TextTransformation$markdownToComponent = F2(
+	function (classList, content) {
+		return _mdgriffith$style_elements$Element$html(
+			A2(_evancz$elm_markdown$Markdown$toHtml, classList, content));
+	});
+
+var _user$project$AppLayouts$serviceContainer = F2(
+	function (model, services) {
+		var markdown = function (contentId) {
+			return A2(
+				_user$project$Internal_TextTransformation$markdownToComponent,
+				{ctor: '[]'},
+				model.content(contentId));
+		};
+		var text_ = function (contentId) {
+			return _mdgriffith$style_elements$Element$text(
+				model.content(contentId));
+		};
+		var vs = model.verticalScaler;
+		var hs = model.horizontalScaler;
+		var env = model.env;
+		var layouts = env.portrait ? {
+			container: A2(
+				_mdgriffith$style_elements$Element$column,
+				_user$project$Stylesheet$None,
+				{
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'id', 'ServiceArea'),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$spread,
+						_1: {ctor: '[]'}
+					}
+				}),
+			box: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+				_1: {ctor: '[]'}
+			},
+			header: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$spacing(30 * hs),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$height(
+								_mdgriffith$style_elements$Element_Attributes$px(500 * hs)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			paragraph: {
+				ctor: '::',
+				_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 70 * vs, 0),
+				_1: {ctor: '[]'}
+			},
+			dropdown: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(120 * hs)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$paddingRight(30 * hs),
+					_1: {ctor: '[]'}
+				}
+			}
+		} : {
+			container: A2(
+				_mdgriffith$style_elements$Element$row,
+				_user$project$Stylesheet$None,
+				{
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'id', 'ServiceArea'),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$spread,
+						_1: {
+							ctor: '::',
+							_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 80 * hs, 150 * hs),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			box: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(500 * hs)),
+				_1: {ctor: '[]'}
+			},
+			header: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$spacing(30 * hs),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$height(
+								_mdgriffith$style_elements$Element_Attributes$px(160 * hs)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			paragraph: {
+				ctor: '::',
+				_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 70 * hs, 0),
+				_1: {ctor: '[]'}
+			},
+			dropdown: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$hidden,
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(
+						_mdgriffith$style_elements$Element_Attributes$px(120 * hs)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$paddingRight(30 * hs),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		};
+		var header = F2(
+			function (title, icon) {
+				return A3(
+					_mdgriffith$style_elements$Element$row,
+					_user$project$Stylesheet$ServiceHeader,
+					layouts.header,
+					{
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$image,
+							_user$project$Stylesheet$None,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$width(
+									_mdgriffith$style_elements$Element_Attributes$px(icon.imgWidth)),
+								_1: {ctor: '[]'}
+							},
+							{src: icon.src, caption: icon.alt}),
+						_1: {
+							ctor: '::',
+							_0: markdown(title),
+							_1: {ctor: '[]'}
+						}
+					});
+			});
+		return layouts.container(
+			A2(
+				_elm_lang$core$List$map,
+				function (_p0) {
+					var _p1 = _p0;
+					return A3(
+						_mdgriffith$style_elements$Element$column,
+						_user$project$Stylesheet$InfoBox,
+						layouts.box,
+						{
+							ctor: '::',
+							_0: A2(header, _p1.title, _p1.icon),
+							_1: {
+								ctor: '::',
+								_0: A3(
+									_mdgriffith$style_elements$Element$el,
+									_user$project$Stylesheet$ServiceParagraph,
+									layouts.paragraph,
+									markdown(_p1.text)),
+								_1: {ctor: '[]'}
+							}
+						});
+				},
+				services));
+	});
+var _user$project$AppLayouts$serviceBox = F4(
+	function (model, title, records, icon) {
+		var recordComponents = A2(
+			_elm_lang$core$List$map,
+			function (record) {
+				return A3(
+					_mdgriffith$style_elements$Element$el,
+					_user$project$Stylesheet$ServiceParagraph,
+					{ctor: '[]'},
+					_mdgriffith$style_elements$Element$text(record));
+			},
+			records);
+		var hs = model.horizontalScaler;
+		var env = model.env;
+		return A3(
+			_mdgriffith$style_elements$Element$column,
+			_user$project$Stylesheet$InfoBox,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(450 * hs)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$height(
+						_mdgriffith$style_elements$Element_Attributes$px(600 * hs)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$spacing(50 * hs),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			A2(
+				_elm_lang$core$List$append,
+				{
+					ctor: '::',
+					_0: A3(
+						_mdgriffith$style_elements$Element$el,
+						_user$project$Stylesheet$ServiceHeader,
+						{ctor: '[]'},
+						_mdgriffith$style_elements$Element$text(title)),
+					_1: {ctor: '[]'}
+				},
+				recordComponents));
+	});
+var _user$project$AppLayouts$langSwitcher = function (model) {
+	var actions = {
+		changeLang: function (lang) {
+			return {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Events$onMouseUp(
+					_user$project$AppModel$NewLang(lang)),
+				_1: {ctor: '[]'}
+			};
+		}
+	};
+	var hs = model.horizontalScaler;
+	var env = model.env;
+	var layouts = env.portrait ? {
+		flag: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$width(
+				_mdgriffith$style_elements$Element_Attributes$px(0.1 * env.width)),
+			_1: {ctor: '[]'}
+		},
+		flagBox: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$spacing(env.width * 2.0e-2),
+			_1: {ctor: '[]'}
+		}
+	} : {
+		flag: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$width(
+				_mdgriffith$style_elements$Element_Attributes$px(0.1 * env.height)),
+			_1: {ctor: '[]'}
+		},
+		flagBox: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$center,
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(13 * hs),
+				_1: {ctor: '[]'}
+			}
+		}
+	};
+	return A3(
+		_mdgriffith$style_elements$Element$row,
+		_user$project$Stylesheet$None,
+		layouts.flagBox,
+		{
+			ctor: '::',
+			_0: A3(
+				_mdgriffith$style_elements$Element$image,
+				_user$project$Stylesheet$Flag,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					layouts.flag,
+					actions.changeLang('hu')),
+				{src: 'img/flag-hu.svg', caption: 'img/flag-hu.svg'}),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_mdgriffith$style_elements$Element$image,
+					_user$project$Stylesheet$Flag,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						layouts.flag,
+						actions.changeLang('de')),
+					{src: 'img/flag-de.svg', caption: 'img/flag-de.svg'}),
+				_1: {
+					ctor: '::',
+					_0: A3(
+						_mdgriffith$style_elements$Element$image,
+						_user$project$Stylesheet$Flag,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							layouts.flag,
+							actions.changeLang('en')),
+						{src: 'img/flag-en.svg', caption: 'img/flag-en.svg'}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$AppLayouts$infoRecords = F4(
+	function (model, attributes, imgDefs, texts) {
+		return _elm_lang$core$List$isEmpty(imgDefs) ? A2(
+			_elm_lang$core$List$map,
+			function (str) {
+				return A3(
+					_mdgriffith$style_elements$Element$row,
+					_user$project$Stylesheet$None,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$el,
+							_user$project$Stylesheet$InfoParagraph,
+							attributes,
+							_mdgriffith$style_elements$Element$text(str)),
+						_1: {ctor: '[]'}
+					});
+			},
+			texts) : A3(
+			_elm_lang$core$List$map2,
+			F2(
+				function (str, _p2) {
+					var _p3 = _p2;
+					var _p4 = _p3.imgWidth;
+					return A3(
+						_mdgriffith$style_elements$Element$row,
+						_user$project$Stylesheet$None,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$spacing(_p4 * 0.2),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: A3(
+								_mdgriffith$style_elements$Element$image,
+								_user$project$Stylesheet$None,
+								{
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$width(
+										_mdgriffith$style_elements$Element_Attributes$px(_p4)),
+									_1: {ctor: '[]'}
+								},
+								{src: _p3.src, caption: _p3.alt}),
+							_1: {
+								ctor: '::',
+								_0: A3(
+									_mdgriffith$style_elements$Element$el,
+									_user$project$Stylesheet$InfoParagraph,
+									{ctor: '[]'},
+									_mdgriffith$style_elements$Element$text(str)),
+								_1: {ctor: '[]'}
+							}
+						});
+				}),
+			texts,
+			imgDefs);
+	});
+var _user$project$AppLayouts$ImgDef = F3(
+	function (a, b, c) {
+		return {imgWidth: a, src: b, alt: c};
+	});
+var _user$project$AppLayouts$ServiceDef = F3(
+	function (a, b, c) {
+		return {title: a, text: b, icon: c};
+	});
+
+var _user$project$HtmlComponents$googleMapIframe = F2(
+	function (frameWidth, frameHeight) {
+		var frameHeightPx = A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(frameHeight),
+			'px');
+		var frameWidthPx = A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(frameWidth),
+			'px');
+		var location = '&q=Hidas,+Petőfi+Sándor+u.+2,+7696';
+		var apiKey = 'AIzaSyAjHLgGjTwb577cPN3r6rvkYS2Q8HRSGwo';
+		return _mdgriffith$style_elements$Element$html(
+			A2(
+				_elm_lang$html$Html$iframe,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$id('mapArea'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'height', _1: frameHeightPx},
+									_1: {ctor: '[]'}
+								}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(_elm_lang$html$Html_Attributes$attribute, 'frameborder', '0'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$src(
+									_elm_lang$core$String$concat(
+										{
+											ctor: '::',
+											_0: 'https://www.google.com/maps/embed/v1/place?key=',
+											_1: {
+												ctor: '::',
+												_0: apiKey,
+												_1: {
+													ctor: '::',
+													_0: location,
+													_1: {ctor: '[]'}
+												}
+											}
+										})),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				},
+				{ctor: '[]'}));
+	});
+
+var _user$project$View$if_ = F3(
+	function (predicate, x, y) {
+		return predicate ? x : y;
+	});
+var _user$project$View$onWheelEvent = function (message) {
+	return A3(
+		_elm_lang$core$Json_Decode$map2,
+		message,
+		A2(_elm_lang$core$Json_Decode$field, 'pageY', _elm_lang$core$Json_Decode$float),
+		A2(_elm_lang$core$Json_Decode$field, 'clientY', _elm_lang$core$Json_Decode$float));
+};
+var _user$project$View$services = function (model) {
+	return A2(
+		_user$project$AppLayouts$serviceContainer,
+		model,
+		{
+			ctor: '::',
+			_0: A3(
+				_user$project$AppLayouts$ServiceDef,
+				_user$project$Content$ProsthesesServicesHeader,
+				_user$project$Content$ProsthesesServices,
+				A3(_user$project$AppLayouts$ImgDef, 50, 'img/tooth_implant.svg', 'alt text')),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_user$project$AppLayouts$ServiceDef,
+					_user$project$Content$ReparatoryServicesHeader,
+					_user$project$Content$ReparatoryServices,
+					A3(_user$project$AppLayouts$ImgDef, 50, 'img/dental_drill.svg', 'alt text')),
+				_1: {
+					ctor: '::',
+					_0: A3(
+						_user$project$AppLayouts$ServiceDef,
+						_user$project$Content$CosmeticServicesHeader,
+						_user$project$Content$CosmeticServices,
+						A3(_user$project$AppLayouts$ImgDef, 50, 'img/tooth_cosmetics.svg', 'alt text')),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$View$info = function (model) {
+	var vs = model.verticalScaler;
+	var hs = model.horizontalScaler;
+	var textBoxHeight = 100 * hs;
+	var env = model.env;
+	var containerPadding = {x: env.width * 3.0e-2, y: 200 * vs};
+	var portraitWidth = A3(_user$project$View$if_, model.env.portrait, env.width * 0.7, env.width * 0.333);
+	var portrait = model.env.portrait ? {
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$width(
+			_mdgriffith$style_elements$Element_Attributes$px(portraitWidth)),
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$center,
+			_1: {ctor: '[]'}
+		}
+	} : {
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$width(
+			_mdgriffith$style_elements$Element_Attributes$px(portraitWidth)),
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$height(
+				_mdgriffith$style_elements$Element_Attributes$px(portraitWidth)),
+			_1: {ctor: '[]'}
+		}
+	};
+	var textBoxWidth = A3(_user$project$View$if_, model.env.portrait, env.width * 0.9, ((env.width - containerPadding.x) - portraitWidth) * 0.9);
+	var container = model.env.portrait ? A2(
+		_mdgriffith$style_elements$Element$column,
+		_user$project$Stylesheet$None,
+		{
+			ctor: '::',
+			_0: A2(
+				_mdgriffith$style_elements$Element_Attributes$attribute,
+				'id',
+				_elm_lang$core$Basics$toString(_user$project$AppModel$InfoArea)),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+				_1: {
+					ctor: '::',
+					_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 0, 230 * hs),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$spacing(200 * hs),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$center,
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}) : A2(
+		_mdgriffith$style_elements$Element$row,
+		_user$project$Stylesheet$None,
+		{
+			ctor: '::',
+			_0: A2(
+				_mdgriffith$style_elements$Element_Attributes$attribute,
+				'id',
+				_elm_lang$core$Basics$toString(_user$project$AppModel$InfoArea)),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$spacing(60 * hs),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, containerPadding.x, containerPadding.y),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$alignTop,
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+	var markdown = function (contentId) {
+		return A2(
+			_user$project$Internal_TextTransformation$markdownToComponent,
+			{ctor: '[]'},
+			model.content(contentId));
+	};
+	var text_ = function (contentId) {
+		return _mdgriffith$style_elements$Element$text(
+			model.content(contentId));
+	};
+	var textBox = A3(
+		_mdgriffith$style_elements$Element$column,
+		_user$project$Stylesheet$None,
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$alignTop,
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(textBoxWidth)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A3(
+				_mdgriffith$style_elements$Element$row,
+				_user$project$Stylesheet$InfoButtonContainer,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$spread,
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$height(
+									_mdgriffith$style_elements$Element_Attributes$px(textBoxHeight)),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A3(
+						_mdgriffith$style_elements$Element$row,
+						_user$project$Stylesheet$InfoButton,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$width(
+								_mdgriffith$style_elements$Element_Attributes$px(textBoxWidth / 2)),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$center,
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Events$onMouseUp(
+										_user$project$AppModel$SwitchInfo(_user$project$AppModel$Intro)),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						{
+							ctor: '::',
+							_0: text_(_user$project$Content$IntroductionButton),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$row,
+							_user$project$Stylesheet$InfoButton,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$width(
+									_mdgriffith$style_elements$Element_Attributes$px(textBoxWidth / 2)),
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$center,
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Events$onMouseUp(
+											_user$project$AppModel$SwitchInfo(_user$project$AppModel$Warranty)),
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							{
+								ctor: '::',
+								_0: text_(_user$project$Content$WarrantyButton),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_mdgriffith$style_elements$Element$el,
+					_user$project$Stylesheet$InfoParagraph,
+					{
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, textBoxWidth * 3.0e-2, textBoxWidth * 3.0e-2),
+						_1: {ctor: '[]'}
+					},
+					markdown(
+						_elm_lang$core$Native_Utils.eq(model.infoContent, _user$project$AppModel$Intro) ? _user$project$Content$IntroductionParagraph : _user$project$Content$WarrantyParagraph)),
+				_1: {ctor: '[]'}
+			}
+		});
+	return container(
+		{
+			ctor: '::',
+			_0: A3(
+				_mdgriffith$style_elements$Element$image,
+				_user$project$Stylesheet$None,
+				portrait,
+				{
+					src: 'img/portrait.png',
+					caption: model.content(_user$project$Content$LogoAlt)
+				}),
+			_1: {
+				ctor: '::',
+				_0: textBox,
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$View$map = function (model) {
+	var env = model.env;
+	var size = env.portrait ? {width: env.width, height: env.width} : {width: env.width, height: env.width / 2};
+	var text_ = model.content;
+	return A2(_user$project$HtmlComponents$googleMapIframe, size.width, size.height);
+};
+var _user$project$View$home = function (model) {
+	var text_ = function (id) {
+		return _mdgriffith$style_elements$Element$text(
+			model.content(id));
+	};
+	var internalLink = F2(
+		function (target, contentId) {
+			return A3(
+				_mdgriffith$style_elements$Element$el,
+				_user$project$Stylesheet$MenuItem,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Events$onClick(
+						_user$project$AppModel$Navigate(target)),
+					_1: {ctor: '[]'}
+				},
+				text_(contentId));
+		});
+	var content = model.content;
+	var env = model.env;
+	var containerheight = env.height;
+	var panelHeight = containerheight * 0.18;
+	var logoHeight = panelHeight * 0.8;
+	var logo = A3(
+		_mdgriffith$style_elements$Element$image,
+		_user$project$Stylesheet$None,
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$height(
+				_mdgriffith$style_elements$Element_Attributes$px(logoHeight)),
+			_1: {ctor: '[]'}
+		},
+		{
+			src: 'img/panda.svg',
+			caption: model.content(_user$project$Content$LogoAlt)
+		});
+	var navigationBarHeight = panelHeight / 3.2;
+	var infoAreaHeight = containerheight - panelHeight;
+	var langSwitcherOffsetY = env.portrait ? (panelHeight * 5.0e-2) : (panelHeight * 5.0e-2);
+	var navigationBarWidth = env.portrait ? env.width : (env.width * 0.56);
+	var infoBoxWidth = env.portrait ? (env.width * 0.8) : (env.width * 0.35);
+	var infoBoxHeight = A3(_user$project$View$if_, env.portrait, infoAreaHeight * 0.4, infoAreaHeight * 0.55);
+	var infoBox = F2(
+		function (titleContentId, children) {
+			return A3(
+				_mdgriffith$style_elements$Element$column,
+				_user$project$Stylesheet$InfoBox,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(
+						_mdgriffith$style_elements$Element_Attributes$px(infoBoxWidth)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$height(
+							_mdgriffith$style_elements$Element_Attributes$px(infoBoxHeight)),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A3(
+						_mdgriffith$style_elements$Element$el,
+						_user$project$Stylesheet$InfoHeader,
+						{ctor: '[]'},
+						text_(titleContentId)),
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$column,
+							_user$project$Stylesheet$None,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$verticalSpread,
+									_1: {
+										ctor: '::',
+										_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, infoBoxWidth * 3.0e-2, infoAreaHeight * 2.0e-2),
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							children),
+						_1: {ctor: '[]'}
+					}
+				});
+		});
+	var container = function (children) {
+		return A3(
+			_mdgriffith$style_elements$Element$column,
+			_user$project$Stylesheet$Home,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$height(
+						_mdgriffith$style_elements$Element_Attributes$px(containerheight)),
+					_1: {ctor: '[]'}
+				}
+			},
+			children);
+	};
+	var panel = function (children) {
+		return A3(
+			_mdgriffith$style_elements$Element$row,
+			_user$project$Stylesheet$TitleBox,
+			{
+				ctor: '::',
+				_0: A2(
+					_mdgriffith$style_elements$Element_Attributes$attribute,
+					'id',
+					_elm_lang$core$Basics$toString(_user$project$AppModel$ContactArea)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(
+						_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$height(
+							_mdgriffith$style_elements$Element_Attributes$px(panelHeight)),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$spacing(env.width * 4.5e-2),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Attributes$padding(env.width * 4.0e-2),
 										_1: {ctor: '[]'}
 									}
 								}
@@ -12552,2841 +22121,319 @@ var _rtfeldman$elm_css$Css_Structure_Output$prettyPrintStyleBlock = F2(
 						}
 					}
 				}
-			});
-	});
-var _rtfeldman$elm_css$Css_Structure_Output$prettyPrintDeclaration = function (declaration) {
-	var _p18 = declaration;
-	switch (_p18.ctor) {
-		case 'StyleBlockDeclaration':
-			return A2(_rtfeldman$elm_css$Css_Structure_Output$prettyPrintStyleBlock, _rtfeldman$elm_css$Css_Structure_Output$noIndent, _p18._0);
-		case 'MediaRule':
-			var query = A2(
-				_elm_lang$core$String$join,
-				',\n',
-				A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$mediaQueryToString, _p18._0));
-			var blocks = A2(
-				_elm_lang$core$String$join,
-				'\n\n',
-				A2(
-					_elm_lang$core$List$map,
-					function (_p19) {
-						return _rtfeldman$elm_css$Css_Structure_Output$indent(
-							A2(_rtfeldman$elm_css$Css_Structure_Output$prettyPrintStyleBlock, _rtfeldman$elm_css$Css_Structure_Output$spaceIndent, _p19));
-					},
-					_p18._1));
-			return A2(
-				_elm_lang$core$Basics_ops['++'],
-				'@media ',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					query,
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						' {\n',
-						A2(_elm_lang$core$Basics_ops['++'], blocks, '\n}'))));
-		default:
-			return _elm_lang$core$Native_Utils.crashCase(
-				'Css.Structure.Output',
-				{
-					start: {line: 61, column: 5},
-					end: {line: 78, column: 49}
-				},
-				_p18)('not yet implemented :x');
-	}
-};
-var _rtfeldman$elm_css$Css_Structure_Output$namespaceToString = function (_p21) {
-	var _p22 = _p21;
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		'@namespace ',
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			_p22._0,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'\"',
-				A2(_elm_lang$core$Basics_ops['++'], _p22._1, '\"'))));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$importToString = function (_p23) {
-	var _p24 = _p23;
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		'@import \"',
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			_p24._0,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(_p24._1),
-				'\"')));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$charsetToString = function (charset) {
-	return A2(
-		_elm_lang$core$Maybe$withDefault,
-		'',
-		A2(
-			_elm_lang$core$Maybe$map,
-			function (str) {
-				return A2(
-					_elm_lang$core$Basics_ops['++'],
-					'@charset \"',
-					A2(_elm_lang$core$Basics_ops['++'], str, '\"'));
 			},
-			charset));
-};
-var _rtfeldman$elm_css$Css_Structure_Output$prettyPrint = function (_p25) {
-	var _p26 = _p25;
-	return A2(
-		_elm_lang$core$String$join,
-		'\n\n',
-		A2(
-			_elm_lang$core$List$filter,
-			function (_p27) {
-				return !_elm_lang$core$String$isEmpty(_p27);
-			},
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css_Structure_Output$charsetToString(_p26.charset),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$core$String$join,
-						'\n',
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$importToString, _p26.imports)),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$core$String$join,
-							'\n',
-							A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$namespaceToString, _p26.namespaces)),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$String$join,
-								'\n\n',
-								A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$prettyPrintDeclaration, _p26.declarations)),
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}));
-};
-
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$oneOf = function (maybes) {
-	oneOf:
-	while (true) {
-		var _p0 = maybes;
-		if (_p0.ctor === '[]') {
-			return _elm_lang$core$Maybe$Nothing;
-		} else {
-			var _p2 = _p0._0;
-			var _p1 = _p2;
-			if (_p1.ctor === 'Nothing') {
-				var _v2 = _p0._1;
-				maybes = _v2;
-				continue oneOf;
-			} else {
-				return _p2;
-			}
-		}
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors = function (declarations) {
-	collectSelectors:
-	while (true) {
-		var _p3 = declarations;
-		if (_p3.ctor === '[]') {
-			return {ctor: '[]'};
-		} else {
-			if (_p3._0.ctor === 'StyleBlockDeclaration') {
-				return A2(
-					_elm_lang$core$Basics_ops['++'],
-					{ctor: '::', _0: _p3._0._0._0, _1: _p3._0._0._1},
-					_rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(_p3._1));
-			} else {
-				var _v4 = _p3._1;
-				declarations = _v4;
-				continue collectSelectors;
-			}
-		}
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning = function (_p4) {
-	var _p5 = _p4;
-	return {
-		ctor: '_Tuple2',
-		_0: _p5.warnings,
-		_1: {key: _p5.key, value: _p5.value, important: _p5.important}
+			children);
 	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings = function (properties) {
-	return {
-		ctor: '_Tuple2',
-		_0: A2(
-			_elm_lang$core$List$concatMap,
-			function (_) {
-				return _.warnings;
-			},
-			properties),
-		_1: A2(
-			_elm_lang$core$List$map,
-			function (prop) {
-				return _elm_lang$core$Tuple$second(
-					_rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning(prop));
-			},
-			properties)
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$toDocumentRule = F5(
-	function (str1, str2, str3, str4, declaration) {
-		var _p6 = declaration;
-		if (_p6.ctor === 'StyleBlockDeclaration') {
-			return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, str1, str2, str3, str4, _p6._0);
-		} else {
-			return declaration;
-		}
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration = function (declarations) {
-	lastDeclaration:
-	while (true) {
-		var _p7 = declarations;
-		if (_p7.ctor === '[]') {
-			return _elm_lang$core$Maybe$Nothing;
-		} else {
-			if (_p7._1.ctor === '[]') {
-				return _elm_lang$core$Maybe$Just(
-					{
-						ctor: '::',
-						_0: _p7._0,
-						_1: {ctor: '[]'}
-					});
-			} else {
-				var _v8 = _p7._1;
-				declarations = _v8;
-				continue lastDeclaration;
-			}
-		}
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings = function (declarationsAndWarnings) {
-	var _p8 = declarationsAndWarnings;
-	if (_p8.ctor === '[]') {
-		return {
-			declarations: {ctor: '[]'},
-			warnings: {ctor: '[]'}
-		};
-	} else {
-		var result = _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(_p8._1);
-		return {
-			declarations: A2(_elm_lang$core$Basics_ops['++'], _p8._0.declarations, result.declarations),
-			warnings: A2(_elm_lang$core$Basics_ops['++'], _p8._0.warnings, result.warnings)
-		};
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues = function (tuples) {
-	var expandTuples = function (tuplesToExpand) {
-		var _p9 = tuplesToExpand;
-		if (_p9.ctor === '[]') {
-			return {
-				ctor: '_Tuple2',
-				_0: {ctor: '[]'},
-				_1: {ctor: '[]'}
-			};
-		} else {
-			var _p10 = expandTuples(_p9._1);
-			var nextWarnings = _p10._0;
-			var nextTuples = _p10._1;
-			var _p11 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(_p9._0._1);
-			var warnings = _p11._0;
-			var properties = _p11._1;
-			return {
-				ctor: '_Tuple2',
-				_0: A2(_elm_lang$core$Basics_ops['++'], warnings, nextWarnings),
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: _p9._0._0, _1: properties},
-					_1: nextTuples
-				}
-			};
-		}
-	};
-	var _p12 = expandTuples(tuples);
-	var warnings = _p12._0;
-	var newTuples = _p12._1;
-	return {
-		declarations: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure$FontFeatureValues(newTuples),
-			_1: {ctor: '[]'}
-		},
-		warnings: warnings
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle = function (counterStyleProperties) {
-	var _p13 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(counterStyleProperties);
-	var warnings = _p13._0;
-	var properties = _p13._1;
-	return {
-		declarations: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure$Viewport(properties),
-			_1: {ctor: '[]'}
-		},
-		warnings: warnings
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport = function (viewportProperties) {
-	var _p14 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(viewportProperties);
-	var warnings = _p14._0;
-	var properties = _p14._1;
-	return {
-		declarations: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure$Viewport(properties),
-			_1: {ctor: '[]'}
-		},
-		warnings: warnings
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes = F2(
-	function (str, properties) {
-		return {
-			declarations: {
-				ctor: '::',
-				_0: A2(_rtfeldman$elm_css$Css_Structure$Keyframes, str, properties),
-				_1: {ctor: '[]'}
-			},
-			warnings: {ctor: '[]'}
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace = function (fontFaceProperties) {
-	var _p15 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(fontFaceProperties);
-	var warnings = _p15._0;
-	var properties = _p15._1;
-	return {
-		declarations: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure$FontFace(properties),
-			_1: {ctor: '[]'}
-		},
-		warnings: warnings
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule = F2(
-	function (str, pageRuleProperties) {
-		var _p16 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(pageRuleProperties);
-		var warnings = _p16._0;
-		var properties = _p16._1;
-		return {
-			declarations: {
-				ctor: '::',
-				_0: A2(_rtfeldman$elm_css$Css_Structure$PageRule, str, properties),
-				_1: {ctor: '[]'}
-			},
-			warnings: warnings
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$toMediaRule = F2(
-	function (mediaQueries, declaration) {
-		var _p17 = declaration;
-		switch (_p17.ctor) {
-			case 'StyleBlockDeclaration':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$MediaRule,
-					mediaQueries,
-					{
-						ctor: '::',
-						_0: _p17._0,
-						_1: {ctor: '[]'}
-					});
-			case 'MediaRule':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$MediaRule,
-					A2(_elm_lang$core$Basics_ops['++'], mediaQueries, _p17._0),
-					_p17._1);
-			case 'SupportsRule':
-				return A2(
-					_rtfeldman$elm_css$Css_Structure$SupportsRule,
-					_p17._0,
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$Css_Preprocess_Resolve$toMediaRule(mediaQueries),
-						_p17._1));
-			case 'DocumentRule':
-				return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p17._0, _p17._1, _p17._2, _p17._3, _p17._4);
-			case 'PageRule':
-				return declaration;
-			case 'FontFace':
-				return declaration;
-			case 'Keyframes':
-				return declaration;
-			case 'Viewport':
-				return declaration;
-			case 'CounterStyle':
-				return declaration;
-			default:
-				return declaration;
-		}
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule = F2(
-	function (mediaQueries, styleBlocks) {
-		var handleStyleBlock = function (styleBlock) {
-			var _p18 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
-			var declarations = _p18.declarations;
-			var warnings = _p18.warnings;
-			return {
-				declarations: A2(
-					_elm_lang$core$List$map,
-					_rtfeldman$elm_css$Css_Preprocess_Resolve$toMediaRule(mediaQueries),
-					declarations),
-				warnings: warnings
-			};
-		};
-		var results = A2(_elm_lang$core$List$map, handleStyleBlock, styleBlocks);
-		return {
-			warnings: A2(
-				_elm_lang$core$List$concatMap,
-				function (_) {
-					return _.warnings;
-				},
-				results),
-			declarations: A2(
-				_elm_lang$core$List$concatMap,
-				function (_) {
-					return _.declarations;
-				},
-				results)
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock = function (_p19) {
-	var _p20 = _p19;
-	return A2(
-		_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles,
-		_p20._2,
+	var languageSwitcher = A3(
+		_mdgriffith$style_elements$Element$el,
+		_user$project$Stylesheet$None,
 		{
 			ctor: '::',
-			_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-				A3(
-					_rtfeldman$elm_css$Css_Structure$StyleBlock,
-					_p20._0,
-					_p20._1,
-					{ctor: '[]'})),
-			_1: {ctor: '[]'}
-		});
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles = F2(
-	function (styles, declarations) {
-		applyStyles:
-		while (true) {
-			var _p21 = styles;
-			if (_p21.ctor === '[]') {
-				return {
-					declarations: declarations,
-					warnings: {ctor: '[]'}
-				};
-			} else {
-				switch (_p21._0.ctor) {
-					case 'AppendProperty':
-						var _p22 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning(_p21._0._0);
-						var warnings = _p22._0;
-						var property = _p22._1;
-						var result = A2(
-							_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles,
-							_p21._1,
-							A2(_rtfeldman$elm_css$Css_Structure$appendProperty, property, declarations));
-						return {
-							declarations: result.declarations,
-							warnings: A2(_elm_lang$core$Basics_ops['++'], warnings, result.warnings)
-						};
-					case 'ExtendSelector':
-						return A4(
-							_rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedStylesToLast,
-							_p21._0._1,
-							_p21._1,
-							_rtfeldman$elm_css$Css_Structure$appendRepeatableToLastSelector(_p21._0._0),
-							declarations);
-					case 'NestSnippet':
-						var chain = F2(
-							function (_p24, _p23) {
-								var _p25 = _p24;
-								var _p26 = _p23;
-								return A3(
-									_rtfeldman$elm_css$Css_Structure$Selector,
-									_p25._0,
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										_p25._1,
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: _p21._0._0, _1: _p26._0},
-											_1: _p26._1
-										}),
-									_rtfeldman$elm_css$Css_Preprocess_Resolve$oneOf(
-										{
-											ctor: '::',
-											_0: _p26._2,
-											_1: {
-												ctor: '::',
-												_0: _p25._2,
-												_1: {ctor: '[]'}
-											}
-										}));
-							});
-						var expandDeclaration = function (declaration) {
-							var _p27 = declaration;
-							switch (_p27.ctor) {
-								case 'StyleBlockDeclaration':
-									var newSelectors = A2(
-										_elm_lang$core$List$concatMap,
-										function (originalSelector) {
-											return A2(
-												_elm_lang$core$List$map,
-												chain(originalSelector),
-												{ctor: '::', _0: _p27._0._0, _1: _p27._0._1});
-										},
-										_rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(declarations));
-									var newDeclarations = function () {
-										var _p28 = newSelectors;
-										if (_p28.ctor === '[]') {
-											return {ctor: '[]'};
-										} else {
-											return {
-												ctor: '::',
-												_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-													A3(
-														_rtfeldman$elm_css$Css_Structure$StyleBlock,
-														_p28._0,
-														_p28._1,
-														{ctor: '[]'})),
-												_1: {ctor: '[]'}
-											};
-										}
-									}();
-									return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-										{
-											ctor: '::',
-											_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles, _p27._0._2, newDeclarations),
-											_1: {ctor: '[]'}
-										});
-								case 'MediaRule':
-									return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p27._0, _p27._1);
-								case 'SupportsRule':
-									return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p27._0, _p27._1);
-								case 'DocumentRule':
-									return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p27._0, _p27._1, _p27._2, _p27._3, _p27._4);
-								case 'PageRule':
-									return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p27._0, _p27._1);
-								case 'FontFace':
-									return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p27._0);
-								case 'Keyframes':
-									return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p27._0, _p27._1);
-								case 'Viewport':
-									return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p27._0);
-								case 'CounterStyle':
-									return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p27._0);
-								default:
-									return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p27._0);
-							}
-						};
-						return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-							A2(
-								F2(
-									function (x, y) {
-										return A2(_elm_lang$core$Basics_ops['++'], x, y);
-									}),
-								{
-									ctor: '::',
-									_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles, _p21._1, declarations),
-									_1: {ctor: '[]'}
-								},
-								A2(
-									_elm_lang$core$List$map,
-									expandDeclaration,
-									A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p21._0._1))));
-					case 'WithPseudoElement':
-						return A4(
-							_rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedStylesToLast,
-							_p21._0._1,
-							_p21._1,
-							_rtfeldman$elm_css$Css_Structure$appendPseudoElementToLastSelector(_p21._0._0),
-							declarations);
-					case 'WithMedia':
-						var newDeclarations = function () {
-							var _p29 = _rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(declarations);
-							if (_p29.ctor === '[]') {
-								return {ctor: '[]'};
-							} else {
-								return {
-									ctor: '::',
-									_0: A2(
-										_rtfeldman$elm_css$Css_Structure$MediaRule,
-										_p21._0._0,
-										{
-											ctor: '::',
-											_0: A3(
-												_rtfeldman$elm_css$Css_Structure$StyleBlock,
-												_p29._0,
-												_p29._1,
-												{ctor: '[]'}),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								};
-							}
-						}();
-						return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-							{
-								ctor: '::',
-								_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles, _p21._1, declarations),
-								_1: {
-									ctor: '::',
-									_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles, _p21._0._1, newDeclarations),
-									_1: {ctor: '[]'}
-								}
-							});
-					default:
-						var _v19 = A2(_elm_lang$core$Basics_ops['++'], _p21._0._0, _p21._1),
-							_v20 = declarations;
-						styles = _v19;
-						declarations = _v20;
-						continue applyStyles;
-				}
-			}
-		}
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedStylesToLast = F4(
-	function (nestedStyles, rest, f, declarations) {
-		var withoutParent = function (decls) {
-			return A2(
-				_elm_lang$core$Maybe$withDefault,
-				{ctor: '[]'},
-				_elm_lang$core$List$tail(decls));
-		};
-		var nextResult = A2(
-			_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles,
-			rest,
-			A2(
-				_elm_lang$core$Maybe$withDefault,
-				{ctor: '[]'},
-				_rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration(declarations)));
-		var newDeclarations = function () {
-			var _p30 = {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$List$head(nextResult.declarations),
-				_1: _elm_lang$core$List$head(
-					_elm_lang$core$List$reverse(declarations))
-			};
-			if (((_p30.ctor === '_Tuple2') && (_p30._0.ctor === 'Just')) && (_p30._1.ctor === 'Just')) {
-				var _p32 = _p30._1._0;
-				var _p31 = _p30._0._0;
-				return A2(
-					_elm_lang$core$Basics_ops['++'],
-					A2(
-						_elm_lang$core$List$take,
-						_elm_lang$core$List$length(declarations) - 1,
-						declarations),
-					{
-						ctor: '::',
-						_0: (!_elm_lang$core$Native_Utils.eq(_p32, _p31)) ? _p31 : _p32,
-						_1: {ctor: '[]'}
-					});
-			} else {
-				return declarations;
-			}
-		}();
-		var handleInitial = function (declarationsAndWarnings) {
-			var result = A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyStyles, nestedStyles, declarationsAndWarnings.declarations);
-			return {
-				warnings: A2(_elm_lang$core$Basics_ops['++'], declarationsAndWarnings.warnings, result.warnings),
-				declarations: result.declarations
-			};
-		};
-		var insertStylesToNestedDecl = function (lastDecl) {
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-				A2(
-					_rtfeldman$elm_css$Css_Structure$mapLast,
-					handleInitial,
-					A2(
-						_elm_lang$core$List$map,
-						function (declaration) {
-							return {
-								declarations: {
-									ctor: '::',
-									_0: declaration,
-									_1: {ctor: '[]'}
-								},
-								warnings: {ctor: '[]'}
-							};
-						},
-						A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, f, lastDecl))));
-		};
-		var initialResult = A2(
-			_elm_lang$core$Maybe$withDefault,
-			{
-				warnings: {ctor: '[]'},
-				declarations: {ctor: '[]'}
-			},
-			A2(
-				_elm_lang$core$Maybe$map,
-				insertStylesToNestedDecl,
-				_rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration(declarations)));
-		return {
-			warnings: A2(_elm_lang$core$Basics_ops['++'], initialResult.warnings, nextResult.warnings),
-			declarations: A2(
-				_elm_lang$core$Basics_ops['++'],
-				newDeclarations,
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					withoutParent(initialResult.declarations),
-					withoutParent(nextResult.declarations)))
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule = F5(
-	function (str1, str2, str3, str4, styleBlock) {
-		var _p33 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
-		var declarations = _p33.declarations;
-		var warnings = _p33.warnings;
-		return {
-			declarations: A2(
-				_elm_lang$core$List$map,
-				A4(_rtfeldman$elm_css$Css_Preprocess_Resolve$toDocumentRule, str1, str2, str3, str4),
-				declarations),
-			warnings: warnings
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule = F2(
-	function (str, snippets) {
-		var _p34 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
-			A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, snippets));
-		var declarations = _p34.declarations;
-		var warnings = _p34.warnings;
-		return {
-			declarations: {
-				ctor: '::',
-				_0: A2(_rtfeldman$elm_css$Css_Structure$SupportsRule, str, declarations),
-				_1: {ctor: '[]'}
-			},
-			warnings: warnings
-		};
-	});
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$extract = function (snippetDeclarations) {
-	var _p35 = snippetDeclarations;
-	if (_p35.ctor === '[]') {
-		return {
-			declarations: {ctor: '[]'},
-			warnings: {ctor: '[]'}
-		};
-	} else {
-		var _p36 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toDeclarations(_p35._0);
-		var declarations = _p36.declarations;
-		var warnings = _p36.warnings;
-		var nextResult = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(_p35._1);
-		return {
-			declarations: A2(_elm_lang$core$Basics_ops['++'], declarations, nextResult.declarations),
-			warnings: A2(_elm_lang$core$Basics_ops['++'], warnings, nextResult.warnings)
-		};
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$toDeclarations = function (snippetDeclaration) {
-	var _p37 = snippetDeclaration;
-	switch (_p37.ctor) {
-		case 'StyleBlockDeclaration':
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(_p37._0);
-		case 'MediaRule':
-			return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p37._0, _p37._1);
-		case 'SupportsRule':
-			return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p37._0, _p37._1);
-		case 'DocumentRule':
-			return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p37._0, _p37._1, _p37._2, _p37._3, _p37._4);
-		case 'PageRule':
-			return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p37._0, _p37._1);
-		case 'FontFace':
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p37._0);
-		case 'Keyframes':
-			return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p37._0, _p37._1);
-		case 'Viewport':
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p37._0);
-		case 'CounterStyle':
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p37._0);
-		default:
-			return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p37._0);
-	}
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure = function (_p38) {
-	var _p39 = _p38;
-	var _p40 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
-		A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p39.snippets));
-	var warnings = _p40.warnings;
-	var declarations = _p40.declarations;
-	return {
-		ctor: '_Tuple2',
-		_0: {charset: _p39.charset, imports: _p39.imports, namespaces: _p39.namespaces, declarations: declarations},
-		_1: warnings
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$compile1 = function (sheet) {
-	var _p41 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure(sheet);
-	var structureStylesheet = _p41._0;
-	var warnings = _p41._1;
-	return {
-		warnings: warnings,
-		css: _rtfeldman$elm_css$Css_Structure_Output$prettyPrint(
-			_rtfeldman$elm_css$Css_Structure$dropEmpty(structureStylesheet))
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$compile = function (styles) {
-	var results = A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Preprocess_Resolve$compile1, styles);
-	return {
-		warnings: A2(
-			_elm_lang$core$List$concatMap,
-			function (_) {
-				return _.warnings;
-			},
-			results),
-		css: A2(
-			_elm_lang$core$String$join,
-			'\n\n',
-			A2(
-				_elm_lang$core$List$map,
-				function (_) {
-					return _.css;
-				},
-				results))
-	};
-};
-var _rtfeldman$elm_css$Css_Preprocess_Resolve$DeclarationsAndWarnings = F2(
-	function (a, b) {
-		return {declarations: a, warnings: b};
-	});
-
-var _rtfeldman$elm_css$VirtualDom_Styled$containsKey = F2(
-	function (key, pairs) {
-		containsKey:
-		while (true) {
-			var _p0 = pairs;
-			if (_p0.ctor === '[]') {
-				return false;
-			} else {
-				if (_elm_lang$core$Native_Utils.eq(key, _p0._0._0)) {
-					return true;
-				} else {
-					var _v1 = key,
-						_v2 = _p0._1;
-					key = _v1;
-					pairs = _v2;
-					continue containsKey;
-				}
-			}
-		}
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$getUnusedKey = F2(
-	function ($default, pairs) {
-		getUnusedKey:
-		while (true) {
-			var _p1 = pairs;
-			if (_p1.ctor === '[]') {
-				return $default;
-			} else {
-				var _p2 = _p1._1;
-				var newKey = A2(_elm_lang$core$Basics_ops['++'], '_', _p1._0._0);
-				if (A2(_rtfeldman$elm_css$VirtualDom_Styled$containsKey, newKey, _p2)) {
-					var _v4 = newKey,
-						_v5 = _p2;
-					$default = _v4;
-					pairs = _v5;
-					continue getUnusedKey;
-				} else {
-					return newKey;
-				}
-			}
-		}
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty = function (_p3) {
-	var _p4 = _p3;
-	return _p4._0;
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$stylesFromPropertiesHelp = F2(
-	function (candidate, properties) {
-		stylesFromPropertiesHelp:
-		while (true) {
-			var _p5 = properties;
-			if (_p5.ctor === '[]') {
-				return candidate;
-			} else {
-				var _p7 = _p5._1;
-				var _p6 = _p5._0._2;
-				if (_elm_lang$core$String$isEmpty(_p6)) {
-					var _v8 = candidate,
-						_v9 = _p7;
-					candidate = _v8;
-					properties = _v9;
-					continue stylesFromPropertiesHelp;
-				} else {
-					var _v10 = _elm_lang$core$Maybe$Just(
-						{ctor: '_Tuple2', _0: _p6, _1: _p5._0._1}),
-						_v11 = _p7;
-					candidate = _v10;
-					properties = _v11;
-					continue stylesFromPropertiesHelp;
-				}
-			}
-		}
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$stylesFromProperties = function (properties) {
-	var _p8 = A2(_rtfeldman$elm_css$VirtualDom_Styled$stylesFromPropertiesHelp, _elm_lang$core$Maybe$Nothing, properties);
-	if (_p8.ctor === 'Nothing') {
-		return _elm_lang$core$Dict$empty;
-	} else {
-		return A2(_elm_lang$core$Dict$singleton, _p8._0._0, _p8._0._1);
-	}
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyles = F2(
-	function (_p9, styles) {
-		var _p10 = _p9;
-		var _p11 = _p10._1;
-		return _elm_lang$core$List$isEmpty(_p11) ? styles : A3(_elm_lang$core$Dict$insert, _p10._2, _p11, styles);
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$accumulateKeyedStyledHtml = F2(
-	function (_p13, _p12) {
-		var _p14 = _p13;
-		var _p23 = _p14._0;
-		var _p15 = _p12;
-		var _p22 = _p15._1;
-		var _p21 = _p15._0;
-		var _p16 = _p14._1;
-		switch (_p16.ctor) {
-			case 'Unstyled':
-				return {
-					ctor: '_Tuple2',
-					_0: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: _p23, _1: _p16._0},
-						_1: _p21
-					},
-					_1: _p22
-				};
-			case 'Element':
-				var _p18 = _p16._1;
-				var combinedStyles = A3(_elm_lang$core$List$foldl, _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyles, _p22, _p18);
-				var _p17 = A3(
-					_elm_lang$core$List$foldl,
-					_rtfeldman$elm_css$VirtualDom_Styled$accumulateStyledHtml,
-					{
-						ctor: '_Tuple2',
-						_0: {ctor: '[]'},
-						_1: combinedStyles
-					},
-					_p16._2);
-				var childNodes = _p17._0;
-				var finalStyles = _p17._1;
-				var vdom = A3(
-					_elm_lang$virtual_dom$VirtualDom$node,
-					_p16._0,
-					A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, _p18),
-					_elm_lang$core$List$reverse(childNodes));
-				return {
-					ctor: '_Tuple2',
-					_0: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: _p23, _1: vdom},
-						_1: _p21
-					},
-					_1: finalStyles
-				};
-			default:
-				var _p20 = _p16._1;
-				var combinedStyles = A3(_elm_lang$core$List$foldl, _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyles, _p22, _p20);
-				var _p19 = A3(
-					_elm_lang$core$List$foldl,
-					_rtfeldman$elm_css$VirtualDom_Styled$accumulateKeyedStyledHtml,
-					{
-						ctor: '_Tuple2',
-						_0: {ctor: '[]'},
-						_1: combinedStyles
-					},
-					_p16._2);
-				var childNodes = _p19._0;
-				var finalStyles = _p19._1;
-				var vdom = A3(
-					_elm_lang$virtual_dom$VirtualDom$keyedNode,
-					_p16._0,
-					A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, _p20),
-					_elm_lang$core$List$reverse(childNodes));
-				return {
-					ctor: '_Tuple2',
-					_0: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: _p23, _1: vdom},
-						_1: _p21
-					},
-					_1: finalStyles
-				};
-		}
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyledHtml = F2(
-	function (html, _p24) {
-		var _p25 = _p24;
-		var _p32 = _p25._1;
-		var _p31 = _p25._0;
-		var _p26 = html;
-		switch (_p26.ctor) {
-			case 'Unstyled':
-				return {
-					ctor: '_Tuple2',
-					_0: {ctor: '::', _0: _p26._0, _1: _p31},
-					_1: _p32
-				};
-			case 'Element':
-				var _p28 = _p26._1;
-				var combinedStyles = A3(_elm_lang$core$List$foldl, _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyles, _p32, _p28);
-				var _p27 = A3(
-					_elm_lang$core$List$foldl,
-					_rtfeldman$elm_css$VirtualDom_Styled$accumulateStyledHtml,
-					{
-						ctor: '_Tuple2',
-						_0: {ctor: '[]'},
-						_1: combinedStyles
-					},
-					_p26._2);
-				var childNodes = _p27._0;
-				var finalStyles = _p27._1;
-				var node = A3(
-					_elm_lang$virtual_dom$VirtualDom$node,
-					_p26._0,
-					A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, _p28),
-					_elm_lang$core$List$reverse(childNodes));
-				return {
-					ctor: '_Tuple2',
-					_0: {ctor: '::', _0: node, _1: _p31},
-					_1: finalStyles
-				};
-			default:
-				var _p30 = _p26._1;
-				var combinedStyles = A3(_elm_lang$core$List$foldl, _rtfeldman$elm_css$VirtualDom_Styled$accumulateStyles, _p32, _p30);
-				var _p29 = A3(
-					_elm_lang$core$List$foldl,
-					_rtfeldman$elm_css$VirtualDom_Styled$accumulateKeyedStyledHtml,
-					{
-						ctor: '_Tuple2',
-						_0: {ctor: '[]'},
-						_1: combinedStyles
-					},
-					_p26._2);
-				var childNodes = _p29._0;
-				var finalStyles = _p29._1;
-				var node = A3(
-					_elm_lang$virtual_dom$VirtualDom$keyedNode,
-					_p26._0,
-					A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, _p30),
-					_elm_lang$core$List$reverse(childNodes));
-				return {
-					ctor: '_Tuple2',
-					_0: {ctor: '::', _0: node, _1: _p31},
-					_1: finalStyles
-				};
-		}
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$murmurSeed = 15739;
-var _rtfeldman$elm_css$VirtualDom_Styled$makeSnippet = F2(
-	function (styles, sequence) {
-		var selector = A3(
-			_rtfeldman$elm_css$Css_Structure$Selector,
-			sequence,
-			{ctor: '[]'},
-			_elm_lang$core$Maybe$Nothing);
-		return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
-					A3(
-						_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
-						selector,
-						{ctor: '[]'},
-						styles)),
-				_1: {ctor: '[]'}
-			});
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$snippetFromPair = function (_p33) {
-	var _p34 = _p33;
-	return A2(
-		_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-		_p34._1,
-		_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css_Structure$ClassSelector(_p34._0),
-				_1: {ctor: '[]'}
-			}));
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$toDeclaration = function (dict) {
-	return function (_) {
-		return _.css;
-	}(
-		_rtfeldman$elm_css$Css_Preprocess_Resolve$compile(
-			_elm_lang$core$List$singleton(
-				_rtfeldman$elm_css$Css_Preprocess$stylesheet(
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$VirtualDom_Styled$snippetFromPair,
-						_elm_lang$core$Dict$toList(dict))))));
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$toStyleNode = function (styles) {
-	return A3(
-		_elm_lang$virtual_dom$VirtualDom$node,
-		'style',
-		{ctor: '[]'},
-		_elm_lang$core$List$singleton(
-			_elm_lang$virtual_dom$VirtualDom$text(
-				_rtfeldman$elm_css$VirtualDom_Styled$toDeclaration(styles))));
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$unstyle = F3(
-	function (elemType, properties, children) {
-		var unstyledProperties = A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, properties);
-		var initialStyles = _rtfeldman$elm_css$VirtualDom_Styled$stylesFromProperties(properties);
-		var _p35 = A3(
-			_elm_lang$core$List$foldl,
-			_rtfeldman$elm_css$VirtualDom_Styled$accumulateStyledHtml,
-			{
-				ctor: '_Tuple2',
-				_0: {ctor: '[]'},
-				_1: initialStyles
-			},
-			children);
-		var childNodes = _p35._0;
-		var styles = _p35._1;
-		var styleNode = _rtfeldman$elm_css$VirtualDom_Styled$toStyleNode(styles);
-		return A3(
-			_elm_lang$virtual_dom$VirtualDom$node,
-			elemType,
-			unstyledProperties,
-			{
-				ctor: '::',
-				_0: styleNode,
-				_1: _elm_lang$core$List$reverse(childNodes)
-			});
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$toKeyedStyleNode = F2(
-	function (allStyles, keyedChildNodes) {
-		var finalNode = _rtfeldman$elm_css$VirtualDom_Styled$toStyleNode(allStyles);
-		var styleNodeKey = A2(_rtfeldman$elm_css$VirtualDom_Styled$getUnusedKey, '_', keyedChildNodes);
-		return {ctor: '_Tuple2', _0: styleNodeKey, _1: finalNode};
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$unstyleKeyed = F3(
-	function (elemType, properties, keyedChildren) {
-		var unstyledProperties = A2(_elm_lang$core$List$map, _rtfeldman$elm_css$VirtualDom_Styled$extractUnstyledProperty, properties);
-		var initialStyles = _rtfeldman$elm_css$VirtualDom_Styled$stylesFromProperties(properties);
-		var _p36 = A3(
-			_elm_lang$core$List$foldl,
-			_rtfeldman$elm_css$VirtualDom_Styled$accumulateKeyedStyledHtml,
-			{
-				ctor: '_Tuple2',
-				_0: {ctor: '[]'},
-				_1: initialStyles
-			},
-			keyedChildren);
-		var keyedChildNodes = _p36._0;
-		var styles = _p36._1;
-		var keyedStyleNode = A2(_rtfeldman$elm_css$VirtualDom_Styled$toKeyedStyleNode, styles, keyedChildNodes);
-		return A3(
-			_elm_lang$virtual_dom$VirtualDom$keyedNode,
-			elemType,
-			unstyledProperties,
-			{
-				ctor: '::',
-				_0: keyedStyleNode,
-				_1: _elm_lang$core$List$reverse(keyedChildNodes)
-			});
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$getClassname = function (styles) {
-	return _elm_lang$core$List$isEmpty(styles) ? 'unstyled' : A2(
-		_elm_lang$core$String$cons,
-		_elm_lang$core$Native_Utils.chr('_'),
-		_rtfeldman$hex$Hex$toString(
-			A2(
-				_Skinney$murmur3$Murmur3$hashString,
-				_rtfeldman$elm_css$VirtualDom_Styled$murmurSeed,
-				function (_) {
-					return _.css;
-				}(
-					_rtfeldman$elm_css$Css_Preprocess_Resolve$compile(
-						_elm_lang$core$List$singleton(
-							_rtfeldman$elm_css$Css_Preprocess$stylesheet(
-								_elm_lang$core$List$singleton(
-									A2(
-										_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-										styles,
-										_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-											{ctor: '[]'}))))))))));
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$toUnstyled = function (node) {
-	var _p37 = node;
-	switch (_p37.ctor) {
-		case 'Unstyled':
-			return _p37._0;
-		case 'Element':
-			return A3(_rtfeldman$elm_css$VirtualDom_Styled$unstyle, _p37._0, _p37._1, _p37._2);
-		default:
-			return A3(_rtfeldman$elm_css$VirtualDom_Styled$unstyleKeyed, _p37._0, _p37._1, _p37._2);
-	}
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$Unstyled = function (a) {
-	return {ctor: 'Unstyled', _0: a};
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$unstyledNode = _rtfeldman$elm_css$VirtualDom_Styled$Unstyled;
-var _rtfeldman$elm_css$VirtualDom_Styled$text = function (_p38) {
-	return _rtfeldman$elm_css$VirtualDom_Styled$Unstyled(
-		_elm_lang$virtual_dom$VirtualDom$text(_p38));
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$lazy = F2(
-	function (fn, arg) {
-		return _rtfeldman$elm_css$VirtualDom_Styled$Unstyled(
-			A2(_elm_lang$virtual_dom$VirtualDom$lazy, fn, arg));
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$lazy2 = F3(
-	function (fn, arg1, arg2) {
-		return _rtfeldman$elm_css$VirtualDom_Styled$Unstyled(
-			A3(_elm_lang$virtual_dom$VirtualDom$lazy2, fn, arg1, arg2));
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$lazy3 = F4(
-	function (fn, arg1, arg2, arg3) {
-		return _rtfeldman$elm_css$VirtualDom_Styled$Unstyled(
-			A4(_elm_lang$virtual_dom$VirtualDom$lazy3, fn, arg1, arg2, arg3));
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$KeyedElement = F3(
-	function (a, b, c) {
-		return {ctor: 'KeyedElement', _0: a, _1: b, _2: c};
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$keyedNode = _rtfeldman$elm_css$VirtualDom_Styled$KeyedElement;
-var _rtfeldman$elm_css$VirtualDom_Styled$Element = F3(
-	function (a, b, c) {
-		return {ctor: 'Element', _0: a, _1: b, _2: c};
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$node = _rtfeldman$elm_css$VirtualDom_Styled$Element;
-var _rtfeldman$elm_css$VirtualDom_Styled$Property = F3(
-	function (a, b, c) {
-		return {ctor: 'Property', _0: a, _1: b, _2: c};
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$property = F2(
-	function (key, value) {
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A2(_elm_lang$virtual_dom$VirtualDom$property, key, value),
-			{ctor: '[]'},
-			'');
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$attribute = F2(
-	function (key, value) {
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A2(_elm_lang$virtual_dom$VirtualDom$attribute, key, value),
-			{ctor: '[]'},
-			'');
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$attributeNS = F3(
-	function (namespace, key, value) {
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A3(_elm_lang$virtual_dom$VirtualDom$attributeNS, namespace, key, value),
-			{ctor: '[]'},
-			'');
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$unstyledProperty = function (prop) {
-	return A3(
-		_rtfeldman$elm_css$VirtualDom_Styled$Property,
-		prop,
-		{ctor: '[]'},
-		'');
-};
-var _rtfeldman$elm_css$VirtualDom_Styled$on = F2(
-	function (eventName, decoder) {
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A2(_elm_lang$virtual_dom$VirtualDom$on, eventName, decoder),
-			{ctor: '[]'},
-			'');
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$onWithOptions = F3(
-	function (eventName, options, decoder) {
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A3(_elm_lang$virtual_dom$VirtualDom$onWithOptions, eventName, options, decoder),
-			{ctor: '[]'},
-			'');
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$mapProperty = F2(
-	function (transform, _p39) {
-		var _p40 = _p39;
-		return A3(
-			_rtfeldman$elm_css$VirtualDom_Styled$Property,
-			A2(_elm_lang$virtual_dom$VirtualDom$mapProperty, transform, _p40._0),
-			_p40._1,
-			_p40._2);
-	});
-var _rtfeldman$elm_css$VirtualDom_Styled$map = F2(
-	function (transform, node) {
-		var _p41 = node;
-		switch (_p41.ctor) {
-			case 'Element':
-				return A3(
-					_rtfeldman$elm_css$VirtualDom_Styled$Element,
-					_p41._0,
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$VirtualDom_Styled$mapProperty(transform),
-						_p41._1),
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$VirtualDom_Styled$map(transform),
-						_p41._2));
-			case 'KeyedElement':
-				return A3(
-					_rtfeldman$elm_css$VirtualDom_Styled$KeyedElement,
-					_p41._0,
-					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$VirtualDom_Styled$mapProperty(transform),
-						_p41._1),
-					A2(
-						_elm_lang$core$List$map,
-						function (_p42) {
-							var _p43 = _p42;
-							return {
-								ctor: '_Tuple2',
-								_0: _p43._0,
-								_1: A2(_rtfeldman$elm_css$VirtualDom_Styled$map, transform, _p43._1)
-							};
-						},
-						_p41._2));
-			default:
-				return _rtfeldman$elm_css$VirtualDom_Styled$Unstyled(
-					A2(_elm_lang$virtual_dom$VirtualDom$map, transform, _p41._0));
-		}
-	});
-
-var _rtfeldman$elm_css$Html_Styled_Internal$css = function (styles) {
-	var classname = _rtfeldman$elm_css$VirtualDom_Styled$getClassname(styles);
-	var classProperty = A2(
-		_elm_lang$virtual_dom$VirtualDom$property,
-		'className',
-		_elm_lang$core$Json_Encode$string(classname));
-	return A3(_rtfeldman$elm_css$VirtualDom_Styled$Property, classProperty, styles, classname);
-};
-
-var _rtfeldman$elm_css$Html_Styled$fromUnstyled = _rtfeldman$elm_css$VirtualDom_Styled$unstyledNode;
-var _rtfeldman$elm_css$Html_Styled$toUnstyled = _rtfeldman$elm_css$VirtualDom_Styled$toUnstyled;
-var _rtfeldman$elm_css$Html_Styled$styled = F4(
-	function (fn, styles, attrs, children) {
-		return A2(
-			fn,
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Html_Styled_Internal$css(styles),
-				_1: attrs
-			},
-			children);
-	});
-var _rtfeldman$elm_css$Html_Styled$map = _rtfeldman$elm_css$VirtualDom_Styled$map;
-var _rtfeldman$elm_css$Html_Styled$text = _rtfeldman$elm_css$VirtualDom_Styled$text;
-var _rtfeldman$elm_css$Html_Styled$node = _rtfeldman$elm_css$VirtualDom_Styled$node;
-var _rtfeldman$elm_css$Html_Styled$body = _rtfeldman$elm_css$Html_Styled$node('body');
-var _rtfeldman$elm_css$Html_Styled$section = _rtfeldman$elm_css$Html_Styled$node('section');
-var _rtfeldman$elm_css$Html_Styled$nav = _rtfeldman$elm_css$Html_Styled$node('nav');
-var _rtfeldman$elm_css$Html_Styled$article = _rtfeldman$elm_css$Html_Styled$node('article');
-var _rtfeldman$elm_css$Html_Styled$aside = _rtfeldman$elm_css$Html_Styled$node('aside');
-var _rtfeldman$elm_css$Html_Styled$h1 = _rtfeldman$elm_css$Html_Styled$node('h1');
-var _rtfeldman$elm_css$Html_Styled$h2 = _rtfeldman$elm_css$Html_Styled$node('h2');
-var _rtfeldman$elm_css$Html_Styled$h3 = _rtfeldman$elm_css$Html_Styled$node('h3');
-var _rtfeldman$elm_css$Html_Styled$h4 = _rtfeldman$elm_css$Html_Styled$node('h4');
-var _rtfeldman$elm_css$Html_Styled$h5 = _rtfeldman$elm_css$Html_Styled$node('h5');
-var _rtfeldman$elm_css$Html_Styled$h6 = _rtfeldman$elm_css$Html_Styled$node('h6');
-var _rtfeldman$elm_css$Html_Styled$header = _rtfeldman$elm_css$Html_Styled$node('header');
-var _rtfeldman$elm_css$Html_Styled$footer = _rtfeldman$elm_css$Html_Styled$node('footer');
-var _rtfeldman$elm_css$Html_Styled$address = _rtfeldman$elm_css$Html_Styled$node('address');
-var _rtfeldman$elm_css$Html_Styled$main_ = _rtfeldman$elm_css$Html_Styled$node('main');
-var _rtfeldman$elm_css$Html_Styled$p = _rtfeldman$elm_css$Html_Styled$node('p');
-var _rtfeldman$elm_css$Html_Styled$hr = _rtfeldman$elm_css$Html_Styled$node('hr');
-var _rtfeldman$elm_css$Html_Styled$pre = _rtfeldman$elm_css$Html_Styled$node('pre');
-var _rtfeldman$elm_css$Html_Styled$blockquote = _rtfeldman$elm_css$Html_Styled$node('blockquote');
-var _rtfeldman$elm_css$Html_Styled$ol = _rtfeldman$elm_css$Html_Styled$node('ol');
-var _rtfeldman$elm_css$Html_Styled$ul = _rtfeldman$elm_css$Html_Styled$node('ul');
-var _rtfeldman$elm_css$Html_Styled$li = _rtfeldman$elm_css$Html_Styled$node('li');
-var _rtfeldman$elm_css$Html_Styled$dl = _rtfeldman$elm_css$Html_Styled$node('dl');
-var _rtfeldman$elm_css$Html_Styled$dt = _rtfeldman$elm_css$Html_Styled$node('dt');
-var _rtfeldman$elm_css$Html_Styled$dd = _rtfeldman$elm_css$Html_Styled$node('dd');
-var _rtfeldman$elm_css$Html_Styled$figure = _rtfeldman$elm_css$Html_Styled$node('figure');
-var _rtfeldman$elm_css$Html_Styled$figcaption = _rtfeldman$elm_css$Html_Styled$node('figcaption');
-var _rtfeldman$elm_css$Html_Styled$div = _rtfeldman$elm_css$Html_Styled$node('div');
-var _rtfeldman$elm_css$Html_Styled$a = _rtfeldman$elm_css$Html_Styled$node('a');
-var _rtfeldman$elm_css$Html_Styled$em = _rtfeldman$elm_css$Html_Styled$node('em');
-var _rtfeldman$elm_css$Html_Styled$strong = _rtfeldman$elm_css$Html_Styled$node('strong');
-var _rtfeldman$elm_css$Html_Styled$small = _rtfeldman$elm_css$Html_Styled$node('small');
-var _rtfeldman$elm_css$Html_Styled$s = _rtfeldman$elm_css$Html_Styled$node('s');
-var _rtfeldman$elm_css$Html_Styled$cite = _rtfeldman$elm_css$Html_Styled$node('cite');
-var _rtfeldman$elm_css$Html_Styled$q = _rtfeldman$elm_css$Html_Styled$node('q');
-var _rtfeldman$elm_css$Html_Styled$dfn = _rtfeldman$elm_css$Html_Styled$node('dfn');
-var _rtfeldman$elm_css$Html_Styled$abbr = _rtfeldman$elm_css$Html_Styled$node('abbr');
-var _rtfeldman$elm_css$Html_Styled$time = _rtfeldman$elm_css$Html_Styled$node('time');
-var _rtfeldman$elm_css$Html_Styled$code = _rtfeldman$elm_css$Html_Styled$node('code');
-var _rtfeldman$elm_css$Html_Styled$var = _rtfeldman$elm_css$Html_Styled$node('var');
-var _rtfeldman$elm_css$Html_Styled$samp = _rtfeldman$elm_css$Html_Styled$node('samp');
-var _rtfeldman$elm_css$Html_Styled$kbd = _rtfeldman$elm_css$Html_Styled$node('kbd');
-var _rtfeldman$elm_css$Html_Styled$sub = _rtfeldman$elm_css$Html_Styled$node('sub');
-var _rtfeldman$elm_css$Html_Styled$sup = _rtfeldman$elm_css$Html_Styled$node('sup');
-var _rtfeldman$elm_css$Html_Styled$i = _rtfeldman$elm_css$Html_Styled$node('i');
-var _rtfeldman$elm_css$Html_Styled$b = _rtfeldman$elm_css$Html_Styled$node('b');
-var _rtfeldman$elm_css$Html_Styled$u = _rtfeldman$elm_css$Html_Styled$node('u');
-var _rtfeldman$elm_css$Html_Styled$mark = _rtfeldman$elm_css$Html_Styled$node('mark');
-var _rtfeldman$elm_css$Html_Styled$ruby = _rtfeldman$elm_css$Html_Styled$node('ruby');
-var _rtfeldman$elm_css$Html_Styled$rt = _rtfeldman$elm_css$Html_Styled$node('rt');
-var _rtfeldman$elm_css$Html_Styled$rp = _rtfeldman$elm_css$Html_Styled$node('rp');
-var _rtfeldman$elm_css$Html_Styled$bdi = _rtfeldman$elm_css$Html_Styled$node('bdi');
-var _rtfeldman$elm_css$Html_Styled$bdo = _rtfeldman$elm_css$Html_Styled$node('bdo');
-var _rtfeldman$elm_css$Html_Styled$span = _rtfeldman$elm_css$Html_Styled$node('span');
-var _rtfeldman$elm_css$Html_Styled$br = _rtfeldman$elm_css$Html_Styled$node('br');
-var _rtfeldman$elm_css$Html_Styled$wbr = _rtfeldman$elm_css$Html_Styled$node('wbr');
-var _rtfeldman$elm_css$Html_Styled$ins = _rtfeldman$elm_css$Html_Styled$node('ins');
-var _rtfeldman$elm_css$Html_Styled$del = _rtfeldman$elm_css$Html_Styled$node('del');
-var _rtfeldman$elm_css$Html_Styled$img = _rtfeldman$elm_css$Html_Styled$node('img');
-var _rtfeldman$elm_css$Html_Styled$iframe = _rtfeldman$elm_css$Html_Styled$node('iframe');
-var _rtfeldman$elm_css$Html_Styled$embed = _rtfeldman$elm_css$Html_Styled$node('embed');
-var _rtfeldman$elm_css$Html_Styled$object = _rtfeldman$elm_css$Html_Styled$node('object');
-var _rtfeldman$elm_css$Html_Styled$param = _rtfeldman$elm_css$Html_Styled$node('param');
-var _rtfeldman$elm_css$Html_Styled$video = _rtfeldman$elm_css$Html_Styled$node('video');
-var _rtfeldman$elm_css$Html_Styled$audio = _rtfeldman$elm_css$Html_Styled$node('audio');
-var _rtfeldman$elm_css$Html_Styled$source = _rtfeldman$elm_css$Html_Styled$node('source');
-var _rtfeldman$elm_css$Html_Styled$track = _rtfeldman$elm_css$Html_Styled$node('track');
-var _rtfeldman$elm_css$Html_Styled$canvas = _rtfeldman$elm_css$Html_Styled$node('canvas');
-var _rtfeldman$elm_css$Html_Styled$math = _rtfeldman$elm_css$Html_Styled$node('math');
-var _rtfeldman$elm_css$Html_Styled$table = _rtfeldman$elm_css$Html_Styled$node('table');
-var _rtfeldman$elm_css$Html_Styled$caption = _rtfeldman$elm_css$Html_Styled$node('caption');
-var _rtfeldman$elm_css$Html_Styled$colgroup = _rtfeldman$elm_css$Html_Styled$node('colgroup');
-var _rtfeldman$elm_css$Html_Styled$col = _rtfeldman$elm_css$Html_Styled$node('col');
-var _rtfeldman$elm_css$Html_Styled$tbody = _rtfeldman$elm_css$Html_Styled$node('tbody');
-var _rtfeldman$elm_css$Html_Styled$thead = _rtfeldman$elm_css$Html_Styled$node('thead');
-var _rtfeldman$elm_css$Html_Styled$tfoot = _rtfeldman$elm_css$Html_Styled$node('tfoot');
-var _rtfeldman$elm_css$Html_Styled$tr = _rtfeldman$elm_css$Html_Styled$node('tr');
-var _rtfeldman$elm_css$Html_Styled$td = _rtfeldman$elm_css$Html_Styled$node('td');
-var _rtfeldman$elm_css$Html_Styled$th = _rtfeldman$elm_css$Html_Styled$node('th');
-var _rtfeldman$elm_css$Html_Styled$form = _rtfeldman$elm_css$Html_Styled$node('form');
-var _rtfeldman$elm_css$Html_Styled$fieldset = _rtfeldman$elm_css$Html_Styled$node('fieldset');
-var _rtfeldman$elm_css$Html_Styled$legend = _rtfeldman$elm_css$Html_Styled$node('legend');
-var _rtfeldman$elm_css$Html_Styled$label = _rtfeldman$elm_css$Html_Styled$node('label');
-var _rtfeldman$elm_css$Html_Styled$input = _rtfeldman$elm_css$Html_Styled$node('input');
-var _rtfeldman$elm_css$Html_Styled$button = _rtfeldman$elm_css$Html_Styled$node('button');
-var _rtfeldman$elm_css$Html_Styled$select = _rtfeldman$elm_css$Html_Styled$node('select');
-var _rtfeldman$elm_css$Html_Styled$datalist = _rtfeldman$elm_css$Html_Styled$node('datalist');
-var _rtfeldman$elm_css$Html_Styled$optgroup = _rtfeldman$elm_css$Html_Styled$node('optgroup');
-var _rtfeldman$elm_css$Html_Styled$option = _rtfeldman$elm_css$Html_Styled$node('option');
-var _rtfeldman$elm_css$Html_Styled$textarea = _rtfeldman$elm_css$Html_Styled$node('textarea');
-var _rtfeldman$elm_css$Html_Styled$keygen = _rtfeldman$elm_css$Html_Styled$node('keygen');
-var _rtfeldman$elm_css$Html_Styled$output = _rtfeldman$elm_css$Html_Styled$node('output');
-var _rtfeldman$elm_css$Html_Styled$progress = _rtfeldman$elm_css$Html_Styled$node('progress');
-var _rtfeldman$elm_css$Html_Styled$meter = _rtfeldman$elm_css$Html_Styled$node('meter');
-var _rtfeldman$elm_css$Html_Styled$details = _rtfeldman$elm_css$Html_Styled$node('details');
-var _rtfeldman$elm_css$Html_Styled$summary = _rtfeldman$elm_css$Html_Styled$node('summary');
-var _rtfeldman$elm_css$Html_Styled$menuitem = _rtfeldman$elm_css$Html_Styled$node('menuitem');
-var _rtfeldman$elm_css$Html_Styled$menu = _rtfeldman$elm_css$Html_Styled$node('menu');
-
-var _rtfeldman$elm_css$Css_Foreign$collectSelectors = function (declarations) {
-	collectSelectors:
-	while (true) {
-		var _p0 = declarations;
-		if (_p0.ctor === '[]') {
-			return {ctor: '[]'};
-		} else {
-			if (_p0._0.ctor === 'StyleBlockDeclaration') {
-				return A2(
-					_elm_lang$core$Basics_ops['++'],
-					{
-						ctor: '::',
-						_0: A2(_rtfeldman$elm_css$Css_Foreign$unwrapSelector, _p0._0._0._0, _p0._0._0._2),
-						_1: _p0._0._0._1
-					},
-					_rtfeldman$elm_css$Css_Foreign$collectSelectors(_p0._1));
-			} else {
-				var _v1 = _p0._1;
-				declarations = _v1;
-				continue collectSelectors;
-			}
-		}
-	}
-};
-var _rtfeldman$elm_css$Css_Foreign$unwrapSelector = F2(
-	function (_p1, styles) {
-		var _p2 = _p1;
-		var unwrapCombinatorSelector = F2(
-			function (style, cs) {
-				var _p3 = style;
-				if (_p3.ctor === 'NestSnippet') {
-					return A2(
-						_elm_lang$core$List$append,
-						cs,
-						A2(
-							_elm_lang$core$List$map,
-							function (_p4) {
-								var _p5 = _p4;
-								return {ctor: '_Tuple2', _0: _p3._0, _1: _p5._0};
-							},
-							A2(
-								_elm_lang$core$List$concatMap,
-								function (_p6) {
-									return _rtfeldman$elm_css$Css_Foreign$collectSelectors(
-										_rtfeldman$elm_css$Css_Preprocess$unwrapSnippet(_p6));
-								},
-								_p3._1)));
-				} else {
-					return cs;
-				}
-			});
-		var unwrapSequenceSelector = F2(
-			function (style, s) {
-				var _p7 = style;
-				if (_p7.ctor === 'ExtendSelector') {
-					return A3(
-						_elm_lang$core$List$foldr,
-						unwrapSequenceSelector,
-						A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, _p7._0, s),
-						_p7._1);
-				} else {
-					return s;
-				}
-			});
-		return A3(
-			_rtfeldman$elm_css$Css_Structure$Selector,
-			A3(_elm_lang$core$List$foldr, unwrapSequenceSelector, _p2._0, styles),
-			A3(_elm_lang$core$List$foldr, unwrapCombinatorSelector, _p2._1, styles),
-			_p2._2);
-	});
-var _rtfeldman$elm_css$Css_Foreign$typeSelector = F2(
-	function (selectorStr, styles) {
-		var sequence = A2(
-			_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
-			_rtfeldman$elm_css$Css_Structure$TypeSelector(selectorStr),
-			{ctor: '[]'});
-		var selector = A3(
-			_rtfeldman$elm_css$Css_Structure$Selector,
-			sequence,
-			{ctor: '[]'},
-			_elm_lang$core$Maybe$Nothing);
-		return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
-					A3(
-						_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
-						selector,
-						{ctor: '[]'},
-						styles)),
-				_1: {ctor: '[]'}
-			});
-	});
-var _rtfeldman$elm_css$Css_Foreign$html = _rtfeldman$elm_css$Css_Foreign$typeSelector('html');
-var _rtfeldman$elm_css$Css_Foreign$body = _rtfeldman$elm_css$Css_Foreign$typeSelector('body');
-var _rtfeldman$elm_css$Css_Foreign$article = _rtfeldman$elm_css$Css_Foreign$typeSelector('article');
-var _rtfeldman$elm_css$Css_Foreign$header = _rtfeldman$elm_css$Css_Foreign$typeSelector('header');
-var _rtfeldman$elm_css$Css_Foreign$footer = _rtfeldman$elm_css$Css_Foreign$typeSelector('footer');
-var _rtfeldman$elm_css$Css_Foreign$h1 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h1');
-var _rtfeldman$elm_css$Css_Foreign$h2 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h2');
-var _rtfeldman$elm_css$Css_Foreign$h3 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h3');
-var _rtfeldman$elm_css$Css_Foreign$h4 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h4');
-var _rtfeldman$elm_css$Css_Foreign$h5 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h5');
-var _rtfeldman$elm_css$Css_Foreign$h6 = _rtfeldman$elm_css$Css_Foreign$typeSelector('h6');
-var _rtfeldman$elm_css$Css_Foreign$nav = _rtfeldman$elm_css$Css_Foreign$typeSelector('nav');
-var _rtfeldman$elm_css$Css_Foreign$menu = _rtfeldman$elm_css$Css_Foreign$typeSelector('menu');
-var _rtfeldman$elm_css$Css_Foreign$section = _rtfeldman$elm_css$Css_Foreign$typeSelector('section');
-var _rtfeldman$elm_css$Css_Foreign$aside = _rtfeldman$elm_css$Css_Foreign$typeSelector('aside');
-var _rtfeldman$elm_css$Css_Foreign$time = _rtfeldman$elm_css$Css_Foreign$typeSelector('time');
-var _rtfeldman$elm_css$Css_Foreign$div = _rtfeldman$elm_css$Css_Foreign$typeSelector('div');
-var _rtfeldman$elm_css$Css_Foreign$hr = _rtfeldman$elm_css$Css_Foreign$typeSelector('hr');
-var _rtfeldman$elm_css$Css_Foreign$li = _rtfeldman$elm_css$Css_Foreign$typeSelector('li');
-var _rtfeldman$elm_css$Css_Foreign$main_ = _rtfeldman$elm_css$Css_Foreign$typeSelector('main');
-var _rtfeldman$elm_css$Css_Foreign$ol = _rtfeldman$elm_css$Css_Foreign$typeSelector('ol');
-var _rtfeldman$elm_css$Css_Foreign$p = _rtfeldman$elm_css$Css_Foreign$typeSelector('p');
-var _rtfeldman$elm_css$Css_Foreign$ul = _rtfeldman$elm_css$Css_Foreign$typeSelector('ul');
-var _rtfeldman$elm_css$Css_Foreign$pre = _rtfeldman$elm_css$Css_Foreign$typeSelector('pre');
-var _rtfeldman$elm_css$Css_Foreign$dl = _rtfeldman$elm_css$Css_Foreign$typeSelector('dl');
-var _rtfeldman$elm_css$Css_Foreign$dt = _rtfeldman$elm_css$Css_Foreign$typeSelector('dt');
-var _rtfeldman$elm_css$Css_Foreign$dd = _rtfeldman$elm_css$Css_Foreign$typeSelector('dd');
-var _rtfeldman$elm_css$Css_Foreign$a = _rtfeldman$elm_css$Css_Foreign$typeSelector('a');
-var _rtfeldman$elm_css$Css_Foreign$code = _rtfeldman$elm_css$Css_Foreign$typeSelector('code');
-var _rtfeldman$elm_css$Css_Foreign$small = _rtfeldman$elm_css$Css_Foreign$typeSelector('small');
-var _rtfeldman$elm_css$Css_Foreign$span = _rtfeldman$elm_css$Css_Foreign$typeSelector('span');
-var _rtfeldman$elm_css$Css_Foreign$strong = _rtfeldman$elm_css$Css_Foreign$typeSelector('strong');
-var _rtfeldman$elm_css$Css_Foreign$i = _rtfeldman$elm_css$Css_Foreign$typeSelector('i');
-var _rtfeldman$elm_css$Css_Foreign$em = _rtfeldman$elm_css$Css_Foreign$typeSelector('em');
-var _rtfeldman$elm_css$Css_Foreign$q = _rtfeldman$elm_css$Css_Foreign$typeSelector('q');
-var _rtfeldman$elm_css$Css_Foreign$img = _rtfeldman$elm_css$Css_Foreign$typeSelector('img');
-var _rtfeldman$elm_css$Css_Foreign$audio = _rtfeldman$elm_css$Css_Foreign$typeSelector('audio');
-var _rtfeldman$elm_css$Css_Foreign$video = _rtfeldman$elm_css$Css_Foreign$typeSelector('video');
-var _rtfeldman$elm_css$Css_Foreign$canvas = _rtfeldman$elm_css$Css_Foreign$typeSelector('canvas');
-var _rtfeldman$elm_css$Css_Foreign$caption = _rtfeldman$elm_css$Css_Foreign$typeSelector('caption');
-var _rtfeldman$elm_css$Css_Foreign$col = _rtfeldman$elm_css$Css_Foreign$typeSelector('col');
-var _rtfeldman$elm_css$Css_Foreign$colgroup = _rtfeldman$elm_css$Css_Foreign$typeSelector('colgroup');
-var _rtfeldman$elm_css$Css_Foreign$table = _rtfeldman$elm_css$Css_Foreign$typeSelector('table');
-var _rtfeldman$elm_css$Css_Foreign$tbody = _rtfeldman$elm_css$Css_Foreign$typeSelector('tbody');
-var _rtfeldman$elm_css$Css_Foreign$td = _rtfeldman$elm_css$Css_Foreign$typeSelector('td');
-var _rtfeldman$elm_css$Css_Foreign$tfoot = _rtfeldman$elm_css$Css_Foreign$typeSelector('tfoot');
-var _rtfeldman$elm_css$Css_Foreign$th = _rtfeldman$elm_css$Css_Foreign$typeSelector('th');
-var _rtfeldman$elm_css$Css_Foreign$thead = _rtfeldman$elm_css$Css_Foreign$typeSelector('thead');
-var _rtfeldman$elm_css$Css_Foreign$tr = _rtfeldman$elm_css$Css_Foreign$typeSelector('tr');
-var _rtfeldman$elm_css$Css_Foreign$button = _rtfeldman$elm_css$Css_Foreign$typeSelector('button');
-var _rtfeldman$elm_css$Css_Foreign$fieldset = _rtfeldman$elm_css$Css_Foreign$typeSelector('fieldset');
-var _rtfeldman$elm_css$Css_Foreign$form = _rtfeldman$elm_css$Css_Foreign$typeSelector('form');
-var _rtfeldman$elm_css$Css_Foreign$input = _rtfeldman$elm_css$Css_Foreign$typeSelector('input');
-var _rtfeldman$elm_css$Css_Foreign$label = _rtfeldman$elm_css$Css_Foreign$typeSelector('label');
-var _rtfeldman$elm_css$Css_Foreign$legend = _rtfeldman$elm_css$Css_Foreign$typeSelector('legend');
-var _rtfeldman$elm_css$Css_Foreign$optgroup = _rtfeldman$elm_css$Css_Foreign$typeSelector('optgroup');
-var _rtfeldman$elm_css$Css_Foreign$option = _rtfeldman$elm_css$Css_Foreign$typeSelector('option');
-var _rtfeldman$elm_css$Css_Foreign$progress = _rtfeldman$elm_css$Css_Foreign$typeSelector('progress');
-var _rtfeldman$elm_css$Css_Foreign$select = _rtfeldman$elm_css$Css_Foreign$typeSelector('select');
-var _rtfeldman$elm_css$Css_Foreign$textarea = _rtfeldman$elm_css$Css_Foreign$typeSelector('textarea');
-var _rtfeldman$elm_css$Css_Foreign$blockquote = _rtfeldman$elm_css$Css_Foreign$typeSelector('blockquote');
-var _rtfeldman$elm_css$Css_Foreign$svg = _rtfeldman$elm_css$Css_Foreign$typeSelector('svg');
-var _rtfeldman$elm_css$Css_Foreign$path = _rtfeldman$elm_css$Css_Foreign$typeSelector('path');
-var _rtfeldman$elm_css$Css_Foreign$rect = _rtfeldman$elm_css$Css_Foreign$typeSelector('rect');
-var _rtfeldman$elm_css$Css_Foreign$circle = _rtfeldman$elm_css$Css_Foreign$typeSelector('circle');
-var _rtfeldman$elm_css$Css_Foreign$ellipse = _rtfeldman$elm_css$Css_Foreign$typeSelector('ellipse');
-var _rtfeldman$elm_css$Css_Foreign$line = _rtfeldman$elm_css$Css_Foreign$typeSelector('line');
-var _rtfeldman$elm_css$Css_Foreign$polyline = _rtfeldman$elm_css$Css_Foreign$typeSelector('polyline');
-var _rtfeldman$elm_css$Css_Foreign$polygon = _rtfeldman$elm_css$Css_Foreign$typeSelector('polygon');
-var _rtfeldman$elm_css$Css_Foreign$each = F2(
-	function (snippetCreators, styles) {
-		var selectorsToSnippet = function (selectors) {
-			var _p8 = selectors;
-			if (_p8.ctor === '[]') {
-				return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-					{ctor: '[]'});
-			} else {
-				return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
-							A3(_rtfeldman$elm_css$Css_Preprocess$StyleBlock, _p8._0, _p8._1, styles)),
-						_1: {ctor: '[]'}
-					});
-			}
-		};
-		return selectorsToSnippet(
-			_rtfeldman$elm_css$Css_Foreign$collectSelectors(
-				A2(
-					_elm_lang$core$List$concatMap,
-					_rtfeldman$elm_css$Css_Preprocess$unwrapSnippet,
-					A2(
-						_elm_lang$core$List$map,
-						F2(
-							function (x, y) {
-								return y(x);
-							})(
-							{ctor: '[]'}),
-						snippetCreators))));
-	});
-var _rtfeldman$elm_css$Css_Foreign$generalSiblings = _rtfeldman$elm_css$Css_Preprocess$NestSnippet(_rtfeldman$elm_css$Css_Structure$GeneralSibling);
-var _rtfeldman$elm_css$Css_Foreign$adjacentSiblings = _rtfeldman$elm_css$Css_Preprocess$NestSnippet(_rtfeldman$elm_css$Css_Structure$AdjacentSibling);
-var _rtfeldman$elm_css$Css_Foreign$descendants = _rtfeldman$elm_css$Css_Preprocess$NestSnippet(_rtfeldman$elm_css$Css_Structure$Descendant);
-var _rtfeldman$elm_css$Css_Foreign$withClass = function ($class) {
-	return _rtfeldman$elm_css$Css_Preprocess$ExtendSelector(
-		_rtfeldman$elm_css$Css_Structure$ClassSelector(
-			A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', $class)));
-};
-var _rtfeldman$elm_css$Css_Foreign$children = _rtfeldman$elm_css$Css_Preprocess$NestSnippet(_rtfeldman$elm_css$Css_Structure$Child);
-var _rtfeldman$elm_css$Css_Foreign$media = F2(
-	function (queries, snippets) {
-		var nestedMediaRules = function (declarations) {
-			nestedMediaRules:
-			while (true) {
-				var _p9 = declarations;
-				if (_p9.ctor === '[]') {
-					return {ctor: '[]'};
-				} else {
-					switch (_p9._0.ctor) {
-						case 'StyleBlockDeclaration':
-							var _v8 = _p9._1;
-							declarations = _v8;
-							continue nestedMediaRules;
-						case 'MediaRule':
-							return {
-								ctor: '::',
-								_0: A2(
-									_rtfeldman$elm_css$Css_Preprocess$MediaRule,
-									A2(_elm_lang$core$List$append, queries, _p9._0._0),
-									_p9._0._1),
-								_1: nestedMediaRules(_p9._1)
-							};
-						default:
-							return {
-								ctor: '::',
-								_0: _p9._0,
-								_1: nestedMediaRules(_p9._1)
-							};
-					}
-				}
-			}
-		};
-		var extractStyleBlocks = function (declarations) {
-			extractStyleBlocks:
-			while (true) {
-				var _p10 = declarations;
-				if (_p10.ctor === '[]') {
-					return {ctor: '[]'};
-				} else {
-					if (_p10._0.ctor === 'StyleBlockDeclaration') {
-						return {
-							ctor: '::',
-							_0: _p10._0._0,
-							_1: extractStyleBlocks(_p10._1)
-						};
-					} else {
-						var _v10 = _p10._1;
-						declarations = _v10;
-						continue extractStyleBlocks;
-					}
-				}
-			}
-		};
-		var snippetDeclarations = A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, snippets);
-		var mediaRuleFromStyleBlocks = A2(
-			_rtfeldman$elm_css$Css_Preprocess$MediaRule,
-			queries,
-			extractStyleBlocks(snippetDeclarations));
-		return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-			{
-				ctor: '::',
-				_0: mediaRuleFromStyleBlocks,
-				_1: nestedMediaRules(snippetDeclarations)
-			});
-	});
-var _rtfeldman$elm_css$Css_Foreign$mediaQuery = F2(
-	function (stringQueries, snippets) {
-		return A2(
-			_rtfeldman$elm_css$Css_Foreign$media,
-			A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure$CustomQuery, stringQueries),
-			snippets);
-	});
-var _rtfeldman$elm_css$Css_Foreign$everything = function (styles) {
-	return A2(
-		_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-		styles,
-		_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-			{ctor: '[]'}));
-};
-var _rtfeldman$elm_css$Css_Foreign$selector = F2(
-	function (selectorStr, styles) {
-		return A2(
-			_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-			styles,
-			A2(
-				_rtfeldman$elm_css$Css_Structure$CustomSelector,
-				selectorStr,
-				{ctor: '[]'}));
-	});
-var _rtfeldman$elm_css$Css_Foreign$class = F2(
-	function ($class, styles) {
-		return A2(
-			_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-			styles,
-			_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css_Structure$ClassSelector(
-						A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', $class)),
-					_1: {ctor: '[]'}
-				}));
-	});
-var _rtfeldman$elm_css$Css_Foreign$id = F2(
-	function (identifier, styles) {
-		return A2(
-			_rtfeldman$elm_css$VirtualDom_Styled$makeSnippet,
-			styles,
-			_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css_Structure$IdSelector(
-						A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', identifier)),
-					_1: {ctor: '[]'}
-				}));
-	});
-var _rtfeldman$elm_css$Css_Foreign$global = function (snippets) {
-	return _rtfeldman$elm_css$VirtualDom_Styled$unstyledNode(
-		A3(
-			_elm_lang$virtual_dom$VirtualDom$node,
-			'style',
-			{ctor: '[]'},
-			_elm_lang$core$List$singleton(
-				_elm_lang$virtual_dom$VirtualDom$text(
-					function (_) {
-						return _.css;
-					}(
-						_rtfeldman$elm_css$Css_Preprocess_Resolve$compile(
-							_elm_lang$core$List$singleton(
-								_rtfeldman$elm_css$Css_Preprocess$stylesheet(snippets))))))));
-};
-
-var _rtfeldman$elm_css$Html_Styled_Attributes$css = _rtfeldman$elm_css$Html_Styled_Internal$css;
-var _rtfeldman$elm_css$Html_Styled_Attributes$map = _rtfeldman$elm_css$VirtualDom_Styled$mapProperty;
-var _rtfeldman$elm_css$Html_Styled_Attributes$attribute = _rtfeldman$elm_css$VirtualDom_Styled$attribute;
-var _rtfeldman$elm_css$Html_Styled_Attributes$contextmenu = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'contextmenu', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$draggable = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'draggable', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$itemprop = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'itemprop', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$tabindex = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'tabIndex',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$charset = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'charset', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$height = function (value) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'height',
-		_elm_lang$core$Basics$toString(value));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$width = function (value) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'width',
-		_elm_lang$core$Basics$toString(value));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$formaction = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'formAction', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$list = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'list', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$minlength = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'minLength',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$maxlength = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'maxlength',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$size = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'size',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$form = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'form', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$cols = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'cols',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$rows = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'rows',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$challenge = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'challenge', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$media = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'media', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$rel = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'rel', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$datetime = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'datetime', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$pubdate = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'pubdate', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$colspan = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'colspan',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$rowspan = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-		'rowspan',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$manifest = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$attribute, 'manifest', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$property = _rtfeldman$elm_css$VirtualDom_Styled$property;
-var _rtfeldman$elm_css$Html_Styled_Attributes$stringProperty = F2(
-	function (name, string) {
-		return A2(
-			_rtfeldman$elm_css$Html_Styled_Attributes$property,
-			name,
-			_elm_lang$core$Json_Encode$string(string));
-	});
-var _rtfeldman$elm_css$Html_Styled_Attributes$class = function (name) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'className', name);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$id = function (name) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'id', name);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$title = function (name) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'title', name);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$accesskey = function ($char) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty,
-		'accessKey',
-		_elm_lang$core$String$fromChar($char));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$dir = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'dir', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$dropzone = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'dropzone', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$lang = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'lang', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$content = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'content', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$httpEquiv = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'httpEquiv', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$language = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'language', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$src = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'src', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$alt = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'alt', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$preload = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'preload', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$poster = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'poster', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$kind = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'kind', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$srclang = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'srclang', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$sandbox = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'sandbox', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$srcdoc = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'srcdoc', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$type_ = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'type', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$value = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'value', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$defaultValue = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'defaultValue', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$placeholder = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'placeholder', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$accept = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'accept', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$acceptCharset = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'acceptCharset', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$action = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'action', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$autocomplete = function (bool) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty,
-		'autocomplete',
-		bool ? 'on' : 'off');
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$enctype = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'enctype', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$method = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'method', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$name = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'name', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$pattern = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'pattern', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$for = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'htmlFor', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$max = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'max', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$min = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'min', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$step = function (n) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'step', n);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$wrap = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'wrap', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$usemap = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'useMap', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$shape = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'shape', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$coords = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'coords', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$keytype = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'keytype', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$align = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'align', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$cite = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'cite', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$href = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'href', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$target = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'target', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$downloadAs = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'download', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$hreflang = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'hreflang', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$ping = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'ping', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$start = function (n) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty,
-		'start',
-		_elm_lang$core$Basics$toString(n));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$headers = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'headers', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$scope = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$stringProperty, 'scope', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$boolProperty = F2(
-	function (name, bool) {
-		return A2(
-			_rtfeldman$elm_css$Html_Styled_Attributes$property,
-			name,
-			_elm_lang$core$Json_Encode$bool(bool));
-	});
-var _rtfeldman$elm_css$Html_Styled_Attributes$hidden = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'hidden', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$contenteditable = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'contentEditable', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$spellcheck = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'spellcheck', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$async = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'async', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$defer = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'defer', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$scoped = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'scoped', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$autoplay = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'autoplay', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$controls = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'controls', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$loop = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'loop', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$default = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'default', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$seamless = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'seamless', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$checked = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'checked', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$selected = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'selected', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$autofocus = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'autofocus', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$disabled = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'disabled', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$multiple = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'multiple', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$novalidate = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'noValidate', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$readonly = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'readOnly', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$required = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'required', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$ismap = function (value) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'isMap', value);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$download = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'download', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$reversed = function (bool) {
-	return A2(_rtfeldman$elm_css$Html_Styled_Attributes$boolProperty, 'reversed', bool);
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$classList = function (list) {
-	return _rtfeldman$elm_css$Html_Styled_Attributes$class(
-		A2(
-			_elm_lang$core$String$join,
-			' ',
-			A2(
-				_elm_lang$core$List$map,
-				_elm_lang$core$Tuple$first,
-				A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list))));
-};
-var _rtfeldman$elm_css$Html_Styled_Attributes$fromUnstyled = _rtfeldman$elm_css$VirtualDom_Styled$unstyledProperty;
-var _rtfeldman$elm_css$Html_Styled_Attributes$style = function (_p0) {
-	return _rtfeldman$elm_css$Html_Styled_Attributes$fromUnstyled(
-		_elm_lang$virtual_dom$VirtualDom$style(_p0));
-};
-
-var _user$project$AppStyle$infoWrapper = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$width(
-		_rtfeldman$elm_css$Css$pct(50)),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_rtfeldman$elm_css$Css_Media$withMedia,
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css_Media$all(
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Media$maxWidth(
-								_rtfeldman$elm_css$Css$px(760)),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
-					_1: {ctor: '[]'}
-				}),
+			_0: _mdgriffith$style_elements$Element_Attributes$alignRight,
 			_1: {
 				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Css_Media$withMedia,
-					{
+				_0: _mdgriffith$style_elements$Element_Attributes$moveLeft(env.width * 3.0e-2),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$moveDown(langSwitcherOffsetY),
+					_1: {ctor: '[]'}
+				}
+			}
+		},
+		_user$project$AppLayouts$langSwitcher(model));
+	var navigationBar = function (children) {
+		return A3(
+			_mdgriffith$style_elements$Element$el,
+			_user$project$Stylesheet$None,
+			{ctor: '[]'},
+			A3(
+				_mdgriffith$style_elements$Element$row,
+				_user$project$Stylesheet$MenuBox,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(
+						_mdgriffith$style_elements$Element_Attributes$px(navigationBarWidth)),
+					_1: {
 						ctor: '::',
-						_0: _rtfeldman$elm_css$Css_Media$all(
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css_Media$orientation(_rtfeldman$elm_css$Css_Media$portrait),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
+						_0: _mdgriffith$style_elements$Element_Attributes$height(
+							_mdgriffith$style_elements$Element_Attributes$px(navigationBarHeight)),
 						_1: {
 							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$width(
-								_rtfeldman$elm_css$Css$pct(100)),
+							_0: _mdgriffith$style_elements$Element_Attributes$moveRight(env.width - navigationBarWidth),
 							_1: {
 								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$marginBottom(
-									_rtfeldman$elm_css$Css$px(25)),
+								_0: _mdgriffith$style_elements$Element_Attributes$spread,
+								_1: {
+									ctor: '::',
+									_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, env.width / 35, 0),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				},
+				children));
+	};
+	var controlArea = function () {
+		var controlPanel = A2(
+			_mdgriffith$style_elements$Element$within,
+			{
+				ctor: '::',
+				_0: languageSwitcher,
+				_1: {ctor: '[]'}
+			},
+			panel(
+				{
+					ctor: '::',
+					_0: logo,
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$el,
+							_user$project$Stylesheet$Title,
+							{ctor: '[]'},
+							_mdgriffith$style_elements$Element$text('PANDA Dental')),
+						_1: {ctor: '[]'}
+					}
+				}));
+		return (_elm_lang$core$Native_Utils.cmp(-1 * model.navBarOffset, panelHeight) < 0) ? {
+			ctor: '::',
+			_0: A2(
+				_mdgriffith$style_elements$Element$below,
+				{
+					ctor: '::',
+					_0: navigationBar(
+						{
+							ctor: '::',
+							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content$ContactMenu),
+							_1: {
+								ctor: '::',
+								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content$IntroductionMenu),
+								_1: {
+									ctor: '::',
+									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content$ServiceMenu),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				},
+				controlPanel),
+			_1: {ctor: '[]'}
+		} : {
+			ctor: '::',
+			_0: controlPanel,
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element$screen(
+					navigationBar(
+						{
+							ctor: '::',
+							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content$ContactMenu),
+							_1: {
+								ctor: '::',
+								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content$IntroductionMenu),
+								_1: {
+									ctor: '::',
+									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content$ServiceMenu),
+									_1: {ctor: '[]'}
+								}
+							}
+						})),
+				_1: {ctor: '[]'}
+			}
+		};
+	}();
+	var infoArea = function (children) {
+		return env.portrait ? A3(
+			_mdgriffith$style_elements$Element$column,
+			_user$project$Stylesheet$None,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$height(
+						_mdgriffith$style_elements$Element_Attributes$px(infoAreaHeight)),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$paddingTop(((infoAreaHeight - (2 * infoBoxHeight)) * 0.35) + (navigationBarHeight / 2)),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$paddingBottom(infoAreaHeight * 3.0e-2),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$center,
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$verticalSpread,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			},
+			children) : A3(
+			_mdgriffith$style_elements$Element$row,
+			_user$project$Stylesheet$None,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$width(
+					_mdgriffith$style_elements$Element_Attributes$px(env.width)),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$height(
+						_mdgriffith$style_elements$Element_Attributes$px(infoAreaHeight)),
+					_1: {
+						ctor: '::',
+						_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, (env.width - (2 * infoBoxWidth)) * 0.23, 0),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$spread,
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
 								_1: {ctor: '[]'}
 							}
 						}
-					}),
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
-var _user$project$AppStyle$icon = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$hover(
-		{
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$color(
-				A3(_rtfeldman$elm_css$Css$rgb, 100, 150, 60)),
-			_1: {ctor: '[]'}
-		}),
-	_1: {ctor: '[]'}
-};
-var _user$project$AppStyle$quickInfoContainer = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$width(
-		_rtfeldman$elm_css$Css$pct(95)),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$marginLeft(_rtfeldman$elm_css$Css$auto),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$marginRight(_rtfeldman$elm_css$Css$auto),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$marginTop(
-					_rtfeldman$elm_css$Css$pct(5)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$textAlign(_rtfeldman$elm_css$Css$center),
-					_1: {ctor: '[]'}
+					}
 				}
-			}
-		}
-	}
-};
-var _user$project$AppStyle$verticalAlign = function (ratio) {
-	return {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$top(
-				_rtfeldman$elm_css$Css$pct(ratio * 100.0)),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$transform(
-					_rtfeldman$elm_css$Css$translateY(
-						_rtfeldman$elm_css$Css$pct(ratio * -100.0))),
-				_1: {ctor: '[]'}
-			}
-		}
+			},
+			children);
 	};
-};
-var _user$project$AppStyle$colors = {
-	primary: A3(_rtfeldman$elm_css$Css$rgb, 156, 218, 120),
-	secondary: A3(_rtfeldman$elm_css$Css$rgb, 241, 249, 226),
-	background: A3(_rtfeldman$elm_css$Css$rgb, 225, 248, 163),
-	fill: A3(_rtfeldman$elm_css$Css$rgb, 255, 255, 255),
-	text: A3(_rtfeldman$elm_css$Css$rgb, 0, 0, 0)
-};
-var _user$project$AppStyle$fillText = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$color(_user$project$AppStyle$colors.fill),
-	_1: {ctor: '[]'}
-};
-var _user$project$AppStyle$appContainer = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$relative),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$important(
-				_rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden)),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$width(
-					_rtfeldman$elm_css$Css$pct(100)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$AppStyle$colors.background),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$fontSize(
-							_rtfeldman$elm_css$Css$px(0)),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}
-	}
-};
-var _user$project$AppStyle$header = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$height(
-		_rtfeldman$elm_css$Css$pct(100)),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$width(
-			_rtfeldman$elm_css$Css$pct(90)),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$margin(_rtfeldman$elm_css$Css$auto),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$AppStyle$colors.secondary),
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
-var _user$project$AppStyle$titleContainer = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$relative),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$height(
-			_rtfeldman$elm_css$Css$px(190)),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$padding(
-				_rtfeldman$elm_css$Css$px(60)),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$AppStyle$colors.primary),
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
-var _user$project$AppStyle$infoBox = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$AppStyle$colors.fill),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$width(
-			_rtfeldman$elm_css$Css$px(360)),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_rtfeldman$elm_css$Css_Media$withMedia,
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css_Media$all(
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Media$orientation(_rtfeldman$elm_css$Css_Media$portrait),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$width(
-						_rtfeldman$elm_css$Css$pct(80)),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		}
-	}
-};
-var _user$project$AppStyle$infoHeader = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$AppStyle$colors.primary),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$color(_user$project$AppStyle$colors.fill),
-		_1: {ctor: '[]'}
-	}
-};
-
-var _user$project$Components$menuBar = A2(
-	_rtfeldman$elm_css$Html_Styled$div,
-	{ctor: '[]'},
-	{ctor: '[]'});
-var _user$project$Components$hdiv = A2(
-	_rtfeldman$elm_css$Html_Styled$styled,
-	_rtfeldman$elm_css$Html_Styled$div,
-	{
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
-		_1: {ctor: '[]'}
-	});
-var _user$project$Components$h2_ = A2(
-	_rtfeldman$elm_css$Html_Styled$styled,
-	_rtfeldman$elm_css$Html_Styled$h2,
-	{
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$fontSize(
-			_rtfeldman$elm_css$Css$rem(2.5)),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$margin(
-				_rtfeldman$elm_css$Css$px(0)),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Css_Media$withMedia,
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css_Media$all(
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css_Media$orientation(_rtfeldman$elm_css$Css_Media$portrait),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$fontSize(
-							_rtfeldman$elm_css$Css$rem(3.8)),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$Components$infoBox = F2(
-	function (title, infoElem) {
-		return A2(
-			_user$project$Components$hdiv,
+	var icon = env.portrait ? _user$project$AppLayouts$ImgDef(infoBoxWidth * 8.0e-2) : _user$project$AppLayouts$ImgDef(infoBoxWidth * 8.0e-2);
+	return container(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			controlArea,
 			{
 				ctor: '::',
-				_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$infoBox),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Html_Styled$div,
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$infoHeader),
-						_1: {ctor: '[]'}
-					},
+				_0: infoArea(
 					{
 						ctor: '::',
 						_0: A2(
-							_user$project$Components$h2_,
-							{ctor: '[]'},
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled$text(title),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: infoElem,
-					_1: {ctor: '[]'}
-				}
-			});
-	});
-var _user$project$Components$h1_ = A2(
-	_rtfeldman$elm_css$Html_Styled$styled,
-	_rtfeldman$elm_css$Html_Styled$h1,
-	{
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$fontSize(
-			_rtfeldman$elm_css$Css$rem(4)),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$margin(
-				_rtfeldman$elm_css$Css$px(0)),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Css_Media$withMedia,
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css_Media$all(
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css_Media$orientation(_rtfeldman$elm_css$Css_Media$portrait),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$fontSize(
-							_rtfeldman$elm_css$Css$rem(6)),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$Components$p_ = A2(
-	_rtfeldman$elm_css$Html_Styled$styled,
-	_rtfeldman$elm_css$Html_Styled$p,
-	{
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$fontSize(
-			_rtfeldman$elm_css$Css$rem(1.4)),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_rtfeldman$elm_css$Css_Media$withMedia,
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css_Media$all(
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css_Media$orientation(_rtfeldman$elm_css$Css_Media$portrait),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$fontSize(
-						_rtfeldman$elm_css$Css$rem(2.5)),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		}
-	});
-var _user$project$Components$contactBox = A2(
-	_user$project$Components$infoBox,
-	'Elérhetőségek',
-	A2(
-		_rtfeldman$elm_css$Html_Styled$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_user$project$Components$p_,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled$text('+36 20/235 05 49'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_user$project$Components$p_,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled$text('pandadental.hidas@gmail.com'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_user$project$Components$p_,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled$text('7696 Hidas'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_user$project$Components$p_,
-							{ctor: '[]'},
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled$text('Petőfi Sándor u.'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}));
-var _user$project$Components$openingHoursBox = A2(
-	_user$project$Components$infoBox,
-	'Nyitvatartás',
-	A2(
-		_rtfeldman$elm_css$Html_Styled$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_user$project$Components$p_,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled$text('Hétfő, csütörtök'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_user$project$Components$p_,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled$text('12 - 18'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_user$project$Components$p_,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled$text('Kedd, szerda:'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_user$project$Components$p_,
-							{ctor: '[]'},
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled$text('8 - 14'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}));
-var _user$project$Components$cssReset = _rtfeldman$elm_css$Css_Foreign$global(
-	{
-		ctor: '::',
-		_0: A2(
-			_rtfeldman$elm_css$Css_Foreign$selector,
-			'html, body',
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$border(
-					_rtfeldman$elm_css$Css$px(0)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$margin(
-						_rtfeldman$elm_css$Css$px(0)),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$padding(
-							_rtfeldman$elm_css$Css$px(0)),
-						_1: {ctor: '[]'}
-					}
-				}
-			}),
-		_1: {ctor: '[]'}
-	});
-var _user$project$Components$catCss = function (classList) {
-	return _rtfeldman$elm_css$Html_Styled_Attributes$css(
-		_elm_lang$core$List$concat(classList));
-};
-var _user$project$Components$header = A2(
-	_rtfeldman$elm_css$Html_Styled$div,
-	{
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$header),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_rtfeldman$elm_css$Html_Styled$div,
-			{
-				ctor: '::',
-				_0: _user$project$Components$catCss(
-					{
-						ctor: '::',
-						_0: _user$project$AppStyle$titleContainer,
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: A2(
-					_user$project$Components$hdiv,
-					{
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$marginLeft(
-									_rtfeldman$elm_css$Css$px(40)),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: A2(
-							_rtfeldman$elm_css$Html_Styled$img,
-							{
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled_Attributes$src('img/panda.svg'),
-								_1: {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(
-										{
-											ctor: '::',
-											_0: _rtfeldman$elm_css$Css$width(
-												_rtfeldman$elm_css$Css$px(170)),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
-							},
-							{ctor: '[]'}),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_user$project$Components$hdiv,
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(
+							infoBox,
+							_user$project$Content$ContactHeader,
+							A4(
+								_user$project$AppLayouts$infoRecords,
+								model,
+								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$marginLeft(
-										_rtfeldman$elm_css$Css$px(40)),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: A2(
-								_rtfeldman$elm_css$Html_Styled$div,
-								{
-									ctor: '::',
-									_0: _user$project$Components$catCss(
-										{
+									_0: A2(icon, 'img/phone.svg', 'mobile phone icon'),
+									_1: {
+										ctor: '::',
+										_0: A2(icon, 'img/phone.svg', 'landline icon'),
+										_1: {
 											ctor: '::',
-											_0: _user$project$AppStyle$verticalAlign(0.5),
+											_0: A2(icon, 'img/e-mail.svg', 'e-mail-icon'),
 											_1: {
 												ctor: '::',
-												_0: _user$project$AppStyle$fillText,
+												_0: A2(icon, 'img/address.svg', 'GPS position icon'),
 												_1: {ctor: '[]'}
 											}
-										}),
-									_1: {ctor: '[]'}
+										}
+									}
 								},
 								{
 									ctor: '::',
-									_0: A2(
-										_user$project$Components$h1_,
-										{ctor: '[]'},
-										{
+									_0: '+36 20/235 05 49',
+									_1: {
+										ctor: '::',
+										_0: '+36 72/671 303',
+										_1: {
 											ctor: '::',
-											_0: _rtfeldman$elm_css$Html_Styled$text('PANDA Dental'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}),
+											_0: 'pandadental.hidas@gmail.com',
+											_1: {
+												ctor: '::',
+												_0: content(_user$project$Content$AddressLine),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								})),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								infoBox,
+								_user$project$Content$ContactHeader,
+								A4(
+									_user$project$AppLayouts$infoRecords,
+									model,
+									{ctor: '[]'},
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: content(_user$project$Content$OpeningDays1),
+										_1: {
+											ctor: '::',
+											_0: content(_user$project$Content$OpeningTime1),
+											_1: {
+												ctor: '::',
+												_0: content(_user$project$Content$OpeningDays2),
+												_1: {
+													ctor: '::',
+													_0: content(_user$project$Content$OpeningTime2),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									})),
 							_1: {ctor: '[]'}
-						}),
+						}
+					}),
+				_1: {ctor: '[]'}
+			}));
+};
+var _user$project$View$view = function (model) {
+	return A2(
+		_mdgriffith$style_elements$Element$layout,
+		_user$project$Stylesheet$stylesheet(model),
+		A3(
+			_mdgriffith$style_elements$Element$column,
+			_user$project$Stylesheet$AppContainer,
+			{
+				ctor: '::',
+				_0: A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'id', 'appContainer'),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$width(
+						_mdgriffith$style_elements$Element_Attributes$px(model.env.width)),
 					_1: {ctor: '[]'}
 				}
-			}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_rtfeldman$elm_css$Html_Styled$div,
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$quickInfoContainer),
-					_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$List$map,
+				function (component) {
+					return component(model);
 				},
 				{
 					ctor: '::',
-					_0: A2(
-						_rtfeldman$elm_css$Html_Styled$div,
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$infoWrapper),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _user$project$Components$contactBox,
-							_1: {ctor: '[]'}
-						}),
+					_0: _user$project$View$home,
 					_1: {
 						ctor: '::',
-						_0: A2(
-							_rtfeldman$elm_css$Html_Styled$div,
-							{
+						_0: _user$project$View$map,
+						_1: {
+							ctor: '::',
+							_0: _user$project$View$info,
+							_1: {
 								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$infoWrapper),
+								_0: _user$project$View$services,
 								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: _user$project$Components$openingHoursBox,
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
+							}
+						}
 					}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Components$menuBar,
-				_1: {ctor: '[]'}
-			}
-		}
-	});
+				})));
+};
 
-var _user$project$Main$view = function (model) {
-	return A2(
-		_rtfeldman$elm_css$Html_Styled$div,
-		{
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Html_Styled_Attributes$css(_user$project$AppStyle$appContainer),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Components$cssReset,
-			_1: {
-				ctor: '::',
-				_0: _user$project$Components$header,
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		return _elm_lang$core$Native_Utils.update(
-			model,
-			{
-				content: _elm_lang$core$String$reverse(_p0._0)
-			});
-	});
-var _user$project$Main$Model = function (a) {
-	return {content: a};
-};
-var _user$project$Main$model = _user$project$Main$Model('a');
-var _user$project$Main$main = _elm_lang$html$Html$beginnerProgram(
-	{
-		model: _user$project$Main$model,
-		view: function (_p1) {
-			return _rtfeldman$elm_css$Html_Styled$toUnstyled(
-				_user$project$Main$view(_p1));
-		},
-		update: _user$project$Main$update
-	})();
-var _user$project$Main$AppContainer = {ctor: 'AppContainer'};
-var _user$project$Main$Change = function (a) {
-	return {ctor: 'Change', _0: a};
-};
+var _user$project$Main$main = _elm_lang$html$Html$program(
+	{init: _user$project$AppModel$init, update: _user$project$AppModel$update, view: _user$project$View$view, subscriptions: _user$project$AppModel$subscriptions})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

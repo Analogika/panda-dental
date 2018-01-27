@@ -1,0 +1,13 @@
+* {
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+}
+
+ul {
+		padding: 1em;
+}
+
+html {
+		overflow-x: hidden;
+}
