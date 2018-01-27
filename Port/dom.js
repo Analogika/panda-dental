@@ -1,3 +1,4 @@
+// Elm port file
 app.ports.getAreaLocations.subscribe(function(idArr) {
 	var locations = [];
 	for (var i = 0; i < idArr.length; i++) {
