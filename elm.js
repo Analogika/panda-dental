@@ -20077,6 +20077,93 @@ var _mdgriffith$style_elements$Element_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
+var _mdgriffith$style_elements$Style_Background$noRepeat = _mdgriffith$style_elements$Style_Internal_Model$NoRepeat;
+var _mdgriffith$style_elements$Style_Background$stretch = _mdgriffith$style_elements$Style_Internal_Model$Round;
+var _mdgriffith$style_elements$Style_Background$space = _mdgriffith$style_elements$Style_Internal_Model$Space;
+var _mdgriffith$style_elements$Style_Background$repeat = _mdgriffith$style_elements$Style_Internal_Model$Repeat;
+var _mdgriffith$style_elements$Style_Background$repeatY = _mdgriffith$style_elements$Style_Internal_Model$RepeatY;
+var _mdgriffith$style_elements$Style_Background$repeatX = _mdgriffith$style_elements$Style_Internal_Model$RepeatX;
+var _mdgriffith$style_elements$Style_Background$imageWith = function (attrs) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		_mdgriffith$style_elements$Style_Internal_Model$BackgroundImage(attrs));
+};
+var _mdgriffith$style_elements$Style_Background$size = _mdgriffith$style_elements$Style_Internal_Model$BackgroundSize;
+var _mdgriffith$style_elements$Style_Background$height = _mdgriffith$style_elements$Style_Internal_Model$BackgroundHeight;
+var _mdgriffith$style_elements$Style_Background$width = _mdgriffith$style_elements$Style_Internal_Model$BackgroundWidth;
+var _mdgriffith$style_elements$Style_Background$natural = _mdgriffith$style_elements$Style_Background$size(
+	{height: _mdgriffith$style_elements$Style_Internal_Model$Auto, width: _mdgriffith$style_elements$Style_Internal_Model$Auto});
+var _mdgriffith$style_elements$Style_Background$cover = _mdgriffith$style_elements$Style_Internal_Model$Cover;
+var _mdgriffith$style_elements$Style_Background$contain = _mdgriffith$style_elements$Style_Internal_Model$Contain;
+var _mdgriffith$style_elements$Style_Background$coverImage = function (src) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		_mdgriffith$style_elements$Style_Internal_Model$BackgroundImage(
+			{
+				src: src,
+				position: {ctor: '_Tuple2', _0: 0, _1: 0},
+				repeat: _mdgriffith$style_elements$Style_Background$noRepeat,
+				size: _mdgriffith$style_elements$Style_Background$cover
+			}));
+};
+var _mdgriffith$style_elements$Style_Background$image = function (src) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		_mdgriffith$style_elements$Style_Internal_Model$BackgroundImage(
+			{
+				src: src,
+				position: {ctor: '_Tuple2', _0: 0, _1: 0},
+				repeat: _mdgriffith$style_elements$Style_Background$noRepeat,
+				size: _mdgriffith$style_elements$Style_Background$natural
+			}));
+};
+var _mdgriffith$style_elements$Style_Background$gradientBottomLeft = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToBottomLeft, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientTopLeft = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToTopLeft, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientLeft = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToLeft, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientBottomRight = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToBottomRight, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientTopRight = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToTopRight, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientRight = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToRight, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientDown = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToDown, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradientUp = function (steps) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Background(
+		A2(_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient, _mdgriffith$style_elements$Style_Internal_Model$ToUp, steps));
+};
+var _mdgriffith$style_elements$Style_Background$gradient = F2(
+	function (angle, steps) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Background(
+			A2(
+				_mdgriffith$style_elements$Style_Internal_Model$BackgroundLinearGradient,
+				_mdgriffith$style_elements$Style_Internal_Model$ToAngle(angle),
+				steps));
+	});
+var _mdgriffith$style_elements$Style_Background$px = F2(
+	function (p, c) {
+		return A2(_mdgriffith$style_elements$Style_Internal_Model$PxStep, c, p);
+	});
+var _mdgriffith$style_elements$Style_Background$percent = F2(
+	function (p, c) {
+		return A2(_mdgriffith$style_elements$Style_Internal_Model$PercentStep, c, p);
+	});
+var _mdgriffith$style_elements$Style_Background$step = _mdgriffith$style_elements$Style_Internal_Model$ColorStep;
+
 var _mdgriffith$style_elements$Style_Border$roundBottomLeft = function (x) {
 	return A2(
 		_mdgriffith$style_elements$Style_Internal_Model$Exact,
@@ -20279,103 +20366,143 @@ var _mdgriffith$style_elements$Style_Font$typeface = function (families) {
 	return _mdgriffith$style_elements$Style_Internal_Model$FontFamily(families);
 };
 
-var _user$project$Content$Entry = F4(
+var _user$project$Content_Content$Entry = F4(
 	function (a, b, c, d) {
 		return {id: a, hu: b, en: c, de: d};
 	});
-var _user$project$Content$CosmeticServices = {ctor: 'CosmeticServices'};
-var _user$project$Content$ProsthesesServices = {ctor: 'ProsthesesServices'};
-var _user$project$Content$ReparatoryServices = {ctor: 'ReparatoryServices'};
-var _user$project$Content$CosmeticServicesHeader = {ctor: 'CosmeticServicesHeader'};
-var _user$project$Content$ProsthesesServicesHeader = {ctor: 'ProsthesesServicesHeader'};
-var _user$project$Content$ReparatoryServicesHeader = {ctor: 'ReparatoryServicesHeader'};
-var _user$project$Content$WarrantyParagraph = {ctor: 'WarrantyParagraph'};
-var _user$project$Content$IntroductionParagraph = {ctor: 'IntroductionParagraph'};
-var _user$project$Content$WarrantyButton = {ctor: 'WarrantyButton'};
-var _user$project$Content$IntroductionButton = {ctor: 'IntroductionButton'};
-var _user$project$Content$PortraitAlt = {ctor: 'PortraitAlt'};
-var _user$project$Content$OpeningTime2 = {ctor: 'OpeningTime2'};
-var _user$project$Content$OpeningDays2 = {ctor: 'OpeningDays2'};
-var _user$project$Content$OpeningTime1 = {ctor: 'OpeningTime1'};
-var _user$project$Content$OpeningDays1 = {ctor: 'OpeningDays1'};
-var _user$project$Content$OpeningHoursHeader = {ctor: 'OpeningHoursHeader'};
-var _user$project$Content$AddressLine = {ctor: 'AddressLine'};
-var _user$project$Content$ContactHeader = {ctor: 'ContactHeader'};
-var _user$project$Content$GalleryMenu = {ctor: 'GalleryMenu'};
-var _user$project$Content$ServiceMenu = {ctor: 'ServiceMenu'};
-var _user$project$Content$IntroductionMenu = {ctor: 'IntroductionMenu'};
-var _user$project$Content$ContactMenu = {ctor: 'ContactMenu'};
-var _user$project$Content$LogoAlt = {ctor: 'LogoAlt'};
-var _user$project$Content$entries = {
+var _user$project$Content_Content$ToothCosmeticAlt = {ctor: 'ToothCosmeticAlt'};
+var _user$project$Content_Content$DentalDrillAlt = {ctor: 'DentalDrillAlt'};
+var _user$project$Content_Content$ToothImplantAlt = {ctor: 'ToothImplantAlt'};
+var _user$project$Content_Content$CosmeticServices = {ctor: 'CosmeticServices'};
+var _user$project$Content_Content$ProsthesesServices = {ctor: 'ProsthesesServices'};
+var _user$project$Content_Content$ReparatoryServices = {ctor: 'ReparatoryServices'};
+var _user$project$Content_Content$CosmeticServicesHeader = {ctor: 'CosmeticServicesHeader'};
+var _user$project$Content_Content$ProsthesesServicesHeader = {ctor: 'ProsthesesServicesHeader'};
+var _user$project$Content_Content$ReparatoryServicesHeader = {ctor: 'ReparatoryServicesHeader'};
+var _user$project$Content_Content$WarrantyParagraph = {ctor: 'WarrantyParagraph'};
+var _user$project$Content_Content$IntroductionParagraph = {ctor: 'IntroductionParagraph'};
+var _user$project$Content_Content$WarrantyButton = {ctor: 'WarrantyButton'};
+var _user$project$Content_Content$IntroductionButton = {ctor: 'IntroductionButton'};
+var _user$project$Content_Content$PortraitAlt = {ctor: 'PortraitAlt'};
+var _user$project$Content_Content$OpeningTime2 = {ctor: 'OpeningTime2'};
+var _user$project$Content_Content$OpeningDays2 = {ctor: 'OpeningDays2'};
+var _user$project$Content_Content$OpeningTime1 = {ctor: 'OpeningTime1'};
+var _user$project$Content_Content$OpeningDays1 = {ctor: 'OpeningDays1'};
+var _user$project$Content_Content$OpeningHoursHeader = {ctor: 'OpeningHoursHeader'};
+var _user$project$Content_Content$AddressLine2 = {ctor: 'AddressLine2'};
+var _user$project$Content_Content$AddressLine = {ctor: 'AddressLine'};
+var _user$project$Content_Content$ContactHeader = {ctor: 'ContactHeader'};
+var _user$project$Content_Content$GalleryMenu = {ctor: 'GalleryMenu'};
+var _user$project$Content_Content$ServiceMenu = {ctor: 'ServiceMenu'};
+var _user$project$Content_Content$TravelAlt = {ctor: 'TravelAlt'};
+var _user$project$Content_Content$GpsAlt = {ctor: 'GpsAlt'};
+var _user$project$Content_Content$EmailAlt = {ctor: 'EmailAlt'};
+var _user$project$Content_Content$MobilePhoneAlt = {ctor: 'MobilePhoneAlt'};
+var _user$project$Content_Content$IntroductionMenu = {ctor: 'IntroductionMenu'};
+var _user$project$Content_Content$ContactMenu = {ctor: 'ContactMenu'};
+var _user$project$Content_Content$LogoAlt = {ctor: 'LogoAlt'};
+var _user$project$Content_Content$entries = {
 	ctor: '::',
-	_0: A4(_user$project$Content$Entry, _user$project$Content$LogoAlt, 'Vektoros kép egy panda fejről', 'Vector image of a panda head', ''),
+	_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$LogoAlt, 'Vektoros kép egy panda fejről', 'Vector image of a panda head', 'Vector Bild eines Pandakopfes'),
 	_1: {
 		ctor: '::',
-		_0: A4(_user$project$Content$Entry, _user$project$Content$ContactMenu, 'Kapcsolat', 'Contact', 'Kontakt'),
+		_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ContactMenu, 'Kapcsolat', 'Contact', 'Kontakt'),
 		_1: {
 			ctor: '::',
-			_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionMenu, 'Rólunk', 'About', 'Über uns'),
+			_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$IntroductionMenu, 'Rólunk', 'About', 'Über uns'),
 			_1: {
 				ctor: '::',
-				_0: A4(_user$project$Content$Entry, _user$project$Content$ServiceMenu, 'Szolgáltatások', 'Services', 'Dienstleistungen'),
+				_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$MobilePhoneAlt, 'Mobiltelefon ikon', 'Mobile phone icon', 'Mobiltelefon-Ikone'),
 				_1: {
 					ctor: '::',
-					_0: A4(_user$project$Content$Entry, _user$project$Content$GalleryMenu, 'Galléria', 'Gallery', 'Fotogallerie'),
+					_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$EmailAlt, 'E-mail ikon', 'E-mail-icon', 'E-mail-Ikone '),
 					_1: {
 						ctor: '::',
-						_0: A4(_user$project$Content$Entry, _user$project$Content$ContactHeader, 'Kapcsolat', 'Contact', 'Kontakt'),
+						_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$GpsAlt, 'Helyzetjelző ikon', 'GPS position icon', 'GPS-Koordinaten-Ikon'),
 						_1: {
 							ctor: '::',
-							_0: A4(_user$project$Content$Entry, _user$project$Content$AddressLine, '2 Petőfi Sándor str. Hidas 7696', 'Hidas, Petőfi Sándor u. 2, 7696', 'Petőfi Sándor str. 2, 7696, Hidas'),
+							_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$TravelAlt, 'A Pécstől való távolságot szimbolizáló ikon', 'Icon to symbolize distance from Pécs', 'Ikone, um die Entfernung von Pécs zu symbolisieren'),
 							_1: {
 								ctor: '::',
-								_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningHoursHeader, 'Nyitvatartás', 'Opening Hours', 'Öffnungszeiten'),
+								_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ServiceMenu, 'Szolgáltatások', 'Services', 'Dienstleistungen'),
 								_1: {
 									ctor: '::',
-									_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningDays1, 'Hétfő, Csütörtök', 'Monday, Thrusday', 'Montag, Donnerstag'),
+									_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$GalleryMenu, 'Galléria', 'Gallery', 'Fotogalerie'),
 									_1: {
 										ctor: '::',
-										_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningTime1, '    12 - 18', '  12 p.m - 6 p.m', '    12 - 18'),
+										_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ContactHeader, 'Kapcsolat', 'Contact', 'Kontakt'),
 										_1: {
 											ctor: '::',
-											_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningDays2, 'Kedd, Szerda, Péntek', 'Tuesday, Wednesday, Friday', 'Dienstag, Mittwoch, Freitag'),
+											_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$AddressLine, 'Hidas, Petőfi Sándor u. 2, 7696', '2 Petőfi Sándor str. Hidas 7696', 'Petőfi Sándor str. 2, 7696, Hidas'),
 											_1: {
 												ctor: '::',
-												_0: A4(_user$project$Content$Entry, _user$project$Content$OpeningTime2, '    8 - 14', '  8 a.m - 2 p.m', '    8 - 14'),
+												_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$AddressLine2, 'Pécstől 35 Kilométerre', '35 km from Pécs', '35 km von Pécs'),
 												_1: {
 													ctor: '::',
-													_0: A4(_user$project$Content$Entry, _user$project$Content$PortraitAlt, 'Portré Dr. Császár Mercedes Melanieról', 'A portrait from Dr. Mercedes Melanie Császár', ''),
+													_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$OpeningHoursHeader, 'Nyitvatartás', 'Opening Hours', 'Öffnungszeiten'),
 													_1: {
 														ctor: '::',
-														_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionButton, 'Bemutatkozás', 'Introduction', 'Einführung'),
+														_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$OpeningDays1, 'Hétfő, Csütörtök', 'Monday, Thrusday', 'Montag, Donnerstag'),
 														_1: {
 															ctor: '::',
-															_0: A4(_user$project$Content$Entry, _user$project$Content$WarrantyButton, 'Garancia', 'Warranty', 'Garantie'),
+															_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$OpeningTime1, '    12 - 18', '  12 p.m - 6 p.m', '    12 - 18'),
 															_1: {
 																ctor: '::',
-																_0: A4(_user$project$Content$Entry, _user$project$Content$IntroductionParagraph, ' 2014-ben végeztem a Pécsi Tudományegyetem Fogorvostudományi Szakán.\n\nSzeretném a megszerzett tudásomat kamatoztatni, folyamatosan fejlődni és a legjobb tudásom szerint pácienseim állapotán javítani, gyógyítani. Parxisom megnyitásával szeretnék lehetőséget biztosítani mindenki számára, hogy minőségi és magas színvonalon történő ellátásban részesülhessen.\n\nElsősorban az esztétikai fogászat és a fogpótlástan tudománya áll közel hozzám, de a specializáltabb parodontális kezelések, fogszabályozás, szájsebészeti beavatkozások terén is segítségére sietek bárkinek, szükség esetén gondos kollégákhoz irányítva\n\nMivel a fogak egészségének és szépségének megőrzése közös feladatunk, munkám során rendszeres és részletes tájékoztatást adok az Ön kezeléseiről, állapotáról. Kérdéseire készséggel válaszolok. Amikor lehetséges, több megoldást is felkínálok az adott problémára, mellyel kapcsolatban a döntést Ön hozhatja meg az információk ismeretében\n\nRendelőmet a modern fogászati eljárások igényeinek megfelelően szereltem fel. Emellett a kényelem is fontos szempont volt közös munkánk terének kialakításában, így egy tágas, otthonos helyen üdvözlöm Önt\n    ', ' I graduated from the University of Pécs in 2014 as a D.M.D.\n\n I want to use everything I learnt to help my patients to the best of my abilities, while maintaining a continous development of my skills. I am opening my practice to give everyone the opportunity of getting quality care and high standard treatments\n\nMy main fields of interest are Aesthetical Dentistry and Prosthodontics, and above that I can help you with certain problems in the fields of Oral Surgery, Periodontology and Orthodontology. When necessary, I can offer the help of colleagues with expertise in multiple faculties outside my main practice.\n\nBecause it is our shared task to maintain your beautiful and healthy smile, it is a priority for me to give you thorough information on a regular basis about your condition and your treatments. Your questions are always wellcome. Whenever possible, I offer multiple treatment options, so you can gain control over your healing using the information provided\n\nMy office is modern and well-equipped, and, as your comfort is also important, I greet you in a spatious and homely waiting room.\n', '## Deutsche Übersetzung kommt bald'),
+																_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$OpeningDays2, 'Kedd, Szerda, Péntek', 'Tuesday, Wednesday, Friday', 'Dienstag, Mittwoch, Freitag'),
 																_1: {
 																	ctor: '::',
-																	_0: A4(_user$project$Content$Entry, _user$project$Content$WarrantyParagraph, '\n### Rendelőnk a fogászatban elfogadott, modern kezelési elveknek megfelelve - garanciát vállal:\n- Esztétikus fogszínű tömésekre\n- Betétekre (inlay, onlay, overlay)\n- Koronákra/hidakra\n\n### Mit is jelent ez pontosan?\n\nAmennyiben a fentebb említett ellátási módok során a pótlás, vagy az ellátott fog (az esetlegesen szükségszerűvé váló gyökérkezelés nem tartozik ide) károsodik, a rendeltetésszerű használat mellett le-, vagy eltörik, meglazul, megreped ingyenesen helyreállítjuk.\n\n### A garancia abban az esetben érvényes, ha a beteg vállalja\n\n- Fogait megfelelően ápolja, tisztítja.\n- Ellenőrzésen 6 havonta (illetve ha azt az orvos másként nem rendeli) megjelenik,\n- A javasolt állapotfenntartó kezeléseket elfogadja és elvégezteti, pl. fogkő-eltávolítás, fogágykezelés stb.\n\n### Nem érvényes a garancia:\n\n- Nem a rendelőben készült gyökértömésekre ill. ezek következtében létrejött károsodásokra.\n- A rendelőben készült pótlások problémáira, amelyeket más fogorvos javítani próbált.\n- A kezelést megelőzően nem ismert allergiákra, általános betegségekre és következményeikre pl.: fogágybetegség, tályog, cysta, gyökércsúcsi felritkulás következtében nem megtartható fog és ezáltal az általunk elkészített pótlás elvesztése.\n- Gyulladások (fogíny, fogágy, gyökér) következményeképpen létrejövő szükségszerű fogeltávolítás, mely az elkészült tömést, pótlást érinti.\n- Elszíneződésre, mely dohányzásból, kávé vagy tea fogyasztásából adódik.\n- Extrém igénybevételre pl.: éjszakai fogcsikorgatás\n- Olyan tömésekre, melyekre hosszú távú megoldásként betét vagy korona javasolt.\n- Rendellenes használatra, baleseti sérülésre.\n\nKivehető protézisek készítése 4-5 évente javasolt (mivel baktériumok telepednek meg a szemmel nem látható mikrosérülésekben, melyek tisztítása lehetetlennek minősített).\n\n\n           ', '### Our office, according to modern treatment principles, offers a gurantee on:\n\n- Composite fillings\n- Inlays, onlays or overlays\n- Detal crowns/bridges\n\n### What does this mean?\nIn case of damage, cracks, chips, breaks, relaxation of the above mentioned, the restoration is free of charge.\n\n### The guarantee is only applicable if the patient:\n\n- Excercises proper dental health.\n- Takes part in regular checkups (at least every 6 months, except advised othervise).\n- Accepts and goes under suggested followup treatments (eg. calculus removal, periodontal treatment)\n\n### The guarantee is invalidated in the case of:\n\n- Root canal treatments made not in this  dentist’s office.\n- Any of the above mentioned (filling, inlay, crown, denture….) installed in this practice and reparatory treatments were made on by other practitioners.\n- Unkown allergies, diseases and other medical conditions resulting loss of teeth, or following medical conditions.\n- Gingival, periodontal inflammations or abscesses, therefore the removal of previously treated teeth.\n- Discoloration of smoking or consumption of tea or coffee.\n- Extreme stress (eg. nocturnal teeth grinding).\n- Temporary filling falls out.\n- Accidental damage, or mistreatment by patient.\n\nDentures are required to be replaced every 4-5 years, because microfissures on the surface become impossible to be cleaned of bacterial growth.\n\n', '## Deutsche Übersetzung kommt bald'),
+																	_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$OpeningTime2, '    8 - 14', '  8 a.m - 2 p.m', '    8 - 14'),
 																	_1: {
 																		ctor: '::',
-																		_0: A4(_user$project$Content$Entry, _user$project$Content$ReparatoryServicesHeader, 'Helyreállító beavatkozások', 'Reparatory treatments', ''),
+																		_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$PortraitAlt, 'Portré Dr. Császár Mercedes Melanieról', 'A portrait of Dr. Mercedes Melanie Császár', 'Ein Porträt von Dr. Mercedes Melanie Császár'),
 																		_1: {
 																			ctor: '::',
-																			_0: A4(_user$project$Content$Entry, _user$project$Content$ProsthesesServicesHeader, 'Pótlások', 'Removable and fixed prostheses', ''),
+																			_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$IntroductionButton, 'Bemutatkozás', 'Introduction', 'Einführung'),
 																			_1: {
 																				ctor: '::',
-																				_0: A4(_user$project$Content$Entry, _user$project$Content$CosmeticServicesHeader, 'Kozmetikai beavatkozások, egyéb', 'Cosmetic and other treatments', ''),
+																				_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$WarrantyButton, 'Garancia', 'Warranty', 'Garantie'),
 																				_1: {
 																					ctor: '::',
-																					_0: A4(_user$project$Content$Entry, _user$project$Content$ReparatoryServices, '\n### Parodontológia\n\n- Fogkőeltávolítás\n- Polírozás\n- Gyulladt íny kezelése\n- Mozgó fogak sínezése\n\n### Tömések és betétek(inlay onlay, overlay)\n\n- Kompozit tömés\n- Cement tömés\n- Kompozit betét\n- Kerámia betét\n- Arany betét\n\n### Egyéb\n\n- Gyökérkezelés\n- Fogeltávolítás\n', '\n### Periodontal treatments\n\n- Calculus removal\n- Polishing\n- Gingivitis treatment\n- Stabilization of moving teeth\n\n### Fillings, indirect restorations\n\n- Composite fillings\n- Cement fillings\n- Composite inlay, onlay, overlay\n- Ceramic inlay, onlay, overlay,\n- Gold inlay, onlay, overlay\n\n### Other\n\n- Root canal treatment\n- Tooth extraction\n\n', ''),
+																					_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$IntroductionParagraph, ' 2014-ben végeztem a Pécsi Tudományegyetem Fogorvostudományi Szakán.\n\nSzeretném a megszerzett tudásomat kamatoztatni, folyamatosan fejlődni és a legjobb tudásom szerint pácienseim állapotán javítani, gyógyítani. Praxisom megnyitásával szeretnék lehetőséget biztosítani mindenki számára, hogy minőségi és magas színvonalon történő ellátásban részesülhessen.\n\nElsősorban az esztétikai fogászat és a fogpótlástan tudománya áll közel hozzám, de a specializáltabb parodontális kezelések, fogszabályozás, szájsebészeti beavatkozások terén is segítségére sietek bárkinek, szükség esetén gondos kollégákhoz irányítva.\n\nMivel a fogak egészségének és szépségének megőrzése közös feladatunk, munkám során rendszeres és részletes tájékoztatást adok az Ön kezeléseiről, állapotáról. Kérdéseire készséggel válaszolok. Amikor lehetséges, több megoldást is felkínálok az adott problémára, mellyel kapcsolatban a döntést Ön hozhatja meg az információk ismeretében.\n\nRendelőmet a modern fogászati eljárások igényeinek megfelelően szereltem fel. Emellett a kényelem is fontos szempont volt közös munkánk terének kialakításában, így egy tágas, otthonos helyen üdvözlöm Önt.\n    ', ' I graduated from the University of Pécs in 2014 as a D.M.D.\n\n I want to use everything I learnt to help my patients to the best of my abilities, while maintaining a continous development of my skills. I am opening my practice to give everyone the opportunity of getting quality care and high standard treatments.\n\nMy main fields of interest are Aesthetical Dentistry and Prosthodontics, and above that I can help you with certain problems in the fields of Oral Surgery, Periodontology and Orthodontology. When necessary, I can offer the help of colleagues with expertise in multiple faculties outside my main practice.\n\nBecause it is our shared task to maintain your beautiful and healthy smile, it is a priority for me to give you thorough information on a regular basis about your condition and your treatments. Your questions are always wellcome. Whenever possible, I offer multiple treatment options, so you can gain control over your healing using the information provided.\n\nMy office is modern and well-equipped, and, as your comfort is also important, I greet you in a spatious and homely waiting room.\n    ', 'In 2014 habe ich an der medizinischen Fakultät der Universität Pécs meinen Abschluss in Zahnmedizin erhalten.\n\nDas Wissen, dass ich dort erlangt habe möchte ich mir zu Nutze machen, mich ständig weiterentwickeln und nach meinem besten Wissen den Zustand meiner Patienten verbessern und zur Genesung verhelfen.\n\nMit der Eröffnung meiner Praxis möche ich jeden die Gelegenheit bieten, an einer qualitativen und auf einem hohen Niveau geschehene Versorgung teilzuhaben.\n\nIn erster Linie steht mir die ästhetische Zahnbehandlung und die Wissenschaft des Zahnersatzes nahe, jedoch kann ich Ihnen auch auf dem Gebiet der Parodontalbehandlungen, Kieferorthopädie, und Oralchirurgie behilflich sein und im gegebenen Fall auch zu sorgfältige Kollegen weiterleiten.\n\nDa das Erhalten der Gesundheit und Schönheit Ihrer Zähne eine gemeinsame Aufgabe ist,\ngebe ich während meiner Arbeit regelmäßige und ausführliche Auskunft über meine Behandlung und Ihren Zustand. Ich bin bereit alle Ihre Fragen zu beantworten.Wenn es möglich ist kann ich Ihnen mehrere Lösungen, bezüglich des gegebenen Problems, anbieten und anhand der Inforamtionen können Sie dann eine für Sie passende Entscheidung treffen.\n\nIch habe meine Praxis den modernen Zahnbehandlungen gemäß ausgestattet. Jedoch war auch der Komfort für mich ein wichtiger Aspekt, um einen angemessenen Raum für unsere gemeinsame Arbeit zu schaffen, deswegen wartet auf Sie ein geräumlicher, gemütlicher Ort.\n    '),
 																					_1: {
 																						ctor: '::',
-																						_0: A4(_user$project$Content$Entry, _user$project$Content$ProsthesesServices, '\n### Kivehető pótlások\n\n- Klipsz\n- Akrilát alaplemezű teljes kivehető pótlás\n- Akrilát alaplemezű részleges kivehető pótlás\n- Részleges fogsor fém alaplemezzel-kapocs elhorgonyzással\n- Kombinált, rejtett, precíziós elhorgonyzású kivehető fogpótlás\n\n### Rögzített pótlások\n\n- Teljes kerámia korona és hídpótlások- fém vázzal\n- Teljes kerámia korona és hídpótlások- cirkon vázzal\n- Ideiglenes korona és hídpótlások\n- Kerámia héj\n', '\n### Dentures\n\n- Nesbit dentures\n- Acrylic based complete dentures\n- Acrylic based partial dentures\n- Partial dentures with metal base and clasps\n- Combined partial dentures, hidden / precision anchorage\n\n### Fixed prostheses\n\n- Full ceramic dental crowns and bridges - metal core\n- Full ceramic dental crowns and bridges - zirconia core\n- Temporary dental crowns and bridges\n- Venners\n\n', ''),
+																						_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$WarrantyParagraph, '\n### Rendelőnk a fogászatban elfogadott, modern kezelési elveknek megfelelve - garanciát vállal:\n- Esztétikus fogszínű tömésekre\n- Betétekre (inlay, onlay, overlay)\n- Koronákra/hidakra\n\n### Mit is jelent ez pontosan?\n\nAmennyiben a fentebb említett ellátási módok során a pótlás, vagy az ellátott fog (az esetlegesen szükségszerűvé váló gyökérkezelés nem tartozik ide) károsodik, a rendeltetésszerű használat mellett le-, vagy eltörik, meglazul, megreped ingyenesen helyreállítjuk.\n\n### A garancia abban az esetben érvényes, ha a beteg vállalja\n\n- Fogait megfelelően ápolja, tisztítja.\n- Ellenőrzésen 6 havonta (illetve ha azt az orvos másként nem rendeli) megjelenik.\n- A javasolt állapotfenntartó kezeléseket elfogadja és elvégezteti, pl. fogkő-eltávolítás, fogágykezelés stb.\n\n### Nem érvényes a garancia:\n\n- Nem a rendelőben készült gyökértömésekre ill. ezek következtében létrejött károsodásokra.\n- A rendelőben készült pótlások problémáira, amelyeket más fogorvos javítani próbált.\n- A kezelést megelőzően nem ismert allergiákra, általános betegségekre és következményeikre pl.: fogágybetegség, tályog, cysta, gyökércsúcsi felritkulás következtében nem megtartható fog és ezáltal az általunk elkészített pótlás elvesztése.\n- Gyulladások (fogíny, fogágy, gyökér) következményeképpen létrejövő szükségszerű fogeltávolítás, mely az elkészült tömést, pótlást érinti.\n- Elszíneződésre, mely dohányzásból, kávé vagy tea fogyasztásából adódik.\n- Extrém igénybevételre pl.: éjszakai fogcsikorgatás\n- Olyan tömésekre, melyekre hosszú távú megoldásként betét vagy korona javasolt.\n- Rendellenes használatra, baleseti sérülésre.\n\nKivehető protézisek készítése 4-5 évente javasolt (mivel baktériumok telepednek meg a szemmel nem látható mikrosérülésekben, melyek tisztítása lehetetlennek minősített).\n    ', '### Our office, according to modern treatment principles, offers a gurantee on:\n\n- Composite fillings\n- Inlays, onlays or overlays\n- Detal crowns/bridges\n\n### What does this mean?\nIn case of damage, cracks, chips, breaks, relaxation of the above mentioned, the restoration is free of charge.\n\n### The guarantee is only applicable if the patient:\n\n- Excercises proper dental health.\n- Takes part in regular checkups (at least every 6 months, except advised othervise).\n- Accepts and goes under suggested followup treatments (eg. calculus removal, periodontal treatment).\n\n### The guarantee is invalidated in the case of:\n\n- Root canal treatments made not in this  dentist’s office.\n- Any of the above mentioned (filling, inlay, crown, denture…) installed in this practice and reparatory treatments were made on by other practitioners.\n- Unkown allergies, diseases and other medical conditions resulting loss of teeth, or following medical conditions.\n- Gingival, periodontal inflammations or abscesses, therefore the removal of previously treated teeth.\n- Discoloration of smoking or consumption of tea or coffee.\n- Extreme stress (eg. nocturnal teeth grinding).\n- Temporary filling falls out.\n- Accidental damage, or mistreatment by patient.\n\nDentures are required to be replaced every 4-5 years, because microfissures on the surface become impossible to be cleaned of bacterial growth.\n\n    ', '### Unser Praxis gewährt nach den modernen zahnmedizinischen Grundsätzen Garantie für folgende Behandlungen:\n\n- Zahnfarbene ästhetische Zahnfüllungen\n- Einlagen (inlay, onlay, overlay)\n- Kronen/Brücken\n\n### Was bedeutet das genau?\n\nInsofern, wenn während der oben genennten Behandlungsmethoden die Einlagen oder der behandelte Zahn (die eventuell notwendige Wurzelkanalbehandlung gehört hier nicht dazu) Schaden erleidet, trotz zweckgemäßer Verwendung abricht oder bricht, sich löst oder Risse entstehen werden wir das Problem kostenlos beheben.\n\n### Die Garantie gilt, wenn sich der Patient für folgendes verpflichtet:\n\n- Wenn Sie Ihre Zähne richtig reinigen und versorgen.\n- Wenn Sie alle 6 Monate (oder wenn der Arzt es nicht anders bestellt) an Inspektion teilnehem.\n- Die vorgeschlagene Betreuungsmaßnahmen akzeptiert und durchgeführt haben, z.B. Plaque-Entfernung, Parodontalbehandlung usw.\n\n### Garantie gilt nicht:\n\n- Wurzelkanalbehandlungen, die nicht in unserer Praxis durchgeführ wurden bzw. die wärend dieser Behandlung entstandene Schäden.\n- Für Zahnersatz der in unserer Praxis eingelegt wurde, jedoch ein anderet Zahnarzt versucht hat zu verbessern.\n- Vor der Behandlung nicht bekannt Allergien, allgemeine Krankheiten und deren Folgen z.B.: Parodontalerkrankungen, Abszess, Zysten, Zahn der nicht mehr erhalten werden kann und dadurch der von uns erstellte Zahnersatz verloren geht.\n- Entzündungen, (Zahnfleisch, Parodontal, Wurzel) die eine notwendige Zahnentfernung zu Folge haben, an dem Zahn der eine von uns hergestellte Zahnfüllung oder Zahnersatz hat.\n- Verfärbungen, die durch Rauchen, Kaffee oder Tee entstanden sind.\n- Extreme Nutzung z.B. nächtliches Zähneknirschen.\n- Für solche Füllungen, für die als Langzeitlösung ein Einsatz oder eine Krone empfohlen wird.\n- Abnormaler Gebrauch, Verletzungen, die einem Unfall zufolge entstanden sind.\n\nHerstellung von herausnehmbaren Prothesen ist alle 4-5 Jahre empfohlen (da sich Bakterien in den für das Auge nicht sichtbaren Mikrobeschädigung absetzen, deren Reinigung als unmöglich angesehen wird).\n'),
 																						_1: {
 																							ctor: '::',
-																							_0: A4(_user$project$Content$Entry, _user$project$Content$CosmeticServices, '\n- Fogsorjavítás\n- Fogsor alábélelés\n- Fogfehérítés\n- Fogékszer\n- Nyaki érzékenység kezelése\n- Éjszakai harapásemelő sín\n', '\n- Denture repair\n- Denture relining\n- Teeth whitening\n- Tooth gems\n- Dentin hypersensitivity treatment\n- Nocturnal mouth splints\n\n', ''),
-																							_1: {ctor: '[]'}
+																							_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ReparatoryServicesHeader, 'Helyreállító beavatkozások', 'Reparatory treatments', 'Restaurative Eingriffe'),
+																							_1: {
+																								ctor: '::',
+																								_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ProsthesesServicesHeader, 'Pótlások', 'Removable and fixed prostheses', 'Herausnehmbarer Zahnersatz'),
+																								_1: {
+																									ctor: '::',
+																									_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$CosmeticServicesHeader, 'Kozmetikai beavatkozások, egyéb', 'Cosmetic and other treatments', 'Kosmetische Eingriffe, andere'),
+																									_1: {
+																										ctor: '::',
+																										_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ReparatoryServices, '\n### Tömések és betétek(inlay onlay, overlay)\n\n- Kompozit tömés\n- Cement tömés\n- Kompozit betét\n- Kerámia betét\n- Arany betét\n\n### Parodontológia\n\n- Fogkőeltávolítás\n- Polírozás\n- Gyulladt íny kezelése\n- Mozgó fogak sínezése\n\n### Egyéb\n\n- Gyökérkezelés\n', '\n### Fillings, indirect restorations\n\n- Composite fillings\n- Cement fillings\n- Composite inlay, onlay, overlay\n- Ceramic inlay, onlay, overlay,\n- Gold inlay, onlay, overlay\n\n### Periodontal treatments\n\n- Calculus removal\n- Polishing\n- Gingivitis treatment\n- Stabilization of moving teeth\n\n### Other\n\n- Root canal treatment\n\n    ', '\n### Zahnfüllungen und Zahneinlagen (inlay onlay, overlay)\n- Kompositfüllung\n- Zementfüllung\n- Kompositeinlagen\n- Keramikeinlage\n- Goldeinlage\n\n### Parodontologie\n- Plaque-Entfernung\n- Polieren\n- Behandlung von entzündetem Zahnfleisch\n- Schienen von beweglichen Zähnen\n\n### Andere\n\n- Wurzelkanalbehandlung\n- Zahnextraktion\n'),
+																										_1: {
+																											ctor: '::',
+																											_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ProsthesesServices, '\n### Kivehető pótlások\n\n- Klipsz\n- Akrilát alaplemezű teljes kivehető pótlás\n- Akrilát alaplemezű részleges kivehető pótlás\n- Részleges fogsor fém alaplemezzel - kapocs elhorgonyzással\n- Kombinált, rejtett, precíziós elhorgonyzású kivehető fogpótlás\n\n### Rögzített pótlások\n\n- Teljes kerámia korona és hídpótlások- fém vázzal\n- Teljes kerámia korona és hídpótlások- cirkon vázzal\n- Ideiglenes korona és hídpótlások\n- Kerámia héj\n', '\n### Dentures\n\n- Nesbit dentures\n- Acrylic based complete dentures\n- Acrylic based partial dentures\n- Partial dentures with metal base and clasps\n- Combined partial dentures, hidden / precision anchorage\n\n### Fixed prostheses\n\n- Full ceramic dental crowns and bridges - metal core\n- Full ceramic dental crowns and bridges - zirconia core\n- Temporary dental crowns and bridges\n- Veneers\n\n', '\n### Herausnehmbarer Zahnersatz\n\n- Clips\n- Acryl herausnehmbare Vollprothese\n- Acryl herausnehmbare Teilprothese\n- Teilprothese mit Metallbodenplatte\n- Kombinierte, versteckte, präzise Verankerung abnehmbare Prothese\n\n### Fester Zahnersatz\n\n- Vollkeramik Kronen- und Brückenersatz mit Metallrahmen\n- Vollkeramik Kronen- und Brückenersatz mit Zirkonrahmen\n- Temporärer Kronen- und Brückenersatz\n- Keramikschale\n '),
+																											_1: {
+																												ctor: '::',
+																												_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$CosmeticServices, '\n- Fogsorjavítás\n- Fogsor alábélelés\n- Fogfehérítés\n- Fogékszer\n- Nyaki érzékenység kezelése\n- Éjszakai harapásemelő sín\n- Fogeltávolítás\n', '\n- Denture repair\n- Denture relining\n- Teeth whitening\n- Tooth gems\n- Dentin hypersensitivity treatment\n- Nocturnal mouth splints\n- Tooth extraction\n    ', '\n### Kosmetische Eingriffe, andere\n\n- Prothese Reparatur\n- Zahnaufhellung\n- Zahnschmuck\n- Behandlung von Empfindlichkeit des Halses\n- Nachtbisslift\n- Zahnextraktion\n'),
+																												_1: {
+																													ctor: '::',
+																													_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ToothImplantAlt, 'Rögzített pótlás ikon', 'Dental implant icon', 'Zahnimplantat-Ikone'),
+																													_1: {
+																														ctor: '::',
+																														_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$DentalDrillAlt, 'Fogorvosi fúró ikon', 'Dental Drill icon', 'Zahnbohrer-Ikone'),
+																														_1: {
+																															ctor: '::',
+																															_0: A4(_user$project$Content_Content$Entry, _user$project$Content_Content$ToothCosmeticAlt, 'Fogfehérítés ikon', 'Tooth Cosmetics icon', 'Zahnkosmetik-Ikone'),
+																															_1: {ctor: '[]'}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
 																						}
 																					}
 																				}
@@ -20525,7 +20652,7 @@ var _user$project$AppModel$pickContent = function (lang) {
 					entry.id,
 					get(entry));
 			},
-			_user$project$Content$entries));
+			_user$project$Content_Content$entries));
 };
 var _user$project$AppModel$Interpolation = F2(
 	function (a, b) {
@@ -20662,20 +20789,17 @@ var _user$project$AppModel$init = {
 		{
 			title: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Style_Font$importUrl(
-					{url: 'fonts/MontserratAlternates-Medium/style.css', name: 'MontserratAlternates-Medium'}),
+				_0: _mdgriffith$style_elements$Style_Font$font('Montserrat-Medium'),
 				_1: {ctor: '[]'}
 			},
 			content: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Style_Font$importUrl(
-					{url: 'fonts/Montserrat-Regular/style.css', name: 'Montserrat-Regular'}),
+				_0: _mdgriffith$style_elements$Style_Font$font('Montserrat-Regular'),
 				_1: {ctor: '[]'}
 			},
 			decoration: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Style_Font$importUrl(
-					{url: 'fonts/Znikomit/style.css', name: 'Znikomit'}),
+				_0: _mdgriffith$style_elements$Style_Font$font('Znikomit'),
 				_1: {ctor: '[]'}
 			}
 		})('hu')(
@@ -20865,8 +20989,8 @@ var _user$project$AppModel$update = F2(
 					_elm_lang$core$Native_Utils.crash(
 						'AppModel',
 						{
-							start: {line: 230, column: 13},
-							end: {line: 230, column: 24}
+							start: {line: 220, column: 13},
+							end: {line: 220, column: 24}
 						})(
 						A2(
 							_elm_lang$core$Basics_ops['++'],
@@ -20877,6 +21001,23 @@ var _user$project$AppModel$update = F2(
 		}
 	});
 
+var _user$project$Internal_Props$noSelect = {
+	ctor: '::',
+	_0: A2(_mdgriffith$style_elements$Style$prop, 'use-select', 'none'),
+	_1: {
+		ctor: '::',
+		_0: A2(_mdgriffith$style_elements$Style$prop, '-webkit-user-select', 'none'),
+		_1: {
+			ctor: '::',
+			_0: A2(_mdgriffith$style_elements$Style$prop, '-moz-user-select', 'none'),
+			_1: {
+				ctor: '::',
+				_0: A2(_mdgriffith$style_elements$Style$prop, '-moz-user-select', 'none'),
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
 var _user$project$Internal_Props$zIndex = function (n) {
 	return A2(
 		_mdgriffith$style_elements$Style$prop,
@@ -20884,7 +21025,10 @@ var _user$project$Internal_Props$zIndex = function (n) {
 		_elm_lang$core$Basics$toString(n));
 };
 
+var _user$project$Stylesheet$ViewSeparatorText = {ctor: 'ViewSeparatorText'};
+var _user$project$Stylesheet$BambooDecoration = {ctor: 'BambooDecoration'};
 var _user$project$Stylesheet$InfoButtonContainer = {ctor: 'InfoButtonContainer'};
+var _user$project$Stylesheet$InfoButtonPressed = {ctor: 'InfoButtonPressed'};
 var _user$project$Stylesheet$InfoButton = {ctor: 'InfoButton'};
 var _user$project$Stylesheet$DropDown = {ctor: 'DropDown'};
 var _user$project$Stylesheet$ServiceParagraph = {ctor: 'ServiceParagraph'};
@@ -20913,7 +21057,7 @@ var _user$project$Stylesheet$stylesheet = function (model) {
 	var mins = (_elm_lang$core$Native_Utils.cmp(model.horizontalScaler, model.verticalScaler) < 0) ? model.horizontalScaler : model.verticalScaler;
 	var ds = model.diagonalScaler;
 	var hs = model.horizontalScaler;
-	var sizes = model.env.portrait ? {title: 120 * hs, h2: 100 * hs, menuItem: 60 * hs, p: 75 * hs, serviceH2: 120 * hs, serviceH3: 100 * hs, serviceP: 60 * hs} : {title: 120 * hs, h2: 60 * hs, menuItem: 40 * hs, p: 30 * hs, serviceH2: 33 * hs, serviceH3: 30 * hs, serviceP: 25 * hs};
+	var sizes = model.env.portrait ? {title: 150 * hs, h2: 100 * hs, menuItem: 60 * hs, p: 75 * hs, serviceH2: 120 * hs, serviceH3: 100 * hs, serviceP: 60 * hs} : {title: 120 * hs, h2: 60 * hs, menuItem: 40 * hs, p: 30 * hs, serviceH2: 33 * hs, serviceH3: 30 * hs, serviceP: 25 * hs};
 	var vs = model.verticalScaler;
 	var env = model.env;
 	return _mdgriffith$style_elements$Style$styleSheet(
@@ -20925,12 +21069,19 @@ var _user$project$Stylesheet$stylesheet = function (model) {
 				{ctor: '[]'}),
 			_1: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Style$importCss('reset.css'),
+				_0: A2(
+					_mdgriffith$style_elements$Style$style,
+					_user$project$Stylesheet$AppContainer,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Style_Color$background(colors.secondary),
+						_1: {ctor: '[]'}
+					}),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_mdgriffith$style_elements$Style$style,
-						_user$project$Stylesheet$AppContainer,
+						_user$project$Stylesheet$Home,
 						{
 							ctor: '::',
 							_0: _mdgriffith$style_elements$Style_Color$background(colors.secondary),
@@ -20940,168 +21091,186 @@ var _user$project$Stylesheet$stylesheet = function (model) {
 						ctor: '::',
 						_0: A2(
 							_mdgriffith$style_elements$Style$style,
-							_user$project$Stylesheet$Home,
+							_user$project$Stylesheet$TitleBox,
 							{
 								ctor: '::',
-								_0: _mdgriffith$style_elements$Style_Color$background(colors.secondary),
+								_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_mdgriffith$style_elements$Style$style,
-								_user$project$Stylesheet$TitleBox,
-								{
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_mdgriffith$style_elements$Style$style,
-									_user$project$Stylesheet$Flag,
+								_user$project$Stylesheet$Flag,
+								A2(
+									_elm_lang$core$Basics_ops['++'],
 									{
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Style$cursor('pointer'),
 										_1: {ctor: '[]'}
+									},
+									_user$project$Internal_Props$noSelect)),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_mdgriffith$style_elements$Style$style,
+									_user$project$Stylesheet$Title,
+									{
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Style_Font$size(sizes.title),
+										_1: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Style_Font$bold,
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.title),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_mdgriffith$style_elements$Style$style,
-										_user$project$Stylesheet$Title,
+										_user$project$Stylesheet$InfoBox,
 										{
 											ctor: '::',
-											_0: _mdgriffith$style_elements$Style_Font$size(sizes.title),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Font$bold,
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.title),
-														_1: {ctor: '[]'}
-													}
-												}
-											}
+											_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+											_1: {ctor: '[]'}
 										}),
 									_1: {
 										ctor: '::',
 										_0: A2(
 											_mdgriffith$style_elements$Style$style,
-											_user$project$Stylesheet$InfoBox,
+											_user$project$Stylesheet$InfoHeader,
 											{
 												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
-												_1: {ctor: '[]'}
-											}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_mdgriffith$style_elements$Style$style,
-												_user$project$Stylesheet$InfoHeader,
-												{
+												_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+												_1: {
 													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+													_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
 													_1: {
 														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+														_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
 														_1: {
 															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+															_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
 															_1: {
 																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
+																_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
 																_1: {
 																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																	_0: _mdgriffith$style_elements$Style_Font$bold,
 																	_1: {
 																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Font$bold,
-																		_1: {
-																			ctor: '::',
-																			_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
-																			_1: {ctor: '[]'}
-																		}
+																		_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																		_1: {ctor: '[]'}
 																	}
 																}
 															}
 														}
 													}
-												}),
+												}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_mdgriffith$style_elements$Style$style,
+												_user$project$Stylesheet$InfoIcon,
+												A2(
+													_elm_lang$core$Basics_ops['++'],
+													{ctor: '[]'},
+													_user$project$Internal_Props$noSelect)),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_mdgriffith$style_elements$Style$style,
-													_user$project$Stylesheet$InfoIcon,
+													_user$project$Stylesheet$InfoLayout,
 													{ctor: '[]'}),
 												_1: {
 													ctor: '::',
 													_0: A2(
 														_mdgriffith$style_elements$Style$style,
-														_user$project$Stylesheet$InfoLayout,
-														{ctor: '[]'}),
+														_user$project$Stylesheet$InfoParagraph,
+														{
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
+															_1: {
+																ctor: '::',
+																_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																	_1: {ctor: '[]'}
+																}
+															}
+														}),
 													_1: {
 														ctor: '::',
 														_0: A2(
 															_mdgriffith$style_elements$Style$style,
-															_user$project$Stylesheet$InfoParagraph,
+															_user$project$Stylesheet$ServiceBox,
 															{
 																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
-																_1: {
-																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
-																	_1: {
-																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
-																		_1: {ctor: '[]'}
-																	}
-																}
+																_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+																_1: {ctor: '[]'}
 															}),
 														_1: {
 															ctor: '::',
 															_0: A2(
 																_mdgriffith$style_elements$Style$style,
-																_user$project$Stylesheet$ServiceBox,
+																_user$project$Stylesheet$ServiceHeader,
 																{
 																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
-																	_1: {ctor: '[]'}
+																	_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+																	_1: {
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+																		_1: {
+																			ctor: '::',
+																			_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+																			_1: {
+																				ctor: '::',
+																				_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH2),
+																				_1: {
+																					ctor: '::',
+																					_0: _mdgriffith$style_elements$Style_Font$bold,
+																					_1: {
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																						_1: {
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																							_1: {ctor: '[]'}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
 																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
 																	_mdgriffith$style_elements$Style$style,
-																	_user$project$Stylesheet$ServiceHeader,
+																	_user$project$Stylesheet$ServiceSubHeader,
 																	{
 																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Border$all(20 * vs),
+																		_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH3),
 																		_1: {
 																			ctor: '::',
-																			_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+																			_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
 																			_1: {
 																				ctor: '::',
-																				_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
+																				_0: _mdgriffith$style_elements$Style_Font$bold,
 																				_1: {
 																					ctor: '::',
-																					_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH2),
-																					_1: {
-																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Font$bold,
-																						_1: {
-																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
-																							_1: {
-																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
-																								_1: {ctor: '[]'}
-																							}
-																						}
-																					}
+																					_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																					_1: {ctor: '[]'}
 																				}
 																			}
 																		}
@@ -21110,136 +21279,56 @@ var _user$project$Stylesheet$stylesheet = function (model) {
 																	ctor: '::',
 																	_0: A2(
 																		_mdgriffith$style_elements$Style$style,
-																		_user$project$Stylesheet$ServiceSubHeader,
-																		{
-																			ctor: '::',
-																			_0: _mdgriffith$style_elements$Style_Font$size(sizes.serviceH3),
-																			_1: {
-																				ctor: '::',
-																				_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
-																				_1: {
-																					ctor: '::',
-																					_0: _mdgriffith$style_elements$Style_Font$bold,
-																					_1: {
-																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
-																						_1: {ctor: '[]'}
-																					}
-																				}
-																			}
-																		}),
+																		_user$project$Stylesheet$ServiceIcon,
+																		A2(
+																			_elm_lang$core$Basics_ops['++'],
+																			{ctor: '[]'},
+																			_user$project$Internal_Props$noSelect)),
 																	_1: {
 																		ctor: '::',
 																		_0: A2(
 																			_mdgriffith$style_elements$Style$style,
-																			_user$project$Stylesheet$ServiceIcon,
+																			_user$project$Stylesheet$ServiceLayout,
 																			{ctor: '[]'}),
 																		_1: {
 																			ctor: '::',
 																			_0: A2(
 																				_mdgriffith$style_elements$Style$style,
-																				_user$project$Stylesheet$ServiceLayout,
-																				{ctor: '[]'}),
+																				_user$project$Stylesheet$ServiceParagraph,
+																				{
+																					ctor: '::',
+																					_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
+																					_1: {
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																						_1: {
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
+																							_1: {ctor: '[]'}
+																						}
+																					}
+																				}),
 																			_1: {
 																				ctor: '::',
 																				_0: A2(
 																					_mdgriffith$style_elements$Style$style,
-																					_user$project$Stylesheet$ServiceParagraph,
+																					_user$project$Stylesheet$MenuBox,
 																					{
 																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Font$size(sizes.p),
+																						_0: _mdgriffith$style_elements$Style_Border$all(env.height * 4.0e-3),
 																						_1: {
 																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
+																							_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
 																							_1: {
 																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.5),
-																								_1: {ctor: '[]'}
-																							}
-																						}
-																					}),
-																				_1: {
-																					ctor: '::',
-																					_0: A2(
-																						_mdgriffith$style_elements$Style$style,
-																						_user$project$Stylesheet$MenuBox,
-																						{
-																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Border$all(env.height * 4.0e-3),
-																							_1: {
-																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style_Color$border(colors.primary),
+																								_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
 																								_1: {
 																									ctor: '::',
-																									_0: _mdgriffith$style_elements$Style_Color$background(colors.fill),
+																									_0: _mdgriffith$style_elements$Style_Font$size(sizes.menuItem),
 																									_1: {
 																										ctor: '::',
-																										_0: _mdgriffith$style_elements$Style_Font$size(sizes.menuItem),
+																										_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
 																										_1: {
-																											ctor: '::',
-																											_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.content),
-																											_1: {
-																												ctor: '::',
-																												_0: _user$project$Internal_Props$zIndex(100),
-																												_1: {
-																													ctor: '::',
-																													_0: _mdgriffith$style_elements$Style$cursor('pointer'),
-																													_1: {ctor: '[]'}
-																												}
-																											}
-																										}
-																									}
-																								}
-																							}
-																						}),
-																					_1: {
-																						ctor: '::',
-																						_0: A2(
-																							_mdgriffith$style_elements$Style$style,
-																							_user$project$Stylesheet$MenuItem,
-																							{
-																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style$cursor('pointer'),
-																								_1: {ctor: '[]'}
-																							}),
-																						_1: {
-																							ctor: '::',
-																							_0: A2(
-																								_mdgriffith$style_elements$Style$style,
-																								_user$project$Stylesheet$DropDown,
-																								{ctor: '[]'}),
-																							_1: {
-																								ctor: '::',
-																								_0: A2(
-																									_mdgriffith$style_elements$Style$style,
-																									_user$project$Stylesheet$InfoButtonContainer,
-																									{
-																										ctor: '::',
-																										_0: _mdgriffith$style_elements$Style_Color$background(colors.primary),
-																										_1: {
-																											ctor: '::',
-																											_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
-																											_1: {
-																												ctor: '::',
-																												_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
-																												_1: {
-																													ctor: '::',
-																													_0: _mdgriffith$style_elements$Style_Font$bold,
-																													_1: {
-																														ctor: '::',
-																														_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
-																														_1: {ctor: '[]'}
-																													}
-																												}
-																											}
-																										}
-																									}),
-																								_1: {
-																									ctor: '::',
-																									_0: A2(
-																										_mdgriffith$style_elements$Style$style,
-																										_user$project$Stylesheet$InfoButton,
-																										{
 																											ctor: '::',
 																											_0: _user$project$Internal_Props$zIndex(100),
 																											_1: {
@@ -21247,8 +21336,131 @@ var _user$project$Stylesheet$stylesheet = function (model) {
 																												_0: _mdgriffith$style_elements$Style$cursor('pointer'),
 																												_1: {ctor: '[]'}
 																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}),
+																				_1: {
+																					ctor: '::',
+																					_0: A2(
+																						_mdgriffith$style_elements$Style$style,
+																						_user$project$Stylesheet$MenuItem,
+																						A2(
+																							_elm_lang$core$Basics_ops['++'],
+																							{
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																								_1: {ctor: '[]'}
+																							},
+																							_user$project$Internal_Props$noSelect)),
+																					_1: {
+																						ctor: '::',
+																						_0: A2(
+																							_mdgriffith$style_elements$Style$style,
+																							_user$project$Stylesheet$DropDown,
+																							{ctor: '[]'}),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								_mdgriffith$style_elements$Style$style,
+																								_user$project$Stylesheet$InfoButtonContainer,
+																								{
+																									ctor: '::',
+																									_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
+																									_1: {
+																										ctor: '::',
+																										_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																										_1: {
+																											ctor: '::',
+																											_0: _mdgriffith$style_elements$Style_Font$bold,
+																											_1: {
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																												_1: {ctor: '[]'}
+																											}
+																										}
+																									}
+																								}),
+																							_1: {
+																								ctor: '::',
+																								_0: A2(
+																									_mdgriffith$style_elements$Style$style,
+																									_user$project$Stylesheet$InfoButton,
+																									{
+																										ctor: '::',
+																										_0: _user$project$Internal_Props$zIndex(100),
+																										_1: {
+																											ctor: '::',
+																											_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																											_1: {
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style_Background$coverImage('static/images/button_rest.svg'),
+																												_1: {ctor: '[]'}
+																											}
+																										}
+																									}),
+																								_1: {
+																									ctor: '::',
+																									_0: A2(
+																										_mdgriffith$style_elements$Style$style,
+																										_user$project$Stylesheet$InfoButtonPressed,
+																										{
+																											ctor: '::',
+																											_0: _user$project$Internal_Props$zIndex(100),
+																											_1: {
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style$cursor('pointer'),
+																												_1: {
+																													ctor: '::',
+																													_0: _mdgriffith$style_elements$Style_Background$coverImage('static/images/button_pressed.svg'),
+																													_1: {ctor: '[]'}
+																												}
+																											}
 																										}),
-																									_1: {ctor: '[]'}
+																									_1: {
+																										ctor: '::',
+																										_0: A2(
+																											_mdgriffith$style_elements$Style$style,
+																											_user$project$Stylesheet$BambooDecoration,
+																											{
+																												ctor: '::',
+																												_0: _mdgriffith$style_elements$Style_Background$imageWith(
+																													{
+																														src: 'static/images/bamboo.svg',
+																														position: {ctor: '_Tuple2', _0: 0, _1: 0},
+																														repeat: _mdgriffith$style_elements$Style_Background$noRepeat,
+																														size: _mdgriffith$style_elements$Style_Background$height(
+																															_mdgriffith$style_elements$Element_Attributes$percent(100))
+																													}),
+																												_1: {ctor: '[]'}
+																											}),
+																										_1: {
+																											ctor: '::',
+																											_0: A2(
+																												_mdgriffith$style_elements$Style$style,
+																												_user$project$Stylesheet$ViewSeparatorText,
+																												{
+																													ctor: '::',
+																													_0: _mdgriffith$style_elements$Style_Font$size(sizes.h2),
+																													_1: {
+																														ctor: '::',
+																														_0: _mdgriffith$style_elements$Style_Font$typeface(fonts.decoration),
+																														_1: {
+																															ctor: '::',
+																															_0: _mdgriffith$style_elements$Style_Font$bold,
+																															_1: {
+																																ctor: '::',
+																																_0: _mdgriffith$style_elements$Style_Color$text(colors.fill),
+																																_1: {ctor: '[]'}
+																															}
+																														}
+																													}
+																												}),
+																											_1: {ctor: '[]'}
+																										}
+																									}
 																								}
 																							}
 																						}
@@ -21280,6 +21492,77 @@ var _user$project$Internal_TextTransformation$markdownToComponent = F2(
 			A2(_evancz$elm_markdown$Markdown$toHtml, classList, content));
 	});
 
+var _user$project$Internal_Aria$application = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'application');
+var _user$project$Internal_Aria$search = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'search');
+var _user$project$Internal_Aria$navigation = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'navigation');
+var _user$project$Internal_Aria$form = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'form');
+var _user$project$Internal_Aria$contentinfo = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'contentinfo');
+var _user$project$Internal_Aria$complementary = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'complementary');
+var _user$project$Internal_Aria$mainRole = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'main');
+var _user$project$Internal_Aria$banner = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'role', 'banner');
+
+var _user$project$AppLayouts$viewSeparator = F2(
+	function (contentId, model) {
+		var env = model.env;
+		var separatorPaddingTop = env.width * 3.0e-2;
+		var scale = env.portrait ? 0.7 : 1.3;
+		return A3(
+			_mdgriffith$style_elements$Element$row,
+			_user$project$Stylesheet$None,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$paddingTop(separatorPaddingTop),
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A3(
+					_mdgriffith$style_elements$Element$column,
+					_user$project$Stylesheet$BambooDecoration,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$width(
+							_mdgriffith$style_elements$Element_Attributes$px(380 * scale)),
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$height(
+								_mdgriffith$style_elements$Element_Attributes$px(270 * scale)),
+							_1: {
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$center,
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					},
+					{
+						ctor: '::',
+						_0: A3(
+							_mdgriffith$style_elements$Element$el,
+							_user$project$Stylesheet$ViewSeparatorText,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$center,
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+									_1: {ctor: '[]'}
+								}
+							},
+							_mdgriffith$style_elements$Element$text(
+								model.content(contentId))),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
 var _user$project$AppLayouts$serviceContainer = F2(
 	function (model, services) {
 		var markdown = function (contentId) {
@@ -21305,7 +21588,11 @@ var _user$project$AppLayouts$serviceContainer = F2(
 					_1: {
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element_Attributes$spread,
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _user$project$Internal_Aria$complementary,
+							_1: {ctor: '[]'}
+						}
 					}
 				}),
 			box: {
@@ -21359,7 +21646,11 @@ var _user$project$AppLayouts$serviceContainer = F2(
 						_1: {
 							ctor: '::',
 							_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 80 * hs, 150 * hs),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _user$project$Internal_Aria$complementary,
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}),
@@ -21557,7 +21848,7 @@ var _user$project$AppLayouts$langSwitcher = function (model) {
 					_elm_lang$core$Basics_ops['++'],
 					layouts.flag,
 					actions.changeLang('hu')),
-				{src: 'img/flag-hu.svg', caption: 'img/flag-hu.svg'}),
+				{src: 'static/images/flag-hu.svg', caption: 'static/images/flag-hu.svg'}),
 			_1: {
 				ctor: '::',
 				_0: A3(
@@ -21567,7 +21858,7 @@ var _user$project$AppLayouts$langSwitcher = function (model) {
 						_elm_lang$core$Basics_ops['++'],
 						layouts.flag,
 						actions.changeLang('de')),
-					{src: 'img/flag-de.svg', caption: 'img/flag-de.svg'}),
+					{src: 'static/images/flag-de.svg', caption: 'static/images/flag-de.svg'}),
 				_1: {
 					ctor: '::',
 					_0: A3(
@@ -21577,7 +21868,7 @@ var _user$project$AppLayouts$langSwitcher = function (model) {
 							_elm_lang$core$Basics_ops['++'],
 							layouts.flag,
 							actions.changeLang('en')),
-						{src: 'img/flag-en.svg', caption: 'img/flag-en.svg'}),
+						{src: 'static/images/flag-en.svg', caption: 'static/images/flag-en.svg'}),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -21624,7 +21915,7 @@ var _user$project$AppLayouts$infoRecords = F4(
 							ctor: '::',
 							_0: A3(
 								_mdgriffith$style_elements$Element$image,
-								_user$project$Stylesheet$None,
+								_user$project$Stylesheet$InfoIcon,
 								{
 									ctor: '::',
 									_0: _mdgriffith$style_elements$Element_Attributes$width(
@@ -21675,43 +21966,53 @@ var _user$project$HtmlComponents$googleMapIframe = F2(
 					_0: _elm_lang$html$Html_Attributes$id('mapArea'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'height', _1: frameHeightPx},
-									_1: {ctor: '[]'}
-								}
-							}),
+						_0: A2(_elm_lang$html$Html_Attributes$attribute, 'aria-hidden', 'true'),
 						_1: {
 							ctor: '::',
-							_0: A2(_elm_lang$html$Html_Attributes$attribute, 'frameborder', '0'),
+							_0: _elm_lang$html$Html_Attributes$style(
+								{
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'height', _1: frameHeightPx},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'user-select', _1: 'none'},
+											_1: {ctor: '[]'}
+										}
+									}
+								}),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$src(
-									_elm_lang$core$String$concat(
-										{
-											ctor: '::',
-											_0: 'https://www.google.com/maps/embed/v1/place?key=',
-											_1: {
+								_0: A2(_elm_lang$html$Html_Attributes$attribute, 'frameborder', '0'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$src(
+										_elm_lang$core$String$concat(
+											{
 												ctor: '::',
-												_0: apiKey,
+												_0: 'https://www.google.com/maps/embed/v1/place?key=',
 												_1: {
 													ctor: '::',
-													_0: location,
-													_1: {ctor: '[]'}
+													_0: apiKey,
+													_1: {
+														ctor: '::',
+														_0: location,
+														_1: {ctor: '[]'}
+													}
 												}
-											}
-										})),
-								_1: {ctor: '[]'}
+											})),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}
 				},
 				{ctor: '[]'}));
 	});
+
+var _user$project$Internal_Attributes$noDrag = A2(_mdgriffith$style_elements$Element_Attributes$attribute, 'draggable', 'false');
 
 var _user$project$View$if_ = F3(
 	function (predicate, x, y) {
@@ -21732,23 +22033,35 @@ var _user$project$View$services = function (model) {
 			ctor: '::',
 			_0: A3(
 				_user$project$AppLayouts$ServiceDef,
-				_user$project$Content$ProsthesesServicesHeader,
-				_user$project$Content$ProsthesesServices,
-				A3(_user$project$AppLayouts$ImgDef, 50, 'img/tooth_implant.svg', 'alt text')),
+				_user$project$Content_Content$ProsthesesServicesHeader,
+				_user$project$Content_Content$ProsthesesServices,
+				A3(
+					_user$project$AppLayouts$ImgDef,
+					50,
+					'static/images/tooth_implant.svg',
+					model.content(_user$project$Content_Content$ToothImplantAlt))),
 			_1: {
 				ctor: '::',
 				_0: A3(
 					_user$project$AppLayouts$ServiceDef,
-					_user$project$Content$ReparatoryServicesHeader,
-					_user$project$Content$ReparatoryServices,
-					A3(_user$project$AppLayouts$ImgDef, 50, 'img/dental_drill.svg', 'alt text')),
+					_user$project$Content_Content$ReparatoryServicesHeader,
+					_user$project$Content_Content$ReparatoryServices,
+					A3(
+						_user$project$AppLayouts$ImgDef,
+						50,
+						'static/images/dental_drill.svg',
+						model.content(_user$project$Content_Content$DentalDrillAlt))),
 				_1: {
 					ctor: '::',
 					_0: A3(
 						_user$project$AppLayouts$ServiceDef,
-						_user$project$Content$CosmeticServicesHeader,
-						_user$project$Content$CosmeticServices,
-						A3(_user$project$AppLayouts$ImgDef, 50, 'img/tooth_cosmetics.svg', 'alt text')),
+						_user$project$Content_Content$CosmeticServicesHeader,
+						_user$project$Content_Content$CosmeticServices,
+						A3(
+							_user$project$AppLayouts$ImgDef,
+							50,
+							'static/images/tooth_cosmetics.svg',
+							model.content(_user$project$Content_Content$ToothCosmeticAlt))),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -21760,7 +22073,7 @@ var _user$project$View$info = function (model) {
 	var textBoxHeight = 100 * hs;
 	var env = model.env;
 	var containerPadding = {x: env.width * 3.0e-2, y: 200 * vs};
-	var portraitWidth = A3(_user$project$View$if_, model.env.portrait, env.width * 0.7, env.width * 0.333);
+	var portraitWidth = A3(_user$project$View$if_, model.env.portrait, env.width * 0.7, env.width * 0.271);
 	var portrait = model.env.portrait ? {
 		ctor: '::',
 		_0: _mdgriffith$style_elements$Element_Attributes$width(
@@ -21768,7 +22081,11 @@ var _user$project$View$info = function (model) {
 		_1: {
 			ctor: '::',
 			_0: _mdgriffith$style_elements$Element_Attributes$center,
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _user$project$Internal_Attributes$noDrag,
+				_1: {ctor: '[]'}
+			}
 		}
 	} : {
 		ctor: '::',
@@ -21778,7 +22095,11 @@ var _user$project$View$info = function (model) {
 			ctor: '::',
 			_0: _mdgriffith$style_elements$Element_Attributes$height(
 				_mdgriffith$style_elements$Element_Attributes$px(portraitWidth)),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _user$project$Internal_Attributes$noDrag,
+				_1: {ctor: '[]'}
+			}
 		}
 	};
 	var textBoxWidth = A3(_user$project$View$if_, model.env.portrait, env.width * 0.9, ((env.width - containerPadding.x) - portraitWidth) * 0.9);
@@ -21887,7 +22208,7 @@ var _user$project$View$info = function (model) {
 					ctor: '::',
 					_0: A3(
 						_mdgriffith$style_elements$Element$row,
-						_user$project$Stylesheet$InfoButton,
+						_elm_lang$core$Native_Utils.eq(model.infoContent, _user$project$AppModel$Intro) ? _user$project$Stylesheet$InfoButtonPressed : _user$project$Stylesheet$InfoButton,
 						{
 							ctor: '::',
 							_0: _mdgriffith$style_elements$Element_Attributes$width(
@@ -21905,14 +22226,14 @@ var _user$project$View$info = function (model) {
 						},
 						{
 							ctor: '::',
-							_0: text_(_user$project$Content$IntroductionButton),
+							_0: text_(_user$project$Content_Content$IntroductionButton),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A3(
 							_mdgriffith$style_elements$Element$row,
-							_user$project$Stylesheet$InfoButton,
+							_elm_lang$core$Native_Utils.eq(model.infoContent, _user$project$AppModel$Warranty) ? _user$project$Stylesheet$InfoButtonPressed : _user$project$Stylesheet$InfoButton,
 							{
 								ctor: '::',
 								_0: _mdgriffith$style_elements$Element_Attributes$width(
@@ -21930,7 +22251,7 @@ var _user$project$View$info = function (model) {
 							},
 							{
 								ctor: '::',
-								_0: text_(_user$project$Content$WarrantyButton),
+								_0: text_(_user$project$Content_Content$WarrantyButton),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
@@ -21944,10 +22265,14 @@ var _user$project$View$info = function (model) {
 					{
 						ctor: '::',
 						_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, textBoxWidth * 3.0e-2, textBoxWidth * 3.0e-2),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _user$project$Internal_Aria$complementary,
+							_1: {ctor: '[]'}
+						}
 					},
 					markdown(
-						_elm_lang$core$Native_Utils.eq(model.infoContent, _user$project$AppModel$Intro) ? _user$project$Content$IntroductionParagraph : _user$project$Content$WarrantyParagraph)),
+						_elm_lang$core$Native_Utils.eq(model.infoContent, _user$project$AppModel$Intro) ? _user$project$Content_Content$IntroductionParagraph : _user$project$Content_Content$WarrantyParagraph)),
 				_1: {ctor: '[]'}
 			}
 		});
@@ -21956,11 +22281,11 @@ var _user$project$View$info = function (model) {
 			ctor: '::',
 			_0: A3(
 				_mdgriffith$style_elements$Element$image,
-				_user$project$Stylesheet$None,
+				_user$project$Stylesheet$InfoIcon,
 				portrait,
 				{
-					src: 'img/portrait.png',
-					caption: model.content(_user$project$Content$LogoAlt)
+					src: 'static/images/portrait.png',
+					caption: model.content(_user$project$Content_Content$LogoAlt)
 				}),
 			_1: {
 				ctor: '::',
@@ -22000,7 +22325,7 @@ var _user$project$View$home = function (model) {
 	var logoHeight = panelHeight * 0.8;
 	var logo = A3(
 		_mdgriffith$style_elements$Element$image,
-		_user$project$Stylesheet$None,
+		_user$project$Stylesheet$InfoIcon,
 		{
 			ctor: '::',
 			_0: _mdgriffith$style_elements$Element_Attributes$height(
@@ -22008,13 +22333,15 @@ var _user$project$View$home = function (model) {
 			_1: {ctor: '[]'}
 		},
 		{
-			src: 'img/panda.svg',
-			caption: model.content(_user$project$Content$LogoAlt)
+			src: './static/images/panda.svg',
+			caption: model.content(_user$project$Content_Content$LogoAlt)
 		});
 	var navigationBarHeight = panelHeight / 3.2;
 	var infoAreaHeight = containerheight - panelHeight;
 	var langSwitcherOffsetY = env.portrait ? (panelHeight * 5.0e-2) : (panelHeight * 5.0e-2);
+	var titleOffsetY = env.portrait ? (logoHeight / 6) : 0;
 	var navigationBarWidth = env.portrait ? env.width : (env.width * 0.56);
+	var navigationBarPaddingY = env.portrait ? (env.width * 7.0e-3) : (env.width * 1.7e-2);
 	var infoBoxWidth = env.portrait ? (env.width * 0.8) : (env.width * 0.35);
 	var infoBoxHeight = A3(_user$project$View$if_, env.portrait, infoAreaHeight * 0.4, infoAreaHeight * 0.55);
 	var infoBox = F2(
@@ -22110,7 +22437,11 @@ var _user$project$View$home = function (model) {
 									_1: {
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Element_Attributes$padding(env.width * 4.0e-2),
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: _user$project$Internal_Aria$banner,
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}
@@ -22161,11 +22492,15 @@ var _user$project$View$home = function (model) {
 								_0: _mdgriffith$style_elements$Element_Attributes$spread,
 								_1: {
 									ctor: '::',
-									_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, env.width / 35, 0),
+									_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, env.width / 35, navigationBarPaddingY),
 									_1: {
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: _user$project$Internal_Aria$navigation,
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}
@@ -22191,7 +22526,11 @@ var _user$project$View$home = function (model) {
 						_0: A3(
 							_mdgriffith$style_elements$Element$el,
 							_user$project$Stylesheet$Title,
-							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Attributes$moveDown(titleOffsetY),
+								_1: {ctor: '[]'}
+							},
 							_mdgriffith$style_elements$Element$text('PANDA Dental')),
 						_1: {ctor: '[]'}
 					}
@@ -22205,13 +22544,13 @@ var _user$project$View$home = function (model) {
 					_0: navigationBar(
 						{
 							ctor: '::',
-							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content$ContactMenu),
+							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content_Content$ContactMenu),
 							_1: {
 								ctor: '::',
-								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content$IntroductionMenu),
+								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content_Content$IntroductionMenu),
 								_1: {
 									ctor: '::',
-									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content$ServiceMenu),
+									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content_Content$ServiceMenu),
 									_1: {ctor: '[]'}
 								}
 							}
@@ -22229,13 +22568,13 @@ var _user$project$View$home = function (model) {
 					navigationBar(
 						{
 							ctor: '::',
-							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content$ContactMenu),
+							_0: A2(internalLink, _user$project$AppModel$ContactArea, _user$project$Content_Content$ContactMenu),
 							_1: {
 								ctor: '::',
-								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content$IntroductionMenu),
+								_0: A2(internalLink, _user$project$AppModel$InfoArea, _user$project$Content_Content$IntroductionMenu),
 								_1: {
 									ctor: '::',
-									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content$ServiceMenu),
+									_0: A2(internalLink, _user$project$AppModel$ServiceArea, _user$project$Content_Content$ServiceMenu),
 									_1: {ctor: '[]'}
 								}
 							}
@@ -22268,7 +22607,11 @@ var _user$project$View$home = function (model) {
 								_1: {
 									ctor: '::',
 									_0: _mdgriffith$style_elements$Element_Attributes$verticalSpread,
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: _user$project$Internal_Aria$complementary,
+										_1: {ctor: '[]'}
+									}
 								}
 							}
 						}
@@ -22315,23 +22658,35 @@ var _user$project$View$home = function (model) {
 						ctor: '::',
 						_0: A2(
 							infoBox,
-							_user$project$Content$ContactHeader,
+							_user$project$Content_Content$ContactHeader,
 							A4(
 								_user$project$AppLayouts$infoRecords,
 								model,
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: A2(icon, 'img/phone.svg', 'mobile phone icon'),
+									_0: A2(
+										icon,
+										'static/images/phone.svg',
+										model.content(_user$project$Content_Content$EmailAlt)),
 									_1: {
 										ctor: '::',
-										_0: A2(icon, 'img/phone.svg', 'landline icon'),
+										_0: A2(
+											icon,
+											'static/images/e-mail.svg',
+											model.content(_user$project$Content_Content$EmailAlt)),
 										_1: {
 											ctor: '::',
-											_0: A2(icon, 'img/e-mail.svg', 'e-mail-icon'),
+											_0: A2(
+												icon,
+												'static/images/address.svg',
+												model.content(_user$project$Content_Content$GpsAlt)),
 											_1: {
 												ctor: '::',
-												_0: A2(icon, 'img/address.svg', 'GPS position icon'),
+												_0: A2(
+													icon,
+													'static/images/directions.svg',
+													model.content(_user$project$Content_Content$TravelAlt)),
 												_1: {ctor: '[]'}
 											}
 										}
@@ -22339,16 +22694,16 @@ var _user$project$View$home = function (model) {
 								},
 								{
 									ctor: '::',
-									_0: '+36 20/235 05 49',
+									_0: '+36 20/235 05 49 - +36 72/671 303',
 									_1: {
 										ctor: '::',
-										_0: '+36 72/671 303',
+										_0: 'pandadental.hidas@gmail.com',
 										_1: {
 											ctor: '::',
-											_0: 'pandadental.hidas@gmail.com',
+											_0: content(_user$project$Content_Content$AddressLine),
 											_1: {
 												ctor: '::',
-												_0: content(_user$project$Content$AddressLine),
+												_0: content(_user$project$Content_Content$AddressLine2),
 												_1: {ctor: '[]'}
 											}
 										}
@@ -22358,7 +22713,7 @@ var _user$project$View$home = function (model) {
 							ctor: '::',
 							_0: A2(
 								infoBox,
-								_user$project$Content$OpeningHoursHeader,
+								_user$project$Content_Content$OpeningHoursHeader,
 								A4(
 									_user$project$AppLayouts$infoRecords,
 									model,
@@ -22366,16 +22721,16 @@ var _user$project$View$home = function (model) {
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: content(_user$project$Content$OpeningDays1),
+										_0: content(_user$project$Content_Content$OpeningDays1),
 										_1: {
 											ctor: '::',
-											_0: content(_user$project$Content$OpeningTime1),
+											_0: content(_user$project$Content_Content$OpeningTime1),
 											_1: {
 												ctor: '::',
-												_0: content(_user$project$Content$OpeningDays2),
+												_0: content(_user$project$Content_Content$OpeningDays2),
 												_1: {
 													ctor: '::',
-													_0: content(_user$project$Content$OpeningTime2),
+													_0: content(_user$project$Content_Content$OpeningTime2),
 													_1: {ctor: '[]'}
 												}
 											}
@@ -22417,11 +22772,19 @@ var _user$project$View$view = function (model) {
 						_0: _user$project$View$map,
 						_1: {
 							ctor: '::',
-							_0: _user$project$View$info,
+							_0: _user$project$AppLayouts$viewSeparator(_user$project$Content_Content$IntroductionMenu),
 							_1: {
 								ctor: '::',
-								_0: _user$project$View$services,
-								_1: {ctor: '[]'}
+								_0: _user$project$View$info,
+								_1: {
+									ctor: '::',
+									_0: _user$project$AppLayouts$viewSeparator(_user$project$Content_Content$ServiceMenu),
+									_1: {
+										ctor: '::',
+										_0: _user$project$View$services,
+										_1: {ctor: '[]'}
+									}
+								}
 							}
 						}
 					}

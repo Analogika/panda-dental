@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "BreeSerif-Regular";
+  src: url("./fonts/BreeSerif-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/BreeSerif-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/BreeSerif-Regular.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/BreeSerif-Regular.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/BreeSerif-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/BreeSerif-Regular.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/BreeSerif-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
